@@ -1,6 +1,6 @@
-package ss7_abstract_class_and_interface.bai_tap.colorable.model;
+package ss7_abstract_class_and_interface.bai_tap.resizeable.model;
 
-import ss7_abstract_class_and_interface.bai_tap.colorable.ResizeableCircle;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.ResizeableCircle;
 
 public class Circle extends Shape implements ResizeableCircle {
     private double radius = 1.0;

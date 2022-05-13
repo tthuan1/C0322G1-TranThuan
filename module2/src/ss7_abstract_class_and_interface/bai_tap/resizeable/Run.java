@@ -1,8 +1,8 @@
-package ss7_abstract_class_and_interface.bai_tap.colorable;
+package ss7_abstract_class_and_interface.bai_tap.resizeable;
 
-import ss7_abstract_class_and_interface.bai_tap.colorable.model.Circle;
-import ss7_abstract_class_and_interface.bai_tap.colorable.model.Rectangle;
-import ss7_abstract_class_and_interface.bai_tap.colorable.model.Shape;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.model.Circle;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.model.Rectangle;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.model.Shape;
 
 public class Run {
     public static void main(String[] args) {

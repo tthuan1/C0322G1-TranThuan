@@ -1,6 +1,6 @@
-package ss7_abstract_class_and_interface.bai_tap.colorable.model;
+package ss7_abstract_class_and_interface.bai_tap.resizeable.model;
 
-import ss7_abstract_class_and_interface.bai_tap.colorable.ResizeableRectangle;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.ResizeableRectangle;
 
 public class Rectangle extends Shape implements ResizeableRectangle {
     private double width = 1.0;
