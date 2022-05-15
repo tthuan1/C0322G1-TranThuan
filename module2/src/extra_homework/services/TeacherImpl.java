@@ -37,11 +37,11 @@ public class TeacherImpl implements Iservices {
         for (int i = 0; i < persons.length; i++) {
             if (persons[i] instanceof Teacher && input.equals(persons[i].getId())) {
                 flag = false;
-                for (int j = i+1; j < (persons.length-i); j++) {
-                    persons[i]=persons[j];
+                for (int j = i + 1; j < (persons.length - i); j++) {
+                    persons[i] = persons[j];
                 }
                 count--;
-                System.out.println("Đã xoá giáo viên có id "+input);
+                System.out.println("Đã xoá giáo viên có id " + input);
                 break;
             }
         }

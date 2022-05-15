@@ -14,20 +14,20 @@ public class DisplayMainMenu {
     static Scanner scanner = new Scanner(System.in);
 
     static {
-        persons[0]=new Student("SV1","Thuận",18,"Nam",45);
-        persons[1]=new Student("SV2","Hoàn",20,"Nam",75);
-        persons[2]=new Teacher("GV1","Quang",21,"Nam",8000000);
-        persons[3]=new Teacher("GV2","Chiến",21,"Nam",10000000);
+        persons[0] = new Student("SV1", "Thuận", 18, "Nam", 45);
+        persons[1] = new Student("SV2", "Hoàn", 20, "Nam", 75);
+        persons[2] = new Teacher("GV1", "Quang", 21, "Nam", 8000000);
+        persons[3] = new Teacher("GV2", "Chiến", 21, "Nam", 10000000);
     }
 
-    public static void menu(){
-        Scanner scanner=new Scanner(System.in);
-        boolean flag=false;
+    public static void menu() {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = false;
         do {
             System.out.print("-------Menu---------\n" +
                     "\t1. Add Student\n" +
                     "\t2. Xóa Student\n" +
-                    "\t3. Search Student\n"+
+                    "\t3. Search Student\n" +
                     "\t4. Hiển thị danh sách Student\n" +
                     "\t5. Thêm mới Teacher\n" +
                     "\t6. Xóa Teacher\n" +
@@ -36,10 +36,10 @@ public class DisplayMainMenu {
                     "\t9. Hiển thị tất cả\n" +
                     "\t10. Exit\n" +
                     "\t Choose: ");
-            int choose= Integer.parseInt(scanner.nextLine());
-            StudenImpl studen=new StudenImpl();
-            TeacherImpl teacher=new TeacherImpl();
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            StudenImpl studen = new StudenImpl();
+            TeacherImpl teacher = new TeacherImpl();
+            switch (choose) {
                 case 1:
                     studen.add();
                     break;
@@ -69,10 +69,10 @@ public class DisplayMainMenu {
                     teacher.display();
                     break;
                 case 10:
-                    flag=true;
+                    flag = true;
                     System.out.println("Đã thoát");
                     break;
             }
-        }while (!flag);
+        } while (!flag);
     }
 }
