@@ -15,17 +15,20 @@ public class Run {
         shapes[1] = new Rectangle(2.5, 3.8, "orange", true);
         shapes[2] = new Square(2.5, "orange", true);
 
-        for (Shape shape : shapes) {
-            if (shape instanceof Square) {
-                System.out.println(shape);
-                square.howToColor();
-            }
-            if (shape instanceof Circle) {
-                System.out.println(shape);
-            }
-            if (shape instanceof Rectangle) {
-                System.out.println(shape);
-            }
+//        for (Shape shape : shapes) {
+//            if (shape instanceof Square) {
+//                System.out.println(shape);
+//                square.howToColor();
+//            }
+//            if (shape instanceof Circle) {
+//                System.out.println(shape);
+//            }
+//            if (shape instanceof Rectangle) {
+//                System.out.println(shape);
+//            }
+//        }
+        for (int i = 0; i < shapes.length; i++) {
+            System.out.println("Diện tích của các hình là: "+shapes[i]);
         }
     }
 }

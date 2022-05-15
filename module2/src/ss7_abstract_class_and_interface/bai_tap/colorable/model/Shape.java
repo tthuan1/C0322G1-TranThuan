@@ -3,6 +3,7 @@ package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 public abstract class Shape   {
     private String color = "green";
     private boolean filled = true;
+    private Double getArea;
 
     public Shape() {
     }

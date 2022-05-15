@@ -3,8 +3,8 @@ package extra_homework.controllers;
 import extra_homework.model.Person;
 import extra_homework.model.Student;
 import extra_homework.model.Teacher;
-import extra_homework.services.StudenImpl;
-import extra_homework.services.TeacherImpl;
+import extra_homework.services.StudentService;
+import extra_homework.services.TeacherService;
 
 import java.util.Scanner;
 
@@ -37,8 +37,8 @@ public class DisplayMainMenu {
                     "\t10. Exit\n" +
                     "\t Choose: ");
             int choose = Integer.parseInt(scanner.nextLine());
-            StudenImpl studen = new StudenImpl();
-            TeacherImpl teacher = new TeacherImpl();
+            StudentService studen = new StudentService();
+            TeacherService teacher = new TeacherService();
             switch (choose) {
                 case 1:
                     studen.add();

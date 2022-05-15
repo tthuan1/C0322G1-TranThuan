@@ -50,7 +50,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "  id: " + id +
+        return  "  id: " + id +
                 ", name: " + name +
                 ", age: " + age +
                 ", gender: " + gender;
