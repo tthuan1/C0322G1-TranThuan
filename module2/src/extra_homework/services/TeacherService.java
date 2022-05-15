@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static extra_homework.controllers.DisplayMainMenu.count;
 import static extra_homework.controllers.DisplayMainMenu.persons;
 
-public class TeacherService implements Iservices {
+public class TeacherService implements IServices {
     static Scanner scanner = new Scanner(System.in);
 
     @Override

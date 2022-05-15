@@ -36,9 +36,9 @@ public class Square extends Rectangle implements Colorable {
     @Override
     public String toString() {
         return "Square: " +
-                "edge: " + getEdge() +
-                "Area:  " + getArea() +
-                "Perimeter:  " + getPerimeter();
+                ", edge: " + getEdge() +
+                ", Area:  " + getArea() +
+                ", Perimeter:  " + getPerimeter();
     }
 
     @Override

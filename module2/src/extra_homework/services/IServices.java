@@ -1,6 +1,6 @@
 package extra_homework.services;
 
-public interface Iservices {
+public interface IServices {
     void add();
 
     void delete();
