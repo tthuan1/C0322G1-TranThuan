@@ -10,7 +10,6 @@ public class Run {
         Shape[] shapes = new Shape[4];
         shapes[0] = new Circle(3.5, "indigo", false);
         shapes[1] = new Square(6.7, "orange", true);
-
         shapes[2] = new Rectangle(2.5, 3.8, "orange", true);
         shapes[3] = new Square(2.5, "orange", true);
 
