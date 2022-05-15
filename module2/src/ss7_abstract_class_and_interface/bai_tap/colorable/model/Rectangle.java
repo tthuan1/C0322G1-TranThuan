@@ -1,8 +1,7 @@
 package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 
-import ss7_abstract_class_and_interface.bai_tap.resizeable.Resizeable;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape   {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -59,8 +58,6 @@ public class Rectangle extends Shape implements Resizeable {
 
 
 
-    @Override
-    public void resize(double percent) {
 
-    }
+
 }

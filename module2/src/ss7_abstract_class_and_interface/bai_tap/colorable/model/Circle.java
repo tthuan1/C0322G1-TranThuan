@@ -1,8 +1,9 @@
 package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 
+import ss7_abstract_class_and_interface.bai_tap.colorable.Colorable;
 import ss7_abstract_class_and_interface.bai_tap.resizeable.Resizeable;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape   {
     private double radius = 1.0;
 
     public Circle() {
@@ -41,9 +42,5 @@ public class Circle extends Shape implements Resizeable {
                 + super.toString();
     }
 
-    @Override
-    public void resize(double percent) {
-        percent *= 100;
-        System.out.println("A Circle with radius x 100 = " + percent + "\n----------------");
-    }
+
 }
