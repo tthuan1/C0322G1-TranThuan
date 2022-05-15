@@ -32,12 +32,13 @@ public class Square extends Rectangle implements Colorable {
     public void setLength(double length) {
         setEdge(length);
     }
+
     @Override
     public String toString() {
         return "Square: " +
                 "edge: " + getEdge() +
                 "Area:  " + getArea() +
-                "Perimeter:  " + getPerimeter() ;
+                "Perimeter:  " + getPerimeter();
     }
 
     @Override

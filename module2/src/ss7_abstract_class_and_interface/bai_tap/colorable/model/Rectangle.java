@@ -1,7 +1,7 @@
 package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 
 
-public class Rectangle extends Shape   {
+public class Rectangle extends Shape {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -12,9 +12,11 @@ public class Rectangle extends Shape   {
         this.width = width;
         this.length = length;
     }
-    public Rectangle( String color, boolean filled) {
+
+    public Rectangle(String color, boolean filled) {
         super(color, filled);
     }
+
     public Rectangle(double width, double length, String color, boolean filled) {
         super(color, filled);
         this.width = width;
@@ -45,7 +47,6 @@ public class Rectangle extends Shape   {
         return 2 * (width + this.length);
     }
 
-
     @Override
     public String toString() {
         return "A Rectangle with width="
@@ -55,9 +56,4 @@ public class Rectangle extends Shape   {
                 + ", which is a subclass of "
                 + super.toString();
     }
-
-
-
-
-
 }

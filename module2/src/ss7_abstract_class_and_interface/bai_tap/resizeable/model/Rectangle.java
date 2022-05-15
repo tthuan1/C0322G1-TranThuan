@@ -44,7 +44,6 @@ public class Rectangle extends Shape implements Resizeable {
         return 2 * (width + this.length);
     }
 
-
     @Override
     public String toString() {
         return "A Rectangle with width="
@@ -57,9 +56,8 @@ public class Rectangle extends Shape implements Resizeable {
                 + super.toString();
     }
 
-
     @Override
-    public void resize( double percent) {
+    public void resize(double percent) {
         setWidth(getWidth() * percent / 100);
         setLength(getLength() * percent / 100);
         System.out.println(this);

@@ -3,7 +3,7 @@ package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 import ss7_abstract_class_and_interface.bai_tap.colorable.Colorable;
 import ss7_abstract_class_and_interface.bai_tap.resizeable.Resizeable;
 
-public class Circle extends Shape   {
+public class Circle extends Shape {
     private double radius = 1.0;
 
     public Circle() {
@@ -41,6 +41,4 @@ public class Circle extends Shape   {
                 + ", which is a subclass of "
                 + super.toString();
     }
-
-
 }
