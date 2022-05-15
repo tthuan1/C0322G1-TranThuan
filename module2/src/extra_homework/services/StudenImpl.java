@@ -33,9 +33,9 @@ public class StudenImpl implements Iservices {
         String input = scanner.nextLine();
         boolean flag = true;
         for (int i = 0; i < persons.length; i++) {
-            if (persons[i] instanceof Student && input.equals(persons[i].getId())) {
+            if (persons[i] instanceof Student && input.equals(persons[i].getId())) { // kiếm phần tử muốn xoá
                 flag = false;
-                for (int j = i + 1; j < (persons.length - i); j++) {
+                for (int j = i + 1; j < (persons.length - i); j++) {// ghi đè lại mảng tại vị trí muốn xoá thành vị trí sau đó
                     persons[i] = persons[j];
                 }
                 count--;

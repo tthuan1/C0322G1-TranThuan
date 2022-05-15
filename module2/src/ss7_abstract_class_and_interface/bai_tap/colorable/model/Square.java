@@ -1,8 +1,8 @@
 package ss7_abstract_class_and_interface.bai_tap.colorable.model;
 
-import ss7_abstract_class_and_interface.bai_tap.colorable.Icolorable;
+import ss7_abstract_class_and_interface.bai_tap.colorable.Colorable;
 
-public class Square extends Rectangle implements Icolorable {
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 

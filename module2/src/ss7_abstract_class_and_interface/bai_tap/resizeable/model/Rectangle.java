@@ -1,8 +1,8 @@
 package ss7_abstract_class_and_interface.bai_tap.resizeable.model;
 
-import ss7_abstract_class_and_interface.bai_tap.resizeable.ResizeableRectangle;
+import ss7_abstract_class_and_interface.bai_tap.resizeable.Resizeable;
 
-public class Rectangle extends Shape implements ResizeableRectangle {
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -51,16 +51,17 @@ public class Rectangle extends Shape implements ResizeableRectangle {
                 + getWidth()
                 + " and length="
                 + getLength()
+                + ", Area" + getArea()
+                + ", Perimeter" + getPerimeter()
                 + ", which is a subclass of "
                 + super.toString();
     }
 
 
     @Override
-    public void resize(double percent, double percent1) {
-        percent *= 100;
-        System.out.println("A Rectangle with width *100 =" + percent);
-        percent *= 200;
-        System.out.println("A Rectangle with length *100 =" + percent + "\n----------------");
+    public void resize( double percent) {
+        setWidth(getWidth() * percent / 100);
+        setLength(getLength() * percent / 100);
+        System.out.println(this);
     }
 }
