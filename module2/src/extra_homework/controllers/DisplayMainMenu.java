@@ -72,6 +72,9 @@ public class DisplayMainMenu {
                     flag = true;
                     System.out.println("Đã thoát");
                     break;
+                default:
+                    System.out.println("Nhập sai!");
+                    break;
             }
         } while (!flag);
     }
