@@ -1,6 +1,5 @@
 package ss10_list.exercise;
 
-
 public class MyListTest {
     public static class Student {
         private int id;

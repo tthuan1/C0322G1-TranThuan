@@ -5,17 +5,19 @@ public abstract class Person {
     private String date;
     private String gender;
     private String identityCard;
-    private String numberPhone;
+    private String phoneNumber;
+    private String email;
 
     public Person() {
     }
 
-    public Person(String name, String date, String gender, String identityCard, String numberPhone) {
+    public Person(String name, String date, String gender, String identityCard, String numberPhone, String email) {
         this.name = name;
         this.date = date;
         this.gender = gender;
         this.identityCard = identityCard;
-        this.numberPhone = numberPhone;
+        this.phoneNumber = numberPhone;
+        this.email = email;
     }
 
     public String getName() {
@@ -50,21 +52,30 @@ public abstract class Person {
         this.identityCard = identityCard;
     }
 
-    public String getNumberPhone() {
-        return numberPhone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setNumberPhone(String numberPhone) {
-        this.numberPhone = numberPhone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-    abstract void coverToString();
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    abstract String coverToString();
 
     @Override
     public String toString() {
-        return ", name: " + name +
-                ", date: " + date +
+        return  ", name: " + name +
+                ", dateOfBirth: " + date +
                 ", gender: " + gender +
                 ", identityCard: " + identityCard +
-                ", numberPhone: " + numberPhone;
+                ", phoneNumber: " + phoneNumber +
+                ", email: " + email;
     }
 }
