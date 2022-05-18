@@ -12,7 +12,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     static Scanner scanner = new Scanner(System.in);
     static List<Employee> listEmployee = new ArrayList<>();
     static {
-        ReadAndWriteFile.readFiler(listEmployee);
+        ReadAndWriteFile.readFiler(listEmployee,"employee");
     }
     @Override
     public void add() {
@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void display() {
         for (Employee employee : listEmployee) {
-            System.out.println(employee);
+            System.out.println(employee.coverToString());
         }
     }
 

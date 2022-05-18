@@ -2,6 +2,7 @@ package furama_resort.services.impl;
 
 import furama_resort.common.ReadAndWriteFile;
 import furama_resort.model.person.Customer;
+import furama_resort.model.person.Person;
 import furama_resort.services.CustomerService;
 
 import java.util.LinkedList;
@@ -11,8 +12,9 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements CustomerService {
     static Scanner scanner = new Scanner(System.in);
     static List<Customer> listCustomer = new LinkedList<>();
+
     static {
-        ReadAndWriteFile.readFiler(listCustomer);
+        ReadAndWriteFile.readFiler(listCustomer,"customer");
     }
 
     @Override
@@ -35,17 +37,27 @@ public class CustomerServiceImpl implements CustomerService {
         String customerType = scanner.nextLine();
         System.out.print("Nhập địa chỉ: ");
         String address = scanner.nextLine();
-        Customer customer=new Customer(customerCode, name,  dateOfBirth,  gender,  identityCard,  phoneNumber,  email,  customerType,  address);
+        Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
         listCustomer.add(customer);
-        ReadAndWriteFile.writeFileTest(listCustomer,"src/furama_resort/data/data.scv");
+        ReadAndWriteFile.writeFileTest(listCustomer, "src/furama_resort/data/data.scv");
     }
 
     @Override
     public void display() {
         for (Customer customer : listCustomer) {
-            System.out.println(customer);
+            System.out.println(customer.coverToString());
         }
+//        int count = 0;
+
+//        for (Person person : listCustomer) {
+//            if (person instanceof Customer) {
+//                System.out.println(((Customer)person).coverToString());
+//
+//            }
+//        }
+//        }
     }
+
     @Override
     public void edit() {
         System.out.print("Nhập mã khách hàng cần sửa: ");
@@ -71,8 +83,8 @@ public class CustomerServiceImpl implements CustomerService {
                 String customerType = scanner.nextLine();
                 System.out.print("Nhập lại địa chỉ: ");
                 String address = scanner.nextLine();
-                Customer customer=new Customer(customerCode, name,  dateOfBirth,  gender,  identityCard,  phoneNumber,  email,  customerType,  address);
-                listCustomer.set(i,customer);
+                Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
+                listCustomer.set(i, customer);
                 count++;
             }
         }

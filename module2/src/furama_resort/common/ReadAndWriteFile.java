@@ -47,25 +47,22 @@ public class ReadAndWriteFile {
         }
         writeFile(list, path);
     }
-    public static void readFiler(List list) {
+
+    public static void readFiler(List list, String option) {
         try {
             FileReader fileReader = new FileReader("src/furama_resort/data/data.scv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
-//            Customer customer;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] temp = line.split(",");
-                if (temp[0].equals("customer")){
+                if (temp[0].equals("customer") && option.equals("customer")) {
                     Customer customer = new Customer(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
                     list.add(customer);
                 }
-                else {
+                if (temp[0].equals("employee") && option.equals("employee")) {
                     Employee employee = new Employee(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], Integer.parseInt(temp[10]));
                     list.add(employee);
                 }
-//                if (temp[0].equals("employee")){
-//
-//                }
             }
         } catch (IOException e) {
             e.printStackTrace();
