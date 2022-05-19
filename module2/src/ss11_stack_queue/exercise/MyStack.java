@@ -12,22 +12,24 @@ public class MyStack {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập số phần tử: ");
         int size = Integer.parseInt(scanner.nextLine());
+
         for (int i = 1; i <= size; i++) {
             System.out.print("Nhập phần tử thứ " + i + ": ");
             int e = Integer.parseInt(scanner.nextLine());
             myStack.push(e);
         }
+
         for (int i = 1; i <= size; i++) {
             myStack1.push(myStack.pop());
         }
 
         for (int i = 1; i <= size; i++) {
-            System.out.println("phần tử thứ " + i + ": " + myStack1.search(i));
+            System.out.println("phần tử thứ " + i + ": " + myStack1.pop());
         }
 
 //        Đảo ngược chuỗi sử dụng Stack
         Stack<String> wStack = new Stack<>();
-        System.out.println("\nNhập chữ đi: ");
+        System.out.println("\nNhập chữ : ");
         String str = scanner.nextLine();
         String[] mWord = str.split("");
         System.out.println("Before");
