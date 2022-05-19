@@ -8,7 +8,7 @@ public class Palindrome {
     static Queue<String> queue = new LinkedList<>();
 
     public static void main(String[] args) {
-        String str = "Able was I ere I saw Elba1";
+        String str = "Able was I ere I saw Elba";
         String newStr = str.toLowerCase();
         String[] arrStr = newStr.split("");
         queue.addAll(Arrays.asList(arrStr));

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Demerging {
+public class DisplayMaleAndFemale {
     public static void main(String[] args) {
         Queue<String> queueMale = new LinkedList<>();
         Queue<String> queueFemale = new LinkedList<>();
