@@ -13,6 +13,7 @@ public class Run {
         shapes[1] = new Rectangle(2.5, 3.8, "orange", true);
         shapes[2] = new Rectangle(4, 7, "orange", true);
         shapes[3] = new Rectangle(5, 5, "orange", true);
+
         for (Shape shape : shapes) {
             if (shape instanceof Circle) {
                 System.out.println(shape);

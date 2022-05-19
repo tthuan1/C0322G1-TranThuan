@@ -16,6 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
     @Override
     public void add() {
+        listEmployee.removeAll(listEmployee);
         System.out.print("Nhập tên nhân viên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");
@@ -43,6 +44,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void display() {
+        listEmployee.removeAll(listEmployee);
+        ReadAndWriteFile.readFiler(listEmployee,"employee");
         for (Employee employee : listEmployee) {
             System.out.println(employee.coverToString());
         }

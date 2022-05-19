@@ -55,7 +55,7 @@ public class ReadAndWriteFile {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] temp = line.split(",");
-                if (temp[0].equals("customer") && option.equals("customer")) {
+                if (/*temp[0].equals("customer") &&*/ option.equals("customer")) {
                     Customer customer = new Customer(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
                     list.add(customer);
                 }
@@ -68,5 +68,52 @@ public class ReadAndWriteFile {
             e.printStackTrace();
         }
     }
+
+    //----------------------------------------------
+    public static void write(String path, List<String> stringList) {
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try (FileWriter fileWriter = new FileWriter(file);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+            for (String item : stringList) {
+                bufferedWriter.write(item);
+                bufferedWriter.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<String[]> read(String path) {
+        List<String[]> list = new ArrayList<>();
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+                String[] arr = line.split(",");
+                list.add(arr);
+            }
+            return list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
 }

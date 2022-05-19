@@ -24,11 +24,13 @@ public class MyStack {
         for (int i = 1; i <= size; i++) {
             System.out.println("phần tử thứ " + i + ": " + myStack1.search(i));
         }
+
 //        Đảo ngược chuỗi sử dụng Stack
         Stack<String> wStack = new Stack<>();
         System.out.println("\nNhập chữ đi: ");
         String str = scanner.nextLine();
         String[] mWord = str.split("");
+        System.out.println("Before");
         System.out.println(Arrays.toString(mWord));
         for (String s : mWord) {
             wStack.push(s);
@@ -37,6 +39,7 @@ public class MyStack {
         for (int i = 0; i < mWord.length; i++) {
             outp[i] = wStack.pop();
         }
+        System.out.println("After");
         System.out.println(Arrays.toString(outp));
     }
 }

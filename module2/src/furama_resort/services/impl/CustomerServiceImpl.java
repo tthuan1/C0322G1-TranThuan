@@ -19,6 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void add() {
+        listCustomer.removeAll(listCustomer);
         System.out.print("Nhập tên khách hàng: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh khách hàng: ");
@@ -44,6 +45,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void display() {
+        listCustomer.removeAll(listCustomer);
+        ReadAndWriteFile.readFiler(listCustomer,"customer");
         for (Customer customer : listCustomer) {
             System.out.println(customer.coverToString());
         }
