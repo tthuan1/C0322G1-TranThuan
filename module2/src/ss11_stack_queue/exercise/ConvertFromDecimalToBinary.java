@@ -6,7 +6,7 @@ import java.util.Stack;
 public class ConvertFromDecimalToBinary {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập số cần chuyển đổi: ");
         int a = Integer.parseInt(scanner.nextLine());
         int b;
