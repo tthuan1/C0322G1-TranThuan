@@ -19,7 +19,6 @@ public class View {
                     "8. Thoát\n" +
                     "Nhập đi: ");
             int choice = Integer.parseInt(scanner.nextLine());
-
             switch (choice) {
                 case 1:
                     productManager.add();
@@ -41,7 +40,6 @@ public class View {
                     productManager.sortUpAscending();
                     break;
                 case 7:
-
                     productManager.sortDescending();
                     break;
                 case 8:
@@ -51,7 +49,6 @@ public class View {
                 default:
             }
         } while (flag);
-
     }
 
     public static void deleteView() {
