@@ -34,7 +34,4 @@ public class ManageWithLinkedList implements ISeveris {
     //Ưu và nhược điểm của ArrayList và LinkedList.
     //ArrayList nên để hiển thị
     //LinkedList nên sử dụng khi thêm xoá dữ liệu
-
-
-
 }

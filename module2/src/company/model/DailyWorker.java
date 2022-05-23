@@ -22,7 +22,7 @@ public class DailyWorker extends Person {
     @Override
     public String toString() {
         return "Nhân viên công nhật- " + super.toString() +
-                ", soNgayCong: " + soNgayCong;
+                ", số ngày công: " + soNgayCong;
     }
 
     @Override
