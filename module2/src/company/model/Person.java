@@ -40,6 +40,7 @@ public abstract class Person implements Comparable<Person> {
     public void setAddress(String address) {
         this.address = address;
     }
+    // class cha có cần phương thức abstract bởi vì ta không cần ép kiểu và dễ dàng thao tác hơn
     public abstract Double payroll();
 
     @Override
@@ -49,7 +50,7 @@ public abstract class Person implements Comparable<Person> {
                 ", address: " + address +
                 ", số lương: " + new BigDecimal(payroll());
     }
-
+//sử dụng comparable thì cần implements Comparable và Override compareTo
     @Override
     public int compareTo(Person o) {
         return (int) (payroll()-o.payroll());

@@ -5,6 +5,7 @@ import company.model.ManagementStaff;
 import company.model.Person;
 import company.model.ProductionStaff;
 import company.severis.ISeveris;
+import company.until.ComparePenson;
 
 import java.util.*;
 
@@ -25,20 +26,15 @@ public class ManageWithArrayList implements ISeveris {
         list.add(new ManagementStaff("D","18/19/1999","da nang",4000,2.2));
         list.add(new ManagementStaff("I","18/19/1999","da nang",300000,2.2));
         list.add(new ManagementStaff("E","18/19/1999","da nang",5000,2.2));
-        for (int i = 0; i < list.size() ; i++) {
-            personMap.put(i, list.get(i));
-        }
     }
+    //ArrayList không cần khởi tạo 1000 phần tử trước vì ArrayList có cơ chế mảng động cho phép tạo ra mảng mới
+    // gấp 150% mảng củ và sao chép lại các phần từ có trước đó, nên khi có 1001 nhân viên thì không có vấn đề
 
     @Override
     public void disPlay() {
-//        list.sort(((o1, o2) -> o1.getName().compareTo(o2.getName())));
-//        Collections.sort(list,new ComparePenson());
-//        for (Person person: list) {
-//            System.out.println(person);
-//        }
-        for (Integer person:personMap.keySet()) {
-            System.out.println(personMap.get(person)+", id: "+person);
+        Collections.sort(list,new ComparePenson());
+        for (Person person: list) {
+            System.out.println(person);
         }
     }
 }
