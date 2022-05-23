@@ -37,8 +37,4 @@ public class ProductionStaff extends Person implements ITimekeeping {
         System.out.println("Chấm công bằng mắt");
     }
 
-    @Override
-    public void disPlay() {
-
-    }
 }

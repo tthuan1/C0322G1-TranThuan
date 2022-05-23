@@ -1,5 +1,5 @@
 package company.severis;
 
-public interface ITimekeeping extends ISeveris {
+public interface ITimekeeping {
     void timekeeping();
 }

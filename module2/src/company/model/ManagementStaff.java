@@ -48,8 +48,4 @@ public class ManagementStaff extends Person implements ITimekeeping {
         System.out.println("Chấm công bằng máy");
     }
 
-    @Override
-    public void disPlay() {
-
-    }
 }
