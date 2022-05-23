@@ -9,8 +9,6 @@ public class ManagementStaff extends Person implements ITimekeeping {
     public ManagementStaff() {
     }
 
-
-
     public ManagementStaff(String name, String dateOfBirth, String address, Integer basicSalary, Double coefficientsSalary) {
         super(name, dateOfBirth, address);
         this.basicSalary = basicSalary;
@@ -50,4 +48,8 @@ public class ManagementStaff extends Person implements ITimekeeping {
         System.out.println("Chấm công bằng máy");
     }
 
+    @Override
+    public void disPlay() {
+
+    }
 }

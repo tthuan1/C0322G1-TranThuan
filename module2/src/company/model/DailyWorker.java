@@ -6,7 +6,6 @@ public class DailyWorker extends Person {
     public DailyWorker() {
     }
 
-
     public DailyWorker(String name, String dateOfBirth, String address, Integer soNgayCong) {
         super(name, dateOfBirth, address);
         this.soNgayCong = soNgayCong;

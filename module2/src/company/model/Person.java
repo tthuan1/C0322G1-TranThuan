@@ -40,7 +40,6 @@ public abstract class Person implements Comparable<Person> {
     public void setAddress(String address) {
         this.address = address;
     }
-    //
     public abstract Double payroll();
 
     @Override

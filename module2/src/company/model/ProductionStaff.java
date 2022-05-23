@@ -8,7 +8,6 @@ public class ProductionStaff extends Person implements ITimekeeping {
     public ProductionStaff() {
     }
 
-
     public ProductionStaff(String name, String dateOfBirth, String address, Integer productNumber) {
         super(name, dateOfBirth, address);
         this.productNumber = productNumber;
@@ -21,7 +20,6 @@ public class ProductionStaff extends Person implements ITimekeeping {
     public void setProductNumber(Integer productNumber) {
         this.productNumber = productNumber;
     }
-
 
     @Override
     public String toString() {
@@ -37,5 +35,10 @@ public class ProductionStaff extends Person implements ITimekeeping {
     @Override
     public void timekeeping() {
         System.out.println("Chấm công bằng mắt");
+    }
+
+    @Override
+    public void disPlay() {
+
     }
 }
