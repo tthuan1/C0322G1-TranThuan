@@ -2,10 +2,14 @@ package ss14_sort_algorithm.exercise;
 
 import java.util.Arrays;
 
-public class IllustrationOfInsertionSortAlgorithm {
+public class InstallInsertionSortAlgorithm {
     public static void main(String[] args) {
         int[] a = {1, 3, 5, 7, 9, 2, 4, 6, 8};
+        System.out.println("After");
+        System.out.println(Arrays.toString(a));
         insertSort(a);
+        System.out.println("Befor");
+        System.out.println(Arrays.toString(a));
     }
 
     public static void insertSort(int[] arr) {
@@ -21,8 +25,6 @@ public class IllustrationOfInsertionSortAlgorithm {
                 j--;
             }
             arr[j + 1] = key;
-            System.out.print("Lần lặp thứ " + i + "\t");
-            System.out.println(Arrays.toString(arr));
         }
     }
 }
