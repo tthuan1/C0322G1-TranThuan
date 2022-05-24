@@ -8,7 +8,9 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(String name, String date, String gender, String identityCard, String numberPhone, String email, String customerCode, String customerType, String address) {
+    public Customer(String customerCode,String name, String date, String gender, String identityCard,
+                    String numberPhone, String email,
+                    String customerType, String address) {
         super(name, date, gender, identityCard, numberPhone, email);
         this.customerCode = customerCode;
         this.customerType = customerType;
@@ -41,23 +43,16 @@ public class Customer extends Person {
 
     @Override
     public String coverToString() {
-//        return customerCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
-//                + getEmail() + "," + customerType + "," + address;
+        return customerCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
+                + getEmail() + "," + customerType + "," + address;
+    }
+
+    @Override
+    public String toString() {
         return "Customer- " +
                 "customerCode: " + customerCode +
                 super.toString() +
                 ", customerType: " + customerType +
                 ", address: " + address;
-    }
-
-    @Override
-    public String toString() {
-//        return "Customer- " +
-//                "customerCode: " + customerCode +
-//                super.toString() +
-//                ", customerType: " + customerType +
-//                ", address: " + address;
-        return "customer," + customerCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
-                + getEmail() + "," + customerType + "," + address;
     }
 }

@@ -9,7 +9,7 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String name, String date, String gender, String identityCard, String numberPhone, String email, String employeeCode, String level, String position, Integer salary) {
+    public Employee(String employeeCode, String name, String date, String gender, String identityCard, String numberPhone, String email, String level, String position, Integer salary) {
         super(name, date, gender, identityCard, numberPhone, email);
         this.employeeCode = employeeCode;
         this.level = level;
@@ -51,23 +51,17 @@ public class Employee extends Person {
 
     @Override
     public String coverToString() {
-//        return employeeCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
-//                + getEmail() + "," + level + "," + position + "," + salary;
-        return "Employee-" +
-                " employeeCode: " + employeeCode + super.toString() +
-                ", level: " + level +
-                ", position: " + position +
-                ", salary: " + salary;
+        return employeeCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
+                + getEmail() + "," + level + "," + position + "," + salary;
     }
 
     @Override
     public String toString() {
-//        return "Employee-" +
-//                " employeeCode: " + employeeCode + super.toString() +
-//                ", level: " + level +
-//                ", position: " + position +
-//                ", salary: " + salary;
-        return "employee," + employeeCode + "," + getName() + "," + getDate() + "," + getGender() + "," + getIdentityCard() + "," + getPhoneNumber() + ","
-                + getEmail() + "," + level + "," + position + "," + salary;
+        return "Employee-" +
+                " employeeCode: " + employeeCode +
+                super.toString() +
+                ", level: " + level +
+                ", position: " + position +
+                ", salary: " + salary;
     }
 }

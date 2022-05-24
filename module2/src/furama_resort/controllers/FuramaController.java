@@ -2,8 +2,8 @@ package furama_resort.controllers;
 
 import furama_resort.services.CustomerService;
 import furama_resort.services.EmployeeService;
-import furama_resort.services.impl.CustomerServiceImpl;
-import furama_resort.services.impl.EmployeeServiceImpl;
+import furama_resort.services.FacilityService;
+import furama_resort.services.impl.*;
 
 import java.util.Scanner;
 
@@ -38,10 +38,11 @@ public class FuramaController {
                     promotionManagement();
                     break;
                 case 6:
-                    System.exit(6);
                     System.out.println("program exited !!");
+                    System.exit(6);
                 default:
                     System.out.println("Nhập không có số đển chọn !!");
+                    break;
             }
         }while (true);
     }
@@ -106,6 +107,7 @@ public class FuramaController {
     }
 
     public static void facilityManagement() {
+        FacilityService facilityService=new FacilityServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Display list facility\n" +
@@ -116,8 +118,10 @@ public class FuramaController {
             int choose=Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
+                    facilityService.display();
                     break;
                 case 2:
+                    facilityAdd();
                     break;
                 case 3:
                     break;
@@ -147,5 +151,35 @@ public class FuramaController {
                 "\t2. Display list customers get voucher\n" +
                 "\t3. Return main menu\n" +
                 "\tEnter: ");
+    }
+    public  static void facilityAdd(){
+        FacilityService villaService=new VillaServiceImpl();
+        FacilityService houseService=new HouseServiceImpl();
+        FacilityService roomService=new RoomServiceImpl();
+        do {
+            System.out.print("\t-----------------------------------------\n" +
+                    "\t1. Add New Villa\n" +
+                    "\t2. Add New House\n" +
+                    "\t3. Add New Room\n" +
+                    "\t4. Back to menu\n" +
+                    "\tEnter: ");
+            int choose=Integer.parseInt(scanner.nextLine());
+            switch (choose){
+                case 1:
+                    villaService.add();
+                    break;
+                case 2:
+                    houseService.add();
+                    break;
+                case 3:
+                    roomService.add();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Nhập không có số đển chọn !!");
+                    break;
+            }
+        }while (true);
     }
 }

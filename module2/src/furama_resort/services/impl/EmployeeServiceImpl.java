@@ -11,12 +11,13 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements EmployeeService {
     static Scanner scanner = new Scanner(System.in);
     static List<Employee> listEmployee = new ArrayList<>();
+
     static {
-        ReadAndWriteFile.readFiler(listEmployee,"employee");
+        ReadAndWriteFile.readFilerEmployee(listEmployee);
     }
+
     @Override
     public void add() {
-        listEmployee.removeAll(listEmployee);
         System.out.print("Nhập tên nhân viên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");
@@ -37,20 +38,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         String viTri = scanner.nextLine();
         System.out.print("Nhập số lương: ");
         int luong = Integer.parseInt(scanner.nextLine());
-        Employee employee = new Employee(maNhanVien, name,date,gioiTinh,cmnd,sdt,email,trinhDo,viTri,luong);
+        Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, trinhDo, viTri, luong);
         listEmployee.add(employee);
-        ReadAndWriteFile.writeFileTest(listEmployee,"src/furama_resort/data/data.scv");
+        ReadAndWriteFile.writeFileEmployee(listEmployee, "src/furama_resort/data/person/employee.csv");
     }
 
     @Override
     public void display() {
-        listEmployee.removeAll(listEmployee);
-        ReadAndWriteFile.readFiler(listEmployee,"employee");
         for (Employee employee : listEmployee) {
-            System.out.println(employee.coverToString());
+            System.out.println(employee);
         }
     }
 
+    @Override
     public void edit() {
         System.out.print("Nhập mã nhân viên cần sửa: ");
         String update = scanner.nextLine();
@@ -78,8 +78,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                 String viTri = scanner.nextLine();
                 System.out.print("Nhập số lương: ");
                 int luong = Integer.parseInt(scanner.nextLine());
-                Employee employee = new Employee(maNhanVien,name,date, gioiTinh, cmnd, sdt, email,  trinhDo, viTri, luong);
+                Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, trinhDo, viTri, luong);
                 listEmployee.set(i, employee);
+                ReadAndWriteFile.writeFileEmployee(listEmployee,"src/furama_resort/data/person/employee.csv");
             }
         }
         if (count == 0) {

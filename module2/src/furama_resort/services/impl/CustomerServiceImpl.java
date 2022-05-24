@@ -14,12 +14,11 @@ public class CustomerServiceImpl implements CustomerService {
     static List<Customer> listCustomer = new LinkedList<>();
 
     static {
-        ReadAndWriteFile.readFiler(listCustomer,"customer");
+        ReadAndWriteFile.readFilerCustomer(listCustomer);
     }
 
     @Override
     public void add() {
-        listCustomer.removeAll(listCustomer);
         System.out.print("Nhập tên khách hàng: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh khách hàng: ");
@@ -30,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
         String identityCard = scanner.nextLine();
         System.out.print("Nhập SĐT khách hàng: ");
         String phoneNumber = scanner.nextLine();
-        System.out.print("Nhập email khách hàng");
+        System.out.print("Nhập email khách hàng: ");
         String email = scanner.nextLine();
         System.out.print("Nhập mã khách hàng: ");
         String customerCode = scanner.nextLine();
@@ -40,25 +39,14 @@ public class CustomerServiceImpl implements CustomerService {
         String address = scanner.nextLine();
         Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
         listCustomer.add(customer);
-        ReadAndWriteFile.writeFileTest(listCustomer, "src/furama_resort/data/data.scv");
+        ReadAndWriteFile.writeFileCustomer(listCustomer,"src/furama_resort/data/person/customer.csv");
     }
 
     @Override
     public void display() {
-        listCustomer.removeAll(listCustomer);
-        ReadAndWriteFile.readFiler(listCustomer,"customer");
         for (Customer customer : listCustomer) {
-            System.out.println(customer.coverToString());
+            System.out.println(customer);
         }
-//        int count = 0;
-
-//        for (Person person : listCustomer) {
-//            if (person instanceof Customer) {
-//                System.out.println(((Customer)person).coverToString());
-//
-//            }
-//        }
-//        }
     }
 
     @Override
@@ -78,7 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
                 String identityCard = scanner.nextLine();
                 System.out.print("Nhập lại SĐT khách hàng: ");
                 String phoneNumber = scanner.nextLine();
-                System.out.print("Nhập lại email khách hàng");
+                System.out.print("Nhập lại email khách hàng: ");
                 String email = scanner.nextLine();
                 System.out.print("Nhập lại mã khách hàng: ");
                 String customerCode = scanner.nextLine();
@@ -89,10 +77,12 @@ public class CustomerServiceImpl implements CustomerService {
                 Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
                 listCustomer.set(i, customer);
                 count++;
+                ReadAndWriteFile.writeFileCustomer(listCustomer,"src/furama_resort/data/person/customer.csv");
+                break;
             }
         }
         if (count == 0) {
-            System.out.println("Không tiềm thấy số mã khách hàng " + code + " này !!\n");
+            System.out.println("Không tìm thấy số mã khách hàng " + code + " này !!\n");
         }
     }
 }

@@ -1,5 +1,8 @@
 package furama_resort.common;
 
+import furama_resort.model.facility.House;
+import furama_resort.model.facility.Room;
+import furama_resort.model.facility.Villa;
 import furama_resort.model.person.Customer;
 import furama_resort.model.person.Employee;
 import furama_resort.model.person.Person;
@@ -25,95 +28,192 @@ public class ReadAndWriteFile {
         }
     }
 
-    //    public static void writeFileCustomer(List<Customer> lists, String path) {
-//        List<String> list = new ArrayList<>();
-//        for (Customer e : lists) {
-//            list.add(e.coverToString());
-//        }
-//        writeFile(list, path);
-//    }
-//
-//    public static void writeFileEmployee(List<Employee> lists, String path) {
-//        List<String> list = new ArrayList<>();
-//        for (Employee e : lists) {
-//            list.add(e.coverToString());
-//        }
-//        writeFile(list, path);
-//    }
-    public static <E> void writeFileTest(List<E> lists, String path) {
+    public static void writeFileCustomer(List<Customer> lists, String path) {
         List<String> list = new ArrayList<>();
-        for (E e : lists) {
-            list.add(e.toString());
+        for (Customer e : lists) {
+            list.add(e.coverToString());
+        }
+        writeFile(list, path);
+    }
+    public static void writeFileEmployee(List<Employee> lists, String path) {
+        List<String> list = new ArrayList<>();
+        for (Employee e : lists) {
+            list.add(e.coverToString());
+        }
+        writeFile(list, path);
+    }
+    public static void writeFileHouse(List<House> lists, String path) {
+        List<String> list = new ArrayList<>();
+        for (House e : lists) {
+            list.add(e.coverToString());
+        }
+        writeFile(list, path);
+    }
+    public static void writeFileRoom(List<Room> lists, String path) {
+        List<String> list = new ArrayList<>();
+        for (Room e : lists) {
+            list.add(e.coverToString());
+        }
+        writeFile(list, path);
+    }
+    public static void writeFileVilla(List<Villa> lists, String path) {
+        List<String> list = new ArrayList<>();
+        for (Villa e : lists) {
+            list.add(e.coverToString());
         }
         writeFile(list, path);
     }
 
-    public static void readFiler(List list, String option) {
+//    ------------------------------------------
+
+
+
+//    public static <E> void writeFileTest(List<E> lists, String path) {
+//        List<String> list = new ArrayList<>();
+//        for (E e : lists) {
+//            list.add(e.toString());
+//        }
+//        writeFile(list, path);
+//    }
+
+    public static void readFilerEmployee(List<Employee> list) {
         try {
-            FileReader fileReader = new FileReader("src/furama_resort/data/data.scv");
+            FileReader fileReader = new FileReader("src/furama_resort/data/person/employee.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] temp = line.split(",");
-                if (/*temp[0].equals("customer") &&*/ option.equals("customer")) {
-                    Customer customer = new Customer(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
-                    list.add(customer);
-                }
-                if (temp[0].equals("employee") && option.equals("employee")) {
-                    Employee employee = new Employee(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], Integer.parseInt(temp[10]));
-                    list.add(employee);
-                }
+                Employee employee = new Employee(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], Integer.parseInt(temp[9]));
+                list.add(employee);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static void readFilerCustomer(List<Customer> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/person/customer.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Customer customer = new Customer(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
+                list.add(customer);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void readFilerHouse(List<House> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/house.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                House house = new House(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]));
+                list.add(house);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void readFilerRoom(List<Room> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/room.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Room room = new Room(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6]);
+                list.add(room);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void readFilerVilla(List<Villa> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/villa.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]),Double.parseDouble(temp[8]));
+                list.add(villa);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    public static void readFiler(List list, String option) {
+//        try {
+//            FileReader fileReader = new FileReader("src/furama_resort/data/data.scv");
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                if (/*temp[0].equals("customer") &&*/ option.equals("customer")) {
+//                    Customer customer = new Customer(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
+//                    list.add(customer);
+//                }
+//                if (temp[0].equals("employee") && option.equals("employee")) {
+//                    Employee employee = new Employee(temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], Integer.parseInt(temp[10]));
+//                    list.add(employee);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     //----------------------------------------------
-    public static void write(String path, List<String> stringList) {
-        File file = new File(path);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//    public static void write(String path, List<String> stringList) {
+//        File file = new File(path);
+//        if (!file.exists()) {
+//            try {
+//                file.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        try (FileWriter fileWriter = new FileWriter(file);
+//             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+//            for (String item : stringList) {
+//                bufferedWriter.write(item);
+//                bufferedWriter.newLine();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-        try (FileWriter fileWriter = new FileWriter(file);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            for (String item : stringList) {
-                bufferedWriter.write(item);
-                bufferedWriter.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static List<String[]> read(String path) {
-        List<String[]> list = new ArrayList<>();
-        File file = new File(path);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        try (FileReader fileReader = new FileReader(file);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
-                String[] arr = line.split(",");
-                list.add(arr);
-            }
-            return list;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
+//    public static List<String[]> read(String path) {
+//        List<String[]> list = new ArrayList<>();
+//        File file = new File(path);
+//        if (!file.exists()) {
+//            try {
+//                file.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        try (FileReader fileReader = new FileReader(file);
+//             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+//            String line = "";
+//            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+//                String[] arr = line.split(",");
+//                list.add(arr);
+//            }
+//            return list;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return list;
+//    }
 
 
 }
