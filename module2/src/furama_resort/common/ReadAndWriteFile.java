@@ -142,6 +142,7 @@ public class ReadAndWriteFile {
                 String[] temp = line.split(",");
                 Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]),Double.parseDouble(temp[8]));
                 list.add(villa);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
