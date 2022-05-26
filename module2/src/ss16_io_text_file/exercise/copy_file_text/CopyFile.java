@@ -17,8 +17,8 @@ public class CopyFile {
              BufferedReader bufferedReader = new BufferedReader(fileReader);
              FileWriter fileWriter = new FileWriter(fileW, true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            String line = bufferedReader.readLine();
 
+            String line = bufferedReader.readLine();
             if (fileR.exists()) {
                 System.out.println("tập tin đích đã tồn tại! bạn có muốn thay đổi ?" + "\ny\tn");
                 String input = scanner.nextLine();
@@ -53,5 +53,4 @@ public class CopyFile {
             throw new RuntimeException(e);
         }
     }
-
 }
