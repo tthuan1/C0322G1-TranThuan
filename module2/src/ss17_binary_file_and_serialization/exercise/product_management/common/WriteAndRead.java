@@ -1,7 +1,7 @@
-package ss17_binary_file_and_serialization.exercise.common;
+package ss17_binary_file_and_serialization.exercise.product_management.common;
 
 
-import ss17_binary_file_and_serialization.exercise.model.Product;
+import ss17_binary_file_and_serialization.exercise.product_management.model.Product;
 
 import java.io.*;
 import java.util.ArrayList;

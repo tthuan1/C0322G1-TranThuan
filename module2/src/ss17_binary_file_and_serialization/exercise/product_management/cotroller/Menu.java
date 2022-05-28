@@ -1,7 +1,7 @@
-package ss17_binary_file_and_serialization.exercise.cotroller;
+package ss17_binary_file_and_serialization.exercise.product_management.cotroller;
 
 
-import ss17_binary_file_and_serialization.exercise.services.ProductImpl;
+import ss17_binary_file_and_serialization.exercise.product_management.services.ProductImpl;
 
 import java.util.Scanner;
 

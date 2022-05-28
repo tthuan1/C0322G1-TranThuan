@@ -1,7 +1,7 @@
-package ss17_binary_file_and_serialization.exercise.services;
+package ss17_binary_file_and_serialization.exercise.product_management.services;
 
-import ss17_binary_file_and_serialization.exercise.common.WriteAndRead;
-import ss17_binary_file_and_serialization.exercise.model.Product;
+import ss17_binary_file_and_serialization.exercise.product_management.common.WriteAndRead;
+import ss17_binary_file_and_serialization.exercise.product_management.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class ProductImpl implements IProduct {
     static List<Product> products = new ArrayList<>();
 
     static {
-        products = WriteAndRead.readFile("src/ss17_binary_file_and_serialization/exercise/data/data.dat");
+        products = WriteAndRead.readFile("src/ss17_binary_file_and_serialization/exercise/product_management/data/data.dat");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ProductImpl implements IProduct {
         System.out.print("Mô tả khác: ");
         String otherDescription = scanner.nextLine();
         products.add(new Product(productCode, productName, manufacturer, price, otherDescription));
-        WriteAndRead.writeFile("src/ss17_binary_file_and_serialization/exercise/data/data.dat", products);
+        WriteAndRead.writeFile("src/ss17_binary_file_and_serialization/exercise/product_management/data/data.dat", products);
     }
 
     @Override
