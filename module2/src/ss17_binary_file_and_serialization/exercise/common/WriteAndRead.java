@@ -8,47 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteAndRead {
-    public static void write(String path, Object obj) {
-        File file = new File(path);
-        FileOutputStream fileOutputStream = null;
-        ObjectOutputStream objectOutputStream = null;
+    public static List<Product> readFile(String fileDataProduct) {
+        List<Product> productList = new ArrayList<>();
 
         try {
-            fileOutputStream = new FileOutputStream(file);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(obj);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                objectOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FileInputStream fis = new FileInputStream(fileDataProduct);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            productList = (List<Product>) ois.readObject();
+            fis.close();
+            ois.close();
+        } catch (Exception e) {
+            System.out.println("File is empty");
         }
+        return productList;
     }
 
-    public static Object read(String path) {
-        File file = new File(path);
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-        Object obj = null;
+    public static void writeFile(String fileDataProduct, List<Product> productList) {
         try {
-            fileInputStream = new FileInputStream(file);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            obj = objectInputStream.readObject();
-            return obj;
-        } catch (IOException | ClassNotFoundException e) {
+            FileOutputStream fos = new FileOutputStream(fileDataProduct);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(productList);
+            fos.close();
+            oos.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                fileInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-        return null;
     }
 }

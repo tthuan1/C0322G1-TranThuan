@@ -10,7 +10,7 @@ public class Menu {
 
     public static void displayMainMenu() {
         boolean flag = true;
-        ProductImpl product=new ProductImpl();
+        ProductImpl product = new ProductImpl();
         do {
             System.out.print("\n----Menu----" +
                     "\n1. Thêm" +

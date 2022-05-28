@@ -67,6 +67,6 @@ public class Product implements Serializable {
                 ", tên sản phẩm: " + productName +
                 ", hãn sản xuất: " + manufacturer +
                 ", giá: " + price +
-                ", mô tả khác: " + otherDescription ;
+                ", mô tả khác: " + otherDescription;
     }
 }
