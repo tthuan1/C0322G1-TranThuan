@@ -1,5 +1,7 @@
 package furama_resort.model.facility;
 
+import java.util.Objects;
+
 public abstract class Facility {
     //mã dịch vụ,Tên dịch vụ, Diện tích sử dụng, Chi phí thuê, Số lượng người tối đa, Kiểu thuê
     private String serviceCode;
@@ -80,5 +82,18 @@ public abstract class Facility {
                 ", chi phí thuê: " + rentalCosts +
                 ", số lượng người tối đa: " + maximumPeople +
                 ", kiểu thuê: " + rentalType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Facility facility = (Facility) o;
+        return Objects.equals(serviceCode, facility.serviceCode) && Objects.equals(serviceName, facility.serviceName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serviceCode, serviceName);
     }
 }

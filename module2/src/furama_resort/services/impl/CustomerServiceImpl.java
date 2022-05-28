@@ -5,9 +5,7 @@ import furama_resort.model.person.Customer;
 import furama_resort.model.person.Person;
 import furama_resort.services.CustomerService;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CustomerServiceImpl implements CustomerService {
     static Scanner scanner = new Scanner(System.in);
@@ -39,13 +37,13 @@ public class CustomerServiceImpl implements CustomerService {
         String address = scanner.nextLine();
         Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
         listCustomer.add(customer);
-        ReadAndWriteFile.writeFileCustomer(listCustomer,"src/furama_resort/data/person/customer.csv");
+        ReadAndWriteFile.writeFileCustomer(listCustomer);
     }
 
     @Override
     public void display() {
         for (Customer customer : listCustomer) {
-            System.out.println(customer);
+            System.out.println(customer.coverToString());
         }
     }
 
@@ -77,7 +75,7 @@ public class CustomerServiceImpl implements CustomerService {
                 Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
                 listCustomer.set(i, customer);
                 count++;
-                ReadAndWriteFile.writeFileCustomer(listCustomer,"src/furama_resort/data/person/customer.csv");
+                ReadAndWriteFile.writeFileCustomer(listCustomer);
                 break;
             }
         }

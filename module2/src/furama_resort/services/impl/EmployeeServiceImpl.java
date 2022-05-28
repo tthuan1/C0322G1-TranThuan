@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         int luong = Integer.parseInt(scanner.nextLine());
         Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, trinhDo, viTri, luong);
         listEmployee.add(employee);
-        ReadAndWriteFile.writeFileEmployee(listEmployee, "src/furama_resort/data/person/employee.csv");
+        ReadAndWriteFile.writeFileEmployee(listEmployee);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 int luong = Integer.parseInt(scanner.nextLine());
                 Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, trinhDo, viTri, luong);
                 listEmployee.set(i, employee);
-                ReadAndWriteFile.writeFileEmployee(listEmployee,"src/furama_resort/data/person/employee.csv");
+                ReadAndWriteFile.writeFileEmployee(listEmployee);
             }
         }
         if (count == 0) {

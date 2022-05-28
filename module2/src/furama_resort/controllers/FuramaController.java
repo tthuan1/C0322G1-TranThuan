@@ -153,9 +153,9 @@ public class FuramaController {
                 "\tEnter: ");
     }
     public  static void facilityAdd(){
-        FacilityService villaService=new VillaServiceImpl();
-        FacilityService houseService=new HouseServiceImpl();
-        FacilityService roomService=new RoomServiceImpl();
+//        FacilityService villaService=new VillaServiceImpl();
+//        FacilityService houseService=new HouseServiceImpl();
+//        FacilityService roomService=new RoomServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Add New Villa\n" +
@@ -166,13 +166,13 @@ public class FuramaController {
             int choose=Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
-                    villaService.add();
+//                    villaService.add();
                     break;
                 case 2:
-                    houseService.add();
+//                    houseService.add();
                     break;
                 case 3:
-                    roomService.add();
+//                    roomService.add();
                     break;
                 case 4:
                     return;
