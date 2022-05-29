@@ -3,7 +3,7 @@ package ss17_binary_file_and_serialization.exercise.copy_file;
 import java.io.*;
 import java.util.Scanner;
 
-public class Copy {
+public class CopyFile {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập: ");
