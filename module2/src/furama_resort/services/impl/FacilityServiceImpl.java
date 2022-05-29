@@ -105,7 +105,12 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayListFacilityMaintenance() {
-
+        for (int i = 0; i <facilityMap.size() ; i++) {
+        }
+        Set<Facility> facilityKey = facilityMap.keySet();
+        for (Facility facility: facilityKey) {
+            System.out.println(facility);
+        }
     }
 
 }
