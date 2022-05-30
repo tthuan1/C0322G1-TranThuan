@@ -1,14 +1,14 @@
 package furama_resort.model.person;
 
 public class Customer extends Person {
-    private String customerCode;
+    private Integer customerCode;
     private String customerType;
     private String address;
 
     public Customer() {
     }
 
-    public Customer(String customerCode,String name, String date, String gender, String identityCard,
+    public Customer(Integer customerCode,String name, String date, String gender, String identityCard,
                     String numberPhone, String email,
                     String customerType, String address) {
         super(name, date, gender, identityCard, numberPhone, email);
@@ -17,11 +17,11 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    public String getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(String customerCode) {
+    public void setCustomerCode(Integer customerCode) {
         this.customerCode = customerCode;
     }
 

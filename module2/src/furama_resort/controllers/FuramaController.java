@@ -8,7 +8,7 @@ import furama_resort.services.impl.*;
 import java.util.Scanner;
 
 public class FuramaController {
-    static Scanner scanner=new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public static void displayMainMenu() {
         do {
@@ -20,8 +20,8 @@ public class FuramaController {
                     "\t5. Promotion Management\n" +
                     "\t6. Exit\n" +
                     "\tEnter: ");
-            int choose=Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
                 case 1:
                     employeeManagement();
                     break;
@@ -44,11 +44,11 @@ public class FuramaController {
                     System.out.println("Nhập không có số đển chọn !!");
                     break;
             }
-        }while (true);
+        } while (true);
     }
 
     public static void employeeManagement() {
-        EmployeeService employeeService=new EmployeeServiceImpl();
+        EmployeeService employeeService = new EmployeeServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Display list employees\n" +
@@ -56,8 +56,8 @@ public class FuramaController {
                     "\t3. Edit employee\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose=Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
                 case 1:
                     employeeService.display();
                     break;
@@ -73,11 +73,11 @@ public class FuramaController {
                     System.out.println("Nhập không có số đển chọn !!");
                     break;
             }
-        }while (true);
+        } while (true);
     }
 
     public static void customerManagement() {
-        CustomerService customerService=new CustomerServiceImpl();
+        CustomerService customerService = new CustomerServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Display list customers\n" +
@@ -85,8 +85,8 @@ public class FuramaController {
                     "\t3. Edit customer\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose=Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
                 case 1:
                     customerService.display();
                     break;
@@ -102,12 +102,12 @@ public class FuramaController {
                     System.out.println("Nhập không có số đển chọn !!");
                     break;
             }
-        }while (true);
+        } while (true);
 
     }
 
     public static void facilityManagement() {
-        FacilityService facilityService=new FacilityServiceImpl();
+        FacilityService facilityService = new FacilityServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Display list facility\n" +
@@ -115,8 +115,8 @@ public class FuramaController {
                     "\t3. Display list facility maintenance\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose=Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
                 case 1:
                     facilityService.display();
                     break;
@@ -124,6 +124,7 @@ public class FuramaController {
                     facilityAdd();
                     break;
                 case 3:
+                    facilityService.displayListFacilityMaintenance();
                     break;
                 case 4:
                     return;
@@ -131,18 +132,38 @@ public class FuramaController {
                     System.out.println("Nhập không có số đển chọn !!");
                     break;
             }
-        }while (true);
+        } while (true);
     }
 
     public static void bookingManagerment() {
-        System.out.print("\t-----------------------------------------\n" +
-                "\t1. Add new booking\n" +
-                "\t2. Display list booking\n" +
-                "\t3. Create new constracts\n" +
-                "\t4. Display list contracts\n" +
-                "\t5. Edit contracts\n" +
-                "\t6. Return main menu\n" +
-                "\tEnter: ");
+        do {
+            System.out.print("\t-----------------------------------------\n" +
+                    "\t1. Add new booking\n" +
+                    "\t2. Display list booking\n" +
+                    "\t3. Create new constracts\n" +
+                    "\t4. Display list contracts\n" +
+                    "\t5. Edit contracts\n" +
+                    "\t6. Return main menu\n" +
+                    "\tEnter: ");
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Nhập không có số đển chọn !!");
+                    break;
+            }
+        } while (true);
     }
 
     public static void promotionManagement() {
@@ -152,10 +173,9 @@ public class FuramaController {
                 "\t3. Return main menu\n" +
                 "\tEnter: ");
     }
-    public  static void facilityAdd(){
-//        FacilityService villaService=new VillaServiceImpl();
-//        FacilityService houseService=new HouseServiceImpl();
-//        FacilityService roomService=new RoomServiceImpl();
+
+    public static void facilityAdd() {
+        FacilityService facilityService = new FacilityServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Add New Villa\n" +
@@ -163,16 +183,16 @@ public class FuramaController {
                     "\t3. Add New Room\n" +
                     "\t4. Back to menu\n" +
                     "\tEnter: ");
-            int choose=Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
                 case 1:
-//                    villaService.add();
+                    facilityService.addVilla();
                     break;
                 case 2:
-//                    houseService.add();
+                    facilityService.addHouse();
                     break;
                 case 3:
-//                    roomService.add();
+                    facilityService.addRoom();
                     break;
                 case 4:
                     return;
@@ -180,6 +200,6 @@ public class FuramaController {
                     System.out.println("Nhập không có số đển chọn !!");
                     break;
             }
-        }while (true);
+        } while (true);
     }
 }

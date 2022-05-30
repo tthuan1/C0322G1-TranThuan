@@ -30,9 +30,37 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.print("Nhập email khách hàng: ");
         String email = scanner.nextLine();
         System.out.print("Nhập mã khách hàng: ");
-        String customerCode = scanner.nextLine();
-        System.out.print("Nhập loại khách hàng: ");
-        String customerType = scanner.nextLine();
+        Integer customerCode = Integer.parseInt(scanner.nextLine());
+        String customerType = null;
+        while (customerType == null) {
+            System.out.print("--------Nhập loại khách hàng---------\n" +
+                    "\t1. Diamond \n" +
+                    "\t2. Platinium \n" +
+                    "\t3. Gold \n" +
+                    "\t4. Silver \n" +
+                    "\t5. Member \n" +
+                    "\tEnter: ");
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    customerType = "Diamond";
+                    break;
+                case 2:
+                    customerType = "Platinium";
+                    break;
+                case 3:
+                    customerType = "Gold";
+                    break;
+                case 4:
+                    customerType = "Silver";
+                    break;
+                case 5:
+                    customerType = "Member";
+                    break;
+                default:
+                    System.out.println("Nhập lại!!");
+            }
+        }
         System.out.print("Nhập địa chỉ: ");
         String address = scanner.nextLine();
         Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);
@@ -43,17 +71,17 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void display() {
         for (Customer customer : listCustomer) {
-            System.out.println(customer.coverToString());
+            System.out.println(customer);
         }
     }
 
     @Override
     public void edit() {
         System.out.print("Nhập mã khách hàng cần sửa: ");
-        String code = scanner.nextLine();
+        int code = Integer.parseInt(scanner.nextLine());
         int count = 0;
         for (int i = 0; i < listCustomer.size(); i++) {
-            if (code.equals(listCustomer.get(i).getCustomerCode())) {
+            if (code == listCustomer.get(i).getCustomerCode()) {
                 System.out.print("Nhập lại tên khách hàng: ");
                 String name = scanner.nextLine();
                 System.out.print("Nhập lại ngày sinh khách hàng: ");
@@ -67,9 +95,37 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.print("Nhập lại email khách hàng: ");
                 String email = scanner.nextLine();
                 System.out.print("Nhập lại mã khách hàng: ");
-                String customerCode = scanner.nextLine();
-                System.out.print("Nhập lại loại khách hàng: ");
-                String customerType = scanner.nextLine();
+                int customerCode = Integer.parseInt(scanner.nextLine());
+                String customerType = null;
+                while (customerType == null) {
+                    System.out.print("--------Nhập loại khách hàng---------\n" +
+                            "\t1. Diamond \n" +
+                            "\t2. Platinium \n" +
+                            "\t3. Gold \n" +
+                            "\t4. Silver \n" +
+                            "\t5. Member \n" +
+                            "\tEnter: ");
+                    int choose = Integer.parseInt(scanner.nextLine());
+                    switch (choose) {
+                        case 1:
+                            customerType = "Diamond";
+                            break;
+                        case 2:
+                            customerType = "Platinium";
+                            break;
+                        case 3:
+                            customerType = "Gold";
+                            break;
+                        case 4:
+                            customerType = "Silver";
+                            break;
+                        case 5:
+                            customerType = "Member";
+                            break;
+                        default:
+                            System.out.println("Nhập lại!!");
+                    }
+                }
                 System.out.print("Nhập lại địa chỉ: ");
                 String address = scanner.nextLine();
                 Customer customer = new Customer(customerCode, name, dateOfBirth, gender, identityCard, phoneNumber, email, customerType, address);

@@ -1,7 +1,7 @@
 package furama_resort.model.person;
 
 public class Employee extends Person {
-    private String employeeCode;
+    private Integer employeeCode;
     private String level;
     private String position;
     private Integer salary;
@@ -9,7 +9,7 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String employeeCode, String name, String date, String gender, String identityCard, String numberPhone, String email, String level, String position, Integer salary) {
+    public Employee(Integer employeeCode, String name, String date, String gender, String identityCard, String numberPhone, String email, String level, String position, Integer salary) {
         super(name, date, gender, identityCard, numberPhone, email);
         this.employeeCode = employeeCode;
         this.level = level;
@@ -17,11 +17,11 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public String getEmployeeCode() {
+    public Integer getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(String employeeCode) {
+    public void setEmployeeCode(Integer employeeCode) {
         this.employeeCode = employeeCode;
     }
 
