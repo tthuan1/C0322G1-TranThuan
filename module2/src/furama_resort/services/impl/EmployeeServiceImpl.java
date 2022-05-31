@@ -18,6 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void add() {
+        ReadAndWriteFile.readFilerEmployee(listEmployee);
         System.out.print("Nhập tên nhân viên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");

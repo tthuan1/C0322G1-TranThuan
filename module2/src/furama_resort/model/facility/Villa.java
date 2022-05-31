@@ -42,6 +42,15 @@ public class Villa extends Facility {
 
     @Override
     public String coverToString() {
+//        String serviceCode,
+//        String serviceName,
+//        Double usableArea,
+//        Integer rentalCosts,
+//        Integer maximumPeople,
+//        String rentalType,
+//        String roomStandard,
+//        Integer numberOfFloors,
+//        Double poolArea
         return getServiceCode() +
                 "," + getServiceName() +
                 "," + getUsableArea() +
@@ -49,8 +58,8 @@ public class Villa extends Facility {
                 "," + getMaximumPeople() +
                 "," + getRentalType() +
                 "," + roomStandard +
-                "," + poolArea +
-                "," + numberOfFloors;
+                "," +numberOfFloors+
+                "," + poolArea;
     }
 
     @Override

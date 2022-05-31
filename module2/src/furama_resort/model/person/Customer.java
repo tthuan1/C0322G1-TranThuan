@@ -7,6 +7,10 @@ public class Customer extends Person {
 
     public Customer() {
     }
+    public Customer(Integer customerCode) {
+        this.customerCode = customerCode;
+    }
+
 
     public Customer(Integer customerCode,String name, String date, String gender, String identityCard,
                     String numberPhone, String email,

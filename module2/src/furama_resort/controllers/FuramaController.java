@@ -1,5 +1,6 @@
 package furama_resort.controllers;
 
+import furama_resort.services.BookingService;
 import furama_resort.services.CustomerService;
 import furama_resort.services.EmployeeService;
 import furama_resort.services.FacilityService;
@@ -136,6 +137,7 @@ public class FuramaController {
     }
 
     public static void bookingManagerment() {
+        BookingService bookingService=new BookingServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Add new booking\n" +
@@ -148,8 +150,10 @@ public class FuramaController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
+                    bookingService.addBooking();
                     break;
                 case 2:
+                    bookingService.displayBooking();
                     break;
                 case 3:
                     break;

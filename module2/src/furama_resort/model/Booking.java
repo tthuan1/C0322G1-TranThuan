@@ -1,23 +1,24 @@
 package furama_resort.model;
 
+import furama_resort.model.facility.Facility;
+import furama_resort.model.person.Customer;
+
 public class Booking {
     private Integer bookingCode;
     private String startDay;
     private String endDate;
     private Integer customerCode;
-    private String serviceName;
-    private String typeOfService;
+    private String serviceCode;
+//    private Customer customer;
+//    private Facility facility;
 
-    public Booking() {
-    }
 
-    public Booking(Integer codeBooking, String startDay, String endDate, Integer customerCode, String serviceName, String typeOfService) {
-        this.bookingCode = codeBooking;
+    public Booking(Integer bookingCode, String startDay, String endDate, Integer customerCode, String serviceCode) {
+        this.bookingCode = bookingCode;
         this.startDay = startDay;
         this.endDate = endDate;
         this.customerCode = customerCode;
-        this.serviceName = serviceName;
-        this.typeOfService = typeOfService;
+        this.serviceCode = serviceCode;
     }
 
     public Integer getBookingCode() {
@@ -52,22 +53,22 @@ public class Booking {
         this.customerCode = customerCode;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getServiceCode() {
+        return serviceCode;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
-    public String getTypeOfService() {
-        return typeOfService;
+    public String coverToString() {
+        return bookingCode +
+                "," + startDay +
+                "," + endDate +
+                "," + customerCode +
+                "," + serviceCode/* +
+                "," + facility.getRentalType()*/;
     }
-
-    public void setTypeOfService(String typeOfService) {
-        this.typeOfService = typeOfService;
-    }
-
 
     @Override
     public String toString() {
@@ -75,8 +76,8 @@ public class Booking {
                 " mã booking: " + bookingCode +
                 ", ngày bắt đầu: " + startDay +
                 ", ngày kết thúc: " + endDate +
-                ", mã khách hàng: " + customerCode +
-                ", tên dịch vụ: " + serviceName +
-                ", loại dịch vụ: " + typeOfService;
+                ", mã khách hàng: " + customerCode+
+                ", mã dịch vụ: " + serviceCode/*+
+                ", loại dịch vụ: " + facility.getRentalType()*/;
     }
 }

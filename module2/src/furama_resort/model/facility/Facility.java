@@ -3,7 +3,6 @@ package furama_resort.model.facility;
 import java.util.Objects;
 
 public abstract class Facility {
-    //mã dịch vụ,Tên dịch vụ, Diện tích sử dụng, Chi phí thuê, Số lượng người tối đa, Kiểu thuê
     private String serviceCode;
     private String serviceName;
     private Double usableArea;
@@ -12,6 +11,10 @@ public abstract class Facility {
     private String rentalType;
 
     public Facility() {
+    }
+
+    public Facility(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
     public Facility(String serviceCode, String serviceName, Double usableArea,

@@ -7,6 +7,9 @@ public class House extends Facility {
 
     public House() {
     }
+    public House(String serviceCode) {
+        super(serviceCode);
+    }
 
     public House(String serviceCode, String serviceName, Double usableArea, Integer rentalCosts, Integer maximumPeople, String rentalType, String roomStandard, Integer numberOfFloors) {
         super(serviceCode, serviceName, usableArea, rentalCosts, maximumPeople, rentalType);

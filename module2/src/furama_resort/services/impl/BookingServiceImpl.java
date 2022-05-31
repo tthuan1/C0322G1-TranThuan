@@ -21,16 +21,17 @@ public class BookingServiceImpl implements BookingService {
 
     static {
         ReadAndWriteFile.readFilerCustomer(listCustomer);
-        facilityMap.put(new Villa("SVVL-0001", "1", 1.0, 1, 5, "1", "12", 1, 1.0), 5);
-        facilityMap.put(new Villa("SVVL-0002", "1", 1.0, 1, 5, "1", "12", 1, 1.0), 6);
-        facilityMap.put(new Villa("SVVL-0003", "1", 1.0, 1, 5, "1", "12", 1, 1.0), 3);
-        facilityMap.put(new Villa("SVVL-0004", "1", 1.0, 1, 5, "1", "12", 1, 1.0), 6);
-        facilityMap.put(new Villa("SVVL-0005", "1", 1.0, 1, 5, "1", "12", 1, 1.0), 3);
+        facilityMap.put(new Villa("SVVL-0001", "vip1", 1.0, 1, 5, "thuê theo năm", "12", 1, 1.0), 5);
+        facilityMap.put(new Villa("SVVL-0002", "vip2", 1.0, 1, 5, "thuê theo ngày", "12", 1, 1.0), 6);
+        facilityMap.put(new Villa("SVVL-0003", "vip3", 1.0, 1, 5, "thuê theo tháng", "12", 1, 1.0), 3);
+        facilityMap.put(new Villa("SVVL-0004", "vip4", 1.0, 1, 5, "thuê theo giờ", "12", 1, 1.0), 6);
+        facilityMap.put(new Villa("SVVL-0005", "vip5", 1.0, 1, 5, "thuê theo năm", "12", 1, 1.0), 3);
+
     }
 
     @Override
     public void addBooking() {
-        int bookingCode = 1;
+        int bookingCode = 0;
         if (!bookingList.isEmpty()) {
             bookingCode = bookingList.size();
         }
@@ -40,26 +41,10 @@ public class BookingServiceImpl implements BookingService {
         String startDay = scanner.nextLine();
         System.out.printf("Nhập ngày kết thúc: ");
         String endDate = scanner.nextLine();
-//        Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), customer.getName(),getNamefacility);
-        //codeBooking, String startDay, String endDate, String customerCode,
-        // String serviceName, String typeOfService) {
-//        bookingList.add(booking);
+        Booking booking=new Booking(bookingCode,startDay,endDate, customer.getCustomerCode(), facility.getServiceCode());
+        bookingList.add(booking);
+        ReadAndWriteFile.writeFileBooking(bookingList);
 
-
-//        System.out.printf("Nhập mã booking: ");
-//        String bookingCode = scanner.nextLine();
-//        System.out.printf("Nhập ngày bắt đầu: ");
-//        String startDay = scanner.nextLine();
-//        System.out.printf("Nhập ngày kết thúc: ");
-//        String endDate = scanner.nextLine();
-//        System.out.printf("Nhập mã khách hàng: ");
-//        String customerCode = scanner.nextLine();
-//        System.out.printf("Nhập tên dịch vụ: ");
-//        String serviceName = scanner.nextLine();
-//        System.out.printf("Nhập loại dịch vụ: ");
-//        String typeOfService = scanner.nextLine();
-//        Booking booking = new Booking(bookingCode, startDay, endDate, customerCode, serviceName, typeOfService);
-//        bookingList.add(booking);
     }
 
     public static Customer chooseCustomer() {
@@ -88,7 +73,7 @@ public class BookingServiceImpl implements BookingService {
     public static Facility chooseFacility() {
         System.out.println("-------------Danh sách dịch vụ-------------");
         for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()){
-            System.out.println(entry.getKey().toString());
+            System.out.println(entry.getKey());
         }
 
         System.out.print("Nhập id dịch vụ: ");
@@ -111,6 +96,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void displayBooking() {
+        ReadAndWriteFile.readFilerBooking(bookingList);
         for (Booking booking : bookingList) {
 //            System.out.printf(booking);
             System.out.println(booking);
