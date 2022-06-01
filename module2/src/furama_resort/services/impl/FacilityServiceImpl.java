@@ -1,6 +1,7 @@
 package furama_resort.services.impl;
 
 import furama_resort.common.ReadAndWriteFile;
+import furama_resort.common.Regex;
 import furama_resort.model.facility.Facility;
 import furama_resort.model.facility.House;
 import furama_resort.model.facility.Room;
@@ -16,7 +17,7 @@ public class FacilityServiceImpl implements FacilityService {
     static List<Villa> villaList = new ArrayList<>();
     static List<House> houseList = new ArrayList<>();
     static List<Room> roomList = new ArrayList<>();
-    static List<Facility> facility =new ArrayList<>();
+//    static List<Facility> facility =new ArrayList<>();
 
 
     static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
@@ -48,23 +49,47 @@ public class FacilityServiceImpl implements FacilityService {
     public void addVilla() {
         System.out.print("Nhập mã dịch vụ: ");
         String serviceCode = scanner.nextLine();
+//        Regex.regexServiceCodeVilla(serviceCode);
+
         System.out.print("Nhập tên dịch vụ: ");
         String serviceName = scanner.nextLine();
+//        Regex.regexName(serviceName);
+
         System.out.print("Nhập diện tích sử dụng: ");
-        double usableArea = Double.parseDouble(scanner.nextLine());
+        String checkUsableArea = scanner.nextLine();
+//        Regex.regexArea(checkUsableArea);
+        double usableArea=Double.parseDouble(checkUsableArea);
+
+
         System.out.print("Nhập chi phí thuê: ");
-        int rentalCosts = Integer.parseInt(scanner.nextLine());
+        String checkRentalCosts=scanner.nextLine();
+//        Regex.regexRentalCosts(checkRentalCosts);
+        int rentalCosts = Integer.parseInt(checkRentalCosts);
+
         System.out.print("Nhập số lượng người: ");
-        int maximumPeople = Integer.parseInt(scanner.nextLine());
+        String checkNumberPeople=scanner.nextLine();
+//        Regex.regexNumberPeople(checkNumberPeople);
+        int numberPeople = Integer.parseInt(checkNumberPeople);
+
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
+//        Regex.regexName(rentalType);
+
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard = scanner.nextLine();
+//        Regex.regexName(roomStandard);
+
         System.out.print("Nhập số tầng: ");
-        int numberOfFloors = Integer.parseInt(scanner.nextLine());
+        String checkNumberOfFloors=scanner.nextLine();
+//        Regex.regexNumberOfFloors(checkNumberOfFloors);
+        int numberOfFloors = Integer.parseInt(checkNumberOfFloors);
+
         System.out.print("Nhập diện tích hồ bơi: ");
-        double poolArea = Double.parseDouble(scanner.nextLine());
-        Villa villa = new Villa(serviceCode, serviceName, usableArea, rentalCosts, maximumPeople, rentalType, roomStandard, numberOfFloors, poolArea);
+        String checkPoolArea=scanner.nextLine();
+//        Regex.regexArea(checkPoolArea);
+        double poolArea = Double.parseDouble(checkPoolArea);
+
+        Villa villa = new Villa(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, roomStandard, numberOfFloors, poolArea);
         facilityMap.put(villa,0);
         villaList.add(villa);
         ReadAndWriteFile.writeFileVilla(villaList);
@@ -74,21 +99,46 @@ public class FacilityServiceImpl implements FacilityService {
     public void addHouse() {
         System.out.print("Nhập mã dịch vụ: ");
         String serviceCode = scanner.nextLine();
+//        Regex.regexServiceCodeHouse(serviceCode);
+
         System.out.print("Nhập tên dịch vụ: ");
         String serviceName = scanner.nextLine();
+//        Regex.regexName(serviceName);
+
         System.out.print("Nhập diện tích sử dụng: ");
-        double usableArea = Double.parseDouble(scanner.nextLine());
+        String checkUsableArea=scanner.nextLine();
+//        Regex.regexArea(checkUsableArea);
+        double usableArea = Double.parseDouble(checkUsableArea);
+
         System.out.print("Nhập chi phí thuê: ");
-        int rentalCosts = Integer.parseInt(scanner.nextLine());
+        String checkrentalCosts=scanner.nextLine();
+//        Regex.regexRentalCosts(checkrentalCosts);
+        int rentalCosts = Integer.parseInt(checkrentalCosts);
+
+
         System.out.print("Nhập số lượng người: ");
-        int maximumPeople = Integer.parseInt(scanner.nextLine());
+        String checkNumberPeople=scanner.nextLine();
+//        Regex.regexNumberPeople(checkNumberPeople);
+        int numberPeople = Integer.parseInt(checkNumberPeople);
+
+
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
+//        Regex.regexName(rentalType);
+
+
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard = scanner.nextLine();
+//        Regex.regexName(roomStandard);
+
+
         System.out.print("Nhập số tầng: ");
-        int numberOfFloors = Integer.parseInt(scanner.nextLine());
-        House house = new House(serviceCode, serviceName, usableArea, rentalCosts, maximumPeople, rentalType, roomStandard,numberOfFloors);
+        String checkNumberOfFloors=scanner.nextLine();
+//        Regex.regexNumberOfFloors(checkNumberOfFloors);
+        int numberOfFloors = Integer.parseInt(checkNumberOfFloors);
+
+
+        House house = new House(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, roomStandard,numberOfFloors);
         facilityMap.put(house,1);
         houseList.add(house);
         ReadAndWriteFile.writeFileHouse(houseList);
@@ -98,19 +148,35 @@ public class FacilityServiceImpl implements FacilityService {
     public void addRoom() {
         System.out.print("Nhập mã dịch vụ: ");
         String serviceCode = scanner.nextLine();
+//        Regex.regexServiceCodeRoom(serviceCode);
+
         System.out.print("Nhập tên dịch vụ: ");
         String serviceName = scanner.nextLine();
+//        Regex.regexName(serviceName);
+
         System.out.print("Nhập diện tích sử dụng: ");
-        double usableArea = Double.parseDouble(scanner.nextLine());
+        String checkUsableArea=scanner.nextLine();
+//        Regex.regexArea(checkUsableArea);
+        double usableArea = Double.parseDouble(checkUsableArea);
+
         System.out.print("Nhập chi phí thuê: ");
-        int rentalCosts = Integer.parseInt(scanner.nextLine());
+        String checkRentalCosts=scanner.nextLine();
+//        Regex.regexRentalCosts(checkRentalCosts);
+        int rentalCosts = Integer.parseInt(checkRentalCosts);
+
         System.out.print("Nhập số lượng người: ");
-        int maximumPeople = Integer.parseInt(scanner.nextLine());
+        String checkNumberPeople=scanner.nextLine();
+//        Regex.regexNumberPeople(checkNumberPeople);
+        int numberPeople = Integer.parseInt(checkNumberPeople);
+
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
+//        Regex.regexName(rentalType);
+
         System.out.print("Nhập dịch dụ miễn phí: ");
         String freeService = scanner.nextLine();
-        Room room = new Room(serviceCode, serviceName, usableArea, rentalCosts, maximumPeople, rentalType, freeService);
+
+        Room room = new Room(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, freeService);
         facilityMap.put(room,0);
         roomList.add(room);
         ReadAndWriteFile.writeFileRoom(roomList);

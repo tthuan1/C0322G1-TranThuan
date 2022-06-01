@@ -11,7 +11,6 @@ public class Customer extends Person {
         this.customerCode = customerCode;
     }
 
-
     public Customer(Integer customerCode,String name, String date, String gender, String identityCard,
                     String numberPhone, String email,
                     String customerType, String address) {

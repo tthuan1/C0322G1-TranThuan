@@ -45,6 +45,27 @@ public class BookingServiceImpl implements BookingService {
         bookingList.add(booking);
         ReadAndWriteFile.writeFileBooking(bookingList);
 
+
+//        Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), customer.getName(),getNamefacility);
+        //codeBooking, String startDay, String endDate, String customerCode,
+        // String serviceName, String typeOfService) {
+//        bookingList.add(booking);
+
+
+//        System.out.printf("Nhập mã booking: ");
+//        String bookingCode = scanner.nextLine();
+//        System.out.printf("Nhập ngày bắt đầu: ");
+//        String startDay = scanner.nextLine();
+//        System.out.printf("Nhập ngày kết thúc: ");
+//        String endDate = scanner.nextLine();
+//        System.out.printf("Nhập mã khách hàng: ");
+//        String customerCode = scanner.nextLine();
+//        System.out.printf("Nhập tên dịch vụ: ");
+//        String serviceName = scanner.nextLine();
+//        System.out.printf("Nhập loại dịch vụ: ");
+//        String typeOfService = scanner.nextLine();
+//        Booking booking = new Booking(bookingCode, startDay, endDate, customerCode, serviceName, typeOfService);
+//        bookingList.add(booking);
     }
 
     public static Customer chooseCustomer() {

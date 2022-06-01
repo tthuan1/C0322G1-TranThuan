@@ -1,6 +1,7 @@
 package furama_resort.services.impl;
 
 import furama_resort.common.ReadAndWriteFile;
+import furama_resort.common.Regex;
 import furama_resort.model.person.Employee;
 import furama_resort.services.EmployeeService;
 
@@ -23,6 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");
         String date = scanner.nextLine();
+        Regex.regexAge(date);
         System.out.print("Nhập giới tính: ");
         String gioiTinh = scanner.nextLine();
         System.out.print("Nhập chứng minh nhân dân: ");
@@ -102,6 +104,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void display() {
+
         for (Employee employee : listEmployee) {
             System.out.println(employee);
         }
@@ -119,6 +122,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 String name = scanner.nextLine();
                 System.out.print("Nhập ngày sinh: ");
                 String date = scanner.nextLine();
+                Regex.regexAge(date);
+
                 System.out.print("Nhập giới tính: ");
                 String gioiTinh = scanner.nextLine();
                 System.out.print("Nhập chứng minh nhân dân: ");

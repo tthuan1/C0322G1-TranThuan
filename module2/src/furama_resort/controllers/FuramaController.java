@@ -156,6 +156,7 @@ public class FuramaController {
                     bookingService.displayBooking();
                     break;
                 case 3:
+                    bookingService.createConstracts();
                     break;
                 case 4:
                     break;

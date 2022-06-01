@@ -1,7 +1,6 @@
 package furama_resort.model.facility;
 
 public class Villa extends Facility {
-    //Tiêu chuẩn phòng, Diện tích hồ bơi, Số tầng.
     private String roomStandard;
     private Integer numberOfFloors;
     private Double poolArea;
@@ -42,15 +41,6 @@ public class Villa extends Facility {
 
     @Override
     public String coverToString() {
-//        String serviceCode,
-//        String serviceName,
-//        Double usableArea,
-//        Integer rentalCosts,
-//        Integer maximumPeople,
-//        String rentalType,
-//        String roomStandard,
-//        Integer numberOfFloors,
-//        Double poolArea
         return getServiceCode() +
                 "," + getServiceName() +
                 "," + getUsableArea() +
@@ -58,7 +48,7 @@ public class Villa extends Facility {
                 "," + getMaximumPeople() +
                 "," + getRentalType() +
                 "," + roomStandard +
-                "," +numberOfFloors+
+                "," + numberOfFloors+
                 "," + poolArea;
     }
 
