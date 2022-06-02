@@ -22,14 +22,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         ReadAndWriteFile.readFilerEmployee(listEmployee);
         System.out.print("Nhập tên nhân viên: ");
         String name = scanner.nextLine();
+
         System.out.print("Nhập ngày sinh: ");
         String date = scanner.nextLine();
         Regex.regexAge(date);
+
         System.out.print("Nhập giới tính: ");
+
         String gioiTinh = scanner.nextLine();
         System.out.print("Nhập chứng minh nhân dân: ");
+
         String cmnd = scanner.nextLine();
         System.out.print("Nhập SĐT: ");
+
         String sdt = scanner.nextLine();
         System.out.print("Nhập Email: ");
         String email = scanner.nextLine();

@@ -21,51 +21,28 @@ public class BookingServiceImpl implements BookingService {
 
     static {
         ReadAndWriteFile.readFilerCustomer(listCustomer);
-        facilityMap.put(new Villa("SVVL-0001", "vip1", 1.0, 1, 5, "thuê theo năm", "12", 1, 1.0), 5);
-        facilityMap.put(new Villa("SVVL-0002", "vip2", 1.0, 1, 5, "thuê theo ngày", "12", 1, 1.0), 6);
-        facilityMap.put(new Villa("SVVL-0003", "vip3", 1.0, 1, 5, "thuê theo tháng", "12", 1, 1.0), 3);
-        facilityMap.put(new Villa("SVVL-0004", "vip4", 1.0, 1, 5, "thuê theo giờ", "12", 1, 1.0), 6);
-        facilityMap.put(new Villa("SVVL-0005", "vip5", 1.0, 1, 5, "thuê theo năm", "12", 1, 1.0), 3);
 
     }
 
     @Override
-    public void addBooking() {
-        int bookingCode = 0;
+    public void add() {
+        bookingList.clear();
+        ReadAndWriteFile.readFilerBooking(bookingList);
+        int bookingCode = 1;
         if (!bookingList.isEmpty()) {
-            bookingCode = bookingList.size();
+            bookingCode = bookingList.size()+1;
         }
-        Customer customer=chooseCustomer();
-        Facility facility=chooseFacility();
+        Customer customer = chooseCustomer();
+        Facility facility = chooseFacility();
         System.out.printf("Nhập ngày bắt đầu: ");
         String startDay = scanner.nextLine();
         System.out.printf("Nhập ngày kết thúc: ");
         String endDate = scanner.nextLine();
-        Booking booking=new Booking(bookingCode,startDay,endDate, customer.getCustomerCode(), facility.getServiceCode());
+        facilityMap.put(facility, facilityMap.get(facility)+1);
+        Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), facility.getServiceCode());
         bookingList.add(booking);
+        ReadAndWriteFile.writeFileFacility(facilityMap);
         ReadAndWriteFile.writeFileBooking(bookingList);
-
-
-//        Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), customer.getName(),getNamefacility);
-        //codeBooking, String startDay, String endDate, String customerCode,
-        // String serviceName, String typeOfService) {
-//        bookingList.add(booking);
-
-
-//        System.out.printf("Nhập mã booking: ");
-//        String bookingCode = scanner.nextLine();
-//        System.out.printf("Nhập ngày bắt đầu: ");
-//        String startDay = scanner.nextLine();
-//        System.out.printf("Nhập ngày kết thúc: ");
-//        String endDate = scanner.nextLine();
-//        System.out.printf("Nhập mã khách hàng: ");
-//        String customerCode = scanner.nextLine();
-//        System.out.printf("Nhập tên dịch vụ: ");
-//        String serviceName = scanner.nextLine();
-//        System.out.printf("Nhập loại dịch vụ: ");
-//        String typeOfService = scanner.nextLine();
-//        Booking booking = new Booking(bookingCode, startDay, endDate, customerCode, serviceName, typeOfService);
-//        bookingList.add(booking);
     }
 
     public static Customer chooseCustomer() {
@@ -92,13 +69,15 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public static Facility chooseFacility() {
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
         System.out.println("-------------Danh sách dịch vụ-------------");
-        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()){
+        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
             System.out.println(entry.getKey());
         }
 
         System.out.print("Nhập id dịch vụ: ");
-        String  id =scanner.nextLine();
+        String id = scanner.nextLine();
         boolean flag = true;
         while (flag) {
             for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
@@ -116,27 +95,11 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void displayBooking() {
+    public void display() {
         ReadAndWriteFile.readFilerBooking(bookingList);
         for (Booking booking : bookingList) {
 //            System.out.printf(booking);
             System.out.println(booking);
-
         }
-    }
-
-    @Override
-    public void createConstracts() {
-
-    }
-
-    @Override
-    public void displayContracts() {
-
-    }
-
-    @Override
-    public void editContracts() {
-
     }
 }

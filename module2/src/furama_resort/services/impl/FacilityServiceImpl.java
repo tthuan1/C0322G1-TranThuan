@@ -14,179 +14,171 @@ import java.util.*;
 public class FacilityServiceImpl implements FacilityService {
     static Scanner scanner=new Scanner(System.in);
 
-    static List<Villa> villaList = new ArrayList<>();
-    static List<House> houseList = new ArrayList<>();
-    static List<Room> roomList = new ArrayList<>();
-//    static List<Facility> facility =new ArrayList<>();
-
 
     static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
 
-    static {
-        ReadAndWriteFile.readFilerVilla(villaList);
-        ReadAndWriteFile.readFilerHouse(houseList);
-        ReadAndWriteFile.readFilerRoom(roomList);
-        for (Villa villa:villaList) {
-            facilityMap.put(villa,1);
-        }
-        for (House house:houseList) {
-            facilityMap.put(house,1);
-        }
-        for (Room room:roomList) {
-            facilityMap.put(room,1);
-        }
-    }
 
 
     @Override
     public void display() {
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
+
         for (Map.Entry<Facility,Integer> element:facilityMap.entrySet()) {
-            System.out.println(element.getKey());
+            System.out.println(element.getKey()+", số lần sử dụng: "+element.getValue());
         }
     }
 
     @Override
     public void addVilla() {
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
+
         System.out.print("Nhập mã dịch vụ: ");
-        String serviceCode = scanner.nextLine();
-//        Regex.regexServiceCodeVilla(serviceCode);
+        String serviceCode =  Regex.regexServiceCodeVilla();
 
         System.out.print("Nhập tên dịch vụ: ");
-        String serviceName = scanner.nextLine();
-//        Regex.regexName(serviceName);
+        String serviceName =  Regex.regexName();
+//        Regex.regexName();
 
         System.out.print("Nhập diện tích sử dụng: ");
         String checkUsableArea = scanner.nextLine();
-//        Regex.regexArea(checkUsableArea);
+//        Regex.regexArea();
         double usableArea=Double.parseDouble(checkUsableArea);
 
 
         System.out.print("Nhập chi phí thuê: ");
         String checkRentalCosts=scanner.nextLine();
-//        Regex.regexRentalCosts(checkRentalCosts);
+//        Regex.regexRentalCosts();
         int rentalCosts = Integer.parseInt(checkRentalCosts);
 
         System.out.print("Nhập số lượng người: ");
         String checkNumberPeople=scanner.nextLine();
-//        Regex.regexNumberPeople(checkNumberPeople);
+//        Regex.regexNumberPeople();
         int numberPeople = Integer.parseInt(checkNumberPeople);
 
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
-//        Regex.regexName(rentalType);
+//        Regex.regexName();
 
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard = scanner.nextLine();
-//        Regex.regexName(roomStandard);
+//        Regex.regexName();
 
         System.out.print("Nhập số tầng: ");
         String checkNumberOfFloors=scanner.nextLine();
-//        Regex.regexNumberOfFloors(checkNumberOfFloors);
+//        Regex.regexNumberOfFloors();
         int numberOfFloors = Integer.parseInt(checkNumberOfFloors);
 
         System.out.print("Nhập diện tích hồ bơi: ");
         String checkPoolArea=scanner.nextLine();
-//        Regex.regexArea(checkPoolArea);
+//        Regex.regexArea();
         double poolArea = Double.parseDouble(checkPoolArea);
 
         Villa villa = new Villa(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, roomStandard, numberOfFloors, poolArea);
         facilityMap.put(villa,0);
-        villaList.add(villa);
-        ReadAndWriteFile.writeFileVilla(villaList);
+        ReadAndWriteFile.writeFileFacility(facilityMap);
     }
 
     @Override
     public void addHouse() {
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
         System.out.print("Nhập mã dịch vụ: ");
-        String serviceCode = scanner.nextLine();
-//        Regex.regexServiceCodeHouse(serviceCode);
+        String serviceCode = Regex.regexServiceCodeHouse();
+
 
         System.out.print("Nhập tên dịch vụ: ");
         String serviceName = scanner.nextLine();
-//        Regex.regexName(serviceName);
+//        Regex.regexName();
 
         System.out.print("Nhập diện tích sử dụng: ");
         String checkUsableArea=scanner.nextLine();
-//        Regex.regexArea(checkUsableArea);
+//        Regex.regexArea();
         double usableArea = Double.parseDouble(checkUsableArea);
 
         System.out.print("Nhập chi phí thuê: ");
         String checkrentalCosts=scanner.nextLine();
-//        Regex.regexRentalCosts(checkrentalCosts);
+//        Regex.regexRentalCosts();
         int rentalCosts = Integer.parseInt(checkrentalCosts);
 
 
         System.out.print("Nhập số lượng người: ");
         String checkNumberPeople=scanner.nextLine();
-//        Regex.regexNumberPeople(checkNumberPeople);
+//        Regex.regexNumberPeople();
         int numberPeople = Integer.parseInt(checkNumberPeople);
 
 
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
-//        Regex.regexName(rentalType);
+//        Regex.regexName();
 
 
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard = scanner.nextLine();
-//        Regex.regexName(roomStandard);
+//        Regex.regexName();
 
 
         System.out.print("Nhập số tầng: ");
         String checkNumberOfFloors=scanner.nextLine();
-//        Regex.regexNumberOfFloors(checkNumberOfFloors);
+//        Regex.regexNumberOfFloors();
         int numberOfFloors = Integer.parseInt(checkNumberOfFloors);
 
 
         House house = new House(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, roomStandard,numberOfFloors);
-        facilityMap.put(house,1);
-        houseList.add(house);
-        ReadAndWriteFile.writeFileHouse(houseList);
+        facilityMap.put(house,0);
+        ReadAndWriteFile.writeFileFacility(facilityMap);
     }
 
     @Override
     public void addRoom() {
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
+
         System.out.print("Nhập mã dịch vụ: ");
         String serviceCode = scanner.nextLine();
-//        Regex.regexServiceCodeRoom(serviceCode);
+//        Regex.regexServiceCodeRoom();
 
         System.out.print("Nhập tên dịch vụ: ");
         String serviceName = scanner.nextLine();
-//        Regex.regexName(serviceName);
+//        Regex.regexName();
 
         System.out.print("Nhập diện tích sử dụng: ");
         String checkUsableArea=scanner.nextLine();
-//        Regex.regexArea(checkUsableArea);
+//        Regex.regexArea();
         double usableArea = Double.parseDouble(checkUsableArea);
 
         System.out.print("Nhập chi phí thuê: ");
         String checkRentalCosts=scanner.nextLine();
-//        Regex.regexRentalCosts(checkRentalCosts);
+//        Regex.regexRentalCosts();
         int rentalCosts = Integer.parseInt(checkRentalCosts);
 
         System.out.print("Nhập số lượng người: ");
         String checkNumberPeople=scanner.nextLine();
-//        Regex.regexNumberPeople(checkNumberPeople);
+//        Regex.regexNumberPeople();
         int numberPeople = Integer.parseInt(checkNumberPeople);
 
         System.out.print("Nhập kiểu thuê: ");
         String rentalType = scanner.nextLine();
-//        Regex.regexName(rentalType);
+//        Regex.regexName();
 
         System.out.print("Nhập dịch dụ miễn phí: ");
         String freeService = scanner.nextLine();
 
         Room room = new Room(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, freeService);
         facilityMap.put(room,0);
-        roomList.add(room);
-        ReadAndWriteFile.writeFileRoom(roomList);
+
+        ReadAndWriteFile.writeFileFacility(facilityMap);
     }
 
     @Override
     public void displayListFacilityMaintenance() {
-        for (Facility facility: facilityMap.keySet())
-            if (facilityMap.get(facility) > 4) {
-                System.out.println(facility.toString());
+        facilityMap.clear();
+        ReadAndWriteFile.readFileFacility(facilityMap);
+
+        for (Map.Entry<Facility,Integer> element: facilityMap.entrySet())
+            if (element.getValue() > 4) {
+                System.out.println(element.getKey()+", số lần sử dụng: "+element.getValue());
             }
     }
 

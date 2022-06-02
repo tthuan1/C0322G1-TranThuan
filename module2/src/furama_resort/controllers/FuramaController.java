@@ -150,13 +150,12 @@ public class FuramaController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    bookingService.addBooking();
+                    bookingService.add();
                     break;
                 case 2:
-                    bookingService.displayBooking();
+                    bookingService.display();
                     break;
                 case 3:
-                    bookingService.createConstracts();
                     break;
                 case 4:
                     break;

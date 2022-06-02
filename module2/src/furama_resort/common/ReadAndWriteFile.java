@@ -11,6 +11,7 @@ import furama_resort.model.person.Employee;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class ReadAndWriteFile {
@@ -28,6 +29,24 @@ public class ReadAndWriteFile {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    public static void writeFileFacility(Map<Facility, Integer> lists) {
+        List<String> listHouse = new ArrayList<>();
+        List<String> listVilla = new ArrayList<>();
+        List<String> listRoom = new ArrayList<>();
+        for (Map.Entry<Facility, Integer> entry : lists.entrySet()) {
+            if (entry.getKey() instanceof House) {
+                listHouse.add(((House) entry.getKey()).coverToString() + "," + entry.getValue());
+            } else if (entry.getKey() instanceof Room) {
+                listRoom.add(((Room) entry.getKey()).coverToString() + "," + entry.getValue());
+            } else {
+                listVilla.add(((Villa) entry.getKey()).coverToString() + "," + entry.getValue());
+            }
+        }
+        writeFile(listHouse, "src/furama_resort/data/facility/house.csv");
+        writeFile(listVilla, "src/furama_resort/data/facility/villa.csv");
+        writeFile(listRoom, "src/furama_resort/data/facility/Room.csv");
     }
 
     public static void writeFileCustomer(List<Customer> lists) {
@@ -170,6 +189,45 @@ public class ReadAndWriteFile {
                 String[] temp = line.split(",");
                 Booking booking = new Booking(Integer.parseInt(temp[0]), temp[1], temp[2], Integer.parseInt(temp[3]), temp[4]);
                 list.add(booking);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readFileFacility(Map<Facility, Integer> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/villa.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]), Double.parseDouble(temp[8]));
+                list.put(villa, Integer.parseInt(temp[9]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/room.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Room room = new Room(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6]);
+                list.put(room, Integer.parseInt(temp[7]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/facility/house.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                House house = new House(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]));
+                list.put(house, Integer.parseInt(temp[8]));
             }
         } catch (IOException e) {
             e.printStackTrace();
