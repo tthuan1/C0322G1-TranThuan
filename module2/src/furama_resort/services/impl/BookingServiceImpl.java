@@ -38,7 +38,9 @@ public class BookingServiceImpl implements BookingService {
         String startDay = scanner.nextLine();
         System.out.printf("Nhập ngày kết thúc: ");
         String endDate = scanner.nextLine();
+
         facilityMap.put(facility, facilityMap.get(facility)+1);
+
         Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), facility.getServiceCode());
         bookingList.add(booking);
         ReadAndWriteFile.writeFileFacility(facilityMap);

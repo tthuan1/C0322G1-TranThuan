@@ -1,6 +1,7 @@
 package furama_resort.common;
 
 import furama_resort.model.Booking;
+import furama_resort.model.Contract;
 import furama_resort.model.facility.Facility;
 import furama_resort.model.facility.House;
 import furama_resort.model.facility.Room;
@@ -16,16 +17,13 @@ import java.util.Set;
 
 public class ReadAndWriteFile {
     private static void writeFile(List<String> list, String path) {
-        try {
-            FileWriter fileWriter = new FileWriter(path);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        try (FileWriter fileWriter = new FileWriter(path);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)){
 
             for (String s : list) {
                 bufferedWriter.write(s);
                 bufferedWriter.newLine();
             }
-            bufferedWriter.close();
-            fileWriter.close();
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -96,6 +94,13 @@ public class ReadAndWriteFile {
         }
         writeFile(list, "src/furama_resort/data/booking.csv");
     }
+    public static void writeFileContract(List<Contract> lists) {
+        List<String> list = new ArrayList<>();
+        for (Contract e : lists) {
+            list.add(e.coverToString());
+        }
+        writeFile(list, "src/furama_resort/data/contract.csv");
+    }
 
 
     public static void readFilerEmployee(List<Employee> list) {
@@ -165,12 +170,24 @@ public class ReadAndWriteFile {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] temp = line.split(",");
-                //String serviceCode, String serviceName, Double usableArea, Integer rentalCosts,
-                // Integer maximumPeople, String rentalType, String roomStandard, Integer numberOfFloors, Double poolArea)
                 Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]),
                         Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5],
                         temp[6], Integer.parseInt(temp[7]), Double.parseDouble(temp[8]));
                 list.add(villa);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void readFilerContract(List<Contract> list) {
+        try {
+            FileReader fileReader = new FileReader("src/furama_resort/data/contract.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] temp = line.split(",");
+                Contract contract = new Contract(Integer.parseInt(temp[0]),Integer.parseInt(temp[1]),Integer.parseInt(temp[2]),Integer.parseInt(temp[3]),Integer.parseInt(temp[4]));
+                list.add(contract);
             }
         } catch (IOException e) {
             e.printStackTrace();

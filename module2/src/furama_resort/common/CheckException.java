@@ -3,11 +3,13 @@ package furama_resort.common;
 import java.util.Scanner;
 
 public class CheckException {
+    static Scanner scanner = new Scanner(System.in);
+
     public static int checkparseInt() {
         int value;
         while (true) {
             try {
-                value = Integer.parseInt((new Scanner(System.in)).nextLine());
+                value = Integer.parseInt(scanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
@@ -17,11 +19,11 @@ public class CheckException {
         return value;
     }
 
-    public static double checkparseDouble() {
-        Double value;
+    public static Double checkparseDouble() {
+        double value;
         while (true) {
             try {
-                value = Double.parseDouble((new Scanner(System.in)).nextLine());
+                value = Double.parseDouble(scanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
@@ -35,7 +37,7 @@ public class CheckException {
         String value;
         while (true) {
             try {
-                value = (new Scanner(System.in)).nextLine();
+                value = scanner.nextLine();
                 break;
             } catch (Exception e) {
                 System.out.println(e.getMessage());

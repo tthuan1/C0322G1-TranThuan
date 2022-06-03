@@ -5,12 +5,12 @@ public class Contract {
     private Integer bookingCode;
     private Integer deposits;
     private Integer totalMoney;
-    private String customerCode;
+    private Integer customerCode;
 
     public Contract() {
     }
 
-    public Contract(Integer contractsCode, Integer bookingCode, Integer deposits, Integer totalMoney, String customerCode) {
+    public Contract(Integer contractsCode, Integer bookingCode, Integer deposits, Integer totalMoney, Integer customerCode) {
         this.contractsCode = contractsCode;
         this.bookingCode = bookingCode;
         this.deposits = deposits;
@@ -50,11 +50,11 @@ public class Contract {
         this.totalMoney = totalMoney;
     }
 
-    public String getCustomerCode() {
+    public Integer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(String customerCode) {
+    public void setCustomerCode(Integer customerCode) {
         this.customerCode = customerCode;
     }
 

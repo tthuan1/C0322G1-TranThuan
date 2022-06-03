@@ -1,9 +1,7 @@
 package furama_resort.controllers;
 
-import furama_resort.services.BookingService;
-import furama_resort.services.CustomerService;
-import furama_resort.services.EmployeeService;
-import furama_resort.services.FacilityService;
+import furama_resort.common.CheckException;
+import furama_resort.services.*;
 import furama_resort.services.impl.*;
 
 import java.util.Scanner;
@@ -21,7 +19,7 @@ public class FuramaController {
                     "\t5. Promotion Management\n" +
                     "\t6. Exit\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     employeeManagement();
@@ -57,7 +55,7 @@ public class FuramaController {
                     "\t3. Edit employee\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     employeeService.display();
@@ -86,7 +84,7 @@ public class FuramaController {
                     "\t3. Edit customer\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     customerService.display();
@@ -116,7 +114,7 @@ public class FuramaController {
                     "\t3. Display list facility maintenance\n" +
                     "\t4. Return main menu\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     facilityService.display();
@@ -138,6 +136,7 @@ public class FuramaController {
 
     public static void bookingManagerment() {
         BookingService bookingService=new BookingServiceImpl();
+        ContactService contactService=new ContactServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Add new booking\n" +
@@ -147,7 +146,7 @@ public class FuramaController {
                     "\t5. Edit contracts\n" +
                     "\t6. Return main menu\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     bookingService.add();
@@ -156,10 +155,13 @@ public class FuramaController {
                     bookingService.display();
                     break;
                 case 3:
+                    contactService.add();
                     break;
                 case 4:
+                    contactService.display();
                     break;
                 case 5:
+                    contactService.edit();
                     break;
                 case 6:
                     return;
@@ -187,7 +189,7 @@ public class FuramaController {
                     "\t3. Add New Room\n" +
                     "\t4. Back to menu\n" +
                     "\tEnter: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = CheckException.checkparseInt();
             switch (choose) {
                 case 1:
                     facilityService.addVilla();
