@@ -4,7 +4,6 @@ import furama_resort.common.CheckException;
 import furama_resort.common.ReadAndWriteFile;
 import furama_resort.model.Booking;
 import furama_resort.model.Contract;
-import furama_resort.model.person.Customer;
 import furama_resort.services.ContactService;
 import furama_resort.uitl.BookingComparator;
 
@@ -13,8 +12,6 @@ import java.util.*;
 public class ContactServiceImpl implements ContactService {
     static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
     static List<Contract> contractList = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
-
 
     @Override
     public void add() {
@@ -25,9 +22,7 @@ public class ContactServiceImpl implements ContactService {
 
         Queue<Booking> bookingQueue = new LinkedList<>();
 
-        for (Booking booking : bookingSet) {
-            bookingQueue.add(booking);
-        }
+        bookingQueue.addAll(bookingSet);
 
         Booking booking = bookingQueue.poll();
 

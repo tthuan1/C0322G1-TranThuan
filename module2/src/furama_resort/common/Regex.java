@@ -3,10 +3,8 @@ package furama_resort.common;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class Regex {
     static Scanner scanner = new Scanner(System.in);
@@ -22,7 +20,7 @@ public class Regex {
 
     public static String regexServiceCodeRoom() {
         String serviceCode = CheckException.checkString();
-        while (!serviceCode.matches(REGEX_SERVICE_CODE_VILLA)) {
+        while (!serviceCode.matches(REGEX_SERVICE_CODE_ROOM)) {
             System.out.println("Nhập không đúng định dạng mã dịch vụ !!" +
                     "\nYêu cầu nhập lại lại đây theo định dạng SVRO-YYYY: ");
             serviceCode = scanner.nextLine();

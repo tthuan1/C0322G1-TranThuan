@@ -63,30 +63,6 @@ public class ReadAndWriteFile {
         writeFile(list, "src/furama_resort/data/person/employee.csv");
     }
 
-    public static void writeFileHouse(List<House> lists) {
-        List<String> list = new ArrayList<>();
-        for (House e : lists) {
-            list.add(e.coverToString());
-        }
-        writeFile(list, "src/furama_resort/data/facility/house.csv");
-    }
-
-    public static void writeFileRoom(List<Room> lists) {
-        List<String> list = new ArrayList<>();
-        for (Room e : lists) {
-            list.add(e.coverToString());
-        }
-        writeFile(list, "src/furama_resort/data/facility/room.csv");
-    }
-
-    public static void writeFileVilla(List<Villa> lists) {
-        List<String> list = new ArrayList<>();
-        for (Villa e : lists) {
-            list.add(e.coverToString());
-        }
-        writeFile(list, "src/furama_resort/data/facility/villa.csv");
-    }
-
     public static void writeFileBooking(Set<Booking> lists) {
         List<String> list = new ArrayList<>();
         for (Booking e : lists) {
@@ -133,52 +109,52 @@ public class ReadAndWriteFile {
         }
     }
 
-    public static void readFilerHouse(List<House> list) {
-        try {
-            FileReader fileReader = new FileReader("src/furama_resort/data/facility/house.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] temp = line.split(",");
-                House house = new House(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]));
-                list.add(house);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void readFilerRoom(List<Room> list) {
-        try {
-            FileReader fileReader = new FileReader("src/furama_resort/data/facility/room.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] temp = line.split(",");
-                Room room = new Room(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6]);
-                list.add(room);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void readFilerVilla(List<Villa> list) {
-        try {
-            FileReader fileReader = new FileReader("src/furama_resort/data/facility/villa.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] temp = line.split(",");
-                Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]),
-                        Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5],
-                        temp[6], Integer.parseInt(temp[7]), Double.parseDouble(temp[8]));
-                list.add(villa);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void readFilerHouse(List<House> list) {
+//        try {
+//            FileReader fileReader = new FileReader("src/furama_resort/data/facility/house.csv");
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                House house = new House(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6], Integer.parseInt(temp[7]));
+//                list.add(house);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public static void readFilerRoom(List<Room> list) {
+//        try {
+//            FileReader fileReader = new FileReader("src/furama_resort/data/facility/room.csv");
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                Room room = new Room(temp[0], temp[1], Double.parseDouble(temp[2]), Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5], temp[6]);
+//                list.add(room);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public static void readFilerVilla(List<Villa> list) {
+//        try {
+//            FileReader fileReader = new FileReader("src/furama_resort/data/facility/villa.csv");
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                Villa villa = new Villa(temp[0], temp[1], Double.parseDouble(temp[2]),
+//                        Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), temp[5],
+//                        temp[6], Integer.parseInt(temp[7]), Double.parseDouble(temp[8]));
+//                list.add(villa);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     public static void readFilerContract(List<Contract> list) {
         try {
             FileReader fileReader = new FileReader("src/furama_resort/data/contract.csv");
@@ -196,7 +172,6 @@ public class ReadAndWriteFile {
 
     public static void readFilerBooking(Set<Booking> list) {
         List<Customer> customerList = new ArrayList<>();
-        List<Facility> facilityList = new ArrayList<>();
         readFilerCustomer(customerList);
         try {
             FileReader fileReader = new FileReader("src/furama_resort/data/booking.csv");

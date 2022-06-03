@@ -4,11 +4,7 @@ import furama_resort.common.CheckException;
 import furama_resort.services.*;
 import furama_resort.services.impl.*;
 
-import java.util.Scanner;
-
 public class FuramaController {
-    static Scanner scanner = new Scanner(System.in);
-
     public static void displayMainMenu() {
         do {
             System.out.print("\t-----------------------------------------\n" +

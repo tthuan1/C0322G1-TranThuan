@@ -13,12 +13,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     static Scanner scanner = new Scanner(System.in);
     static List<Employee> listEmployee = new ArrayList<>();
 
-    static {
-        ReadAndWriteFile.readFilerEmployee(listEmployee);
-    }
-
     @Override
     public void add() {
+        listEmployee.clear();
         ReadAndWriteFile.readFilerEmployee(listEmployee);
         System.out.print("Nhập tên nhân viên: ");
         String name = scanner.nextLine();
@@ -28,16 +25,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         Regex.regexAge(date);
 
         System.out.print("Nhập giới tính: ");
-
         String gioiTinh = scanner.nextLine();
+
         System.out.print("Nhập chứng minh nhân dân: ");
-
         String cmnd = scanner.nextLine();
-        System.out.print("Nhập SĐT: ");
 
+        System.out.print("Nhập SĐT: ");
         String sdt = scanner.nextLine();
+
         System.out.print("Nhập Email: ");
         String email = scanner.nextLine();
+
         System.out.print("Nhập mã nhân viên: ");
         int maNhanVien = Integer.parseInt(scanner.nextLine());
         String level = null;
@@ -109,7 +107,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void display() {
-
+        listEmployee.clear();
+        ReadAndWriteFile.readFilerEmployee(listEmployee);
         for (Employee employee : listEmployee) {
             System.out.println(employee);
         }
@@ -117,6 +116,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void edit() {
+        listEmployee.clear();
+        ReadAndWriteFile.readFilerEmployee(listEmployee);
         System.out.print("Nhập mã nhân viên cần sửa: ");
         int update = Integer.parseInt(scanner.nextLine());
         int count = 0;

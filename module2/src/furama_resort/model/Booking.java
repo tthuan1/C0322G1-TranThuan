@@ -9,8 +9,6 @@ public class Booking {
     private String endDate;
     private Integer customerCode;
     private String serviceCode;
-//    private Customer customer;
-//    private Facility facility;
 
 
     public Booking(Integer bookingCode, String startDay, String endDate, Integer customerCode, String serviceCode) {

@@ -1,14 +1,12 @@
 package furama_resort.services.impl;
 
+import furama_resort.common.CheckException;
 import furama_resort.common.ReadAndWriteFile;
 import furama_resort.model.Booking;
 import furama_resort.model.facility.Facility;
-import furama_resort.model.facility.Villa;
 import furama_resort.model.person.Customer;
-import furama_resort.model.person.Employee;
 import furama_resort.services.BookingService;
 import furama_resort.uitl.BookingComparator;
-import javafx.scene.transform.Scale;
 
 import java.util.*;
 
@@ -17,12 +15,6 @@ public class BookingServiceImpl implements BookingService {
     static Set<Booking> bookingList = new TreeSet<>(new BookingComparator());
     static List<Customer> listCustomer = new LinkedList<>();
     static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
-
-
-    static {
-        ReadAndWriteFile.readFilerCustomer(listCustomer);
-
-    }
 
     @Override
     public void add() {
@@ -34,26 +26,28 @@ public class BookingServiceImpl implements BookingService {
         }
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
-        System.out.printf("Nhập ngày bắt đầu: ");
+        System.out.print("Nhập ngày bắt đầu: ");
         String startDay = scanner.nextLine();
-        System.out.printf("Nhập ngày kết thúc: ");
+        System.out.print("Nhập ngày kết thúc: ");
         String endDate = scanner.nextLine();
 
         facilityMap.put(facility, facilityMap.get(facility)+1);
 
-        Booking booking = new Booking(bookingCode, startDay, endDate, customer.getCustomerCode(), facility.getServiceCode());
+        Booking booking = new Booking(bookingCode, startDay, endDate, Objects.requireNonNull(customer).getCustomerCode(), Objects.requireNonNull(facility).getServiceCode());
         bookingList.add(booking);
         ReadAndWriteFile.writeFileFacility(facilityMap);
         ReadAndWriteFile.writeFileBooking(bookingList);
     }
 
     public static Customer chooseCustomer() {
+        listCustomer.clear();
+        ReadAndWriteFile.readFilerCustomer(listCustomer);
         System.out.println("-------------Danh sách khách hàng-------------");
         for (Customer customer : listCustomer) {
             System.out.println(customer);
         }
         System.out.print("Nhập id khách hàng: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = CheckException.checkparseInt();
         boolean flag = true;
         while (flag) {
             for (Customer customer : listCustomer) {
@@ -100,7 +94,6 @@ public class BookingServiceImpl implements BookingService {
     public void display() {
         ReadAndWriteFile.readFilerBooking(bookingList);
         for (Booking booking : bookingList) {
-//            System.out.printf(booking);
             System.out.println(booking);
         }
     }
