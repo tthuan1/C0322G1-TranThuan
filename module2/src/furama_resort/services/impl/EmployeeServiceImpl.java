@@ -1,5 +1,7 @@
 package furama_resort.services.impl;
 
+import furama_resort.common.CheckException;
+import furama_resort.common.InputInformation;
 import furama_resort.common.ReadAndWriteFile;
 import furama_resort.common.Regex;
 import furama_resort.model.person.Employee;
@@ -17,90 +19,36 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void add() {
         listEmployee.clear();
         ReadAndWriteFile.readFilerEmployee(listEmployee);
+
         System.out.print("Nhập tên nhân viên: ");
-        String name = scanner.nextLine();
+        String name = CheckException.checkString();
 
         System.out.print("Nhập ngày sinh: ");
         String date = scanner.nextLine();
         Regex.regexAge(date);
 
-        System.out.print("Nhập giới tính: ");
-        String gioiTinh = scanner.nextLine();
+        String gender = InputInformation.gender();
 
         System.out.print("Nhập chứng minh nhân dân: ");
         String cmnd = scanner.nextLine();
 
         System.out.print("Nhập SĐT: ");
-        String sdt = scanner.nextLine();
+        String sdt = CheckException.checkString();
 
         System.out.print("Nhập Email: ");
-        String email = scanner.nextLine();
+        String email = CheckException.checkString();
 
-        System.out.print("Nhập mã nhân viên: ");
-        int maNhanVien = Integer.parseInt(scanner.nextLine());
-        String level = null;
-        while (level == null) {
-            System.out.print("--------Nhập trình độ nhân viên---------\n" +
-                    "\t1. Trung cấp \n" +
-                    "\t2. Cao đẳng \n" +
-                    "\t3. Đại học \n" +
-                    "\t4. Sau đại học \n" +
-                    "\tEnter: ");
-            String  choose = scanner.nextLine();
-            switch (choose) {
-                case "1":
-                    level = "Trung cấp";
-                    break;
-                case "2":
-                    level = "Cao đẳng";
-                    break;
-                case "3":
-                    level = "Đại học";
-                    break;
-                case "4":
-                    level = "Sau đại học";
-                    break;
-                default:
-                    System.err.println("Chọn không đúng vui lòng nhập lại!!");
-            }
-        }
-        String position = null;
-        while (position == null) {
-            System.out.print("--------Nhập vị trí nhân viên---------\n" +
-                    "\t1. Lễ tân \n" +
-                    "\t2. Phục vụ \n" +
-                    "\t3. Chuyên viên \n" +
-                    "\t4. Giám sát \n" +
-                    "\t5. Quản lý \n" +
-                    "\t6. Giám đốc \n" +
-                    "\tEnter: ");
-            String  choose =scanner.nextLine();
-            switch (choose) {
-                case "1":
-                    position = "Lễ tân";
-                    break;
-                case "2":
-                    position = "Phục vụ";
-                    break;
-                case "3":
-                    position = "Chuyên viên";
-                    break;
-                case "4":
-                    position = "Giám sát";
-                    break;
-                case "5":
-                    position = "Quản lý";
-                    break;
-                case "6":
-                    position = "Giám đốc";
-                    break;
-                default:
-                    System.err.println("Chọn không đúng vui lòng nhập lại!!");
-            }
-        }
+        System.out.print("Nhập max nhân viên: ");
+        int employeeCode = CheckException.checkparseInt();
+
+        String level = InputInformation.level();
+
+        String position = InputInformation.position();
+
         System.out.print("Nhập số lương: ");
-        int luong = Integer.parseInt(scanner.nextLine());
-        Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, level, position, luong);
+        int salary = CheckException.checkparseInt();
+
+        Employee employee = new Employee(employeeCode, name, date, gender, cmnd, sdt, email, level, position, salary);
         listEmployee.add(employee);
         ReadAndWriteFile.writeFileEmployee(listEmployee);
     }
@@ -119,34 +67,39 @@ public class EmployeeServiceImpl implements EmployeeService {
         listEmployee.clear();
         ReadAndWriteFile.readFilerEmployee(listEmployee);
         System.out.print("Nhập mã nhân viên cần sửa: ");
-        int update = Integer.parseInt(scanner.nextLine());
+        int update = CheckException.checkparseInt();
         int count = 0;
         for (int i = 0; i < listEmployee.size(); i++) {
-            if (update==(listEmployee.get(i).getEmployeeCode())) {
+            if (update == (listEmployee.get(i).getEmployeeCode())) {
                 count++;
                 System.out.print("Nhập tên nhân viên: ");
-                String name = scanner.nextLine();
+                String name = CheckException.checkString();
+
                 System.out.print("Nhập ngày sinh: ");
-                String date = scanner.nextLine();
+                String date = CheckException.checkString();
                 Regex.regexAge(date);
 
-                System.out.print("Nhập giới tính: ");
-                String gioiTinh = scanner.nextLine();
+                String gender = InputInformation.gender();
+
                 System.out.print("Nhập chứng minh nhân dân: ");
-                String cmnd = scanner.nextLine();
+                String cmnd = CheckException.checkString();
+
                 System.out.print("Nhập SĐT: ");
-                String sdt = scanner.nextLine();
+                String sdt = CheckException.checkString();
+
                 System.out.print("Nhập Email: ");
-                String email = scanner.nextLine();
-                System.out.print("Nhập mã nhân viên: ");
-                int maNhanVien = Integer.parseInt(scanner.nextLine());
-                System.out.print("Nhập trình độ nhân viên: ");
-                String trinhDo = scanner.nextLine();
-                System.out.print("Nhập vị trí nhân viên: ");
-                String viTri = scanner.nextLine();
+                String email = CheckException.checkString();
+
+                int employeeCode = listEmployee.get(i).getEmployeeCode();
+
+                String level = InputInformation.level();
+
+                String position = InputInformation.position();
+
                 System.out.print("Nhập số lương: ");
-                int luong = Integer.parseInt(scanner.nextLine());
-                Employee employee = new Employee(maNhanVien, name, date, gioiTinh, cmnd, sdt, email, trinhDo, viTri, luong);
+                int luong = CheckException.checkparseInt();
+
+                Employee employee = new Employee(employeeCode, name, date, gender, cmnd, sdt, email, level, position, luong);
                 listEmployee.set(i, employee);
                 ReadAndWriteFile.writeFileEmployee(listEmployee);
             }

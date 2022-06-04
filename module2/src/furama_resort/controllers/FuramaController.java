@@ -98,7 +98,6 @@ public class FuramaController {
                     break;
             }
         } while (true);
-
     }
 
     public static void facilityManagement() {
@@ -131,8 +130,8 @@ public class FuramaController {
     }
 
     public static void bookingManagerment() {
-        BookingService bookingService=new BookingServiceImpl();
-        ContactService contactService=new ContactServiceImpl();
+        BookingService bookingService = new BookingServiceImpl();
+        ContactService contactService = new ContactServiceImpl();
         do {
             System.out.print("\t-----------------------------------------\n" +
                     "\t1. Add new booking\n" +

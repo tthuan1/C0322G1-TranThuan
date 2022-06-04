@@ -64,8 +64,7 @@ public class Booking {
                 "," + startDay +
                 "," + endDate +
                 "," + customerCode +
-                "," + serviceCode/* +
-                "," + facility.getRentalType()*/;
+                "," + serviceCode;
     }
 
     @Override
@@ -74,8 +73,7 @@ public class Booking {
                 " mã booking: " + bookingCode +
                 ", ngày bắt đầu: " + startDay +
                 ", ngày kết thúc: " + endDate +
-                ", mã khách hàng: " + customerCode+
-                ", mã dịch vụ: " + serviceCode/*+
-                ", loại dịch vụ: " + facility.getRentalType()*/;
+                ", mã khách hàng: " + customerCode +
+                ", mã dịch vụ: " + serviceCode;
     }
 }

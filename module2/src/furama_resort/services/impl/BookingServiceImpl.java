@@ -2,6 +2,7 @@ package furama_resort.services.impl;
 
 import furama_resort.common.CheckException;
 import furama_resort.common.ReadAndWriteFile;
+import furama_resort.common.Regex;
 import furama_resort.model.Booking;
 import furama_resort.model.facility.Facility;
 import furama_resort.model.person.Customer;
@@ -22,16 +23,21 @@ public class BookingServiceImpl implements BookingService {
         ReadAndWriteFile.readFilerBooking(bookingList);
         int bookingCode = 1;
         if (!bookingList.isEmpty()) {
-            bookingCode = bookingList.size()+1;
+            bookingCode = bookingList.size() + 1;
         }
+
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
-        System.out.print("Nhập ngày bắt đầu: ");
-        String startDay = scanner.nextLine();
-        System.out.print("Nhập ngày kết thúc: ");
-        String endDate = scanner.nextLine();
 
-        facilityMap.put(facility, facilityMap.get(facility)+1);
+        System.out.print("Nhập ngày bắt đầu: ");
+        String startDay = CheckException.checkString();
+        Regex.regexAge(startDay);
+
+        System.out.print("Nhập ngày kết thúc: ");
+        String endDate = CheckException.checkString();
+        Regex.regexAge(endDate);
+
+        facilityMap.put(facility, facilityMap.get(facility) + 1);
 
         Booking booking = new Booking(bookingCode, startDay, endDate, Objects.requireNonNull(customer).getCustomerCode(), Objects.requireNonNull(facility).getServiceCode());
         bookingList.add(booking);
@@ -92,6 +98,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void display() {
+        bookingList.clear();
         ReadAndWriteFile.readFilerBooking(bookingList);
         for (Booking booking : bookingList) {
             System.out.println(booking);

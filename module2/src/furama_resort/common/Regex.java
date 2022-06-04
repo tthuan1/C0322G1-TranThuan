@@ -114,7 +114,7 @@ public class Regex {
                         throw new AgeException("Tuổi phải lớn hơn 18 và bé hơn 100");
                     }
                 } else {
-                    throw new AgeException("Định dạng nhập vào sai");
+                    throw new AgeException("Nhập sai, yêu cầu nhập lại !!");
                 }
             } catch (AgeException e) {
                 System.out.println(e.getMessage());
@@ -122,4 +122,5 @@ public class Regex {
             }
         }
     }
+
 }

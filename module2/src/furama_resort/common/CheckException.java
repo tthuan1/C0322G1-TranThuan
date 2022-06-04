@@ -34,14 +34,14 @@ public class CheckException {
     }
 
     public static String checkString() {
-        String value;
+        String value = scanner.nextLine();
         while (true) {
             try {
-                value = scanner.nextLine();
+                int check = 1 / value.length();
                 break;
             } catch (Exception e) {
-                System.out.println(e.getMessage());
-                System.out.print("Nhập lại: ");
+                System.out.print("Nhập rổng yêu cầu nhập lại: ");
+                value = scanner.nextLine();
             }
         }
         return value;

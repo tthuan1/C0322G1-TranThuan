@@ -67,11 +67,12 @@ public abstract class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
     abstract String coverToString();
 
     @Override
     public String toString() {
-        return  ", name: " + name +
+        return ", name: " + name +
                 ", dateOfBirth: " + date +
                 ", gender: " + gender +
                 ", identityCard: " + identityCard +

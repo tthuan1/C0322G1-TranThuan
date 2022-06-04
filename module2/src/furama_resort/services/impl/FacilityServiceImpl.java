@@ -1,5 +1,7 @@
 package furama_resort.services.impl;
 
+import furama_resort.common.CheckException;
+import furama_resort.common.InputInformation;
 import furama_resort.common.ReadAndWriteFile;
 import furama_resort.common.Regex;
 import furama_resort.model.facility.Facility;
@@ -44,8 +46,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Nhập số lượng người: ");
         int numberPeople = Regex.regexNumberPeople();
 
-        System.out.print("Nhập kiểu thuê: ");
-        String rentalType = Regex.regexName();
+        String rentalType = InputInformation.rentalType();
 
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard =Regex.regexName();
@@ -80,8 +81,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Nhập số lượng người: ");
         int numberPeople = Regex.regexNumberPeople();
 
-        System.out.print("Nhập kiểu thuê: ");
-        String rentalType = Regex.regexName();
+        String rentalType = InputInformation.rentalType();
 
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String roomStandard =  Regex.regexName();
@@ -114,11 +114,10 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Nhập số lượng người: ");
         int numberPeople = Regex.regexNumberPeople();
 
-        System.out.print("Nhập kiểu thuê: ");
-        String rentalType = Regex.regexName();
+        String rentalType = InputInformation.rentalType();
 
         System.out.print("Nhập dịch dụ miễn phí: ");
-        String freeService = scanner.nextLine();
+        String freeService = CheckException.checkString();
 
         Room room = new Room(serviceCode, serviceName, usableArea, rentalCosts, numberPeople, rentalType, freeService);
         facilityMap.put(room,0);

@@ -2,11 +2,9 @@ package furama_resort.uitl;
 
 import furama_resort.model.Booking;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
-import java.util.Locale;
 
 public class BookingComparator implements Comparator<Booking> {
     @Override
