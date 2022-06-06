@@ -1,6 +1,6 @@
-package extra_homework.view;
+package companyABC.view;
 
-import extra_homework.controllers.DisplayMainMenu;
+import companyABC.controllers.DisplayMainMenu;
 
 public class View {
     public static void main(String[] args) {
