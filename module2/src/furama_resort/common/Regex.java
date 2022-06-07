@@ -23,7 +23,7 @@ public class Regex {
         while (!serviceCode.matches(REGEX_SERVICE_CODE_ROOM)) {
             System.out.println("Nhập không đúng định dạng mã dịch vụ !!" +
                     "\nYêu cầu nhập lại lại đây theo định dạng SVRO-YYYY: ");
-            serviceCode = scanner.nextLine();
+            serviceCode = CheckException.checkString();
         }
         return serviceCode;
     }

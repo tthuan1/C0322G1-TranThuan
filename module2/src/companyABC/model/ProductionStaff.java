@@ -1,7 +1,6 @@
 package companyABC.model;
 
 public class ProductionStaff extends Person {
-    //    Số sản phẩm, Giá mỗi sản phẩm
     private Integer product;
     private double price;
 
@@ -16,7 +15,7 @@ public class ProductionStaff extends Person {
 
     @Override
     public String coverToString() {
-        return super.getId() + "," + super.getEmployeeCode() + "," + super.getName() + "," + super.getDateOfBirth() + "," + super.getAddress() + "," + product + "," + price;
+        return super.getId() + "," + super.getEmployeeCode() + "," + super.getName() + "," + super.getDateOfBirth() + "," + super.getAddress() + "," + product + "," + price + ",f";
     }
 
     @Override

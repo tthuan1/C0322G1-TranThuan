@@ -1,6 +1,7 @@
 package companyABC.common;
 
 import companyABC.model.ManagementStaff;
+import companyABC.model.Person;
 import companyABC.model.ProductionStaff;
 import furama_resort.model.Booking;
 import furama_resort.model.Contract;
@@ -12,6 +13,7 @@ import furama_resort.model.person.Customer;
 import furama_resort.model.person.Employee;
 
 import java.io.*;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +38,18 @@ public class ReadAndWriteFile {
         for (ManagementStaff e : lists) {
             list.add(e.coverToString());
         }
-        writeFile(list, "src/companyABC/data/managementStaff.csv");
+        writeFile(list, "src/companyABC/data/employee.csv");
+    }
+    public static <E>void writeFileEmployee(List<E> lists) {
+        List<String> list = new ArrayList<>();
+        if (lists instanceof ManagementStaff){
+            for (E e : lists) {
+                if (e instanceof ManagementStaff){
+                    list.add(((ManagementStaff) e).coverToString());
+                }
+            }
+        }
+        writeFile(list, "src/companyABC/data/employee.csv");
     }
 
     public static void writeFileProductionStaff(List<ProductionStaff> lists) {
@@ -44,31 +57,57 @@ public class ReadAndWriteFile {
         for (ProductionStaff e : lists) {
             list.add(e.coverToString());
         }
-        writeFile(list, "src/companyABC/data/productionStaff.csv");
+        writeFile(list, "src/companyABC/data/employee.csv");
     }
 
 
-    public static void readFilerProductionStaff(List<ProductionStaff> list) {
-        try (FileReader fileReader = new FileReader("src/companyABC/data/productionStaff.csv");
+//
+//    public static void readFilerProductionStaff(List<ProductionStaff> list) {
+//        try (FileReader fileReader = new FileReader("src/companyABC/data/employee.csv");
+//             BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                if (temp.length==8){
+//                    ProductionStaff productionStaff = new ProductionStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Integer.parseInt(temp[5]), Double.parseDouble(temp[6]));
+//                    list.add(productionStaff);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+//    public static void readFilerManagementStaff(List<ManagementStaff> list) {
+//        try (FileReader fileReader = new FileReader("src/companyABC/data/employee.csv");
+//             BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                String[] temp = line.split(",");
+//                if (temp.length==7){
+//                    ManagementStaff managementStaff = new ManagementStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Double.parseDouble(temp[5]), Double.parseDouble(temp[6]));
+//                    list.add(managementStaff);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public static<E> void readFilerEmployee(List<E> list) {
+        try (FileReader fileReader = new FileReader("src/companyABC/data/employee.csv");
              BufferedReader bufferedReader = new BufferedReader(fileReader);) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] temp = line.split(",");
-                ProductionStaff productionStaff = new ProductionStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Integer.parseInt(temp[5]), Double.parseDouble(temp[6]));
-                list.add(productionStaff);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void readFilerManagementStaff(List<ManagementStaff> list) {
-        try (FileReader fileReader = new FileReader("src/companyABC/data/managementStaff.csv");
-             BufferedReader bufferedReader = new BufferedReader(fileReader);) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] temp = line.split(",");
-                ManagementStaff managementStaff = new ManagementStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Double.parseDouble(temp[5]), Double.parseDouble(temp[6]));
-                list.add(managementStaff);
+                    if (temp.length==7){
+                        ManagementStaff managementStaff = new ManagementStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Double.parseDouble(temp[5]), Double.parseDouble(temp[6]));
+                        list.add((E) managementStaff);
+                    }
+                    if (temp.length==8){
+                        ProductionStaff productionStaff = new ProductionStaff(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], Integer.parseInt(temp[5]), Double.parseDouble(temp[6]));
+                        list.add((E)productionStaff);
+                    }
             }
         } catch (IOException e) {
             e.printStackTrace();

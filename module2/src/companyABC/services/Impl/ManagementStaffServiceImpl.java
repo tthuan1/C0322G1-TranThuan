@@ -4,6 +4,7 @@ import companyABC.common.CheckException;
 import companyABC.common.ReadAndWriteFile;
 import companyABC.common.Regex;
 import companyABC.model.ManagementStaff;
+import companyABC.model.Person;
 import companyABC.services.Service;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public class ManagementStaffServiceImpl implements Service {
     @Override
     public void display() {
         managementStaffs.clear();
-        ReadAndWriteFile.readFilerManagementStaff(managementStaffs);
-        for (ManagementStaff managementStaff : managementStaffs) {
+        ReadAndWriteFile.readFilerEmployee(managementStaffs);
+        for (ManagementStaff managementStaff :  managementStaffs) {
             System.out.println(managementStaff);
         }
     }
@@ -24,7 +25,7 @@ public class ManagementStaffServiceImpl implements Service {
     @Override
     public void add() {
         managementStaffs.clear();
-        ReadAndWriteFile.readFilerManagementStaff(managementStaffs);
+        ReadAndWriteFile.readFilerEmployee(managementStaffs);
         int id = 1;
         if (!managementStaffs.isEmpty()) {
             id = managementStaffs.size() + 1;
@@ -45,14 +46,14 @@ public class ManagementStaffServiceImpl implements Service {
         double coefficientsSalary = CheckException.checkparseDouble();
         ManagementStaff managementStaff = new ManagementStaff(id, employeeCode, name, dateOfBirth, address, salary, coefficientsSalary);
         managementStaffs.add(managementStaff);
-        ReadAndWriteFile.writeFileManagementStaff(managementStaffs);
+        ReadAndWriteFile.writeFileEmployee(managementStaffs);
         System.out.println("thêm mới thành công!");
     }
 
     @Override
     public void delete() {
         managementStaffs.clear();
-        ReadAndWriteFile.readFilerManagementStaff(managementStaffs);
+        ReadAndWriteFile.readFilerEmployee(managementStaffs);
         System.out.print("Nhập id bạn muốn xoá: ");
         String s=CheckException.checkString();
         boolean flag=true;
@@ -67,14 +68,14 @@ public class ManagementStaffServiceImpl implements Service {
         if (flag){
             System.out.println("mã không tồn tại !!");
         }
-        ReadAndWriteFile.writeFileManagementStaff(managementStaffs);
+        ReadAndWriteFile.writeFileEmployee(managementStaffs);
 
     }
 
     @Override
     public void search() {
         managementStaffs.clear();
-        ReadAndWriteFile.readFilerManagementStaff(managementStaffs);
+        ReadAndWriteFile.readFilerEmployee(managementStaffs);
         System.out.print("Nhập mã nhân viên tìm kiếm: ");
         String s=CheckException.checkString();
         boolean flag=true;

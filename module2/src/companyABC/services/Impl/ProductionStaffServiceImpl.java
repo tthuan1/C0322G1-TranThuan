@@ -15,7 +15,7 @@ public class ProductionStaffServiceImpl implements Service {
     @Override
     public void display() {
         productionStaffs.clear();
-        ReadAndWriteFile.readFilerProductionStaff(productionStaffs);
+        ReadAndWriteFile.readFilerEmployee(productionStaffs);
         for (ProductionStaff productionStaff : productionStaffs) {
             System.out.println(productionStaff);
         }
@@ -24,7 +24,7 @@ public class ProductionStaffServiceImpl implements Service {
     @Override
     public void add() {
         productionStaffs.clear();
-        ReadAndWriteFile.readFilerProductionStaff(productionStaffs);
+        ReadAndWriteFile.readFilerEmployee(productionStaffs);
         int id = 1;
         if (!productionStaffs.isEmpty()) {
             id = productionStaffs.size() + 1;
@@ -45,14 +45,14 @@ public class ProductionStaffServiceImpl implements Service {
         double price = CheckException.checkparseDouble();
         ProductionStaff productionStaff = new ProductionStaff(id, employeeCode, name, dateOfBirth, address, product, price);
         productionStaffs.add(productionStaff);
-        ReadAndWriteFile.writeFileProductionStaff(productionStaffs);
+        ReadAndWriteFile.writeFileEmployee(productionStaffs);
         System.out.println("thêm mới thành công!");
     }
 
     @Override
     public void delete() {
         productionStaffs.clear();
-        ReadAndWriteFile.readFilerProductionStaff(productionStaffs);
+        ReadAndWriteFile.readFilerEmployee(productionStaffs);
         System.out.print("Nhập id bạn muốn xoá: ");
         String s=CheckException.checkString();
         boolean flag=true;
@@ -67,14 +67,14 @@ public class ProductionStaffServiceImpl implements Service {
         if (flag){
             System.out.println("mã không tồn tại !!");
         }
-        ReadAndWriteFile.writeFileProductionStaff(productionStaffs);
+        ReadAndWriteFile.writeFileEmployee(productionStaffs);
 
     }
 
     @Override
     public void search() {
         productionStaffs.clear();
-        ReadAndWriteFile.readFilerProductionStaff(productionStaffs);
+        ReadAndWriteFile.readFilerEmployee(productionStaffs);
         System.out.print("Nhập mã nhân viên tìm kiếm: ");
         String s=CheckException.checkString();
         boolean flag=true;
