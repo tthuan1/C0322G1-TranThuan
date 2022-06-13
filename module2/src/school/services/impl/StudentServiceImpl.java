@@ -28,8 +28,8 @@ public class StudentServiceImpl implements Service {
         String gender = InputInformation.gender();
 
         System.out.println("Nhập ngày sinh: ");
-        String date = CheckException.checkString();
-        Regex.regexAge(date);
+        String date = Regex.regexAge1();
+        Regex.regexAge1();
 
         System.out.println("Nhập địa chỉ: ");
         String diaChi = CheckException.checkString();

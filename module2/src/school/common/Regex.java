@@ -6,6 +6,7 @@ import furama_resort.common.CheckException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -33,6 +34,7 @@ public class Regex {
         }
         return codeStudent;
     }
+
     public static String regexDiemTB() {
         String codeStudent = CheckException.checkString();
         while (!codeStudent.matches(REGEX_DIEM_TB)) {
@@ -51,6 +53,15 @@ public class Regex {
             soDuong = CheckException.checkString();
         }
         return soDuong;
+    }
+    public static String regexAge1() {
+         String date = CheckException.checkString();
+        while (!date.matches(REGEX_DATE_OF_BIRTH)) {
+            System.out.println("Nhập sai !!" +
+                    "\nYêu cầu nhập lại: ");
+            date = CheckException.checkString();
+        }
+        return date;
     }
 
     public static void regexAge(String date) {
@@ -76,5 +87,6 @@ public class Regex {
             }
         }
     }
+
 
 }
