@@ -1,5 +1,4 @@
 create database if not exists material_management;
-
 use material_management;
 
 create table if not exists phieu_xuat(
