@@ -8,28 +8,27 @@ import java.util.regex.Pattern;
 
 public class huhu {
 
-    huhu() {
-            System.out.print("abc");
-        }
-
-        class Bar {
-            Bar() {
-                System.out.print("tobar");
+    public static void main(String[] args) {
+        int n = 10;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i < n / 2) {
+                    if (j >= i && j < (n - i)) {
+                        System.out.print(" * ");
+                    } else {
+                        System.out.print(" - ");
+                    }
+                } else {
+                    if (j <= i && j >= (n-1 - i)) {
+                        System.out.print(" * ");
+                    } else {
+                        System.out.print(" - ");
+                    }
+                }
             }
-
-            public void go() {
-                System.out.print("ok");
-            }
+            System.out.println();
         }
+    }
 
-        public static void main(String[] args) {
-            huhu f = new huhu();
-            f.createBar();
-        }
-
-        void createBar() {
-            (new Bar() {
-            }).go();
-        }
 
 }
