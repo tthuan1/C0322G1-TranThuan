@@ -11,7 +11,3 @@ where (year(curdate())-year(ngay_sinh) between 18 and 50) and dia_chi like '%ÄÃ
 -- task 4
 select ma_khach_hang,ho_ten, count (hop_dong.ma_khach_hang) as so_lan_dat_phong from khach_hang
 
-
-
-
-
