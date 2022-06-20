@@ -5,19 +5,24 @@
 
 use manager_furama;
 
-select 
-	hd.ma_hop_dong, 
-	ldv.ten_loai_dich_vu, 
-	dvdk.ten_dich_vu_di_kem, 
-	count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung 
-from hop_dong hd
-join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
-join dich_vu_di_kem dvdk on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
-join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
-join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
-group by hdct.ma_dich_vu_di_kem
-having so_lan_su_dung = 1
-order by so_lan_su_dung
+SELECT 
+    hd.ma_hop_dong,
+    ldv.ten_loai_dich_vu,
+    dvdk.ten_dich_vu_di_kem,
+    COUNT(hdct.ma_dich_vu_di_kem) AS so_lan_su_dung
+FROM
+    hop_dong hd
+        JOIN
+    hop_dong_chi_tiet hdct ON hd.ma_hop_dong = hdct.ma_hop_dong
+        JOIN
+    dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+        JOIN
+    dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu
+        JOIN
+    loai_dich_vu ldv ON dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+GROUP BY hdct.ma_dich_vu_di_kem
+HAVING so_lan_su_dung = 1
+ORDER BY so_lan_su_dung
 ;
 
 

@@ -6,27 +6,35 @@
 
 use manager_furama;
 
-select 
-hd.ngay_lam_hop_dong,
-	hd.ma_hop_dong, 
-	nv.ho_ten as ho_ten_nhan_vien, 
-	kh.ho_ten as ho_ten_khach_hang, 
-	kh.so_dien_thoai as sdt_khach_hang,
+SELECT 
+    hd.ngay_lam_hop_dong,
+    hd.ma_hop_dong,
+    nv.ho_ten AS ho_ten_nhan_vien,
+    kh.ho_ten AS ho_ten_khach_hang,
+    kh.so_dien_thoai AS sdt_khach_hang,
     dv.ma_dich_vu,
-	dv.ten_dich_vu, 
-	ifnull( sum(hdct.so_luong),0) as so_luong_dich_vu_di_kem,
-	hd.tien_dat_coc
-from hop_dong hd
-left join khach_hang kh on hd.ma_khach_hang = kh.ma_khach_hang
-left join nhan_vien nv on hd.ma_nhan_vien = nv.ma_nhan_vien
-left join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
-left join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
-where (hd.ngay_lam_hop_dong between '2020-10-01' and '2020-12-30')
-and hd.ma_hop_dong not in
-(
-	select hop_dong.ma_hop_dong from hop_dong
-    where year(ngay_lam_hop_dong) = '2021' and month(ngay_lam_hop_dong) between 01 and 6
-)
-group by hd.ma_hop_dong;
+    dv.ten_dich_vu,
+    IFNULL(SUM(hdct.so_luong), 0) AS so_luong_dich_vu_di_kem,
+    hd.tien_dat_coc
+FROM
+    hop_dong hd
+        LEFT JOIN
+    khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang
+        LEFT JOIN
+    nhan_vien nv ON hd.ma_nhan_vien = nv.ma_nhan_vien
+        LEFT JOIN
+    dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu
+        LEFT JOIN
+    hop_dong_chi_tiet hdct ON hd.ma_hop_dong = hdct.ma_hop_dong
+WHERE
+    (hd.ngay_lam_hop_dong BETWEEN '2020-10-01' AND '2020-12-30')
+        AND hd.ma_hop_dong NOT IN (SELECT 
+            hop_dong.ma_hop_dong
+        FROM
+            hop_dong
+        WHERE
+            YEAR(ngay_lam_hop_dong) = '2021'
+                AND MONTH(ngay_lam_hop_dong) BETWEEN 01 AND 6)
+GROUP BY hd.ma_hop_dong;
 
 

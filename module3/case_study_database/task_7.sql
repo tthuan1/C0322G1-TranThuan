@@ -4,14 +4,28 @@
 
 use manager_furama;
 
-select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
-from dich_vu dv
-join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
-join hop_dong hd on dv.ma_dich_vu = hd.ma_dich_vu
-where year(hd.ngay_lam_hop_dong) = 2020
-group by dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
-having dv.ma_dich_vu not in (
-select dich_vu.ma_dich_vu from dich_vu 
-join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu 
-where year(hop_dong.ngay_lam_hop_dong) = 2021);
+SELECT 
+    dv.ma_dich_vu,
+    dv.ten_dich_vu,
+    dv.dien_tich,
+    dv.so_nguoi_toi_da,
+    dv.chi_phi_thue,
+    ldv.ten_loai_dich_vu
+FROM
+    dich_vu dv
+        JOIN
+    loai_dich_vu ldv ON dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
+        JOIN
+    hop_dong hd ON dv.ma_dich_vu = hd.ma_dich_vu
+WHERE
+    YEAR(hd.ngay_lam_hop_dong) = 2020
+GROUP BY dv.ma_dich_vu , dv.ten_dich_vu , dv.dien_tich , dv.so_nguoi_toi_da , dv.chi_phi_thue , ldv.ten_loai_dich_vu
+HAVING dv.ma_dich_vu NOT IN (SELECT 
+        dich_vu.ma_dich_vu
+    FROM
+        dich_vu
+            JOIN
+        hop_dong ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+    WHERE
+        YEAR(hop_dong.ngay_lam_hop_dong) = 2021);
 ;

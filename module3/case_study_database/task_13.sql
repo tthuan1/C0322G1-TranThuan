@@ -3,15 +3,19 @@
 -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 use manager_furama;
 
-select  
-	dvdk.ma_dich_vu_di_kem,	dvdk.ten_dich_vu_di_kem,
-    ifnull(sum(hdct.so_luong),0) as so_luong_dich_vu_di_kem
-from dich_vu_di_kem dvdk
-join hop_dong_chi_tiet hdct on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
-group by dvdk.ma_dich_vu_di_kem
-having so_luong_dich_vu_di_kem  >= all(
-	select ifnull(sum(hop_dong_chi_tiet.so_luong),0)  from dich_vu_di_kem
-    join hop_dong_chi_tiet  on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
-    group by hop_dong_chi_tiet.ma_dich_vu_di_kem
-);
-
+SELECT 
+    dvdk.ma_dich_vu_di_kem,
+    dvdk.ten_dich_vu_di_kem,
+    IFNULL(SUM(hdct.so_luong), 0) AS so_luong_dich_vu_di_kem
+FROM
+    dich_vu_di_kem dvdk
+        JOIN
+    hop_dong_chi_tiet hdct ON dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+GROUP BY dvdk.ma_dich_vu_di_kem
+HAVING so_luong_dich_vu_di_kem >= ALL (SELECT 
+        IFNULL(SUM(hop_dong_chi_tiet.so_luong), 0)
+    FROM
+        dich_vu_di_kem
+            JOIN
+        hop_dong_chi_tiet ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+    GROUP BY hop_dong_chi_tiet.ma_dich_vu_di_kem);

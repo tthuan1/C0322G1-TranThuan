@@ -1,4 +1,9 @@
 use manager_furama;
 -- task 3
-select * from khach_hang
-where (year(curdate())-year(ngay_sinh) between 18 and 50) and dia_chi like '%Đà Nẵng%' or dia_chi like '%Quảng Trị%'; 
+SELECT *
+FROM
+    khach_hang
+WHERE
+    (YEAR(CURDATE()) - YEAR(ngay_sinh) BETWEEN 18 AND 50)
+        AND dia_chi LIKE '%Đà Nẵng%'
+        OR dia_chi LIKE '%Quảng Trị%'; 

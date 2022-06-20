@@ -4,10 +4,16 @@ use manager_furama;
 -- Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng. 
 -- Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
 
-select kh.ma_khach_hang, kh.ho_ten , count(hd.ma_khach_hang) as so_lan_dat_phong
-from khach_hang kh
-join hop_dong hd on  kh.ma_khach_hang = hd.ma_khach_hang
-where kh.ma_loai_khach=1
-group by ma_khach_hang
-order by so_lan_dat_phong
+SELECT 
+    kh.ma_khach_hang,
+    kh.ho_ten,
+    COUNT(hd.ma_khach_hang) AS so_lan_dat_phong
+FROM
+    khach_hang kh
+        JOIN
+    hop_dong hd ON kh.ma_khach_hang = hd.ma_khach_hang
+WHERE
+    kh.ma_loai_khach = 1
+GROUP BY ma_khach_hang
+ORDER BY so_lan_dat_phong
 ;
