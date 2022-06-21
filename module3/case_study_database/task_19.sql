@@ -13,9 +13,8 @@ having sum(hdct.so_luong) >= 10;
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE dich_vu_di_kem 
-SET gia = gia + gia
+SET gia = gia * 2
 WHERE ma_dich_vu_di_kem  in (
     select * from v_gia);
-    
+   
 select * from dich_vu_di_kem;
-

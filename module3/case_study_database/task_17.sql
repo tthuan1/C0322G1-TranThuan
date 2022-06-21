@@ -5,14 +5,13 @@
 use manager_furama;
 
 UPDATE khach_hang 
-SET 
-    ma_loai_khach = 1
+SET ma_loai_khach = 1
 WHERE ma_loai_khach = 2 and
     ma_khach_hang in (
     select * from v_khach_hang
     );
 
--- create view v_khach_hang as 
+create view v_khach_hang as 
 select kh.ma_khach_hang
 FROM khach_hang kh
 	left join loai_khach lk on kh.ma_loai_khach = lk.ma_loai_khach
@@ -23,6 +22,8 @@ FROM khach_hang kh
     where kh.ma_loai_khach = 2
 GROUP BY kh.ma_Khach_hang
 having SUM(dv.chi_phi_thue + IFNULL((hdct.so_luong * dvdk.gia), 0)) >= 10000000;
+
+select * from khach_hang;
 
 
 

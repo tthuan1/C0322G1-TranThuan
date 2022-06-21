@@ -1,3 +1,4 @@
+DROP DATABASE manager_furama;
 CREATE DATABASE if not exists manager_furama;
 use manager_furama;
 CREATE TABLE if not exists vi_tri(
@@ -45,6 +46,8 @@ CREATE TABLE if not exists khach_hang(
     dia_chi varchar(45),
     
     ma_loai_khach int,
+    delete_at date,
+    update_at date,
     
     foreign key(ma_loai_khach) references loai_khach(ma_loai_khach) -- khoá ngoại
 );
