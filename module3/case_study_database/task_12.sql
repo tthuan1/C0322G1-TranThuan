@@ -17,15 +17,11 @@ SELECT
     IFNULL(SUM(hdct.so_luong), 0) AS so_luong_dich_vu_di_kem,
     hd.tien_dat_coc
 FROM
-    hop_dong hd
-        LEFT JOIN
-    khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang
-        LEFT JOIN
-    nhan_vien nv ON hd.ma_nhan_vien = nv.ma_nhan_vien
-        LEFT JOIN
-    dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu
-        LEFT JOIN
-    hop_dong_chi_tiet hdct ON hd.ma_hop_dong = hdct.ma_hop_dong
+    hop_dong hd 
+    LEFT JOIN khach_hang kh ON hd.ma_khach_hang = kh.ma_khach_hang 
+    LEFT JOIN nhan_vien nv ON hd.ma_nhan_vien = nv.ma_nhan_vien
+	LEFT JOIN dich_vu dv ON hd.ma_dich_vu = dv.ma_dich_vu
+	LEFT JOIN hop_dong_chi_tiet hdct ON hd.ma_hop_dong = hdct.ma_hop_dong
 WHERE
     (hd.ngay_lam_hop_dong BETWEEN '2020-10-01' AND '2020-12-30')
         AND hd.ma_hop_dong NOT IN (SELECT 

@@ -11,14 +11,10 @@ SELECT
     bp.ten_bo_phan,
     nv.so_dien_thoai,
     nv.dia_chi
-FROM
-    nhan_vien nv
-        JOIN
-    trinh_do td ON nv.ma_trinh_do = td.ma_trinh_do
-        JOIN
-    bo_phan bp ON nv.ma_bo_phan = bp.ma_bo_phan
-        JOIN
-    hop_dong hd ON nv.ma_nhan_vien = hd.ma_nhan_vien
+FROM nhan_vien nv
+        JOIN trinh_do td ON nv.ma_trinh_do = td.ma_trinh_do
+        JOIN bo_phan bp ON nv.ma_bo_phan = bp.ma_bo_phan
+        JOIN hop_dong hd ON nv.ma_nhan_vien = hd.ma_nhan_vien
 WHERE
     YEAR(hd.ngay_lam_hop_dong) BETWEEN 2020 AND 2021
 GROUP BY nv.ma_nhan_vien
