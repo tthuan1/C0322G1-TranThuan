@@ -1,32 +1,54 @@
 .header {
-
-    height: 40px;
+    height: auto;
     text-align: center;
-    background: indigo;
+    background: #282828;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
 }
 .column {
-    height: 900px;
-    text-align: center;
-    background: indigo;
+    width: 90%;
+    height: auto;
     color: white;
-    margin-top: 5px;
+    margin-top: 1px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .footer {
     padding: 10px;
     text-align: center;
-    background: indigo;
-    margin-top: 5px;
+    /*background: indigo;*/
+    margin-top: 1px;
     color: white;
 }
 .nav{
     color: white;
     float: left;
-    width: 12.4%;
+    width: 13%;
     height: 40px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
+.nav3{
+    /*background-color: blue;*/
+    color: white;
+    float: left;
+    width: 20%;
+    height: auto;
+    text-align: center;
+
+
+}
+img{
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
 
