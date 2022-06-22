@@ -1,7 +1,9 @@
 .header {
+
+    width: 100%;
     height: auto;
     text-align: center;
-    background: #282828;
+    background: #101010;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,8 +13,6 @@
     width: 90%;
     height: auto;
     color: white;
-    margin-top: 1px;
-    background-color: black;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
@@ -20,13 +20,12 @@
 }
 
 .footer {
-    width: auto;
+    width: 100%;
     padding: 10px;
     text-align: center;
-    /*background: indigo;*/
-    margin-top: 1px;
+    background: #101010;
+    margin-top: 300px;
     color: white;
-    float: top;
 }
 .nav{
     color: white;
@@ -46,7 +45,8 @@
 
 }
 img{
-    width: auto;
+    width: max-content;
+    height: max-content;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -54,6 +54,10 @@ img{
 }
 h3{
     color: #3f94d5;
+    font-size: 25px;
+}
+body{
+    background-color: black;
 }
 
 
