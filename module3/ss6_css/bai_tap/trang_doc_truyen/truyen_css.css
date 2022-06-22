@@ -1,0 +1,32 @@
+.header {
+
+    height: 40px;
+    text-align: center;
+    background: indigo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.column {
+    height: 900px;
+    text-align: center;
+    background: indigo;
+    color: white;
+    margin-top: 5px;
+}
+
+.footer {
+    padding: 10px;
+    text-align: center;
+    background: indigo;
+    margin-top: 5px;
+    color: white;
+}
+.nav{
+    color: white;
+    float: left;
+    width: 12.4%;
+    height: 40px;
+    margin-top: 30px;
+}
+
