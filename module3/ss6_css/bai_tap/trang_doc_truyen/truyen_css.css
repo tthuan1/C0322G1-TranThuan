@@ -20,11 +20,13 @@
 }
 
 .footer {
+    width: auto;
     padding: 10px;
     text-align: center;
     /*background: indigo;*/
     margin-top: 1px;
     color: white;
+    float: top;
 }
 .nav{
     color: white;
@@ -49,6 +51,9 @@ img{
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
+}
+h3{
+    color: #3f94d5;
 }
 
 
