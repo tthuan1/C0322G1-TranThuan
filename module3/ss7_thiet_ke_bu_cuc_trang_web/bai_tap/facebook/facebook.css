@@ -50,7 +50,9 @@
     content: "";
     display: block;
 }
-
+.header{
+    position: fixed;
+}
 
 .logo-header {
     width: 100%;
@@ -67,8 +69,9 @@
 }
 
 .menu-header {
-    background-color: #ffffff;
-    margin-top: 7px;
+    margin-top: 0;
+    background-color: white;
+    position: fixed;
     text-align: center;
 }
 .center-box {
@@ -79,13 +82,16 @@
 .content_mid{
     background-color: white;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 50px;
 }
 .content_left{
+    margin-top: 30px;
+    position: fixed;
     font-size: 20px;
 }
 .content_right{
-
+    position: fixed;
+    margin-top: 30px;
     font-size: 18px;
 }
 span{
