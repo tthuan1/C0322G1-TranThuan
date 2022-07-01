@@ -18,6 +18,7 @@
     <input type="text" name="action" value="search" hidden>
     <button type="submit">Tìm kiếm</button>
 </form>
+
 <form>
     <table>
         <tr>
@@ -44,6 +45,10 @@
         </c:forEach>
 
     </table>
+</form>
+<form action="/user">
+    <input type="text" name="action" value="sort_by_name" hidden>
+    <button type="submit">Sắp xếp theo tên</button>
 </form>
 </body>
 </html>

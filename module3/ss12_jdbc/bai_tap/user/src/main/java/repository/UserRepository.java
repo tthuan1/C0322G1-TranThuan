@@ -18,4 +18,6 @@ public interface UserRepository {
     void delete(int id);
 
     List<User> findByName(String name);
+
+    List<User> sortByName();
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet(name = "UserServlet", urlPatterns = {"/user", "/"})
 public class UserServlet extends HttpServlet {
 
-    List<User> userList = new ArrayList<>();
+    static List<User> userList = new ArrayList<>();
     private UserService userService = new UserServiceImpl();
 
     @Override
@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
                 request.getRequestDispatcher("user/createUser.jsp").forward(request, response);
                 break;
             case "edit":
-                showFormEdit(request,response);
+                showFormEdit(request, response);
                 break;
             case "delete":
                 showFormDelete(request, response);
@@ -38,17 +38,35 @@ public class UserServlet extends HttpServlet {
             case "search":
                 findByName(request, response);
                 break;
+            case "sort_by_name":
+                sortByName(request, response);
+                break;
             default:
                 findAll(request, response);
                 break;
         }
     }
 
-    private void findByName(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("nameSearch");
-        request.setAttribute("user",userService.findByName(name));
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        userList.clear();
+        userList= userService.sortByName();
+        request.setAttribute("userList", userList);
         try {
-            request.getRequestDispatcher("listUser.jsp").forward(request,response);
+            request.getRequestDispatcher("listUser.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void findByName(HttpServletRequest request, HttpServletResponse response) {
+        userList.clear();
+        String name = request.getParameter("nameSearch");
+        userList=userService.findByName(name);
+        request.setAttribute("userList", userList);
+        try {
+            request.getRequestDispatcher("listUser.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -59,9 +77,9 @@ public class UserServlet extends HttpServlet {
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.findById(id);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         try {
-            request.getRequestDispatcher("/user/deleteUser.jsp").forward(request,response);
+            request.getRequestDispatcher("/user/deleteUser.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -72,9 +90,9 @@ public class UserServlet extends HttpServlet {
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.findById(id);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         try {
-            request.getRequestDispatcher("/user/editUser.jsp").forward(request,response);
+            request.getRequestDispatcher("/user/editUser.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -129,10 +147,10 @@ public class UserServlet extends HttpServlet {
 
     private void editUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        String name= request.getParameter("name");
-        String email= request.getParameter("email");
-        String country= request.getParameter("country");
-        User user=new User(id,name, email, country);
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User user = new User(id, name, email, country);
         userService.edit(user);
         try {
             response.sendRedirect("/user");
@@ -140,7 +158,6 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 
 
 }

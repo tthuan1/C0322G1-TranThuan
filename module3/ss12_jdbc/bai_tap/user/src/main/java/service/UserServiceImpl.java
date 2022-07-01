@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService{
     public List<User> findByName(String name) {
         return userRepository.findByName(name);
     }
+
+    @Override
+    public List<User> sortByName() {
+        return userRepository.sortByName();
+    }
 }

@@ -17,6 +17,7 @@ public class UserRepositoryImpl implements UserRepository{
     private static final String FIND_BY_ID = "select * from users where id = ?";
     private static final String FIND_BY_NAME = "select * from users where name like ?";
     private static final String UPDATE_USER = "update users set name = ?,email=?,country=? where id = ?";
+    private static final String SORT_BY_NAME = "select * from users order by `name`;";
 
     @Override
     public List<User> findAll() {
@@ -125,6 +126,28 @@ public class UserRepositoryImpl implements UserRepository{
         try (Connection connection = new BaseRepository().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME)) {
             preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = Integer.parseInt(resultSet.getString("id"));
+                String names = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                user = new User(id,names, email, country);
+                userList.add(user);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return userList;
+    }
+
+    @Override
+    public List<User> sortByName() {
+        userList.clear();
+        User user = null;
+        try (Connection connection = new BaseRepository().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SORT_BY_NAME)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = Integer.parseInt(resultSet.getString("id"));

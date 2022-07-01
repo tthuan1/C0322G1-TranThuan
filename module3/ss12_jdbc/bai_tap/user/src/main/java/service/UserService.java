@@ -18,4 +18,6 @@ public interface UserService {
     void delete(int id);
 
     List<User> findByName(String name);
+
+    List<User> sortByName();
 }
