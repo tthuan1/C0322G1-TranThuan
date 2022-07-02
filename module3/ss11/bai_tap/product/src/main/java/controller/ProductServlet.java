@@ -2,7 +2,7 @@ package controller;
 
 import model.Product;
 import service.IProductService;
-import service.ProductServiceImpl;
+import service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = "/product")
 public class ProductServlet extends HttpServlet {
-    private IProductService productService = new ProductServiceImpl();
+    private IProductService productService = new ProductService();
     static List<Product> productList = new ArrayList<>();
 
     @Override
@@ -135,10 +135,11 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> productList = productService.selectAll();
-        request.setAttribute("hihi", productList);
+        productList.clear();
+        productList=productService.selectAll();
+        request.setAttribute("productList", productList);
         try {
-            request.getRequestDispatcher("list.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/product/list.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

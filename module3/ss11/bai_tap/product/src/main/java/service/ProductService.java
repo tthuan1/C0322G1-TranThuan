@@ -2,12 +2,13 @@ package service;
 
 import model.Product;
 import repository.IProductRepository;
-import repository.ProductRepositoryImpl;
+import repository.ProductRepository;
 
 import java.util.List;
 
-public class ProductServiceImpl implements IProductService {
-IProductRepository productRepository=new ProductRepositoryImpl();
+public class ProductService implements IProductService {
+    IProductRepository productRepository = new ProductRepository();
+
     @Override
     public List<Product> selectAll() {
         return productRepository.selectAll();
@@ -25,7 +26,7 @@ IProductRepository productRepository=new ProductRepositoryImpl();
 
     @Override
     public void update(int id, Product product) {
-        productRepository.update(id,  product);
+        productRepository.update(id, product);
     }
 
     @Override

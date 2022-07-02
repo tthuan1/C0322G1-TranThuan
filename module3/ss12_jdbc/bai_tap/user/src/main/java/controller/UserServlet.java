@@ -26,7 +26,7 @@ public class UserServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                //điều hướng vào createUser.jsp (cả edit)
+                //nhận createUser.jsp điều phối yêu cầu
                 request.getRequestDispatcher("user/createUser.jsp").forward(request, response);
                 break;
             case "edit":
@@ -49,10 +49,11 @@ public class UserServlet extends HttpServlet {
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
         userList.clear();
-        userList= userService.sortByName();
-        request.setAttribute("userList", userList);
+        userList = userService.sortByName();
+        request.setAttribute("userList", userList);// đặt thuộc tính o:userList vào name:userList
         try {
-            request.getRequestDispatcher("listUser.jsp").forward(request, response);
+            //nhận listUser.jsp điều phối yêu cầu
+            request.getRequestDispatcher("user/listUser.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -66,7 +67,7 @@ public class UserServlet extends HttpServlet {
         userList=userService.findByName(name);
         request.setAttribute("userList", userList);
         try {
-            request.getRequestDispatcher("listUser.jsp").forward(request, response);
+            request.getRequestDispatcher("user/listUser.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -101,19 +102,15 @@ public class UserServlet extends HttpServlet {
 
     }
 
-    private void showFormCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
-        User user = new User(name, email, country);
-        userService.create(user);
-        response.sendRedirect("/user");
-    }
+
 
     private void findAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // tạo 1 list<User> gán dữ liệu bằng (findAll để truy xuất thông tin từ database)
         userList = userService.findAll();
+        // gửi yêu cầu đặt thuộc tính o:userList -> name:"userList"
         request.setAttribute("userList", userList);
-        request.getRequestDispatcher("listUser.jsp").forward(request, response);
+        // gửi yêu cầu  nhận listUser.jsp để điều phối yêu cầu
+        request.getRequestDispatcher("user/listUser.jsp").forward(request, response);
     }
 
     @Override
@@ -159,5 +156,17 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void showFormCreate(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // gán name = yêu cầu lấy tham số tương tự email,country
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        // tạo đối tượng và thêm thông dữ liệu vào cho đối tượng
+        User user = new User(name, email, country);
+        // sử dụng phương thức create() để gửi cho service sử lí nghiệp vụ
+        userService.create(user);
+        // khi thực hiện hàm create() xong tạo 1 phản hồi gửi chuyển hướng tới "/user"
+        response.sendRedirect("/user");
+    }
 
 }

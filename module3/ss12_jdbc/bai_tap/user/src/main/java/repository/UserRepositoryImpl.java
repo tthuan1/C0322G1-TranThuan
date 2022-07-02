@@ -25,8 +25,7 @@ public class UserRepositoryImpl implements UserRepository{
         try {
             Connection connection = new BaseRepository().getConnection();
 //          Tạo câu lệnh SQL
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(FIND_ALL);
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL);
 //          Dùng executeQuery/Update để thực thi.
 //          ResultSet : Nhận kết quả từ DB trả về để xử lý
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -47,15 +46,15 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public void create(User user) {
-//        Tạo câu lệnh SQL
         try {
+            // Thiết lập kết nối
             Connection connection = new BaseRepository().getConnection();
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(INSERT);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
-            preparedStatement.executeUpdate();
+            // Tạo một câu lệnh bằng cách sử dụng đối tượng kết nối
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
+            preparedStatement.setString(1, user.getName());     // set dấu ? thứ 1
+            preparedStatement.setString(2, user.getEmail());    // set dấu ? thứ 2
+            preparedStatement.setString(3, user.getCountry());  // set dấu ? thứ 3
+            preparedStatement.executeUpdate();  // thực thi chương trình với câu lệnh được gán bằng INSERT
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -64,10 +63,9 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public void deleteUser(int id) {
-            Connection connection = new BaseRepository().getConnection();
         try {
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(DELETE);
+            Connection connection = new BaseRepository().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
         } catch (SQLException e) {
             e.printStackTrace();
         }

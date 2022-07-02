@@ -26,27 +26,27 @@
 </form>
 
 <form>
-    <table class="table w-75 bd-black">
+    <table class="table w-100 bd-black">
         <tr>
             <th>id</th>
             <th>name</th>
-            <th>gia</th>
-            <th>mieu ta</th>
-            <th>nha sx</th>
+            <th>price</th>
+            <th>describe</th>
+            <th>producer</th>
             <th>update</th>
             <th>xoa</th>
             <th>Xem chi tiet</th>
         </tr>
-        <c:forEach var="temp" items='${hihi}'>
+        <c:forEach var="product" items='${productList}'>
             <tr>
-                <td>${temp.id}</td>
-                <td>${temp.name}</td>
-                <td>${temp.price}</td>
-                <td>${temp.describe}</td>
-                <td>${temp.producer}</td>
-                <td><a href="/product?action=edit&id=${temp.getId()}">edit</a></td>
-                <td><a href="/product?action=delete&id=${temp.getId()}">delete</a></td>
-                <td><a href="/product?action=view&id=${temp.getId()}">chi tiet</a></td>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.describe}</td>
+                <td>${product.producer}</td>
+                <td><a href="/product?action=edit&id=${product.getId()}">edit</a></td>
+                <td><a href="/product?action=delete&id=${product.getId()}">delete</a></td>
+                <td><a href="/product?action=view&id=${product.getId()}">chi tiet</a></td>
             </tr>
         </c:forEach>
     </table>
