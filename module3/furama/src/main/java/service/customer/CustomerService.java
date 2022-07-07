@@ -32,4 +32,10 @@ private ICustomerRepository customerRepository=new CustomerRepository();
     public void edit(Customer customer) {
         customerRepository.edit(customer);
     }
+
+    @Override
+    public List<Customer> findByName(String nameSearch) {
+        return customerRepository.findByName(nameSearch);
+    }
+
 }

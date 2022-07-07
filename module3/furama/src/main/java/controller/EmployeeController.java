@@ -2,6 +2,7 @@ package controller;
 
 import dto.EmployeeDTO;
 import model.Customer;
+import model.CustomerType;
 import model.Employee;
 import service.employee.EmployeeService;
 import service.employee.IEmployeeDTOService;
@@ -28,16 +29,55 @@ public class EmployeeController extends HttpServlet {
         }
         switch (action) {
             case "create":
-                showFormCreate(request,response);
+                showFormCreate(request, response);
                 break;
             case "edit":
-                showFormEdit(request,response);
+                showFormEdit(request, response);
                 break;
             case "delete":
+                deleteEmployee(request, response);
+                break;
+            case "search":
+                searchEmployee(request, response);
                 break;
             default:
                 showListEmployee(request, response);
                 break;
+        }
+    }
+
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response) {
+        String typeSearch = request.getParameter("typeSearch");
+        String nameSearch = request.getParameter("nameSearch");
+        System.out.println(nameSearch);
+        System.out.println(typeSearch);
+        switch (typeSearch) {
+            case "name":
+                request.setAttribute("employeeDTOList", employeeDTOService.findByName(nameSearch));
+                break;
+            case "division":
+                request.setAttribute("employeeDTOList", employeeDTOService.findByDivision(nameSearch));
+                break;
+            case "position":
+                request.setAttribute("employeeDTOList", employeeDTOService.findByPosition(nameSearch));
+                break;
+        }
+        try {
+            request.getRequestDispatcher("view/employee/list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        employeeDTOService.delete(id);
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -52,18 +92,18 @@ public class EmployeeController extends HttpServlet {
     }
 
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        Employee customer = employeeDTOService.findById(id);
-//        request.setAttribute("customer", customer);
-//        List<CustomerType> typeList = customerTypeService.findAll();
-//        request.setAttribute("typeList", typeList);
-//        try {
-//            request.getRequestDispatcher("view/customer/edit.jsp").forward(request, response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        Employee employee = employeeService.findById(id);
+        request.setAttribute("employee", employee);
+        EmployeeDTO employeeDTO = employeeDTOService.findById(id);
+        request.setAttribute("employeeDTO", employeeDTO);
+        try {
+            request.getRequestDispatcher("view/employee/edit.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showListEmployee(HttpServletRequest request, HttpServletResponse response) {
@@ -86,12 +126,34 @@ public class EmployeeController extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createEmployee(request,response);
+                createEmployee(request, response);
                 break;
             case "edit":
+                editEmployee(request, response);
                 break;
             case "delete":
                 break;
+        }
+    }
+
+    private void editEmployee(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String dateOfBirth = request.getParameter("dateOfBirth");
+        String idCard = request.getParameter("idCard");
+        Double salary = Double.parseDouble(request.getParameter("salary"));
+        String phoneNumber = request.getParameter("phoneNumber");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        Integer positionId = Integer.parseInt(request.getParameter("positionId"));
+        Integer educationDegreeId = Integer.parseInt(request.getParameter("educationDegreeId"));
+        Integer divisionId = Integer.parseInt(request.getParameter("divisionId"));
+        Employee employee = new Employee(id, name, dateOfBirth, idCard, salary, phoneNumber, email, address, positionId, educationDegreeId, divisionId);
+        employeeService.edit(employee);
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -106,10 +168,10 @@ public class EmployeeController extends HttpServlet {
         Integer positionId = Integer.parseInt(request.getParameter("positionId"));
         Integer educationDegreeId = Integer.parseInt(request.getParameter("educationDegreeId"));
         Integer divisionId = Integer.parseInt(request.getParameter("divisionId"));
-        Employee employee = new Employee(name,dateOfBirth,idCard,salary,phoneNumber,email,address,positionId,educationDegreeId,divisionId);
+        Employee employee = new Employee(name, dateOfBirth, idCard, salary, phoneNumber, email, address, positionId, educationDegreeId, divisionId);
         employeeService.create(employee);
         try {
-            response.sendRedirect("/customer");
+            response.sendRedirect("/employee");
         } catch (IOException e) {
             e.printStackTrace();
         }

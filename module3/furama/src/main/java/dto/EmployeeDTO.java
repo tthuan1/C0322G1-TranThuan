@@ -14,7 +14,7 @@ public class EmployeeDTO {
     private String divisionName;
     private String username;
 
-    public EmployeeDTO(Integer id, String name, String dateOfBirth, String idCard, Double salary, String phoneNumber, String email, String address, String positionName, String educationDegreeName, String divisionName) {
+    public EmployeeDTO(Integer id, String name, String dateOfBirth, String idCard, Double salary, String phoneNumber, String email, String address, String divisionName, String positionName, String educationDegreeName) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;

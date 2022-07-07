@@ -10,10 +10,14 @@
 <html>
 <head>
     <title>employee - furama</title>
-    <link>
     <link rel="shortcut icon" type="image/png"
           href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"/>
-    <!-- CSS bootstrap -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style/bootstrap/normalize.css">
+    <link rel="stylesheet" href="../style/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/datatables/css/dataTables.bootstrap4.min.css"/>
+    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -56,8 +60,14 @@
                             </div>
                         </div>
                     </nav>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" action="/employee">
+                            <select class="form-control me-2 " id="sel" name="typeSearch">
+                                <option value="name">search by name</option>
+                                <option value="division">search by division</option>
+                                <option value="position">search by position</option>
+                            </select>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="nameSearch">
+                        <input type="text" name="action" value="search" hidden>
                         <button class="btn" type="submit">Search</button>
                     </form>
                 </div>
@@ -65,52 +75,86 @@
         </div>
 
     </div>
-    <div class="row">
-        <form>
-            <table class="table">
-                <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>dateOfBirth</th>
-                    <th>idCard</th>
-                    <th>salary</th>
-                    <th>phoneNumber</th>
-                    <th>email</th>
-                    <th>address</th>
-                    <th>position</th>
-                    <th>educationDegree</th>
-                    <th>division</th>
-                    <th>edit</th>
-                    <th>delete</th>
-                </tr>
-                <c:forEach var="employeeDTOList" items="${employeeDTOList}">
+    <div class="container-fluid">
+        <div class="row">
+            <form>
+                <table class="table table-striped " id="myTable">
+                    <thead>
                     <tr>
-                        <td>${employeeDTOList.id}</td>
-                        <td>${employeeDTOList.name}</td>
-                        <td>${employeeDTOList.dateOfBirth}</td>
-                        <td>${employeeDTOList.idCard}</td>
-                        <td>${employeeDTOList.salary}</td>
-                        <td>${employeeDTOList.phoneNumber}</td>
-                        <td>${employeeDTOList.email}</td>
-                        <td>${employeeDTOList.address}</td>
-                        <td>${employeeDTOList.positionName}</td>
-                        <td>${employeeDTOList.educationDegreeName}</td>
-                        <td>${employeeDTOList.divisionName}</td>
-                        <td>
-                            <a href="/employee?action=edit&id=${employeeDTOList.id}">Edit</a>
-                        </td>
-                        <td>
-                            <a href="/employee?action=delete&id=${employeeDTOList.id}">Delete</a>
-                        </td>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>dateOfBirth</th>
+                        <th>idCard</th>
+                        <th>salary</th>
+                        <th>phoneNumber</th>
+                        <th>email</th>
+                        <th>address</th>
+                        <th>division</th>
+                        <th>position</th>
+                        <th>educationDegree</th>
+                        <th>edit</th>
+                        <th>delete</th>
                     </tr>
-                </c:forEach>
-            </table>
-            <a href="/employee?action=create"> add</a>
-        </form>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="employeeDTOList" items="${employeeDTOList}">
+                        <tr>
+                            <td>${employeeDTOList.id}</td>
+                            <td>${employeeDTOList.name}</td>
+                            <td>${employeeDTOList.dateOfBirth}</td>
+                            <td>${employeeDTOList.idCard}</td>
+                            <td>${employeeDTOList.salary}</td>
+                            <td>${employeeDTOList.phoneNumber}</td>
+                            <td>${employeeDTOList.email}</td>
+                            <td>${employeeDTOList.address}</td>
+                            <td>${employeeDTOList.divisionName}</td>
+                            <td>${employeeDTOList.positionName}</td>
+                            <td>${employeeDTOList.educationDegreeName}</td>
+                            <td>
+                                <a href="<c:url value="/employee?action=edit&id=${employeeDTOList.id}"/>"
+                                   class="btn btn-outline-warning">Edit</a>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop${employeeDTOList.id}">
+                                    Xoá
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop${employeeDTOList.id}" data-bs-backdrop="static"
+                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Xác nhận xoá</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body"> <%--hiển thị nội dung muốn thông báo--%>
+                                                <h1>bạn có muốn xoá bạn ${employeeDTOList.name} này không ??</h1>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="<c:url value="/employee?action=delete&id=${employeeDTOList.id}"/>"
+                                                   class="btn btn-outline-primary">Chấp nhận</a>
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">Huỷ
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Modal -->
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <a href="<c:url value="/employee?action=create"/>" class="btn btn-outline-primary">Add</a>
+            </form>
+        </div>
     </div>
 
-    <div class="row">
-    </div>
     <div class="row">
         <div class="blockquote-footer bg-black text-center">
             <p>Trần thuận ® 2022- Đà nẵng</p>
@@ -118,8 +162,26 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+<script src="../style/jquery/jquery-3.5.1.min.js"></script>
+<script src="../style/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../style/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script src="../style/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+    $("#btnClick").click(function () {
+        let img = `<img src="https://iaslinks.org/wp-content/uploads/2021/03/fbi-warning-la-gi.jpg" style="width: 100%" alt="">`;
+        $("#bodyTable").html(img);
+    })
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 7
+        });
+    });
+
+</script>
 </body>
 </html>

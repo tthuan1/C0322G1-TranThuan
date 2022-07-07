@@ -15,4 +15,7 @@ public interface ICustomerService {
     void delete(int id);
 
     void edit(Customer customer);
+
+
+    List<Customer> findByName(String nameSearch);
 }

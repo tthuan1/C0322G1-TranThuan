@@ -66,24 +66,21 @@
             <form method="post">
                 <div class="form-floating">
                     <select class="form-select" id="sel1" name="typeId">
-                        <option value="${customer.typeId}">
-                            <c:forEach var="typeList" items="${typeList}">
-                                <c:if test="${typeList.id==customer.typeId}">
-                                    ${typeList.name}
-                                </c:if>
-                            </c:forEach>
-                        </option>
-                        <option value="1">Diamond</option>
-                        <option value="2">Platinium</option>
-                        <option value="3">Gold</option>
-                        <option value="4">Silver</option>
-                        <option value="5">Member</option>
+                        <c:forEach var="typeList" items="${typeList}">
+                            <c:if test="${typeList.id == customer.typeId}">
+                                <option value="${typeList.id}" selected>${typeList.name} </option>
+                            </c:if>
+                            <c:if test="${typeList.id != customer.typeId}">
+                                <option value="${typeList.id}">${typeList.name}</option>
+                            </c:if>
+                        </c:forEach>
                     </select>
-                        <label for="sel1" class="form-label">type Name</label>
+                    <label for="sel1" class="form-label">type Name</label>
                 </div>
 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="${customer.name}">
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                           value="${customer.name}">
                     <label for="name">name</label>
                 </div>
 
@@ -104,7 +101,8 @@
                 </div>
 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard" value="${customer.idCard}">
+                    <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
+                           value="${customer.idCard}">
                     <label for="idCard">idCard </label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
@@ -113,11 +111,13 @@
                     <label for="email">phoneNumber</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" value="${customer.email}">
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
+                           value="${customer.email}">
                     <label for="email">Email: </label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value="${customer.address}">
+                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
+                           value="${customer.address}">
                     <label for="address">address</label>
                 </div>
                 <div class="d-grid gap-3">

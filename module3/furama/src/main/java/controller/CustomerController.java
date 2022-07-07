@@ -11,13 +11,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CustomerController", value = "/customer")
 public class CustomerController extends HttpServlet {
     private ICustomerService customerService = new CustomerService();
     private ICustomerTypeService customerTypeService = new CustomerTypeService();
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,10 +30,13 @@ public class CustomerController extends HttpServlet {
                 request.getRequestDispatcher("view/customer/create.jsp").forward(request, response);
                 break;
             case "edit":
-                showFormEdit(request,response);
+                showFormEdit(request, response);
                 break;
             case "delete":
-                showFormDelete(request,response);
+                showFormDelete(request, response);
+                break;
+            case "search":
+                findByName(request, response);
                 break;
             default:
                 showListCustomer(request, response);
@@ -41,36 +44,42 @@ public class CustomerController extends HttpServlet {
         }
     }
 
+    private void findByName(HttpServletRequest request, HttpServletResponse response) {
+
+        String nameSearch = request.getParameter("nameSearch");
+//        List<Customer> customerList = customerService.findByName(nameSearch);
+        request.setAttribute("customerList", customerService.findByName(nameSearch));
+        List<CustomerType> typeList = customerTypeService.findAll();
+        request.setAttribute("typeList", typeList);
+        try {
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findById(id);
-        request.setAttribute("customer", customer);
-        List<CustomerType> typeList = customerTypeService.findAll();
-        request.setAttribute("typeList", typeList);
-        try {
-            request.getRequestDispatcher("view/customer/edit.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        Customer customer = customerService.findById(id);
+//        request.setAttribute("customer", customer);
+//        List<CustomerType> typeList = customerTypeService.findAll();
+//        request.setAttribute("typeList", typeList);
+//        try {
+//            request.getRequestDispatcher("view/customer/edit.jsp").forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    private void showFormDelete(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findById(id);
-        request.setAttribute("customer", customer);
-        List<CustomerType> typeList = customerTypeService.findAll();
-        request.setAttribute("typeList", typeList);
-        try {
-            request.getRequestDispatcher("view/customer/delete.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void showFormDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        customerService.delete(id);
+//        response.sendRedirect("/customer");
     }
-
 
     private void showListCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.findAll();
@@ -96,13 +105,9 @@ public class CustomerController extends HttpServlet {
             case "create":
                 createCustomer(request, response);
                 break;
-            case "delete":
-                deleteCustomer(request, response);
-                break;
             case "edit":
                 editCustomer(request, response);
                 break;
-
         }
     }
 
@@ -117,7 +122,7 @@ public class CustomerController extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
 
-        Customer customer = new Customer(id,typeId,name,dateOfBirth,gender,idCard,phoneNumber,email,address);
+        Customer customer = new Customer(id, typeId, name, dateOfBirth, gender, idCard, phoneNumber, email, address);
         customerService.edit(customer);
         try {
             response.sendRedirect("/customer");
@@ -145,7 +150,7 @@ public class CustomerController extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = new Customer(typeId,name,dateOfBirth,gender,idCard,phoneNumber,email,address);
+        Customer customer = new Customer(typeId, name, dateOfBirth, gender, idCard, phoneNumber, email, address);
         customerService.create(customer);
         try {
             response.sendRedirect("/customer");

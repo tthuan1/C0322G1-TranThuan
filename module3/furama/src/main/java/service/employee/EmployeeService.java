@@ -11,4 +11,15 @@ public class EmployeeService implements IEmployeeService{
     public void create(Employee employee) {
         employeeRepository.create(employee);
     }
+
+    @Override
+    public Employee findById(int id) {
+        return employeeRepository.findById(id);
+    }
+
+    @Override
+    public void edit(Employee employee) {
+        employeeRepository.edit(employee);
+    }
+
 }
