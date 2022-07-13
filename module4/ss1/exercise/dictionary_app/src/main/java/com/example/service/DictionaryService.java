@@ -12,18 +12,9 @@ public class DictionaryService implements IDictionaryService {
     @Autowired
     private IDictionaryRepository dictionaryRepository;
 
-    static Map<String,String> map= new LinkedHashMap<>();
-    static {
-        map.put("chó", "dog");
-        map.put("hải", "gà");
-        map.put("thuận", "đẹp trai");
-        map.put("mèo", "cat");
-        map.put("quang", "đỉnh");
-    }
-
     @Override
     public String search(String vnWord) {
-        String result=map.get(vnWord);
+        String result=dictionaryRepository.get(vnWord);
         if (result ==null){
             return "Không tìm thấy";
         }return result;
