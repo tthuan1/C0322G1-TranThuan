@@ -14,7 +14,7 @@ public class DictionaryService implements IDictionaryService {
 
     @Override
     public String search(String vnWord) {
-        String result=dictionaryRepository.get(vnWord);
+        String result= dictionaryRepository.get(vnWord);
         if (result ==null){
             return "Không tìm thấy";
         }return result;
