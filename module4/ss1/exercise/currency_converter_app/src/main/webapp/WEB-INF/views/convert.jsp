@@ -23,11 +23,11 @@
         <table class="table">
             <tr>
                 <th>USD</th>
-                <th><input class=" w-100" type="text" name="usd" value="${usd}" placeholder="Nhập giá trị vào "></th>
+                <td><input class=" w-100" type="text" name="usd" value="${usd}" placeholder="Nhập giá trị vào "></td>
             </tr>
             <tr>
                 <th>VND</th>
-                <th>${value}</th>
+                <td>${value} VND</td>
             </tr>
         </table>
         <input type="submit" value="chuyển đổi">
