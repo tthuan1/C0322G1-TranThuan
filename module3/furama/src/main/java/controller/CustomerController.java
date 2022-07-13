@@ -47,7 +47,6 @@ public class CustomerController extends HttpServlet {
     private void findByName(HttpServletRequest request, HttpServletResponse response) {
 
         String nameSearch = request.getParameter("nameSearch");
-//        List<Customer> customerList = customerService.findByName(nameSearch);
         request.setAttribute("customerList", customerService.findByName(nameSearch));
         List<CustomerType> typeList = customerTypeService.findAll();
         request.setAttribute("typeList", typeList);
@@ -76,9 +75,9 @@ public class CustomerController extends HttpServlet {
     }
 
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        customerService.delete(id);
-//        response.sendRedirect("/customer");
+        int id = Integer.parseInt(request.getParameter("id"));
+        customerService.delete(id);
+        response.sendRedirect("/customer");
     }
 
     private void showListCustomer(HttpServletRequest request, HttpServletResponse response) {

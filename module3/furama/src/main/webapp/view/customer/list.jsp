@@ -14,13 +14,15 @@
     <link rel="shortcut icon" type="image/png"
           href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../style/bootstrap/normalize.css">
+    <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
+    <%--    <link rel="stylesheet" href="../style/bootstrap/normalize.css">--%>
+    <%--    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="../style/datatables/css/dataTables.bootstrap4.min.css"/>--%>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style/datatables/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/DataTables/datatables.min.css"/>
     <!-- CSS only -->
-<%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"--%>
-<%--          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">--%>
+    <%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"--%>
+    <%--          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">--%>
 </head>
 <body>
 <div class="container-fluid">
@@ -60,8 +62,7 @@
                         </div>
                     </nav>
                     <form class="d-flex" role="search" action="/customer">
-                        <input class="form-control me-2" name="nameSearch" type="search" placeholder="Search"
-                               aria-label="Search">
+                        <input class="form-control me-2" name="nameSearch" type="search" placeholder="Search" aria-label="Search">
                         <input type="text" name="action" value="search" hidden>
                         <button class="btn" type="submit">Search</button>
                     </form>
@@ -85,8 +86,8 @@
                     <th>phoneNumber</th>
                     <th>email</th>
                     <th>address</th>
-                    <th>edit</th>
-                    <th>delete</th>
+                    <td>edit</td>
+                    <td>delete</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -293,7 +294,7 @@
             <a href="<c:url value="/customer?action=create"/>" class="btn btn-outline-primary">Add</a>
         </form>
     </div>
-    <div class="row">
+    <div class="row ">
         <div class="blockquote-footer bg-black text-center">
             <p>Trần thuận ® 2022- Đà nẵng</p>
         </div>
@@ -301,24 +302,28 @@
 </div>
 
 
-<script src="../style/jquery/jquery-3.5.1.min.js"></script>
-<script src="../style/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../style/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="../style/bootstrap/bootstrap.bundle.min.js"></script>
+<%--<script src="../style/jquery/jquery-3.5.1.min.js"></script>--%>
+<%--<script src="../style/datatables/js/jquery.dataTables.min.js"></script>--%>
+<%--<script src="../style/datatables/js/dataTables.bootstrap4.min.js"></script>--%>
+<%--<script src="../style/bootstrap/bootstrap.bundle.min.js"></script>--%>
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../bootstrap/DataTables/datatables.min.js"></script>
 <script>
     $("#btnClick").click(function () {
         let img = `<img src="https://iaslinks.org/wp-content/uploads/2021/03/fbi-warning-la-gi.jpg" style="width: 100%" alt="">`;
         $("#bodyTable").html(img);
     })
+
 </script>
 <script>
     $(document).ready(function () {
         $('#myTable').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 7
+            "pageLength": 5
         });
     });
+
 </script>
 </body>
 </html>
