@@ -14,68 +14,107 @@
 </head>
 <body>
 <div class="container">
-    <h2>Tờ khai y tế</h2>
-    <p>ĐÂY LÀ TÀI LIỆU QUAN TRỌNG, THÔNG TIN CỦA ANH/CHỊ SẼ GIÚP CƠ QUAN Y TẾ LIÊN LẠC KHI CẦN THIẾT ĐỂ PHÒNG CHỐNG DỊCH
-        BỆNH TRUYỀN NHIỄM</p>
-    <p style="color: red">Khuyến cáo: Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể xử lý hình sự</p>
-    <form:form action="" modelAttribute="medicalDeclaration" method="post">
-        <p>Họ và tên(ghi chữ IN HOA)</p>
-        <form:input size="100%" path="name"/>
-        <table class="button" >
-            <tr>
-                <td>Năm sinh</td>
-                <td>Giới tính</td>
-                <td>Quốc tịch</td>
-            </tr>
-            <tr>
-                <td>
-                    <form:select cssStyle="width: 33%" path="yearOfBirth"/>
-                </td>
-                <td>
-                    <form:select cssStyle="width: 33%" path="gender"/>
-                </td>
-                <td>
-                    <form:select cssStyle="width: 33%" path="nationality"/>
-                </td>
-            </tr>
-        </table>
-        <p>Số hộ chiếu hoặc số CMND hoặc giấy thông hành hợp pháp khác</p>
-        <form:input  path="identityCard"/>
-
-<%--        <p>Thông tin đi lại</p>--%>
-<%--        <form:radiobuttons path="vehicle" items="hi"/>--%>
-
-        <table style="width: 100%">
-            <tr>
-                <td>Số hiệu phương tiện</td>
-                <td>Số ghế</td>
-            </tr>
-            <td>
-                <form:input cssStyle="width: 50%" path="vehicleNumber"/>
-            </td>
-            <td>
-                <form:input cssStyle="width: 50%" path="numberOfSeats"/>
-            </td>
-        </table>
-
-        <table style="width: 100%">
-            <tr>
-                <td colspan="3">Ngày khởi hành</td>
-                <td colspan="3">Ngày kết thúc</td>
-            </tr>
-            <td>
-                <form:select cssStyle="width: 33%" path="releaseDate"/>
-            </td>
-            <td>
-                <form:select cssStyle="width: 33%" path="endDate" />
-            </td>
-        </table>
-        <p>Trong vòng 14 ngày qua, Anh/Chị có đến tỉnh/thành phố nào?</p>
-        <form:input size="100%" path="schedule"/>
-        <button type="submit">Gửi tờ khai</button>
+    <div class="text-center">
+        <h3>TỜ KHAI Y TẾ</h3>
+        <p>ĐÂY LÀ TÀI LIỆU QUAN TRỌNG, THÔNG TIN CỦA ANH/CHỊ SẼ GIÚP CƠ QUAN Y TẾ LIÊN LẠC KHI CẦN THIẾT ĐỂ PHÒNG CHỐNG
+            DỊCH BỆNH TRUYỀN NHIỄM</p>
+        <p class="text-danger">Khuyến cáo: Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể xử lý hình
+            sự</p>
+    </div>
+    <form:form method="post" modelAttribute="medicalDeclaration" action="create">
+        <div class="mb-3">
+            <form:label path="name" class="form-label">Họ Tên (ghi in Chữ Hoa)</form:label>
+            <form:input path="name" class="form-control"/>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="yearOfBirth" class="form-label">Năm Sinh</form:label>
+                    <form:input path="yearOfBirth" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="gender" class="form-label">Giới tính</form:label>
+                    <form:select path="gender" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="0">Nữ</option>
+                        <option value="1">Nam</option>
+                    </form:select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label"></label>
+                    <form:label path="nationality" class="form-label">Quốc tịch</form:label>
+                    <form:input path="nationality" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <form:label path="identityCard"
+                        class="form-label">Số hộ chiếu hoặc CMND hoặc giấy tờ thông hành khác</form:label>
+            <form:input path="identityCard" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <form:label path="vehicle" class="form-label">Thông tin ghi lại</form:label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <form:radiobutton path="vehicle" class="form-check-input" label="Tàu bay" value="tàu bay"/>
+                </div>
+                <div class="form-check form-check-inline">
+                    <form:radiobutton path="vehicle" class="form-check-input" label="Tàu thuyền" value="tàu thuyền"/>
+                </div>
+                <div class="form-check form-check-inline">
+                    <form:radiobutton path="vehicle" class="form-check-input" label="Ô tô" value="ô tô"/>
+                </div>
+                <div class="form-check form-check-inline">
+                    <form:radiobutton path="vehicle" class="form-check-input" label="Khác(ghi rõ)" value="khác"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="vehicleNumber" class="form-label">Số hiệu phương tiện</form:label>
+                    <form:input path="vehicleNumber" cssClass="form-control" placeholder="VD: VN123"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="numberOfSeats" class="form-label">Số ghế</form:label>
+                    <form:input path="numberOfSeats" cssClass="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="releaseDate" class="form-label">Ngày khỏi hành</form:label>
+                    <form:input path="releaseDate" type="date" class="form-control"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <form:label path="endDate" class="form-label">Ngày kết thúc</form:label>
+                    <form:input path="endDate" type="date" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Trong vòng 14 ngày qua, Anh/chị có đến tỉnh/thành phố nào?</label>
+            <form:textarea path="schedule" class="form-control"/>
+        </div>
+        <div class="text-center p-2">
+            <input type="submit" class="btn btn-primary" value="GỬI TỜ KHAI">
+        </div>
     </form:form>
+    <form:form  action="admin" method="get" >
+        <input type="submit" class="btn btn-primary" value="quản lí danh sách">
+    </form:form>
+
+
 </div>
-<!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
