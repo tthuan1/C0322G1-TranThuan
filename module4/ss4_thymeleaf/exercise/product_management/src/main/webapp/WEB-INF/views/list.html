@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>id</th>
+            <th>ten san pham</th>
+            <th>gia san pham</th>
+            <th>mo ta san pham</th>
+            <th>nha san xuat</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product,loop : ${productList}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.describe}"></td>
+            <td th:text="${product.producer}"></td>
+            <td>
+<!--                <a th:href="@{/edit/{id}(id=${product.id})}" class="btn btn-primary">edit</a>-->
+                <a th:href="@{/edit?(id =${product.id})}" class="btn btn-primary">edit</a>
+            </td>
+            <td>
+                <a th:href="@{/delete}" class="btn btn-primary">delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+            <a th:href="@{/create}" class="btn btn-primary">create</a>
+</div>
+</body>
+</html>
