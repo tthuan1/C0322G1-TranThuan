@@ -25,7 +25,7 @@
                 <div class="col">
                     <div class="mb-3">
                         <form:label path="yearOfBirth" class="form-label">Năm Sinh</form:label>
-                        <form:input path="yearOfBirth" type="text" class="form-control"/>
+                        <form:select path="yearOfBirth" class="form-control" items="${yearOfBirthList}"/>
                     </div>
                 </div>
                 <div class="col">
@@ -42,7 +42,7 @@
                     <div class="mb-3">
                         <label class="form-label"></label>
                         <form:label path="nationality" class="form-label">Quốc tịch</form:label>
-                        <form:input path="nationality" class="form-control"/>
+                        <form:select path="nationality" class="form-control" items="${nationalityList}"/>
                     </div>
                 </div>
             </div>
@@ -53,20 +53,7 @@
             </div>
             <div class="mb-3">
                 <form:label path="vehicle" class="form-label">Thông tin ghi lại</form:label>
-                <div>
-                    <div class="form-check form-check-inline">
-                        <form:radiobutton path="vehicle" class="form-check-input" label="Tàu bay" value="tàu bay"/>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <form:radiobutton path="vehicle" class="form-check-input" label="Tàu thuyền" value="tàu thuyền"/>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <form:radiobutton path="vehicle" class="form-check-input" label="Ô tô" value="ô tô"/>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <form:radiobutton path="vehicle" class="form-check-input" label="Khác(ghi rõ)" value="khác"/>
-                    </div>
-                </div>
+                <form:radiobuttons path="vehicle" items="${vehicleList}"/>
             </div>
             <div class="row">
                 <div class="col">

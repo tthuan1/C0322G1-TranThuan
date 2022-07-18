@@ -21,4 +21,14 @@ public class MailboxService implements IMailboxService {
     public Mailbox update(Mailbox mailbox) {
         return mailboxRepository.update(mailbox);
     }
+
+    @Override
+    public String[] languagesList() {
+        return mailboxRepository.languagesList();
+    }
+
+    @Override
+    public String[] pageSizeList() {
+        return mailboxRepository.pageSizeList();
+    }
 }

@@ -6,4 +6,8 @@ public interface IMailboxService {
     Mailbox list();
 
     Mailbox update(Mailbox mailbox);
+
+    String[] languagesList();
+
+    String[] pageSizeList();
 }

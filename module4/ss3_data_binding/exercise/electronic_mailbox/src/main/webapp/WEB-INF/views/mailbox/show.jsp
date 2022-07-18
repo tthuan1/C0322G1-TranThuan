@@ -1,11 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: tranthuan
-  Date: 15/07/2022
-  Time: 11:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -29,26 +22,14 @@
             <tr>
                 <th>Languages:</th>
                 <td>
-                    <form:select path="languages" itemValue="English" disabled="true">
-                        <form:option value="English"/>
-                        <form:option value="Vietnamese"/>
-                        <form:option value="Japanese"/>
-                        <form:option value="Chinese"/>
-                    </form:select>
+                    <form:select path="languages" items="${languagesList}" disabled="true"/>
                 </td>
             </tr>
             <tr>
                 <th>Page Size:</th>
                 <td>
                     <span>Show</span>
-                    <form:select path="pageSize" itemValue="English" disabled="true">
-                        <form:option value="5"/>
-                        <form:option value="10"/>
-                        <form:option value="15"/>
-                        <form:option value="25"/>
-                        <form:option value="50"/>
-                        <form:option value="100"/>
-                    </form:select>
+                    <form:select path="pageSize" items="${pageSizeList}" disabled="true"/>
                     <span>emails per page</span>
                 </td>
 

@@ -20,11 +20,7 @@
             <tr>
                 <th>Languages:</th>
                 <td>
-                    <form:select path="languages" itemValue="English">
-                        <form:option value="English"/>
-                        <form:option value="Vietnamese"/>
-                        <form:option value="Japanese"/>
-                        <form:option value="Chinese"/>
+                    <form:select path="languages" items="${languagesList}">
                     </form:select>
                 </td>
             </tr>
@@ -32,13 +28,7 @@
                 <th>Page Size:</th>
                 <td>
                     <span>Show</span>
-                    <form:select path="pageSize" itemValue="English">
-                        <form:option value="5"/>
-                        <form:option value="10"/>
-                        <form:option value="15"/>
-                        <form:option value="25"/>
-                        <form:option value="50"/>
-                        <form:option value="100"/>
+                    <form:select path="pageSize" items="${pageSizeList}">
                     </form:select>
                     <span>emails per page</span>
                 </td>

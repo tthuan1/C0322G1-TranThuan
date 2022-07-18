@@ -34,4 +34,19 @@ public class MedicalDeclarationService implements IMedicalDeclarationService {
         medicalDeclarationRepository.update( identityCard,  medicalDeclaration);
     }
 
+    @Override
+    public String[] yearOfBirthList() {
+        return medicalDeclarationRepository.yearOfBirthList();
+    }
+
+    @Override
+    public String[] nationalityList() {
+        return medicalDeclarationRepository.nationalityList();
+    }
+
+    @Override
+    public String[] vehicleList() {
+        return medicalDeclarationRepository.vehicleList();
+    }
+
 }

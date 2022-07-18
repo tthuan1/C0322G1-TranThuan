@@ -6,4 +6,8 @@ public interface IMailboxRepository {
     Mailbox list();
 
     Mailbox update(Mailbox mailbox);
+
+    String[] languagesList();
+
+    String[] pageSizeList();
 }

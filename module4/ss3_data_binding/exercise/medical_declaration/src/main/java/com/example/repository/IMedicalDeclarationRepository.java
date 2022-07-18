@@ -12,4 +12,7 @@ public interface IMedicalDeclarationRepository {
     MedicalDeclaration findIdentityCard(String identityCard);
 
     void update(String identityCard, MedicalDeclaration medicalDeclaration);
+    String[] yearOfBirthList();
+    String[] nationalityList();
+    String[] vehicleList();
 }

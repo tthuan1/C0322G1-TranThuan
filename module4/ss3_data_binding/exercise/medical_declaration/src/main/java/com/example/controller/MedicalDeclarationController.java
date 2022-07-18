@@ -21,6 +21,9 @@ public class MedicalDeclarationController {
     @GetMapping("/create")
     public String display(@ModelAttribute MedicalDeclaration medicalDeclaration,Model model){
         model.addAttribute("medicalDeclaration" ,medicalDeclaration);
+        model.addAttribute("yearOfBirthList",medicalDeclarationService.yearOfBirthList());
+        model.addAttribute("nationalityList",medicalDeclarationService.nationalityList());
+        model.addAttribute("vehicleList",medicalDeclarationService.vehicleList());
         return "index";
     }
     @PostMapping("/create")
@@ -39,7 +42,9 @@ public class MedicalDeclarationController {
 
     @GetMapping("/update")
     public String displayUpdate(@RequestParam String identityCard , Model model){
-
+        model.addAttribute("yearOfBirthList",medicalDeclarationService.yearOfBirthList());
+        model.addAttribute("nationalityList",medicalDeclarationService.nationalityList());
+        model.addAttribute("vehicleList",medicalDeclarationService.vehicleList());
         MedicalDeclaration medicalDeclaration = medicalDeclarationService.findIdentityCard(identityCard);
         model.addAttribute("medicalDeclaration" ,medicalDeclaration);
         return "update";
