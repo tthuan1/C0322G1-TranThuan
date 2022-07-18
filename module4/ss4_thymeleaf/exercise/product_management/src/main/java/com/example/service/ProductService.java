@@ -35,8 +35,18 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void delete( Product product) {
-        productRepository.delete(  product);
+    public void delete( int id) {
+        productRepository.delete(id);
+    }
+
+    @Override
+    public void delete1(Product product) {
+        productRepository.delete1(product);
+    }
+
+    @Override
+    public List<Product> searchByName(Product product) {
+        return productRepository.searchByName( product);
     }
 
 

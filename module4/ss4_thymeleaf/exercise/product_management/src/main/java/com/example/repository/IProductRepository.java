@@ -13,5 +13,9 @@ public interface IProductRepository {
 
     void update(int id,Product product);
 
-    void delete( Product product);
+    void delete( int id);
+
+    void delete1(Product product);
+
+    List<Product> searchByName(Product product);
 }

@@ -52,9 +52,34 @@ public class ProductController {
     }
 
     @GetMapping("/delete")
-    public String delete( @ModelAttribute Product product){
-        productService.delete(product);
+    public String displayDelete( @RequestParam int id,Model model){
+        Product product=productService.findId(id);
+        model.addAttribute("product",product);
+        return "/delete";
+    }
+
+//    @PostMapping("/delete")
+//    public String delete(@ModelAttribute Product product){
+//        productService.delete(product.getId());
+//        return "redirect:/";
+//    }
+    @PostMapping("/delete")
+    public String delete1(@ModelAttribute Product product){
+        productService.delete1(product);
         return "redirect:/";
+    }
+
+    @GetMapping("/view")
+    public String displayView( @RequestParam int id,Model model){
+        Product product=productService.findId(id);
+        model.addAttribute("product",product);
+        return "/view";
+    }
+
+    @GetMapping("/search")
+    public String search(Product product, Model model) {
+        model.addAttribute("productList", productService.searchByName(product));
+        return "/list";
     }
 
 }
