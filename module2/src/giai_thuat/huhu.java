@@ -5,31 +5,27 @@ import java.util.Arrays;
 public class huhu {
 
     public static void main(String[] args) {
+        int[]hi={1,2,3,3};
 
-        solution1(9, 13);
+
+        System.out.println(solution(hi));
     }
 
-    public static int solution(int l, int r) {
-        int count = 0;
-        for (int i = l; i <= r; i++) {
-            if (i < 10) {
-                count++;
-            }else {
-                i-10
+    public static boolean solution(int[] a) {
+        for(int i=0;i<=a.length;i++){
+            int s1 = 0;
+            int s2=0;
+            for(int y = 0; y <i;y++){
+                s1 = s1 + a[y];
+            }
+            for(int z = i+1; z <a.length;z++){
+                s2 = s2 + a[z];
+            }
+            if(s1== s2){
+                return true;
             }
         }
-        return count;
-    }
-    public static int solution1(int l, int r) {
-        int count = 0;
-        for (int i = l; i <= r; i++) {
-            if (i < 10) {
-                count++;
-            }else {
-
-            }
-        }
-        return count;
+        return false;
     }
 
 
