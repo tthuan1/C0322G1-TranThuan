@@ -225,7 +225,8 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body"> <%--hiển thị nội dung muốn thông báo--%>
+                                        <div class="modal-body">
+                                                <%--hiển thị nội dung muốn thông báo--%>
                                             <table class="table">
                                                 <tr>
                                                     <th>id</th>
