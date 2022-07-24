@@ -5,6 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d29f27a-c00f-4732-926f-19aad6e73810" name="Changes" comment="20/07">
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/java/com/example/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/java/com/example/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/java/com/example/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/java/com/example/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/resources/templates/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/resources/templates/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/resources/templates/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss7_spring_data_repository/exercise/product_management/src/main/resources/templates/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/product_management/.idea/artifacts/Gradle___org_example___product_management_1_0_SNAPSHOT_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/product_management/.idea/artifacts/Gradle___org_example___product_management_1_0_SNAPSHOT_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/product_management/.idea/artifacts/Gradle___org_example___product_management_1_0_SNAPSHOT_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/product_management/.idea/artifacts/Gradle___org_example___product_management_1_0_SNAPSHOT_war__exploded_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,20 +87,25 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2CCNR66fUOn3MvUQaeWBqxgjyL8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/tranthuan/Desktop/TranThuan/C0322G1-TranThuan/module4/ss5_csdl_vs_orm/exercise/product_management",
+    "spring.configuration.checksum": "002f7ea70f6ba7eb1a4aeddc65235f16"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
@@ -186,6 +204,7 @@
       <workItem from="1658302602325" duration="4768000" />
       <workItem from="1658309157563" duration="3874000" />
       <workItem from="1658334044912" duration="43000" />
+      <workItem from="1658634965993" duration="4947000" />
     </task>
     <task id="LOCAL-00001" summary="20/07">
       <created>1658333778859</created>
@@ -207,21 +226,9 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20/07" />
     <option name="LAST_COMMIT_MESSAGE" value="20/07" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

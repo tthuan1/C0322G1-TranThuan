@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form  method="post" th:object="${product}">
+        <table class="table">
+            <tr>
+                <th>ten san pham</th>
+                <td>
+                    <input type="text" th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>price</th>
+                <td>
+                    <input type="text" th:field="*{price}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>describe</th>
+                <td>
+                    <input type="text" th:field="*{describe}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>producer</th>
+                <td>
+                    <input type="text" th:field="*{producer}"/>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary">edit</button>
+        <a th:href="@{/}" class="btn btn-primary">back</a>
+    </form>
+</div>
+</body>
+</html>
