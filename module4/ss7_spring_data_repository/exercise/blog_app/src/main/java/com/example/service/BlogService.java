@@ -37,7 +37,7 @@ public class BlogService implements IBlogService{
 
     @Override
     public void edit(Blog blog) {
-        blogRepository.edit(blog.getId(),blog.getContent(),blog.getYear(),blog.getName());
+        blogRepository.save(blog);
     }
 
     @Override

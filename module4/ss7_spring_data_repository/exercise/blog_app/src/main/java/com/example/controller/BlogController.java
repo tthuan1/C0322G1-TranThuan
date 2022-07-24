@@ -1,7 +1,9 @@
 package com.example.controller;
 
 import com.example.model.Blog;
+import com.example.model.Category;
 import com.example.service.IBlogService;
+import com.example.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,9 +22,11 @@ public class BlogController {
 
     @Autowired
     private IBlogService blogService;
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping("/")
-    public ModelAndView showBlog(@PageableDefault(value = 7,sort = "year",direction = Sort.Direction.DESC )Pageable pageable) {
+    public ModelAndView showBlog(@PageableDefault(value = 2,sort = "year",direction = Sort.Direction.DESC )Pageable pageable) {
         Page<Blog> blogList=blogService.findAll(pageable);
         return new ModelAndView("index", "blogList", blogList);
     }
@@ -30,6 +34,7 @@ public class BlogController {
     @GetMapping("/create")
     public String showCreatePage(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categoryList",categoryService.findAllCategory());
         return "create";
     }
 
@@ -43,6 +48,7 @@ public class BlogController {
     public String showEdit(@PathVariable int id, Model model) {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog", blog);
+        model.addAttribute("categoryList",categoryService.findAllCategory());
         return "edit";
     }
 

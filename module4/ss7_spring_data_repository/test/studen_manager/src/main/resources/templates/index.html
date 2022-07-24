@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+        <tr>
+            <th>id student</th>
+            <th>name student</th>
+            <th>age student</th>
+            <th>gender student</th>
+            <th>class Room</th>
+            <th>delete</th>
+            <th>edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${studentList}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.gender}"></td>
+            <td th:text="${student.classRoom.name}"></td>
+            <td>
+                <!-- -----------------------modal delete----------------------- -->
+                <button type="button" class="btn btn-primary" data-toggle="modal"
+                        th:data-target="'#exampleModalLong' + ${student.id}">
+                    delete
+                </button>
+            </td>
+            <td>
+                <a th:href="@{/edit/{id}(id= ${student.id})}">edit</a>
+            </td>
+            <!--            <td>-->
+            <!--                &lt;!&ndash; -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;modal edit-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+            <!--                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target="'#edit' + ${student.id}">-->
+            <!--                    edit-->
+            <!--                </button>-->
+            <!--                &lt;!&ndash; Modal &ndash;&gt;-->
+            <!--                <div class="modal fade" th:id="'edit' + ${student.id} "  tabindex="-1" role="dialog"-->
+            <!--                     aria-labelledby="editStudent" aria-hidden="true">-->
+            <!--                    <div class="modal-dialog" role="document">-->
+            <!--                        <div class="modal-content">-->
+            <!--                            <div class="modal-header">-->
+            <!--                                <h5 class="modal-title" id="editStudent">Modal title</h5>-->
+            <!--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+            <!--                                    <span aria-hidden="true">&times;</span>-->
+            <!--                                </button>-->
+            <!--                            </div>-->
+            <!--                            <div class="modal-body">-->
+            <!--                                    <table class="table" th:object="${student1}">-->
+            <!--&lt;!&ndash;                                        <tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>id</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                                <input type="text" th:value="${student1.getId}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            </th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        </tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>name</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                                <input th:text="${student1.getName}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            </th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        </tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>age</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                                <input th:text="${student1.getAge}" />&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            </th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        </tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>gender</th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                                <input th:text="${student1.getGender}" />&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            </th>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        </tr>&ndash;&gt;-->
+            <!--                                    </table>-->
+            <!--                            </div>-->
+            <!--                            <div class="modal-footer">-->
+            <!--                                <a th:href="@{/edit/{id}(id= ${student.id})}" class="btn btn-outline-success">edit</a>-->
+            <!--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </td>-->
+
+
+            <!-- Modal delete -->
+            <div class="modal fade" th:id="'exampleModalLong' + ${student.id} " tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Do you want delete Student <span class="text-info" th:text="${student.name}"></span> with
+                            id = <span class="text-info" th:text="${student.id}"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <a th:href="@{/delete/{id}(id= ${student.id})}" class="btn btn-outline-success">Delete</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--            <td><a th:href="/edit/{id}(id = ${student.id})"></a></td>-->
+            <!--            <td><a th:href="/view/{id}(id = ${student.id})"></a></td>-->
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/create}">create</a>
+    </div>
+    <div>
+        <a th:href="@{'/'(page=${studentList.number -1})}" th:if="${studentList.hasPrevious()}"
+           class="btn btn-outline-secondary me-3">Previous</a>
+        <span th:text="${studentList.number + 1}"></span> /
+        <span th:text="${studentList.totalPages}"></span>
+        <a th:href="@{'/'(page = ${studentList.number + 1})}" th:if="${studentList.hasNext()}"
+           class="btn btn-outline-secondary ms-3">Next</a>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

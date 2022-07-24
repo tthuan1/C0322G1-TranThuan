@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.model.Blog;
+import com.example.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,8 +25,8 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 //    UPDATE `blog_app`.`blog` SET `content` = '1', `year` = '1' WHERE (`id` = '6');
 
     @Modifying
-    @Query(value = "update Blog SET `name`= :name, `content` = :content, `year` = :year WHERE (`id` = :id);", nativeQuery = true)
-    void edit(@Param("id") Integer id, @Param("content") String content, @Param("year") String year, @Param("name") String name);
+    @Query(value = "update Blog SET `name`= :name, `content` = :content, `year` = :year,`category_id` = :category WHERE (`id` = :id);", nativeQuery = true)
+    void edit(@Param("id") Integer id, @Param("content") String content, @Param("year") String year, @Param("name") String name, @Param("category")Integer category);
 
     @Modifying//cho phép query có thể thực hiện sửa xoá
     @Query(value = "DELETE FROM blog WHERE (`id` = :id);", nativeQuery = true)
