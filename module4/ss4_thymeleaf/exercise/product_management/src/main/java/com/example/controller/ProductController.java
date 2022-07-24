@@ -58,11 +58,6 @@ public class ProductController {
         return "/delete";
     }
 
-//    @PostMapping("/delete")
-//    public String delete(@ModelAttribute Product product){
-//        productService.delete(product.getId());
-//        return "redirect:/";
-//    }
     @PostMapping("/delete")
     public String delete1(@ModelAttribute Product product){
         productService.delete1(product);
