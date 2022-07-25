@@ -66,19 +66,19 @@ public class SongDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-//        SongDto trackDto = (SongDto) target;
-//        String name = trackDto.getName();
-//        if (!name.matches("^(\\w\\s?){0,799}\\w$")){
-//            errors.rejectValue("name","name.rejected","Name must not be empty. It must not contain special characters!");
-//        }
-//        String artist = trackDto.getArtist();
-//        if (!artist.matches("^(\\w\\s?){0,299}\\w$")){
-//            errors.rejectValue("artist","artist.rejected","Artist must not be empty. It must not contain special characters!");
-//        }
-//
-//        String genre = trackDto.getGenre();
-//        if (!genre.matches("^(\\w,?\\s?){0,999}\\w$")){
-//            errors.rejectValue("genre","genre.rejected","Genre must not be empty. It must not contain special characters!");
-//        }
+        SongDto songDto = (SongDto) target;
+        String name = songDto.getName();
+        if (!name.matches("^(\\w\\s?){0,799}\\w$")){
+            errors.rejectValue("name","name.rejected","Name must not be empty. It must not contain special characters!");
+        }
+        String artist = songDto.getArtist();
+        if (!artist.matches("^(\\w\\s?){0,299}\\w$")){
+            errors.rejectValue("artist","artist.rejected","Artist must not be empty. It must not contain special characters!");
+        }
+
+        String genre = songDto.getGenre();
+        if (!genre.matches("^(\\w,?\\s?){0,999}\\w$")){
+            errors.rejectValue("genre","genre.rejected","Genre must not be empty. It must not contain special characters!");
+        }
     }
 }
