@@ -31,7 +31,8 @@ public class UserController {
     }
 
     @PostMapping("create")
-    public String create(RedirectAttributes redirectAttributes, @Valid @ModelAttribute User user, BindingResult bindingResult) {
+    public String create(RedirectAttributes redirectAttributes, @Valid @ModelAttribute User user,
+                         BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "form";
         }

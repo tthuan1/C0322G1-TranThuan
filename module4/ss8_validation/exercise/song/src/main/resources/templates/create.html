@@ -11,12 +11,15 @@
   <label for="fname">Song Name</label>
   <input id="fname" type="text" th:field="*{name}">
   <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
   <label for="artistname">Artist</label>
   <input id="artistname" type="text" th:field="*{artist}">
   <p th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></p>
+
   <label for="genre">Genre</label>
   <input id="genre" type="text" th:field="*{genre}">
   <p th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></p>
+
   <button type="submit"> Create </button>
 </form>
 <style>

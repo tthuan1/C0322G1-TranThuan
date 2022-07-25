@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<!--<form action="/create" method="post" th:object="${product}">-->
+
+
+<!--    <label for="name">ten san pham</label>-->
+<!--    <input id="name" name="name" type="text" th:field="*{name}">-->
+<!--    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+
+<!--    <label for="pricetname">price</label>-->
+<!--    <input id="pricetname" type="text" th:field="*{price}">-->
+<!--    <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>-->
+
+<!--    <label for="describe">describe</label>-->
+<!--    <input id="describe" type="text" th:field="*{describeProduct}">-->
+<!--    <p th:if="${#fields.hasErrors('describeProduct')}" th:errors="*{describeProduct}"></p>-->
+
+<!--    <label for="producer">producer</label>-->
+<!--    <input id="producer" type="text" th:field="*{producer}">-->
+<!--    <p th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}"></p>-->
+
+<!--    <button type="submit" class="btn btn-primary">ok</button>-->
+<!--</form>-->
+    <form action="/create" method="post" th:object="${productDto}">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" th:field="*{name}">
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+
+
+        <div class="mb-3 mt-3">
+            <label for="price" class="form-label">Price:</label>
+            <input type="text" class="form-control" id="price" placeholder="Enter Price " name="price" th:field="*{price}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+        <div class="mb-3 mt-3">
+            <label for="describeProduct" class="form-label">describeProduct:</label>
+            <input type="text" class="form-control" id="describeProduct" placeholder="Enter Price " name="describeProduct" th:field="*{describeProduct}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}"></div>
+        <div class="mb-3 mt-3">
+            <label for="producer" class="form-label">producer:</label>
+            <input type="text" class="form-control" id="producer" placeholder="Enter Price " name="producer" th:field="*{producer}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}"></div>
+
+        <button type="submit" class="btn btn-outline-success">Register</button>
+    </form>
+</div>
+</body>
+</html>
