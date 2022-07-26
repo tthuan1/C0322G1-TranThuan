@@ -1,9 +1,7 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "book")
 public class Book {
@@ -13,13 +11,16 @@ public class Book {
     private String name;
     private Integer amount;
 
+    @OneToMany(mappedBy = "book")
+    private Set<Borrower> borrower;
+
     public Book() {
     }
-
-    public Book(Integer id, String name, Integer amount) {
+    public Book(Integer id, String name, Integer amount, Set<Borrower> borrower) {
         this.id = id;
         this.name = name;
         this.amount = amount;
+        this.borrower = borrower;
     }
 
     public Integer getId() {
@@ -44,5 +45,13 @@ public class Book {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public Set<Borrower> getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Set<Borrower> borrower) {
+        this.borrower = borrower;
     }
 }
