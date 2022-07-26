@@ -14,7 +14,7 @@ import java.util.List;
 @Transactional
 public interface IBorrowerRepository extends JpaRepository<Borrower, Integer> {
     @Modifying
-    @Query(value = "INSERT INTO borrower (`id_book`, `code`) VALUES (:code, :id)", nativeQuery = true)
+    @Query(value = "INSERT INTO borrower (id_book, code) VALUES (:id,:code)", nativeQuery = true)
     void saveBorrower(@Param("code") int code, @Param("id") Integer id);
 
     @Query(value = "select * from borrower where code = :code", nativeQuery = true)

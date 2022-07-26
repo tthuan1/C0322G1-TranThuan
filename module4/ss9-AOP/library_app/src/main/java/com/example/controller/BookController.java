@@ -39,7 +39,7 @@ public class BookController {
     @PostMapping("/borrow")
     private String borrowBook(@ModelAttribute Book book, RedirectAttributes redirectAttributes){
         int code= (int) (Math.random() * 1000);
-//        borrowerService.saveBorrower(code,book.getId());
+        borrowerService.saveBorrower(code,book.getId());
         bookService.borrow(book);
         redirectAttributes.addFlashAttribute("mess","Mượn sách "+book.getName()+" thành công mã mượn sách của bạn là: "+code);
         return "redirect:/";
