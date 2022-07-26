@@ -44,7 +44,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Page<Product> search(String name, Pageable pageable) {
-        return productRepository.findByName(name,pageable);
+        return productRepository.findByName("%" + name + "%",pageable);
     }
 
 }
