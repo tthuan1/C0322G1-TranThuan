@@ -13,7 +13,6 @@ public class Aspect {
     @Pointcut("within(com.example.controller.BookController.*)")
     public void allMethodPointCut() {
     }
-
     @Before("allMethodPointCut()")
     public void beforeCallMethod(JoinPoint joinPoint){
         System.out.println("Start method "+

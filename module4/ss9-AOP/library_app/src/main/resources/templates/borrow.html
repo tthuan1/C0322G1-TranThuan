@@ -34,7 +34,7 @@
             </tr>
         </table>
         <input type="submit" th:if="${book.getAmount>0}"  class="btn btn-outline-primary" value="Đồng ý mượn">
-        <p th:if="${book.getAmount<1}">hết sách rồi</p>
+        <p th:if="${book.getAmount<1}">hết sách rồi bạn quay lại sau !!!</p>
         <a th:href="@{/}" class="btn btn-outline-primary">back</a>
     </form>
 </div>
