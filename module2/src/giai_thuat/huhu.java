@@ -5,28 +5,18 @@ import java.util.Arrays;
 public class huhu {
 
     public static void main(String[] args) {
-        int[]hi={1,2,3,3};
-
-
-        System.out.println(solution(hi));
-    }
-
-    public static boolean solution(int[] a) {
-        for(int i=0;i<=a.length;i++){
-            int s1 = 0;
-            int s2=0;
-            for(int y = 0; y <i;y++){
-                s1 = s1 + a[y];
+        int height = 10;
+        for (int i = 1; i <= height; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (j == 1 || j == i || i == height)
+                    System.out.print("* ");
+                else
+                    System.out.print("  ");
             }
-            for(int z = i+1; z <a.length;z++){
-                s2 = s2 + a[z];
-            }
-            if(s1== s2){
-                return true;
-            }
+            System.out.println("");
         }
-        return false;
     }
+
 
 
 }
