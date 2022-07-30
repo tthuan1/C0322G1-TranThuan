@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="62039193-ba3a-4696-adc0-b96e9a606082" name="Changes" comment="30/07">
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/BlogApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/controller/BlogRestfulController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/controller/CategoryRestfulController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/java/com/example/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/createCategory.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/main/resources/templates/webService/listBlog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/exercise/blog/src/test/java/com/example/BlogApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/blog/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/src/main/java/com/example/JQueryApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/src/main/resources/templates/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_ jquery_ajax/practice/jQuery/src/test/java/com/example/JQueryApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2CbOkCaM2m8yIZhlBQCg8cRWT7j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/tranthuan/Desktop/TranThuan/C0322G1-TranThuan/module4/ss12/exercise/blog",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "8957d0cbb6699fd2a4b672f6bd72a1c9"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BlogApplication">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="blog.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62039193-ba3a-4696-adc0-b96e9a606082" name="Changes" comment="" />
+      <created>1659067959209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659067959209</updated>
+      <workItem from="1659067961163" duration="15179000" />
+      <workItem from="1659190954758" duration="252000" />
+    </task>
+    <task id="LOCAL-00001" summary="30/07">
+      <created>1659190984145</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659190984145</updated>
+    </task>
+    <task id="LOCAL-00002" summary="30/07">
+      <created>1659191173471</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659191173471</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="30/07" />
+    <option name="LAST_COMMIT_MESSAGE" value="30/07" />
+  </component>
+</project>
