@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <title>Home</title>
     <!-- Required meta tags -->
@@ -15,26 +15,27 @@
     <form th:object="${blog}" th:method="post">
         <table class="table">
             <tr>
+                <th>id</th>
+                <th>
+                    <input type="text" th:field="*{id}" readonly/>
+                </th>
+            </tr>
+            <tr>
                 <th>name</th>
                 <th>
-                    <input type="text" th:field="*{name}"/>
+                    <input type="text" th:field="*{name}" readonly/>
                 </th>
             </tr>
             <tr>
                 <th>year</th>
                 <th>
-                    <input type="date" th:field="*{year}"/>
+                    <input type="date" th:field="*{year}" readonly/>
                 </th>
             </tr>
             <tr>
                 <th>content</th>
                 <th>
-                    <input type="text" th:field="*{content}"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2">
-                    <button type="submit">delete</button>
+                    <input type="text" th:field="*{content}" readonly/>
                 </th>
             </tr>
         </table>

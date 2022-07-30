@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,37 +12,32 @@
 </head>
 <body>
 <div class="container">
-    <form th:object="${blog}" th:method="post">
+    <form action="/borrow" th:object="${book}" method="post">
         <table class="table">
             <tr>
+                <th>id</th>
+                <th>
+                    <input type="text" class="form-control" th:field="*{id}" readonly>
+                </th>
+            </tr>
+            <tr>
                 <th>name</th>
-                <th>
-                    <input type="text" th:field="*{name}"/>
-                </th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{name}" readonly>
+                </td>
             </tr>
             <tr>
-                <th>year</th>
-                <th>
-                    <input type="date" th:field="*{year}"/>
-                </th>
-            </tr>
-            <tr>
-                <th>content</th>
-                <th>
-                    <input type="text" th:field="*{content}"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2">
-                    <button type="submit">delete</button>
-                </th>
+                <th>amount</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{amount}" readonly>
+                </td>
             </tr>
         </table>
+        <input type="submit" th:if="${book.getAmount>0}"  class="btn btn-outline-primary" value="Đồng ý mượn">
+        <p th:if="${book.getAmount<1}">hết sách rồi bạn quay lại sau !!!</p>
+        <a th:href="@{/}" class="btn btn-outline-primary">back</a>
     </form>
-
-    <a th:href="@{/}">back</a>
 </div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table class="table">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>year</th>
+    <th>name</th>
+    <th>content</th>
+    <th>category</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {//kiểm tra Dom đã sẵn sàng chưa - html đã được tải xong
+    $.ajax({
+      url: "http://localhost:8080/blog/api/v1",
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        let tr = [];
+        for (let i = 0; i < data.length; i++) {
+          tr.push("<tr>");
+          tr.push("<td>" + data[i].id + "</td>")
+          tr.push("<td>" + data[i].name + "</td>")
+          tr.push("<td>" + data[i].year + "</td>")
+          tr.push("<td>"+ data[i].content +"</td>")
+          // tr.push("<td>"+ data[i].category.name +"</td>")
+          tr.push("</tr>");
+        }
+        $("table").append((tr.join("")));
+      }
+    })
+  })
+</script>
+</body>
+
+
+
+</html>

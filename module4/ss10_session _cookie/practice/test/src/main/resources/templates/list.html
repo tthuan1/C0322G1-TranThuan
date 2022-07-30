@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <p style="color: green" th:text="${mess}"></p>
+    <table class="table">
+        <tr>
+            <th>mã sách</th>
+            <th>tên sách</th>
+            <th>số lượng</th>
+            <th>mượn sách</th>
+            <th>trả sách</th>
+        </tr>
+        <tr th:each="book: ${bookList}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.amount}"></td>
+            <td>
+                <a th:href="@{/borrow/{id}(id=${book.id})}" class="btn btn-outline-primary">mượn sách</a>
+            </td>
+            <td>
+                <a th:href="@{/repay/{id}(id=${book.id})}" class="btn btn-outline-primary">trả sách</a>
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-2 ">
+            <ul class="pagination" th:if="${bookList.totalPages > 0}">
+                <li class="page-item">
+                    <a class="page-link" th:if="${bookList.hasPrevious()}"
+                       th:href="@{'/'(page=${bookList.number - 1})}">
+                        Previous
+                    </a>
+                </li>
+                <div th:each="item : ${#numbers.sequence(1, bookList.totalPages )}">
+                    <div th:if="${(bookList.number + 1) == item}">
+                        <li class="page-item active">
+                            <a class="page-link" href="#" th:text="${item}"
+                               th:href="@{/(page=(${item}-1))}"></a>
+                        </li>
+                    </div>
+                    <div th:unless="${((bookList.number + 1) == item)}">
+                        <li class="page-item">
+                            <a class="page-link" th:text="${item}" th:href="@{/(page=(${item}-1)
+                          )}"></a>
+                        </li>
+                    </div>
+                </div>
+                <li class="page-item">
+                    <a class="page-link" th:if="${bookList.hasNext()}"
+                       th:href="@{'/'(page=${bookList.number + 1})}">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

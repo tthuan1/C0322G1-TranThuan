@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,37 +12,9 @@
 </head>
 <body>
 <div class="container">
-    <form th:object="${blog}" th:method="post">
-        <table class="table">
-            <tr>
-                <th>name</th>
-                <th>
-                    <input type="text" th:field="*{name}"/>
-                </th>
-            </tr>
-            <tr>
-                <th>year</th>
-                <th>
-                    <input type="date" th:field="*{year}"/>
-                </th>
-            </tr>
-            <tr>
-                <th>content</th>
-                <th>
-                    <input type="text" th:field="*{content}"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2">
-                    <button type="submit">delete</button>
-                </th>
-            </tr>
-        </table>
-    </form>
-
-    <a th:href="@{/}">back</a>
+    <h1>trang web đang bảo trì</h1>
+    <a th:href="@{/}" class="btn btn-outline-primary">back</a>
 </div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
