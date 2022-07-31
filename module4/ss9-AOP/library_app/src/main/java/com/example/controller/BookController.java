@@ -30,14 +30,14 @@ public class BookController {
     }
 
     @GetMapping("/borrow/{id}")
-    private String showBorrowBook(@PathVariable int id,Model model){
+    public String showBorrowBook(@PathVariable int id,Model model){
         Book book=bookService.findById(id);
         model.addAttribute("book",book);
         return "borrow";
     }
 
     @PostMapping("/borrow")
-    private String borrowBook(@ModelAttribute Book book, RedirectAttributes redirectAttributes){
+    public String borrowBook(@ModelAttribute Book book, RedirectAttributes redirectAttributes){
         int code= (int) (Math.random() * 1000);
         borrowerService.saveBorrower(code,book.getId());
         bookService.borrow(book);
@@ -46,14 +46,14 @@ public class BookController {
     }
 
     @GetMapping("/repay/{id}")
-    private String showRepay(@PathVariable int id,Model model){
+    public String showRepay(@PathVariable int id,Model model){
         Book book=bookService.findById(id);
         model.addAttribute("borrower",new Borrower());
         model.addAttribute("book",book);
         return "repay";
     }
     @PostMapping("/repay")
-    private String repay(@RequestParam("code") Integer code,@ModelAttribute Book book,RedirectAttributes redirectAttributes){
+    public String repay(@RequestParam("code") Integer code,@ModelAttribute Book book,RedirectAttributes redirectAttributes){
         List<Borrower> borrowerList=borrowerService.findByCode(code);
         if (borrowerList.isEmpty()){
             redirectAttributes.addFlashAttribute("mess","mã không đúng!");
