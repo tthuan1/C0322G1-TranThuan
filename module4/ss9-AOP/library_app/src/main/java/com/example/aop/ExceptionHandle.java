@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.aop;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.aop;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
