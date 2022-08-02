@@ -10,8 +10,8 @@ import javax.validation.constraints.Pattern;
 
 public class CustomerDto implements Validator {
     private Integer id;
-  @NotNull
-  @NotEmpty
+//  @NotNull
+//  @NotEmpty
     private String name;
     private String birthday;
     private Integer gender;

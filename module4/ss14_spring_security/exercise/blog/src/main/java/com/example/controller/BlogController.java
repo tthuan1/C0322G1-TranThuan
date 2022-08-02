@@ -22,6 +22,8 @@ public class BlogController {
     @Autowired
     private ICategoryService categoryService;
 
+
+
     @GetMapping("/")
     public ModelAndView showBlog(@PageableDefault(value = 4,sort = "year",direction = Sort.Direction.DESC )Pageable pageable) {
         Page<Blog> blogList=blogService.findAll(pageable);
