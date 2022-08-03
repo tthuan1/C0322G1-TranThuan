@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Trang chủ - furama</title>
     <link>
@@ -44,7 +44,7 @@
                                     <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{service}'>Service</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>facility</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{contract}'>Contract</a>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="container">
-        <form th:action="@{/customer/edit}" th:object="${customer}" th:method="post">
+        <form th:action="@{/employee/edit}" th:object="${employee}" th:method="post">
             <div class="mb-3 mt-3" hidden>
                 <label for="id" class="form-label">id:</label>
                 <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
@@ -74,26 +74,22 @@
             <div class="mb-3 mt-3">
                 <label for="birthday" class="form-label">birthday:</label>
                 <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
-                       th:field="*{birthday}">
+                       th:field="*{dateOfBirth}">
             </div>
             <div class="mb-3 mt-3">
-                <label class="form-label">
-                    <select class="form-control" th:field="*{gender}">
-                        <option th:value=1>Nam</option>
-                        <option th:value=0>Nữ</option>
-                        <option th:value=2>egbt</option>
-                    </select>
-                </label>
+                <label for="birthday" class="form-label">id Card:</label>
+                <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
+                       th:field="*{idCard}">
             </div>
             <div class="mb-3 mt-3">
-                <label for="id_card" class="form-label">id_card:</label>
-                <input type="text" class="form-control" id="id_card" placeholder="Enter id_card" name="id_card"
-                       th:field="*{id_card}">
+                <label for="salary" class="form-label">salary:</label>
+                <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary"
+                       th:field="*{salary}">
             </div>
             <div class="mb-3 mt-3">
-                <label for="phone" class="form-label">phone:</label>
-                <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone"
-                       th:field="*{phone}">
+                <label for="phone_number" class="form-label">phone_number:</label>
+                <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number" name="phone_number"
+                       th:field="*{phone_number}">
             </div>
             <div class="mb-3 mt-3">
                 <label for="email" class="form-label">email:</label>
@@ -107,14 +103,31 @@
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">
-                    <select class="form-control" th:field="*{customerType}">
-                        <option th:each="temp:${customerTypeList}" th:value="${temp.id}"
+                    <select class="form-control" th:field="*{division}">
+                        <option th:each="temp:${divisionList}" th:value="${temp.id}"
                                 th:text="${temp.name}"></option>
                     </select>
                 </label>
             </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label">
+                    <select class="form-control" th:field="*{educationDegree}">
+                        <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
+                                th:text="${temp.name}"></option>
+                    </select>
+                </label>
+            </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label">
+                    <select class="form-control" th:field="*{position}">
+                        <option th:each="temp:${positionList}" th:value="${temp.id}"
+                                th:text="${temp.name}"></option>
+                    </select>
+                </label>
+            </div>
+
             <input type="submit" class="btn btn-outline-primary" value="edit">
-            <a th:href="@{/customer}" class="btn btn-outline-primary">back</a>
+            <a th:href="@{/employee}" class="btn btn-outline-primary">back</a>
         </form>
     </div>
 

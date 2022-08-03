@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Trang chủ - furama</title>
     <link>
@@ -44,7 +44,7 @@
                                     <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{service}'>Service</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>facility</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{contract}'>Contract</a>
                                 </div>
                             </div>
@@ -60,7 +60,15 @@
         </div>
     </div>
     <div class="container">
-        <form th:action="@{/customer/edit}" th:object="${customer}" th:method="post">
+        <form th:action="@{/facility/create}" th:object="${facility}" th:method="post">
+            <div class="mb-3 mt-3">
+                <label class="form-label">
+                    <select class="form-control" th:field="*{facilityType}">
+                        <option th:each="temp:${facilityTypeList}" th:value="${temp.id}"
+                                th:text="${temp.name}"></option>
+                    </select>
+                </label>
+            </div>
             <div class="mb-3 mt-3" hidden>
                 <label for="id" class="form-label">id:</label>
                 <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
@@ -72,54 +80,61 @@
                        th:field="*{name}">
             </div>
             <div class="mb-3 mt-3">
-                <label for="birthday" class="form-label">birthday:</label>
-                <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
-                       th:field="*{birthday}">
+                <label for="area" class="form-label">area:</label>
+                <input type="text" class="form-control" id="area" placeholder="Enter area" name="area"
+                       th:field="*{area}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="cost" class="form-label">cost:</label>
+                <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost"
+                       th:field="*{cost}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="maxPeople" class="form-label">maxPeople:</label>
+                <input type="text" class="form-control" id="maxPeople" placeholder="Enter maxPeople" name="maxPeople"
+                       th:field="*{maxPeople}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="standardRoom" class="form-label">standardRoom:</label>
+                <input type="text" class="form-control" id="standardRoom" placeholder="Enter standardRoom" name="standardRoom"
+                       th:field="*{standardRoom}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="descriptionOtherConvenience" class="form-label">descriptionOtherConvenience:</label>
+                <input type="text" class="form-control" id="descriptionOtherConvenience" placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience"
+                       th:field="*{descriptionOtherConvenience}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="poolArea" class="form-label">poolArea:</label>
+                <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea"
+                       th:field="*{poolArea}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="numberOfFloors" class="form-label">numberOfFloors:</label>
+                <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter numberOfFloors" name="numberOfFloors"
+                       th:field="*{numberOfFloors}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="facilityFree" class="form-label">facilityFree:</label>
+                <input type="text" class="form-control" id="facilityFree" placeholder="Enter facilityFree" name="facilityFree"
+                       th:field="*{facilityFree}">
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">
-                    <select class="form-control" th:field="*{gender}">
-                        <option th:value=1>Nam</option>
-                        <option th:value=0>Nữ</option>
-                        <option th:value=2>egbt</option>
-                    </select>
-                </label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="id_card" class="form-label">id_card:</label>
-                <input type="text" class="form-control" id="id_card" placeholder="Enter id_card" name="id_card"
-                       th:field="*{id_card}">
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="phone" class="form-label">phone:</label>
-                <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone"
-                       th:field="*{phone}">
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email" class="form-label">email:</label>
-                <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
-                       th:field="*{email}">
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="address" class="form-label">address:</label>
-                <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
-                       th:field="*{address}">
-            </div>
-            <div class="mb-3 mt-3">
-                <label class="form-label">
-                    <select class="form-control" th:field="*{customerType}">
-                        <option th:each="temp:${customerTypeList}" th:value="${temp.id}"
+                    <select class="form-control" th:field="*{rentType}">
+                        <option th:each="temp:${rentTypeList}" th:value="${temp.id}"
                                 th:text="${temp.name}"></option>
                     </select>
                 </label>
             </div>
-            <input type="submit" class="btn btn-outline-primary" value="edit">
-            <a th:href="@{/customer}" class="btn btn-outline-primary">back</a>
+
+            <input type="submit" class="btn btn-outline-primary" value="create">
+            <a th:href="@{/facility}" class="btn btn-outline-primary">back</a>
         </form>
     </div>
 
-
 </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

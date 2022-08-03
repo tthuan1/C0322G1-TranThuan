@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.cutomerService;
 
 import com.example.model.customer.CustomerType;
 

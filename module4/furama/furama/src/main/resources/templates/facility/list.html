@@ -65,55 +65,58 @@
             <tr>
                 <th>id</th>
                 <th>name</th>
-                <th>date Of Birth</th>
-                <th>id Card</th>
-                <th>salary</th>
-                <th>phone Number</th>
-                <th>email</th>
-                <th>address</th>
-                <th>division</th>
-                <th>position</th>
-                <th>education Degree</th>
+                <th>area</th>
+                <th>cost</th>
+                <th>max People</th>
+                <th>standar dRoom</th>
+                <th>description Other Convenience</th>
+                <th>poolArea</th>
+                <th>number Of Floors</th>
+                <th>facility Free</th>
+                <th>facility Type</th>
+                <th>rent Type</th>
+
                 <th>delete</th>
                 <th>edit</th>
             </tr>
-            <tr th:each="employee: ${employeeList}">
-                <td th:text="${employee.id}"></td>
-                <td th:text="${employee.name}"></td>
-                <td th:text="${employee.dateOfBirth}"></td>
-                <td th:text="${employee.idCard}"></td>
-                <td th:text="${employee.salary}"></td>
-                <td th:text="${employee.phone_number}"></td>
-                <td th:text="${employee.email}"></td>
-                <td th:text="${employee.address}"></td>
-                <td th:text="${employee.division.name}"></td>
-                <td th:text="${employee.position.name}"></td>
-                <td th:text="${employee.educationDegree.name}"></td>
+            <tr th:each="facility: ${facilityList}">
+                <td th:text="${facility.id}"></td>
+                <td th:text="${facility.name}"></td>
+                <td th:text="${facility.area}"></td>
+                <td th:text="${facility.cost}"></td>
+                <td th:text="${facility.maxPeople}"></td>
+                <td th:text="${facility.standardRoom}"></td>
+                <td th:text="${facility.descriptionOtherConvenience}"></td>
+                <td th:text="${facility.poolArea}"></td>
+                <td th:text="${facility.numberOfFloors}"></td>
+                <td th:text="${facility.facilityFree}"></td>
+                <td th:text="${facility.facilityType.name}"></td>
+                <td th:text="${facility.rentType.name}"></td>
 
                 <td>
                     <!-- -----------------------modal delete----------------------- -->
                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                            th:data-target="'#exampleModalLong' + ${employee.id}">
+                            th:data-target="'#exampleModalLong' + ${facility.id}">
                         delete
                     </button>
                     <!-- Modal -->
-                    <div class="modal fade" th:id="'exampleModalLong' + ${employee.id} " tabindex="-1" role="dialog"
+                    <div class="modal fade" th:id="'exampleModalLong' + ${facility.id} " tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">delete employee</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">delete facility</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete employee <span class="text-info"
-                                                                      th:text="${employee.name}"></span> with
-                                    id = <span class="text-info" th:text="${employee.id}"></span>
+                                    Do you want delete facility <span class="text-info"
+                                                                      th:text="${facility.name}"></span> with
+                                    id = <span class="text-info" th:text="${facility.id}"></span>
                                 </div>
                                 <div class="modal-footer">
-                                    <a th:href="@{/employee/delete/{id}(id= ${employee.id})}"
+                                    <a th:href="@{/facility/delete/{id}(id= ${facility.id})}"
                                        class="btn btn-outline-success">Delete</a>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
@@ -122,44 +125,38 @@
                     </div>
                 </td>
                 <td>
-                    <a th:href="@{/employee/edit/{id}(id=${employee.id})}" class="btn btn-outline-primary">edit</a>
-                </td>
+                    <!--          <a th:href="@{/employee/edit/{id}(id=${employee.id})}" class="btn btn-outline-primary">edit</a>-->
+                    <!--        </td>-->
 
             </tr>
         </table>
-        <a th:href="@{/employee/create}" class="btn btn-outline-primary">Add</a>
-        <!--        <div class="d-grid gap-2 d-md-flex justify-content-md-end">-->
-        <!--            <a th:href="@{'/customer'(page=${customerList.number -1})}" th:if="${customerList.hasPrevious()}" class="btn btn-outline-secondary me-3">Previous</a>-->
-        <!--            <span th:text="${customerList.number + 1}"></span>-->
-        <!--            <span th:text="${customerList.totalPages}"></span>-->
-        <!--            <a th:href="@{'/customer'(page = ${customerList.number + 1})}" th:if="${customerList.hasNext()}" class="btn btn-outline-secondary ms-3">Next</a>-->
-        <!--        </div>-->
+        <a th:href="@{/facility/create}" class="btn btn-outline-primary">Add</a>
         <div class="row">
             <div class="col-2 ">
-                <ul class="pagination" th:if="${employeeList.totalPages > 0}">
+                <ul class="pagination" th:if="${facilityList.totalPages > 0}">
                     <li class="page-item">
-                        <a class="page-link" th:if="${employeeList.hasPrevious()}"
-                           th:href="@{'/employee'(page=${employeeList.number - 1})}">
+                        <a class="page-link" th:if="${facilityList.hasPrevious()}"
+                           th:href="@{'/facility'(page=${facilityList.number - 1})}">
                             Previous
                         </a>
                     </li>
-                    <div th:each="item : ${#numbers.sequence(1, employeeList.totalPages )}">
-                        <div th:if="${(employeeList.number + 1) == item}">
+                    <div th:each="item : ${#numbers.sequence(1, facilityList.totalPages )}">
+                        <div th:if="${(facilityList.number + 1) == item}">
                             <li class="page-item active">
                                 <a class="page-link" href="#" th:text="${item}"
-                                   th:href="@{/employee(page=(${item}-1))}"></a>
+                                   th:href="@{/facility(page=(${item}-1))}"></a>
                             </li>
                         </div>
-                        <div th:unless="${((employeeList.number + 1) == item)}">
+                        <div th:unless="${((facilityList.number + 1) == item)}">
                             <li class="page-item">
-                                <a class="page-link" href="#" th:text="${item}" th:href="@{/employee(page=(${item}-1)
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1)
                           )}"></a>
                             </li>
                         </div>
                     </div>
                     <li class="page-item">
-                        <a class="page-link" th:if="${employeeList.hasNext()}"
-                           th:href="@{'/employee'(page=${employeeList.number + 1}, search=${searchName})}">
+                        <a class="page-link" th:if="${facilityList.hasNext()}"
+                           th:href="@{'/facility'(page=${facilityList.number + 1}, search=${searchName})}">
                             Next
                         </a>
                     </li>
