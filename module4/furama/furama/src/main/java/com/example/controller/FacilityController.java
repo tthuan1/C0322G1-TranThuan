@@ -59,5 +59,22 @@ public class FacilityController {
         redirectAttributes.addFlashAttribute("mess","Delete Successfully!" );
         return "redirect:/facility";
     }
+    @GetMapping("/facility/edit/{id}")
+    public String showFacilityEdit(@PathVariable int id,Model model){
+        Facility facility=facilityService.findById(id);
+        List<FacilityType> facilityTypeList=facilityTypeService.findAll();
+        List<RentType> rentTypeList=rentTypeService.findAll();
+        model.addAttribute("facility",facility);
+        model.addAttribute("facilityTypeList",facilityTypeList);
+        model.addAttribute("rentTypeList",rentTypeList);
+        return "facility/edit";
+    }
+
+    @PostMapping("/facility/edit")
+    public String editFacility(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes){
+        facilityService.save(facility);
+        redirectAttributes.addFlashAttribute("mess","edit facility Successfully!" );
+        return "redirect:/facility";
+    }
 
 }

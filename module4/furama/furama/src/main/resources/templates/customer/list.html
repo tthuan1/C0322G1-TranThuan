@@ -44,8 +44,8 @@
                                     <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{service}'>Service</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{contract}'>Contract</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>Facility</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/contract}'>Contract</a>
                                 </div>
                             </div>
                         </div>
@@ -127,12 +127,6 @@
             </tr>
         </table>
         <a th:href="@{/customer/create}" class="btn btn-outline-primary">Add</a>
-        <!--        <div class="d-grid gap-2 d-md-flex justify-content-md-end">-->
-        <!--            <a th:href="@{'/customer'(page=${customerList.number -1})}" th:if="${customerList.hasPrevious()}" class="btn btn-outline-secondary me-3">Previous</a>-->
-        <!--            <span th:text="${customerList.number + 1}"></span>-->
-        <!--            <span th:text="${customerList.totalPages}"></span>-->
-        <!--            <a th:href="@{'/customer'(page = ${customerList.number + 1})}" th:if="${customerList.hasNext()}" class="btn btn-outline-secondary ms-3">Next</a>-->
-        <!--        </div>-->
         <div class="row">
             <div class="col-2 ">
                 <ul class="pagination" th:if="${customerList.totalPages > 0}">

@@ -10,4 +10,6 @@ public interface IFacilityService {
     void save(Facility facility);
 
     void remove(int id);
+
+    Facility findById(int id);
 }

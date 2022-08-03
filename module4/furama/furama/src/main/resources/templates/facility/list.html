@@ -44,8 +44,8 @@
                                     <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
                                     <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>facility</a>
-                                    <a class="nav-link active" aria-current="page" th:href='@{contract}'>Contract</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>Facility</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/contract}'>Contract</a>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,6 @@
                 </div>
             </nav>
         </div>
-
     </div>
     <div>
         <table class="table">
@@ -125,8 +124,8 @@
                     </div>
                 </td>
                 <td>
-                    <!--          <a th:href="@{/employee/edit/{id}(id=${employee.id})}" class="btn btn-outline-primary">edit</a>-->
-                    <!--        </td>-->
+                    <a th:href="@{/facility/edit/{id}(id=${facility.id})}" class="btn btn-outline-primary">edit</a>
+                </td>
 
             </tr>
         </table>

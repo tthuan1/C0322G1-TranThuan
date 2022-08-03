@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Trang chủ - furama</title>
   <link>
@@ -17,7 +17,7 @@
 <div class="container-fluid">
   <div class="header">
     <div class="row">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark w-100">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"
@@ -58,78 +58,23 @@
         </div>
       </nav>
     </div>
-  </div>
-  <div class="container">
-    <form th:action="@{/employee/create}" th:object="${employee}" th:method="post">
-      <div class="mb-3 mt-3" hidden>
-        <label for="id" class="form-label">id:</label>
-        <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
-               th:field="*{id}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
-               th:field="*{name}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="birthday" class="form-label">birthday:</label>
-        <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
-               th:field="*{dateOfBirth}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="birthday" class="form-label">id Card:</label>
-        <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
-               th:field="*{idCard}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="salary" class="form-label">salary:</label>
-        <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary"
-               th:field="*{salary}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="phone_number" class="form-label">phone_number:</label>
-        <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number" name="phone_number"
-               th:field="*{phone_number}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="email" class="form-label">email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
-               th:field="*{email}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="address" class="form-label">address:</label>
-        <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
-               th:field="*{address}">
-      </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">
-          <select class="form-control" th:field="*{division}">
-            <option th:each="temp:${divisionList}" th:value="${temp.id}"
-                    th:text="${temp.name}"></option>
-          </select>
-        </label>
-      </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">
-          <select class="form-control" th:field="*{educationDegree}">
-            <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
-                    th:text="${temp.name}"></option>
-          </select>
-        </label>
-      </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">
-          <select class="form-control" th:field="*{position}">
-            <option th:each="temp:${positionList}" th:value="${temp.id}"
-                    th:text="${temp.name}"></option>
-          </select>
-        </label>
-      </div>
 
-      <input type="submit" class="btn btn-outline-primary" value="create">
-      <a th:href="@{/employee}" class="btn btn-outline-primary">back</a>
-    </form>
   </div>
+  <div>
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>facility name</th>
+        <th>customer name</th>
+        <th>start date</th>
+        <th>end date</th>
+        <th>deposit</th>
+        <th>employee name</th>
+      </tr>
+    </table>
+    <p style="color: green" th:text="${mess}"></p>
+  </div>
+
 
 </div>
 

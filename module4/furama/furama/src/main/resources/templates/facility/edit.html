@@ -17,7 +17,7 @@
 <div class="container-fluid">
   <div class="header">
     <div class="row">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark w-100">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"
@@ -59,8 +59,18 @@
       </nav>
     </div>
   </div>
-  <div class="container">
-    <form th:action="@{/employee/create}" th:object="${employee}" th:method="post">
+  <div class="container villa">
+    <form th:action="@{/facility/edit}" th:object="${facility}" th:method="post">
+      <div class="mb-3 mt-3">
+        <label for="facilityType" class="form-label">Facility Type</label>
+        <select class="form-control" name="facilityType" id="facilityType" th:field="*{facilityType}"
+                onchange="onchangeFacility(this.value)">
+          <option th:each="temp:${facilityTypeList}"
+                  th:value="${temp.id}"
+                  th:text="${temp.name}"></option>
+        </select>
+
+      </div>
       <div class="mb-3 mt-3" hidden>
         <label for="id" class="form-label">id:</label>
         <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
@@ -72,66 +82,80 @@
                th:field="*{name}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="birthday" class="form-label">birthday:</label>
-        <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
-               th:field="*{dateOfBirth}">
+        <label for="area" class="form-label">area:</label>
+        <input type="text" class="form-control" id="area" placeholder="Enter area" name="area"
+               th:field="*{area}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="birthday" class="form-label">id Card:</label>
-        <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
-               th:field="*{idCard}">
+        <label for="cost" class="form-label">cost:</label>
+        <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost"
+               th:field="*{cost}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="salary" class="form-label">salary:</label>
-        <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary"
-               th:field="*{salary}">
+        <label for="maxPeople" class="form-label">maxPeople:</label>
+        <input type="text" class="form-control" id="maxPeople" placeholder="Enter maxPeople" name="maxPeople"
+               th:field="*{maxPeople}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="phone_number" class="form-label">phone_number:</label>
-        <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number" name="phone_number"
-               th:field="*{phone_number}">
+        <label for="standardRoom" class="form-label">standardRoom:</label>
+        <input type="text" class="form-control" id="standardRoom" placeholder="Enter standardRoom"
+               name="standardRoom"
+               th:field="*{standardRoom}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="email" class="form-label">email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
-               th:field="*{email}">
+        <label for="descriptionOtherConvenience" class="form-label">descriptionOtherConvenience:</label>
+        <input type="text" class="form-control" id="descriptionOtherConvenience"
+               placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience"
+               th:field="*{descriptionOtherConvenience}">
+      </div>
+      <div class="mb-3 mt-3 house room">
+        <label for="poolArea" class="form-label ">poolArea:</label>
+        <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea"
+               th:field="*{poolArea}">
+      </div>
+      <div class="mb-3 mt-3 room">
+        <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+        <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter numberOfFloors"
+               name="numberOfFloors"
+               th:field="*{numberOfFloors}">
       </div>
       <div class="mb-3 mt-3">
-        <label for="address" class="form-label">address:</label>
-        <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
-               th:field="*{address}">
+        <label for="facilityFree" class="form-label">facilityFree:</label>
+        <input type="text" class="form-control" id="facilityFree" placeholder="Enter facilityFree"
+               name="facilityFree"
+               th:field="*{facilityFree}">
       </div>
       <div class="mb-3 mt-3">
         <label class="form-label">
-          <select class="form-control" th:field="*{division}">
-            <option th:each="temp:${divisionList}" th:value="${temp.id}"
-                    th:text="${temp.name}"></option>
-          </select>
-        </label>
-      </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">
-          <select class="form-control" th:field="*{educationDegree}">
-            <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
-                    th:text="${temp.name}"></option>
-          </select>
-        </label>
-      </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">
-          <select class="form-control" th:field="*{position}">
-            <option th:each="temp:${positionList}" th:value="${temp.id}"
+          <select class="form-control" th:field="*{rentType}">
+            <option th:each="temp:${rentTypeList}" th:value="${temp.id}"
                     th:text="${temp.name}"></option>
           </select>
         </label>
       </div>
 
-      <input type="submit" class="btn btn-outline-primary" value="create">
-      <a th:href="@{/employee}" class="btn btn-outline-primary">back</a>
+      <input type="submit" class="btn btn-outline-primary" value="edit">
+      <a th:href="@{/facility}" class="btn btn-outline-primary">back</a>
     </form>
   </div>
 
 </div>
+<script>
+  let value = $('facilityType').val();
+  function onchangeFacility(value) {
+    debugger
+    console.log(value)
+    if (value == 2) {
+      $(".room").show();
+      $(".house").hide();
+    } else if (value == 3) {
+      $(".room").hide();
+    } else {
+      $(".house").show();
+      $(".room").show();
+    }
+  }
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
