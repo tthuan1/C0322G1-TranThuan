@@ -20,6 +20,15 @@ public class FacilityService implements IFacilityService{
 
     @Override
     public void save(Facility facility) {
+        int i=facility.getFacilityType().getId();
+        System.err.println(i);
+        if (i==2){
+            facility.setPoolArea(null);
+        }
+        if (i==3){
+            facility.setPoolArea(null);
+            facility.setNumberOfFloors(null);
+        }
         facilityRepository.save(facility);
     }
 

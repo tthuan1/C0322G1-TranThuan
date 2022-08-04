@@ -1,7 +1,5 @@
 package com.example.controller;
 
-import com.example.model.customer.Customer;
-import com.example.model.customer.CustomerType;
 import com.example.model.employee.Division;
 import com.example.model.employee.EducationDegree;
 import com.example.model.employee.Employee;
@@ -16,13 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,19 +31,42 @@ public class EmployeeController {
     @Autowired
     private IPositionService positionService;
 
+    @ModelAttribute("divisionList")
+    private List<Division> divisionList(){
+        return this.divisionService.findAll();
+    }
+
+    @ModelAttribute("educationDegreeList")
+    private List<EducationDegree> educationDegreeList(){
+        return this.educationDegreeService.findAll();
+    }
+    @ModelAttribute("positionList")
+    private List<Position> positionList(){
+        return this.positionService.findAll();
+    }
+
     @GetMapping("/employee")
     public String showEmployee(@PageableDefault(value = 5) Pageable pageable, Model model) {
         Page<Employee> employeeList = employeeService.findAll(pageable);
         model.addAttribute("employeeList", employeeList);
+        model.addAttribute("employeeCreate", new Employee());
+
+        model.addAttribute("employeeEdit", employeeService.findById(1));
         return "employee/list";
+    }
+
+    @GetMapping()
+
+    @PostMapping ("/employee/createModal")
+    public String createEmployeeModal(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes){
+        employeeService.save(employee);
+        redirectAttributes.addAttribute("mess", "Create Successfully!");
+        return "redirect:/employee";
     }
 
     @GetMapping("/employee/create")
     public String showEmployeeCreate(Model model) {
         model.addAttribute("employee", new Employee());
-        model.addAttribute("divisionList", divisionService.findAll());
-        model.addAttribute("educationDegreeList", educationDegreeService.findAll());
-        model.addAttribute("positionList", positionService.findAll());
         return "employee/create";
     }
 
@@ -68,15 +85,9 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/edit/{id}")
-    public String ShowEditCustomer(@PathVariable int id, Model model) {
+    public String showEditCustomer(@PathVariable int id, Model model) {
         Optional<Employee> employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
-        List<Division> divisionList = divisionService.findAll();
-        model.addAttribute("divisionList", divisionList);
-        List<EducationDegree> educationDegreeList = educationDegreeService.findAll();
-        model.addAttribute("educationDegreeList", educationDegreeList);
-        List<Position> positionList = positionService.findAll();
-        model.addAttribute("positionList", positionList);
         return "employee/edit";
     }
 
@@ -85,6 +96,16 @@ public class EmployeeController {
         employeeService.edit(employee);
         redirectAttributes.addFlashAttribute("mess", "Edit Successfully!");
         return "redirect:/employee";
+    }
+
+    @GetMapping("/employee/edit/modal/{id}")
+    public String showEmployeeModal(@PageableDefault(value = 5) Pageable pageable, Model model,@PathVariable int id) {
+        Page<Employee> employeeList = employeeService.findAll(pageable);
+        model.addAttribute("employeeList", employeeList);
+        model.addAttribute("employeeCreate", new Employee());
+        model.addAttribute("employeeEdit", employeeService.findById(id));
+        model.addAttribute("flag", 1);
+        return "employee/list";
     }
 
 

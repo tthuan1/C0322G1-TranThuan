@@ -123,17 +123,102 @@
                 </td>
                 <td>
                     <a th:href="@{/employee/edit/{id}(id=${employee.id})}" class="btn btn-outline-primary">edit</a>
+                    <a th:href="@{/employee/edit/modal/{id}(id=${employee.id})}" class="btn btn-outline-primary">edit modal</a>
+
+                    <div class="modal fade" id='editEmployee'  tabindex="-1" role="dialog"
+                         aria-labelledby="editEmployeeTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editEmployeeTitle">create employee</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form th:action="@{/employee/{id}/edit}" th:object="${employeeEdit}" th:method="post">
+                                        <div class="mb-3 mt-3" hidden>
+                                            <label for="id" class="form-label">id:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter id" name="id"
+                                                   th:field="*{id}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="name" class="form-label">Name:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter name" name="name"
+                                                   th:field="*{name}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="birthday" class="form-label">birthday:</label>
+                                            <input type="date" class="form-control"  placeholder="Enter birthday" name="birthday"
+                                                   th:field="*{dateOfBirth}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="birthday" class="form-label">id Card:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter idCard" name="idCard"
+                                                   th:field="*{idCard}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="salary" class="form-label">salary:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter salary" name="salary"
+                                                   th:field="*{salary}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="phone_number" class="form-label">phone_number:</label>
+                                            <input type="text" class="form-control" placeholder="Enter phone number" name="phone_number"
+                                                   th:field="*{phone_number}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="email" class="form-label">email:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter email" name="email"
+                                                   th:field="*{email}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="address" class="form-label">address:</label>
+                                            <input type="text" class="form-control"  placeholder="Enter address" name="address"
+                                                   th:field="*{address}">
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label class="form-label">
+                                                <select class="form-control" th:field="*{division}">
+                                                    <option th:each="temp:${divisionList}" th:value="${temp.id}"
+                                                            th:text="${temp.name}"></option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label class="form-label">
+                                                <select class="form-control" th:field="*{educationDegree}">
+                                                    <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
+                                                            th:text="${temp.name}"></option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label class="form-label">
+                                                <select class="form-control" th:field="*{position}">
+                                                    <option th:each="temp:${positionList}" th:value="${temp.id}"
+                                                            th:text="${temp.name}"></option>
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <input type="submit" class="btn btn-outline-primary" value="edit">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </td>
 
             </tr>
         </table>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                th:data-target="'#createEmloyee'" >
+            add
+        </button>
         <a th:href="@{/employee/create}" class="btn btn-outline-primary">Add</a>
-        <!--        <div class="d-grid gap-2 d-md-flex justify-content-md-end">-->
-        <!--            <a th:href="@{'/customer'(page=${customerList.number -1})}" th:if="${customerList.hasPrevious()}" class="btn btn-outline-secondary me-3">Previous</a>-->
-        <!--            <span th:text="${customerList.number + 1}"></span>-->
-        <!--            <span th:text="${customerList.totalPages}"></span>-->
-        <!--            <a th:href="@{'/customer'(page = ${customerList.number + 1})}" th:if="${customerList.hasNext()}" class="btn btn-outline-secondary ms-3">Next</a>-->
-        <!--        </div>-->
         <div class="row">
             <div class="col-2 ">
                 <ul class="pagination" th:if="${employeeList.totalPages > 0}">
@@ -170,8 +255,96 @@
     </div>
 
 
-</div>
 
+    <!-- Modal create -->
+    <div class="modal fade" th:id="'createEmloyee'  " tabindex="-1" role="dialog"
+         aria-labelledby="createEmployeeTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createEmployeeTitle">create employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/employee/createModal}" th:object="${employeeCreate}" th:method="post">
+                        <div class="mb-3 mt-3" hidden>
+                            <label for="id" class="form-label">id:</label>
+                            <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
+                                   th:field="*{id}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                                   th:field="*{name}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="birthday" class="form-label">birthday:</label>
+                            <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
+                                   th:field="*{dateOfBirth}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="birthday" class="form-label">id Card:</label>
+                            <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
+                                   th:field="*{idCard}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="salary" class="form-label">salary:</label>
+                            <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary"
+                                   th:field="*{salary}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="phone_number" class="form-label">phone_number:</label>
+                            <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number" name="phone_number"
+                                   th:field="*{phone_number}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">email:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
+                                   th:field="*{email}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="address" class="form-label">address:</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
+                                   th:field="*{address}">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">
+                                <select class="form-control" th:field="*{division}">
+                                    <option th:each="temp:${divisionList}" th:value="${temp.id}"
+                                            th:text="${temp.name}"></option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">
+                                <select class="form-control" th:field="*{educationDegree}">
+                                    <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
+                                            th:text="${temp.name}"></option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">
+                                <select class="form-control" th:field="*{position}">
+                                    <option th:each="temp:${positionList}" th:value="${temp.id}"
+                                            th:text="${temp.name}"></option>
+                                </select>
+                            </label>
+                        </div>
+                        <input type="submit" class="btn btn-outline-primary" value="create">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<input type="text" hidden th:value="${flag}" id="flag">
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -183,5 +356,16 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script>
+    let falg=$('#flag').val();
+    if (falg==1){
+        $(document).ready(
+            function (){
+                $('#editEmployee').modal('show');
+            }
+        )
+    }
+
+</script>
 </body>
 </html>
