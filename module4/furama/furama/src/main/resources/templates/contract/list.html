@@ -1,79 +1,128 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Trang chủ - furama</title>
-  <link>
-  <link rel="shortcut icon" type="image/png"
-        href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"/>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trang chủ - furama</title>
+    <link>
+    <link rel="shortcut icon" type="image/png"
+          href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
 <div class="container-fluid">
-  <div class="header">
-    <div class="row">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark w-100">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"
-                 alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-          </a>
-          <a class="navbar-brand" href="#">Trần thuận</a>
-        </div>
-      </nav>
-    </div>
-    <!--        menu-->
-    <div class="row">
-      <nav class="navbar navbar-expand-lg bg-light w-100">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand">Furama resort</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                      aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
-                  <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
-                  <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
-                  <a class="nav-link active" aria-current="page" th:href='@{/facility}'>Facility</a>
-                  <a class="nav-link active" aria-current="page" th:href='@{/contract}'>Contract</a>
+    <div class="header">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark w-100">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"
+                             alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                    </a>
+                    <a class="navbar-brand" href="#">Trần thuận</a>
                 </div>
-              </div>
-            </div>
-          </nav>
-          <form class="d-flex" role="search" th:action="@{/customer/search}" method="post">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                   name="name">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </form>
+            </nav>
         </div>
-      </nav>
-    </div>
+        <!--        menu-->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-light w-100">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand">Furama resort</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>Facility</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/contract}'>Contract</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <form class="d-flex" role="search" th:action="@{/customer/search}" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                               name="name">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
 
-  </div>
-  <div>
-    <table class="table">
-      <tr>
-        <th>id</th>
-        <th>facility name</th>
-        <th>customer name</th>
-        <th>start date</th>
-        <th>end date</th>
-        <th>deposit</th>
-        <th>employee name</th>
-      </tr>
-    </table>
-    <p style="color: green" th:text="${mess}"></p>
-  </div>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>facility name</th>
+                <th>customer name</th>
+                <th>start date</th>
+                <th>end date</th>
+                <th>deposit</th>
+                <th>total</th>
+                <th>Attach Facility</th>
+            </tr>
+            <tr th:each="contract: ${contractList}">
+                <td th:text="${contract.id}"></td>
+                <td th:text="${contract.facility.name}"></td>
+                <td th:text="${contract.customer.name}"></td>
+                <td th:text="${contract.startDate}"></td>
+                <td th:text="${contract.endDate}"></td>
+                <td th:text="${contract.deposit}"></td>
+                <td>tổng tiền</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                            th:data-target="'#attachFacility' + ${contract.id}">
+                        danh sách các dịch dụ đi kèm
+                    </button>
+                    <div class="modal fade" th:id="'attachFacility' + ${contract.id} " tabindex="-1" role="dialog"
+                         aria-labelledby="attachFacilityTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="attachFacilityTitle">Danh sách các dịnh vụ đi kèm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <tr>
+                                            <th>tên dịch vụ đi kèm</th>
+                                            <th>Giá dịch vụ đi kèm</th>
+                                            <th>Đơn vị</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                        <tr th:each="contractDetail:${contractDetailList}" th:if="${contractDetail.contract.id==contract.id}">
+                                            <td th:text="${contractDetail.attachFacility.name}"></td>
+                                            <td th:text="${contractDetail.attachFacility.cost}"></td>
+                                            <td th:text="${contractDetail.attachFacility.unit}"></td>
+                                            <td th:text="${contractDetail.attachFacility.status}"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+        <p style="color: green" th:text="${mess}"></p>
+    </div>
 
 
 </div>

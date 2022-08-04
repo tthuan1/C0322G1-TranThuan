@@ -1,6 +1,9 @@
 package com.example.model.employee;
 
+import com.example.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "employee")
 public class Employee {
@@ -23,6 +26,10 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name ="education_degree_id",referencedColumnName = "id")
     private EducationDegree educationDegree;
+
+    @OneToMany(mappedBy = "employee")
+    private Set<Contract>  contracts;
+
 
     @ManyToOne
     @JoinColumn(name ="position_id",referencedColumnName = "id")

@@ -1,8 +1,11 @@
 package com.example.model.customer;
 
-import javax.persistence.*;
+import com.example.model.contract.Contract;
 
-@Entity
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +21,9 @@ public class Customer {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_type_id",referencedColumnName = "id")
     private CustomerType customerType;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Contract> contracts;
 
     public Customer() {
     }

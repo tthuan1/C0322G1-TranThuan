@@ -1,8 +1,10 @@
 package com.example.model.facility;
 
+import com.example.model.contract.Contract;
 import com.example.model.employee.Division;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "facility")
 public class Facility {
@@ -26,6 +28,8 @@ public class Facility {
     @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
 
+    @OneToMany(mappedBy = "facility")
+    private Set<Contract> contracts;
     public Facility() {
     }
 
