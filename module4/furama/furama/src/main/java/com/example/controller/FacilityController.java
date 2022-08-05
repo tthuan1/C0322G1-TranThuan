@@ -1,11 +1,11 @@
 package com.example.controller;
 
-import com.example.model.facility.Facility;
-import com.example.model.facility.FacilityType;
-import com.example.model.facility.RentType;
-import com.example.service.facilityService.IFacilityService;
-import com.example.service.facilityService.IFacilityTypeService;
-import com.example.service.facilityService.IRentTypeService;
+import com.example.model.Facility;
+import com.example.model.FacilityType;
+import com.example.model.RentType;
+import com.example.service.IFacilityService;
+import com.example.service.IFacilityTypeService;
+import com.example.service.IRentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

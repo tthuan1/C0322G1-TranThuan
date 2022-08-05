@@ -1,9 +1,9 @@
 package com.example.controller;
 
-import com.example.model.customer.Customer;
-import com.example.model.customer.CustomerType;
-import com.example.service.cutomerService.ICustomerService;
-import com.example.service.cutomerService.ICustomerTypeService;
+import com.example.model.Customer;
+import com.example.model.CustomerType;
+import com.example.service.ICustomerService;
+import com.example.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,14 +26,7 @@ public class CustomerController {
     ICustomerTypeService customerTypeService;
 
 
-    @GetMapping("/customer")
-    public String showCustomer(@PageableDefault(value = 7,sort = "id",direction = Sort.Direction.DESC) Pageable pageable, Model model){
-        Page<Customer> customerList = customerService.findAll(pageable);
-        List<CustomerType> customerTypeList=customerTypeService.findAll();
-        model.addAttribute("customerList",customerList);
-        model.addAttribute("customerTypeList",customerTypeList);
-        return "/customer/list";
-    }
+
 
     @GetMapping("/customer/create")
     public String showCreateCustomer(Model model){
@@ -73,14 +66,14 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @PostMapping("/customer/search")
-    public String search(@RequestParam("name") String search,Model model, @PageableDefault(value = 5) Pageable pageable) {
-        Page<Customer> customerList = customerService.search("%" + search + "%", pageable);
+    @GetMapping("/customer")
+    public String showCustomer(@RequestParam(value = "nameSearch", defaultValue = "") String search,@PageableDefault(value = 5,sort = "id",direction = Sort.Direction.DESC) Pageable pageable, Model model){
+        Page<Customer> customerList = customerService.search(search, pageable);
         List<CustomerType> customerTypeList=customerTypeService.findAll();
+        model.addAttribute("nameSearch",search);
         model.addAttribute("customerList",customerList);
         model.addAttribute("customerTypeList",customerTypeList);
         return "/customer/list";
     }
-
 
 }

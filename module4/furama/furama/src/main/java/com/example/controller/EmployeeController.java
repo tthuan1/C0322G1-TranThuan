@@ -1,13 +1,13 @@
 package com.example.controller;
 
-import com.example.model.employee.Division;
-import com.example.model.employee.EducationDegree;
-import com.example.model.employee.Employee;
-import com.example.model.employee.Position;
-import com.example.service.employeeService.IDivisionService;
-import com.example.service.employeeService.IEducationDegreeService;
-import com.example.service.employeeService.IEmployeeService;
-import com.example.service.employeeService.IPositionService;
+import com.example.model.Division;
+import com.example.model.EducationDegree;
+import com.example.model.Employee;
+import com.example.model.Position;
+import com.example.service.IDivisionService;
+import com.example.service.IEducationDegreeService;
+import com.example.service.IEmployeeService;
+import com.example.service.IPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
