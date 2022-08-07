@@ -1,36 +1,37 @@
-package com.example.model;
+package com.example.dto;
 
-import javax.persistence.*;
+import com.example.model.Contract;
+import com.example.model.FacilityType;
+import com.example.model.RentType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
-@Entity(name = "facility")
-public class Facility {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FacilityDto implements Validator {
     private Integer id;
+    @NotBlank(message = "Không được để trống !!")
     private String name;
     private Integer area;
     private Double cost;
     private Integer maxPeople;
+    @NotBlank(message = "Không được để trống !!")
     private String standardRoom;
+    @NotBlank(message = "Không được để trống !!")
     private String descriptionOtherConvenience;
     private Double poolArea;
+
     private Integer numberOfFloors;
     private String facilityFree;
-
-    @ManyToOne
-    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
-    @ManyToOne
-    @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
-
-    @OneToMany(mappedBy = "facility")
     private Set<Contract> contracts;
-    public Facility() {
+
+    public FacilityDto() {
     }
 
-    public Facility(Integer id, String name, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contracts) {
+    public FacilityDto(Integer id, String name, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -43,14 +44,6 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.facilityType = facilityType;
         this.rentType = rentType;
-        this.contracts = contracts;
-    }
-
-    public Set<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(Set<Contract> contracts) {
         this.contracts = contracts;
     }
 
@@ -148,5 +141,23 @@ public class Facility {
 
     public void setRentType(RentType rentType) {
         this.rentType = rentType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }

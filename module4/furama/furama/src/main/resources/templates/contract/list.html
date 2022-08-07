@@ -103,7 +103,8 @@
                                             <th>Đơn vị</th>
                                             <th>Trạng thái</th>
                                         </tr>
-                                        <tr th:each="contractDetail:${contractDetailList}" th:if="${contractDetail.contract.id==contract.id}">
+                                        <tr th:each="contractDetail:${contractDetailList}"
+                                            th:if="${contractDetail.contract.id==contract.id}">
                                             <td th:text="${contractDetail.attachFacility.name}"></td>
                                             <td th:text="${contractDetail.attachFacility.cost}"></td>
                                             <td th:text="${contractDetail.attachFacility.unit}"></td>
@@ -121,6 +122,40 @@
 
             </tr>
         </table>
+        <a th:href="@{/contract/create}" class="btn btn-outline-primary">Add</a>
+        <a th:href="@{/contractCustomer}" class="btn btn-outline-primary">list customer user</a>
+        <div class="row">
+            <div class="col-2 ">
+                <ul class="pagination" th:if="${contractList.totalPages > 0}">
+                    <li class="page-item">
+                        <a class="page-link" th:if="${contractList.hasPrevious()}"
+                           th:href="@{'/contract'(page=${contractList.number - 1}, nameSearch=${nameSearch})}">
+                            Previous
+                        </a>
+                    </li>
+                    <div th:each="item : ${#numbers.sequence(1, contractList.totalPages )}">
+                        <div th:if="${(contractList.number + 1) == item}">
+                            <li class="page-item active">
+                                <a class="page-link" href="#" th:text="${item}"
+                                   th:href="@{/contract(page=(${item}-1),nameSearch=${nameSearch})}"></a>
+                            </li>
+                        </div>
+                        <div th:unless="${((contractList.number + 1) == item)}">
+                            <li class="page-item">
+                                <a class="page-link" href="#" th:text="${item}"
+                                   th:href="@{/contract(page=(${item}-1), nameSearch=${nameSearch})}"></a>
+                            </li>
+                        </div>
+                    </div>
+                    <li class="page-item">
+                        <a class="page-link" th:if="${contractList.hasNext()}"
+                           th:href="@{'/contract'(page=${contractList.number + 1}, nameSearch=${nameSearch})}">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <p style="color: green" th:text="${mess}"></p>
     </div>
 

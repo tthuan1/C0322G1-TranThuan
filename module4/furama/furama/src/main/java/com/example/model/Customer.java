@@ -1,6 +1,8 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "customer")
@@ -26,7 +28,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Integer id, String name, String birthday, Integer gender, String id_card, String phone, String email, String address, CustomerType customerType) {
+    public Customer(Integer id, String name, String birthday, Integer gender, String id_card, String phone, String email, String address, CustomerType customerType, Set<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -36,6 +38,7 @@ public class Customer {
         this.email = email;
         this.address = address;
         this.customerType = customerType;
+        this.contracts = contracts;
     }
 
     public Integer getId() {
@@ -60,6 +63,14 @@ public class Customer {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     public Integer getGender() {

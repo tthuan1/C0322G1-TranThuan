@@ -60,16 +60,26 @@
         </div>
     </div>
     <div class="container">
-        <form th:action="@{/customer/create}" th:object="${customer}" th:method="post">
+        <form th:action="@{/customer/create}" th:object="${customerDto}" th:method="post">
             <div class="mb-3 mt-3">
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                <label for="name1" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name1" placeholder="Enter name" name="name"
                        th:field="*{name}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"
+                     th:errors="*{name}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('name')}"
+                     th:if="${customerDto.name != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label for="birthday" class="form-label">birthday:</label>
                 <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
                        th:field="*{birthday}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('birthday')}"
+                     th:errors="*{birthday}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('birthday')}"
+                     th:if="${customerDto.birthday != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">
@@ -84,21 +94,41 @@
                 <label for="id_card" class="form-label">id_card:</label>
                 <input type="text" class="form-control" id="id_card" placeholder="Enter id_card" name="id_card"
                        th:field="*{id_card}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('id_card')}"
+                     th:errors="*{id_card}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('id_card')}"
+                     th:if="${customerDto.id_card != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label for="phone" class="form-label">phone:</label>
                 <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone"
                        th:field="*{phone}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}"
+                     th:errors="*{phone}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('phone')}"
+                     th:if="${customerDto.phone != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label for="email" class="form-label">email:</label>
                 <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
                        th:field="*{email}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"
+                     th:errors="*{email}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('email')}"
+                     th:if="${customerDto.email != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label for="address" class="form-label">address:</label>
                 <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
                        th:field="*{address}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address')}"
+                     th:errors="*{address}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('address')}"
+                     th:if="${customerDto.address != null}">✓
+                </div>
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">
@@ -112,8 +142,6 @@
             <a th:href="@{/customer}" class="btn btn-outline-primary">back</a>
         </form>
     </div>
-
-
 </div>
 
 <!-- Optional JavaScript -->

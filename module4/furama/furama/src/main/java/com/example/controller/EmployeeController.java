@@ -1,19 +1,21 @@
 package com.example.controller;
 
-import com.example.model.Division;
-import com.example.model.EducationDegree;
-import com.example.model.Employee;
-import com.example.model.Position;
+import com.example.dto.CustomerDto;
+import com.example.dto.EmployeeDto;
+import com.example.model.*;
 import com.example.service.IDivisionService;
 import com.example.service.IEducationDegreeService;
 import com.example.service.IEmployeeService;
 import com.example.service.IPositionService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,6 +42,7 @@ public class EmployeeController {
     private List<EducationDegree> educationDegreeList(){
         return this.educationDegreeService.findAll();
     }
+
     @ModelAttribute("positionList")
     private List<Position> positionList(){
         return this.positionService.findAll();
@@ -49,16 +52,20 @@ public class EmployeeController {
     public String showEmployee(@PageableDefault(value = 5) Pageable pageable, Model model) {
         Page<Employee> employeeList = employeeService.findAll(pageable);
         model.addAttribute("employeeList", employeeList);
-        model.addAttribute("employeeCreate", new Employee());
-
+        model.addAttribute("employeeCreate", new EmployeeDto());
         model.addAttribute("employeeEdit", employeeService.findById(1));
         return "employee/list";
     }
 
-    @GetMapping()
 
     @PostMapping ("/employee/createModal")
-    public String createEmployeeModal(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes){
+    public String createEmployeeModal(@Validated @ModelAttribute EmployeeDto employeeDto, RedirectAttributes redirectAttributes, BindingResult bindingResult){
+        new EmployeeDto().validate(employeeDto,bindingResult);
+        if(bindingResult.hasErrors()){
+            return "employee/list";
+        }
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDto,employee);
         employeeService.save(employee);
         redirectAttributes.addAttribute("mess", "Create Successfully!");
         return "redirect:/employee";
@@ -66,12 +73,18 @@ public class EmployeeController {
 
     @GetMapping("/employee/create")
     public String showEmployeeCreate(Model model) {
-        model.addAttribute("employee", new Employee());
+        model.addAttribute("employeeDto", new EmployeeDto());
         return "employee/create";
     }
 
     @PostMapping("/employee/create")
-    public String createEmployee(RedirectAttributes redirectAttributes, @ModelAttribute Employee employee) {
+    public String createEmployee(RedirectAttributes redirectAttributes,@Validated @ModelAttribute EmployeeDto employeeDto,BindingResult bindingResult) {
+        new EmployeeDto().validate(employeeDto,bindingResult);
+        if(bindingResult.hasErrors()){
+            return "employee/create";
+        }
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDto,employee);
         employeeService.save(employee);
         redirectAttributes.addAttribute("mess", "Create Successfully!");
         return "redirect:/employee";
