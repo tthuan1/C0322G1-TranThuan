@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trang chủ - furama</title>
+    <link>
+    <link rel="shortcut icon" type="image/png"
+          href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.6435-9/91196518_151889716288463_5846000305799430144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ILchzhLVzNoAX8aZnNY&_nc_ht=scontent.fhan14-2.fna&oh=00_AT-eTN5FqctxeJ7yVp2A8c9Phs_Cx425S8klzH598BB5ug&oe=62DEE3F6"
+                             alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                    </a>
+                    <a class="navbar-brand" href="#">Trần thuận</a>
+                </div>
+            </nav>
+        </div>
+        <!--        menu-->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-light w-100">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand">Furama resort</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a class="nav-link active" aria-current="page" th:href='@{/home}'>Home</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/employee}'>Employee</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/customer}'>Customer</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/facility}'>Facility</a>
+                                    <a class="nav-link active" aria-current="page" th:href='@{/contract}'>Contract</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <form class="d-flex" role="search" th:action="@{/customer/search}" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                               name="name">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <form th:action="@{/employee/create}" th:object="${employeeDto}" th:method="post">
+            <div class="mb-3 mt-3" hidden>
+                <label for="id" class="form-label">id:</label>
+                <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
+                       th:field="*{id}">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                       th:field="*{name}">
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}"
+                     th:errors="*{name}"></div>
+                <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('name')}"
+                     th:if="${employeeDto.name != null}">✓
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="birthday" class="form-label">birthday:</label>
+                    <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday"
+                           th:field="*{dateOfBirth}">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="birthday" class="form-label">id Card:</label>
+                    <input type="text" class="form-control" id="idCard" placeholder="Enter idCard" name="idCard"
+                           th:field="*{idCard}">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('idCard')}"
+                         th:errors="*{idCard}"></div>
+                    <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('idCard')}"
+                         th:if="${employeeDto.idCard != null}">✓
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="salary" class="form-label">salary:</label>
+                    <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary"
+                           th:field="*{salary}">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('salary')}"
+                         th:errors="*{salary}"></div>
+                    <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('salary')}"
+                         th:if="${employeeDto.salary != null}">✓
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="phone_number" class="form-label">phone_number:</label>
+                    <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number"
+                           name="phone_number"
+                           th:field="*{phone_number}">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone_number')}"
+                         th:errors="*{phone_number}"></div>
+                    <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('phone_number')}"
+                         th:if="${employeeDto.phone_number != null}">✓
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">email:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
+                           th:field="*{email}">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}"
+                         th:errors="*{email}"></div>
+                    <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('email')}"
+                         th:if="${employeeDto.email != null}">✓
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="address" class="form-label">address:</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
+                           th:field="*{address}">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address')}"
+                         th:errors="*{address}"></div>
+                    <div class="alert alert-success" role="alert" th:unless="${#fields.hasErrors('address')}"
+                         th:if="${employeeDto.address != null}">✓
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label">
+                        <select class="form-control" th:field="*{division}">
+                            <option th:each="temp:${divisionList}" th:value="${temp.id}"
+                                    th:text="${temp.name}"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label">
+                        <select class="form-control" th:field="*{educationDegree}">
+                            <option th:each="temp:${educationDegreeList}" th:value="${temp.id}"
+                                    th:text="${temp.name}"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label">
+                        <select class="form-control" th:field="*{position}">
+                            <option th:each="temp:${positionList}" th:value="${temp.id}"
+                                    th:text="${temp.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <input type="submit" class="btn btn-outline-primary" value="create">
+                <a th:href="@{/employee}" class="btn btn-outline-primary">back</a>
+        </form>
+    </div>
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

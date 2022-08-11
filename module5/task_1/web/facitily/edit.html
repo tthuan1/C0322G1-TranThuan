@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="shortcut icon" type="image/png"
+          href="../../image/logo/logo.jpeg"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../image"/>
+    <style>
+        body {
+            background-image: url("../../image/background-image.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <!--    header    -->
+    <div class="header">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../image/logo/logo.jpeg"
+                             alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                    </a>
+                    <a class="navbar-brand" href="../home.html">Trần thuận</a>
+                </div>
+            </nav>
+        </div>
+        <!--        menu-->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../home.html">Turama resort</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                            style="--bs-scroll-height: 100px;">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Employee</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Customer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Contract</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<!--  content edit-->
+<div class="container villa">
+    <form th:action="@{/facility/edit}" th:object="${facility}" th:method="post">
+        <div class="mb-3 mt-3">
+            <label for="facilityType" class="form-label">Facility Type</label>
+            <select class="form-control" name="facilityType" id="facilityType" th:field="*{facilityType}"
+                    onchange="onchangeFacility(this.value)">
+                <option th:each="temp:${facilityTypeList}"
+                        th:value="${temp.id}"
+                        th:text="${temp.name}"></option>
+            </select>
+
+        </div>
+        <div class="mb-3 mt-3" hidden>
+            <label for="id" class="form-label">id:</label>
+            <input type="text" class="form-control" id="id" placeholder="Enter id" name="id"
+                   th:field="*{id}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                   th:field="*{name}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="area" class="form-label">area:</label>
+            <input type="text" class="form-control" id="area" placeholder="Enter area" name="area"
+                   th:field="*{area}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="cost" class="form-label">cost:</label>
+            <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost"
+                   th:field="*{cost}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="maxPeople" class="form-label">maxPeople:</label>
+            <input type="text" class="form-control" id="maxPeople" placeholder="Enter maxPeople" name="maxPeople"
+                   th:field="*{maxPeople}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="standardRoom" class="form-label">standardRoom:</label>
+            <input type="text" class="form-control" id="standardRoom" placeholder="Enter standardRoom"
+                   name="standardRoom"
+                   th:field="*{standardRoom}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="descriptionOtherConvenience" class="form-label">descriptionOtherConvenience:</label>
+            <input type="text" class="form-control" id="descriptionOtherConvenience"
+                   placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience"
+                   th:field="*{descriptionOtherConvenience}">
+        </div>
+        <div class="mb-3 mt-3 house room">
+            <label for="poolArea" class="form-label ">poolArea:</label>
+            <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea"
+                   th:field="*{poolArea}">
+        </div>
+        <div class="mb-3 mt-3 room">
+            <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+            <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter numberOfFloors"
+                   name="numberOfFloors"
+                   th:field="*{numberOfFloors}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="facilityFree" class="form-label">facilityFree:</label>
+            <input type="text" class="form-control" id="facilityFree" placeholder="Enter facilityFree"
+                   name="facilityFree"
+                   th:field="*{facilityFree}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label">
+                <select class="form-control" th:field="*{rentType}">
+                    <option th:each="temp:${rentTypeList}" th:value="${temp.id}"
+                            th:text="${temp.name}"></option>
+                </select>
+            </label>
+        </div>
+
+        <input type="submit" class="btn btn-outline-primary" value="edit">
+        <a th:href="@{/facility}" class="btn btn-outline-primary">back</a>
+    </form>
+</div>
+
+
+
+<div class="container">
+    <footer class="row row-cols-5 py-5 my-5 border-top">
+        <div class="col">
+            <a href="#" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <img src="../../image/logo/logo.jpeg" class="bi me-2" style="border-radius: 30%;width: 40px;height: 40px"
+                     alt="logo">
+            </a>
+            <p class="text-muted">© 2022 Turama Resort Danang</p>
+        </div>
+
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <h5>Về Turama.com</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Chúng tôi</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Turama Blog</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Dịch vụ miễn phí</a></li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h5>Thông Tin Cần Biết</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Điều kiện & Điều khoản</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Quy chế hoạt động</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Câu hỏi thường gặp</a></li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h5>Đối tác</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Quy chế bảo hiểm</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Yêu cầu bồi thường </a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Quy chế trả góp</a></li>
+            </ul>
+        </div>
+        <div class="col">
+        </div>
+    </footer>
+</div>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
