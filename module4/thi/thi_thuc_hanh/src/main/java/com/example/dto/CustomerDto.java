@@ -7,6 +7,7 @@ import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 public class CustomerDto implements Validator {
     private Integer id;
@@ -132,11 +133,11 @@ public class CustomerDto implements Validator {
         }
         if (!customerDtoPhone.matches("^(84|0[3|5|7|8|9])+([0-9]{8})\\b$")) {
             errors.rejectValue("phone", "customerDtoPhone",
-               "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc(84)+90xxxxxxx hoặc (84)+91xxxxxxx.");
+                    "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc(84)+90xxxxxxx hoặc (84)+91xxxxxxx.");
         }
         if (!customerDtoIdCard.matches("^[0-9]{9}|[0-9]{12}$")) {
             errors.rejectValue("id_card", "customerDtoPhone",
-                "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX(X là số 0-9)");
+                    "Số CMND phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX(X là số 0-9)");
         }
     }
 }
