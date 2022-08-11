@@ -47,7 +47,7 @@
                         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                             style="--bs-scroll-height: 100px;">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="../home.html">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Employee</a>
@@ -56,7 +56,8 @@
                                 <a class="nav-link active" aria-current="page" href="#">Customer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Service</a>
+                                <a class="nav-link active" aria-current="page"
+                                   href="../facitily/facility.html">Service</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Contract</a>
@@ -74,10 +75,47 @@
 </div>
 
 
-<!--  content facility-->
-<div class="wpb_column vc_column_container vc_col-sm-12">
-    <img src="../../image/facility/facility.png" alt="...">
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel1.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel2.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel3.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
+
+<!--  content facility-->
 <div class="vc_empty_space" style="height: 64px"><span class="vc_empty_space_inner"></span></div>
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -86,43 +124,48 @@
                 <img src="../../image/facility/facility1.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                             class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                             class="bi bi-pen" viewBox="0 0 16 16" data-toggle="modal"
+                             data-target="'#exampleModalLong'">
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card h-100">
                 <img src="../../image/facility/facility2.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG STUDIO SUITE HƯỚNG BIỂN</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -134,19 +177,21 @@
                 <img src="../../image/facility/facility3.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG DELUXE HƯỚNG BIỂN</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -158,19 +203,21 @@
                 <img src="../../image/facility/facility4.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG SUPERIOR HƯỚNG HỒ</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -182,19 +229,21 @@
                 <img src="../../image/facility/facility5.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG SUPERIOR HƯỚNG VƯỜN</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -206,19 +255,21 @@
                 <img src="../../image/facility/facility6.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG DELUXE HƯỚNG VƯỜN</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -230,19 +281,21 @@
                 <img src="../../image/facility/facility7.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">PHÒNG PRESIDENTIAL SUITE</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -254,19 +307,21 @@
                 <img src="../../image/facility/facility8.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
@@ -278,25 +333,33 @@
                 <img src="../../image/facility/facility9.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG</h5>
-                    <p class="card-text">Diện Tích Phòng: 85.8 m2</p>
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <p class="card-text">Diện Tích Phòng: 85.8 m²</p>
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalEdit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/edit.png"
+                            <img src="../../image/icons/edit.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;Edit
                     </a>
 
-                    <a href="edit.html" style="border-radius: 10px ;margin-left: 15px" class="btn btn-light">
+                    <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
+                       data-bs-target="#modalDelete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <img src="../../image/icon/delete.png"
+                            <img src="../../image/icons/trash.svg"
                                  alt="Avatar Logo" style="width:20px;" class="rounded-pill">
                         </svg>&ensp;delete
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalCreate">
+            +
+        </button>
     </div>
 </div>
 
@@ -305,7 +368,8 @@
     <footer class="row row-cols-5 py-5 my-5 border-top">
         <div class="col">
             <a href="#" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <img src="../../image/logo/logo.jpeg" class="bi me-2" style="border-radius: 30%;width: 40px;height: 40px"
+                <img src="../../image/logo/logo.jpeg" class="bi me-2"
+                     style="border-radius: 30%;width: 40px;height: 40px"
                      alt="logo">
             </a>
             <p class="text-muted">© 2022 Turama Resort Danang</p>
@@ -344,11 +408,228 @@
         </div>
     </footer>
 </div>
+<!-- Modal delete -->
+<div class="modal fade" id="modalCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="modalCreateLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCreateLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container villa">
+                    <form >
+                        <div class="mb-3 mt-3">
+                            <label for="facilityType" class="form-label">Facility Type</label>
+                            <select class="form-control" name="facilityType" id="facilityType"
+                                    onchange="onchangeFacility(this.value)">
+                                <option value="1">vila</option>
+                                <option value="2">house</option>
+                                <option value="3">room</option>
+                            </select>
+
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+                                   value="">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="area" class="form-label">area:</label>
+                            <input type="text" class="form-control" id="area" placeholder="Enter area" name="area">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="cost" class="form-label">cost:</label>
+                            <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="maxPeople" class="form-label">maxPeople:</label>
+                            <input type="text" class="form-control" id="maxPeople" placeholder="Enter maxPeople" name="maxPeople">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="standardRoom" class="form-label">standardRoom:</label>
+                            <input type="text" class="form-control" id="standardRoom" placeholder="Enter standardRoom"
+                                   name="standardRoom">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="descriptionOtherConvenience" class="form-label">descriptionOtherConvenience:</label>
+                            <input type="text" class="form-control" id="descriptionOtherConvenience"
+                                   placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience">
+                        </div>
+                        <div class="mb-3 mt-3 house room">
+                            <label for="poolArea" class="form-label ">poolArea:</label>
+                            <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea">
+                        </div>
+                        <div class="mb-3 mt-3 room">
+                            <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+                            <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter numberOfFloors"
+                                   name="numberOfFloors">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="facilityFree" class="form-label">facilityFree:</label>
+                            <input type="text" class="form-control" id="facilityFree" placeholder="Enter facilityFree"
+                                   name="facilityFree">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Kiêu thuê:
+                                <select class="form-control">
+                                    <option>theo ngày</option>
+                                    <option>theo tháng</option>
+                                    <option>theo năm</option>
+                                </select>
+                            </label>
+                        </div>
+                        <input type="submit" class="btn btn-outline-primary" value="Edit">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal delete -->
+<div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want delete ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal edit -->
+<div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="modalEditLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container villa">
+                    <form>
+                        <div class="mb-3 mt-3">
+                            <label for="facilityType" class="form-label">Facility Type</label>
+                            <select class="form-control" name="facilityType"
+                                    onchange="onchangeFacility(this.value)">
+                                <option value="1">vila</option>
+                                <option value="2">house</option>
+                                <option value="3">room</option>
+                            </select>
+
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control"  placeholder="Enter name" name="name"
+                                   value="thuận">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="area" class="form-label">area:</label>
+                            <input type="text" class="form-control"  placeholder="Enter area" name="area" value="10.0" >
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="cost" class="form-label">cost:</label>
+                            <input type="text" class="form-control"  placeholder="Enter cost" name="cost" 345667 value="100000">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="maxPeople" class="form-label">maxPeople:</label>
+                            <input type="text" class="form-control"  placeholder="Enter maxPeople"
+                                   name="maxPeople" value="5">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="standardRoom" class="form-label">standardRoom:</label>
+                            <input type="text" class="form-control"  placeholder="Enter standardRoom"
+                                   name="standardRoom" value="vip">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="descriptionOtherConvenience"
+                                   class="form-label">descriptionOtherConvenience:</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience" value="no">
+                        </div>
+                        <div class="mb-3 mt-3 house room">
+                            <label for="poolArea" class="form-label ">poolArea:</label>
+                            <input type="text" class="form-control"  placeholder="Enter poolArea"
+                                   name="poolArea" value="32">
+                        </div>
+                        <div class="mb-3 mt-3 room">
+                            <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Enter numberOfFloors"
+                                   name="numberOfFloors" value="12">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="facilityFree" class="form-label">facilityFree:</label>
+                            <input type="text" class="form-control"  placeholder="Enter facilityFree"
+                                   name="facilityFree" value="no">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Kiêu thuê:
+                                <select class="form-control">
+                                    <option>theo ngày</option>
+                                    <option>theo tháng</option>
+                                    <option>theo năm</option>
+                                </select>
+                            </label>
+                        </div>
+                        <input type="submit" class="btn btn-outline-primary" value="Edit">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        debugger
+        console.log("ready!");
+        let value = document.getElementById("facilityType").value;
+        onchangeFacility(value);
+    });
+
+    function onchangeFacility(value) {
+        console.log(value)
+        if (value == 2) {
+            $(".room").show();
+            $(".house").hide();
+        } else if (value == 3) {
+            $(".room").hide();
+        } else {
+            $(".house").show();
+            $(".room").show();
+        }
+    }
+</script>
 </body>
 </html>
