@@ -56,7 +56,8 @@
                                 <a class="nav-link active" aria-current="page" href="#">Customer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="facility.html">Service</a>
+                                <a class="nav-link active" aria-current="page"
+                                   href="../facitily/facility.html">Service</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Contract</a>
@@ -72,71 +73,81 @@
         </div>
     </div>
 </div>
+
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel1.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel2.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="../../image/carousel/carousel3.jpeg" class="d-block w-100 h-25" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
+                    <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
+                    <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
+                    </strong></h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--  content facility-->
 <div class="container-fluid">
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
-        <a class="btn btn-info" data-bs-toggle="modal"  href="../../web/customer/create.html">
+        <a class="btn btn-info" data-bs-toggle="modal"  href="../../web/contract/create.html">
             Tạo mới
         </a>
     </div>
     <br>
     <table class="table  table-info ">
         <tr  class="table-primary">
-            <th>stt</th>
-            <th>name</th>
-            <th>birthday</th>
-            <th>gender</th>
-            <th>id card</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>address</th>
-            <th>type</th>
-            <th>edit</th>
+            <th>no.</th>
+            <th>facility name</th>
+            <th>customer name</th>
+            <th>start date</th>
+            <th>end date</th>
+            <th>deposit</th>
+            <th>total</th>
+            <th>Attach Facility</th>
             <th>delete</th>
+            <th>update</th>
         </tr>
         <tr>
             <td>1</td>
-            <td>Thuan</td>
+            <td>home</td>
+            <td>thuan</td>
             <td>18-09-1999</td>
-            <td>nam</td>
-            <td>5367182</td>
-            <td>0944192105</td>
-            <td>tthuan@gmail.com</td>
-            <td>đà nẵng</td>
-            <td>vip</td>
+            <td>18-09-2002</td>
+            <td>100000</td>
+            <td>1100000</td>
+            <td>1200000</td>
             <td>
-                <a style="border-radius: 10px" class="btn btn-light" href="../customer/edit.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
-                     class="bi bi-pen" viewBox="0 0 16 16">
-                    <img src="../../image/icons/edit.svg"
-                         alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                </svg>&ensp;Edit
-            </a>
-            </td>
-            <td>
-                <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
-                   data-bs-target="#modalDelete">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
-                         class="bi bi-pen" viewBox="0 0 16 16" data-toggle="modal"
-                         data-target="'#exampleModalLong'">
-                        <img src="../../image/icons/trash.svg"
-                             alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                    </svg>&ensp;delete
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Thuan</td>
-            <td>18-09-1999</td>
-            <td>nam</td>
-            <td>5367182</td>
-            <td>0944192105</td>
-            <td>tthuan@gmail.com</td>
-            <td>đà nẵng</td>
-            <td>vip</td>
-            <td>
-                <a style="border-radius: 10px" class="btn btn-light" href="../customer/edit.html">
+                <a style="border-radius: 10px" class="btn btn-light" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
                          class="bi bi-pen" viewBox="0 0 16 16">
                         <img src="../../image/icons/edit.svg"
@@ -157,17 +168,17 @@
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>Thuan</td>
+            <td>1</td>
+            <td>home</td>
+            <td>thuan</td>
             <td>18-09-1999</td>
-            <td>nam</td>
-            <td>5367182</td>
-            <td>0944192105</td>
-            <td>tthuan@gmail.com</td>
-            <td>đà nẵng</td>
-            <td>vip</td>
+            <td>18-09-2002</td>
+            <td>100000</td>
+            <td>1100000</td>
+            <td>1200000</td>
             <td>
-                <a style="border-radius: 10px" class="btn btn-light" href="../customer/edit.html">
+                <a style="border-radius: 10px" class="btn btn-light" data-bs-toggle="modal"
+                   data-bs-target="#modalEdit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
                          class="bi bi-pen" viewBox="0 0 16 16">
                         <img src="../../image/icons/edit.svg"
@@ -188,17 +199,48 @@
             </td>
         </tr>
         <tr>
-            <td>4</td>
-            <td>Thuan</td>
+            <td>1</td>
+            <td>home</td>
+            <td>thuan</td>
             <td>18-09-1999</td>
-            <td>nam</td>
-            <td>5367182</td>
-            <td>0944192105</td>
-            <td>tthuan@gmail.com</td>
-            <td>đà nẵng</td>
-            <td>vip</td>
+            <td>18-09-2002</td>
+            <td>100000</td>
+            <td>1100000</td>
+            <td>1200000</td>
             <td>
-                <a style="border-radius: 10px" class="btn btn-light" href="../customer/edit.html">
+                <a style="border-radius: 10px" class="btn btn-light" data-bs-toggle="modal"
+                   data-bs-target="#modalEdit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
+                         class="bi bi-pen" viewBox="0 0 16 16">
+                        <img src="../../image/icons/edit.svg"
+                             alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+                    </svg>&ensp;Edit
+                </a>
+            </td>
+            <td>
+                <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+                   data-bs-target="#modalDelete">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
+                         class="bi bi-pen" viewBox="0 0 16 16" data-toggle="modal"
+                         data-target="'#exampleModalLong'">
+                        <img src="../../image/icons/trash.svg"
+                             alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+                    </svg>&ensp;delete
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>home</td>
+            <td>thuan</td>
+            <td>18-09-1999</td>
+            <td>18-09-2002</td>
+            <td>100000</td>
+            <td>1100000</td>
+            <td>1200000</td>
+            <td>
+                <a style="border-radius: 10px" class="btn btn-light" data-bs-toggle="modal"
+                   data-bs-target="#modalEdit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor"
                          class="bi bi-pen" viewBox="0 0 16 16">
                         <img src="../../image/icons/edit.svg"
@@ -227,7 +269,8 @@
     <footer class="row row-cols-5 py-5 my-5 border-top">
         <div class="col">
             <a href="#" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <img src="../../image/logo/logo.jpeg" class="bi me-2" style="border-radius: 30%;width: 40px;height: 40px"
+                <img src="../../image/logo/logo.jpeg" class="bi me-2"
+                     style="border-radius: 30%;width: 40px;height: 40px"
                      alt="logo">
             </a>
             <p class="text-muted">© 2022 Turama Resort Danang</p>
@@ -263,7 +306,6 @@
             </ul>
         </div>
         <div class="col">
-
         </div>
     </footer>
 </div>
@@ -282,6 +324,92 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal edit -->
+<div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="modalEditLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container villa">
+                    <form>
+                        <div class="mb-3 mt-3">
+                            <label for="facilityType" class="form-label">Facility Type</label>
+                            <select class="form-control" name="facilityType"
+                                    onchange="onchangeFacility(this.value)">
+                                <option value="1">vila</option>
+                                <option value="2">house</option>
+                                <option value="3">room</option>
+                            </select>
+
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control"  placeholder="Enter name" name="name"
+                                   value="thuận">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="area" class="form-label">area:</label>
+                            <input type="text" class="form-control"  placeholder="Enter area" name="area" value="10.0" >
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="cost" class="form-label">cost:</label>
+                            <input type="text" class="form-control"  placeholder="Enter cost" name="cost" 345667 value="100000">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="maxPeople" class="form-label">maxPeople:</label>
+                            <input type="text" class="form-control"  placeholder="Enter maxPeople"
+                                   name="maxPeople" value="5">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="standardRoom" class="form-label">standardRoom:</label>
+                            <input type="text" class="form-control"  placeholder="Enter standardRoom"
+                                   name="standardRoom" value="vip">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="descriptionOtherConvenience"
+                                   class="form-label">descriptionOtherConvenience:</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience" value="no">
+                        </div>
+                        <div class="mb-3 mt-3 house room">
+                            <label for="poolArea" class="form-label ">poolArea:</label>
+                            <input type="text" class="form-control"  placeholder="Enter poolArea"
+                                   name="poolArea" value="32">
+                        </div>
+                        <div class="mb-3 mt-3 room">
+                            <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Enter numberOfFloors"
+                                   name="numberOfFloors" value="12">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="facilityFree" class="form-label">facilityFree:</label>
+                            <input type="text" class="form-control"  placeholder="Enter facilityFree"
+                                   name="facilityFree" value="no">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Kiêu thuê:
+                                <select class="form-control">
+                                    <option>theo ngày</option>
+                                    <option>theo tháng</option>
+                                    <option>theo năm</option>
+                                </select>
+                            </label>
+                        </div>
+                        <input type="submit" class="btn btn-outline-primary" value="Edit">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
     </div>

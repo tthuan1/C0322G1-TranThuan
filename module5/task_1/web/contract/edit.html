@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <title>Home</title>
   <link rel="shortcut icon" type="image/png"
-        href="../image/logo/logo.jpeg"/>
+        href="../../image/logo/logo.jpeg"/>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <link rel="stylesheet" href="../image"/>
+  <link rel="stylesheet" href="../../image"/>
   <style>
     body {
-      background-image: url("../image/background-image.jpeg");
+      background-image: url("../../image/background-image.jpeg");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: 100% 100%;
@@ -26,10 +26,10 @@
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="../image/logo/logo.jpeg"
+            <img src="../../image/logo/logo.jpeg"
                  alt="Avatar Logo" style="width:40px;" class="rounded-pill">
           </a>
-          <a class="navbar-brand" href="home.html">Trần thuận</a>
+          <a class="navbar-brand" href="../home.html">Trần thuận</a>
         </div>
       </nav>
     </div>
@@ -37,7 +37,7 @@
     <div class="row">
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="home.html">Turama resort</a>
+          <a class="navbar-brand" href="../home.html">Turama resort</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                   aria-label="Toggle navigation">
@@ -47,16 +47,16 @@
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                 style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="../home.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Employee</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../web/customer/list.html">Customer</a>
+                <a class="nav-link active" aria-current="page" href="#">Customer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../web/facitily/facility.html">Service</a>
+                <a class="nav-link active" aria-current="page" href="facility.html">Service</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Contract</a>
@@ -72,51 +72,49 @@
     </div>
   </div>
 </div>
-<!--  content-->
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="5000">
-      <img src="../image/carousel/carousel1.jpeg" class="d-block w-100 h-25" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
-          <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
-          <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
-          </strong></h2>
-      </div>
+<div class="container">
+  <form >
+    <div class="mb-3 mt-3">
+      <label class="form-label">Facility name:</label>
+      <input type="text" class="form-control"  placeholder="Enter name" name="name">
     </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="../image/carousel/carousel2.jpeg" class="d-block w-100 h-25" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
-          <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
-          <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
-          </strong></h2>
-      </div>
+    <div class="mb-3 mt-3">
+      <label  class="form-label">customer name:</label>
+      <input type="text" class="form-control" placeholder="Enter customer name" name="customerName">
     </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="../image/carousel/carousel3.jpeg" class="d-block w-100 h-25" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2 style="color: #fff; line-height: 34px;"><strong>KHU NGHỈ DƯỠNG ẨM THỰC </strong><br/>
-          <strong>TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG </strong><br/>
-          <strong>MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI<br/>
-          </strong></h2>
-      </div>
+    <div class="mb-3 mt-3">
+      <label  class="form-label">start date:</label>
+      <input type="date" class="form-control" placeholder="Enter start date" name="startDate">
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <div class="mb-3 mt-3">
+      <label  class="form-label">end date:</label>
+      <input type="date" class="form-control" placeholder="Enter end date" name="endDate">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label  class="form-label">phone:</label>
+      <input type="text" class="form-control"  placeholder="Enter phone" name="phone">
+    </div>
+    <div class="mb-3 mt-3">
+      <label  class="form-label">deposit:</label>
+      <input type="text" class="form-control"  placeholder="Enter deposit" name="deposit">
+    </div>
+    <div class="mb-3 mt-3">
+      <label  class="form-label">Attach Facility:</label>
+      <input type="text" class="form-control"  placeholder="Enter Attach Facility" name="attachFacility">
+    </div>
+
+    <input type="submit" class="btn btn-outline-primary" value="save">
+    <a class="btn btn-secondary" href="../customer/list.html">Back</a>
+  </form>
+
+
 </div>
 <div class="container">
   <footer class="row row-cols-5 py-5 my-5 border-top">
     <div class="col">
       <a href="#" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-        <img src="../image/logo/logo.jpeg" class="bi me-2" style="border-radius: 30%;width: 40px;height: 40px"
+        <img src="../../image/logo/logo.jpeg" class="bi me-2" style="border-radius: 30%;width: 40px;height: 40px"
              alt="logo">
       </a>
       <p class="text-muted">© 2022 Turama Resort Danang</p>
@@ -162,6 +160,15 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
 </html>

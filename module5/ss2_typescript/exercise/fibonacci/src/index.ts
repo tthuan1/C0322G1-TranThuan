@@ -14,6 +14,7 @@ function display() {
     for (let i = 0; i < m; i++) {
         console.log("Số thứ "+(i+1)+" là: "+fibonnacci(i));
         fibonnacciList += fibonnacci(i);
+        console.log(fibonnacci(1));
     }
     // @ts-ignore
     document.getElementById("ketQua").innerHTML="Tổng các số fibonnacci là: "+ fibonnacciList;
