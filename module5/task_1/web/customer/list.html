@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Customer</title>
     <link rel="shortcut icon" type="image/png"
           href="../../image/logo/logo.jpeg"/>
     <!-- CSS only -->
@@ -50,16 +50,13 @@
                                 <a class="nav-link active" aria-current="page" href="../home.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Employee</a>
+                                <a class="nav-link active" aria-current="page" href="list.html">Customer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Customer</a>
+                                <a class="nav-link active" aria-current="page" href="../facitily/list.html">Service</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="facility.html">Service</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Contract</a>
+                                <a class="nav-link active" aria-current="page" href="../contract/list.html">Contract</a>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
@@ -76,23 +73,23 @@
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
         <a class="btn btn-info" data-bs-toggle="modal"  href="../../web/customer/create.html">
-            Tạo mới
+            Create
         </a>
     </div>
     <br>
     <table class="table  table-info ">
         <tr  class="table-primary">
-            <th>stt</th>
-            <th>name</th>
-            <th>birthday</th>
-            <th>gender</th>
-            <th>id card</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>address</th>
-            <th>type</th>
-            <th>edit</th>
-            <th>delete</th>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Id card</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <tr>
             <td>1</td>
@@ -121,7 +118,7 @@
                          data-target="'#exampleModalLong'">
                         <img src="../../image/icons/trash.svg"
                              alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                    </svg>&ensp;delete
+                    </svg>&ensp;Delete
                 </a>
             </td>
         </tr>
@@ -152,7 +149,7 @@
                          data-target="'#exampleModalLong'">
                         <img src="../../image/icons/trash.svg"
                              alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                    </svg>&ensp;delete
+                    </svg>&ensp;Delete
                 </a>
             </td>
         </tr>
@@ -183,7 +180,7 @@
                          data-target="'#exampleModalLong'">
                         <img src="../../image/icons/trash.svg"
                              alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                    </svg>&ensp;delete
+                    </svg>&ensp;Delete
                 </a>
             </td>
         </tr>
@@ -214,7 +211,7 @@
                          data-target="'#exampleModalLong'">
                         <img src="../../image/icons/trash.svg"
                              alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-                    </svg>&ensp;delete
+                    </svg>&ensp;Delete
                 </a>
             </td>
         </tr>
@@ -277,11 +274,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Do you want delete ?
+                Do you want delete Customer ???
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">delete</button>
+                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </div>
         </div>
     </div>
