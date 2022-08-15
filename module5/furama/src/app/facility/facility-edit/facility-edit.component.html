@@ -1,0 +1,66 @@
+<div class="container villa">
+  <form >
+    <div class="mb-3 mt-3">
+      <label for="facilityType" class="form-label">Facility Type</label>
+      <select class="form-control" name="facilityType" id="facilityType"
+              onchange="onchangeFacility(this.value)">
+        <option value="1">vila</option>
+        <option value="2">house</option>
+        <option value="3">room</option>
+      </select>
+
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+             value="">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="area" class="form-label">area:</label>
+      <input type="text" class="form-control" id="area" placeholder="Enter area" name="area">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="cost" class="form-label">cost:</label>
+      <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="maxPeople" class="form-label">maxPeople:</label>
+      <input type="text" class="form-control" id="maxPeople" placeholder="Enter maxPeople" name="maxPeople">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="standardRoom" class="form-label">standardRoom:</label>
+      <input type="text" class="form-control" id="standardRoom" placeholder="Enter standardRoom"
+             name="standardRoom">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="descriptionOtherConvenience" class="form-label">descriptionOtherConvenience:</label>
+      <input type="text" class="form-control" id="descriptionOtherConvenience"
+             placeholder="Enter descriptionOtherConvenience" name="descriptionOtherConvenience">
+    </div>
+    <div class="mb-3 mt-3 house room">
+      <label for="poolArea" class="form-label ">poolArea:</label>
+      <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea">
+    </div>
+    <div class="mb-3 mt-3 room">
+      <label for="numberOfFloors" class="form-label ">numberOfFloors:</label>
+      <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter numberOfFloors"
+             name="numberOfFloors">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="facilityFree" class="form-label">facilityFree:</label>
+      <input type="text" class="form-control" id="facilityFree" placeholder="Enter facilityFree"
+             name="facilityFree">
+    </div>
+    <div class="mb-3 mt-3">
+      <label class="form-label">Kiêu thuê:
+        <select class="form-control">
+          <option>theo ngày</option>
+          <option>theo tháng</option>
+          <option>theo năm</option>
+        </select>
+      </label>
+    </div>
+    <input type="submit" class="btn btn-outline-primary" value="create">
+    <a routerLink="/facility-list" class="btn btn-outline-primary">back</a>
+  </form>
+</div>

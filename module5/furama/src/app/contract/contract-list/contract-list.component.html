@@ -1,0 +1,158 @@
+<div class="container">
+  <br>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+    <a class="btn btn-info" data-bs-toggle="modal" routerLink="/contract-create">
+      Create
+    </a>
+  </div>
+  <br>
+  <table class="table  table-info ">
+    <tr class="table-primary">
+      <th>No.</th>
+      <th>Facility name</th>
+      <th>Customer name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Deposit</th>
+      <th>Total</th>
+      <th>Attach Facility</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>home</td>
+      <td>thuan</td>
+      <td>18-09-1999</td>
+      <td>18-09-2002</td>
+      <td>100000</td>
+      <td>1100000</td>
+      <td>1200000</td>
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" routerLink="/contract-edit">
+
+
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+           data-bs-target="#modalDelete">
+
+
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Delete
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>vila and home</td>
+      <td>hai</td>
+      <td>13-08-2005</td>
+      <td>05-09-2011</td>
+      <td>100000</td>
+      <td>1100000</td>
+      <td>1200000</td>
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" routerLink="/contract-edit">
+
+
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+           data-bs-target="#modalDelete">
+
+
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Delete
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>vila</td>
+      <td>hoan</td>
+      <td>01-09-1989</td>
+      <td>18-09-2002</td>
+      <td>100000</td>
+      <td>1100000</td>
+      <td>1200000</td>
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" routerLink="/contract-edit">
+
+
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+           data-bs-target="#modalDelete">
+
+
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Delete
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>room</td>
+      <td>huyen</td>
+      <td>19-03-2001</td>
+      <td>19-03-2001</td>
+      <td>99999</td>
+      <td>999900</td>
+      <td>1200000</td>
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" routerLink="/contract-edit">
+
+
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+           data-bs-target="#modalDelete">
+
+
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Delete
+        </a>
+      </td>
+    </tr>
+  </table>
+  <!-- Modal Delete -->
+  <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+       aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDeleteLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want delete contract ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
