@@ -1,15 +1,17 @@
-
 <div class="container-fluid">
   <h2>calculator</h2>
   <h6>number 1</h6>
-  <input class="form-control">
+  <input class="form-control" [(ngModel)]="number1" type="number">
   <br>
-  <select class="form-control col-2" >
-    <option value="+">+</option>
-    <option value="-">-</option>
-    <option value="x">x</option>
-    <option value="/">/</option>
-  </select>
+  <button type="button" class="btn " [ngStyle]="{background:background,color:color}" (click)="calculate($event.target.value)" value="+">+</button>
+  <button type="button" class="btn " [ngStyle]="{background:background,color:color}" (click)="calculate($event.target.value)" value="-">-</button>
+  <button type="button" class="btn " [ngStyle]="{background:background,color:color}" (click)="calculate($event.target.value)" value="x">x</button>
+  <button type="button" class="btn " [ngStyle]="{background:background,color:color}" (click)="calculate($event.target.value)" value="/">/</button>
   <h6>number 2</h6>
-  <input class="form-control">
+  <input class="form-control" [(ngModel)]="number2" type="number">
+  <h6>result: {{ total }}</h6>
+  background
+  <input type="color" [(ngModel)]="background">
+  color
+  <input type="color" [(ngModel)]="color">
 </div>
