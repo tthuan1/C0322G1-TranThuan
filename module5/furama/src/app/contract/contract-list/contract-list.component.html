@@ -7,6 +7,7 @@
   </div>
   <br>
   <table class="table  table-info ">
+    <thead>
     <tr class="table-primary">
       <th>No.</th>
       <th>Facility name</th>
@@ -19,6 +20,8 @@
       <th></th>
       <th></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
       <td>1</td>
       <td>home</td>
@@ -30,8 +33,6 @@
       <td>1200000</td>
       <td>
         <a style="border-radius: 10px" class="btn btn-light" routerLink="/contract-edit">
-
-
           <img src="assets/image/icons/edit.svg"
                alt="Avatar Logo" style="width:20px;" class="rounded-pill">
           Edit
@@ -40,8 +41,6 @@
       <td>
         <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
            data-bs-target="#modalDelete">
-
-
           <img src="assets/image/icons/trash.svg"
                alt="Avatar Logo" style="width:20px;" class="rounded-pill">
           Delete
@@ -135,6 +134,7 @@
         </a>
       </td>
     </tr>
+    </tbody>
   </table>
   <!-- Modal Delete -->
   <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

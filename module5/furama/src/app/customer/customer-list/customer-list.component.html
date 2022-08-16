@@ -6,7 +6,8 @@
     </a>
   </div>
   <br>
-  <table class="table table-info ">
+  <table class="table table-info">
+    <thead>
     <tr class="table-primary">
       <th>No.</th>
       <th>Name</th>
@@ -20,23 +21,38 @@
       <th>Edit</th>
       <th>Delete</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Thuan</td>
-      <td>18-09-1999</td>
-      <td>nam</td>
-      <td>5367182</td>
-      <td>0944192105</td>
-      <td>tthuan@gmail.com</td>
-      <td>đà nẵng</td>
-      <td>vip</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customerList;index as i ">
+
+      <td>{{i + 1}}</td>
+
+      <td>{{customer.name}}</td>
+
+      <td>{{customer.birthday}}</td>
+
+      <td *ngIf="customer.gender == 0">Nữ</td>
+      <td *ngIf="customer.gender == 1">Nam</td>
+      <td *ngIf="customer.gender == 2">Bê đê</td>
+
+      <td>{{customer.idCard}}</td>
+
+      <td>{{customer.phone}}</td>
+
+      <td>{{customer.email}}</td>
+
+      <td>{{customer.address}}</td>
+
+      <td>{{customer.type}}</td>
+
       <td>
-        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit">
+        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit{{customer.id}}">
           <img src="assets/image/icons/edit.svg"
                alt="Avatar Logo" style="width:20px;" class="rounded-pill">
           Edit
         </a>
       </td>
+
       <td>
         <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
            data-bs-target="#modalDelete" data-target="'#exampleModalLong'">
@@ -46,84 +62,8 @@
         </a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Thuan</td>
-      <td>18-09-1999</td>
-      <td>nam</td>
-      <td>5367182</td>
-      <td>0944192105</td>
-      <td>tthuan@gmail.com</td>
-      <td>đà nẵng</td>
-      <td>vip</td>
-      <td>
-        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit">
-          <img src="assets/image/icons/edit.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Edit
-        </a>
-      </td>
-      <td>
-        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
-           data-bs-target="#modalDelete">
-          <img src="assets/image/icons/trash.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Delete
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Thuan</td>
-      <td>18-09-1999</td>
-      <td>nam</td>
-      <td>5367182</td>
-      <td>0944192105</td>
-      <td>tthuan@gmail.com</td>
-      <td>đà nẵng</td>
-      <td>vip</td>
-      <td>
-        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit">
-          <img src="assets/image/icons/edit.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Edit
-        </a>
-      </td>
-      <td>
-        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
-           data-bs-target="#modalDelete">
-          <img src="assets/image/icons/trash.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Delete
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Thuan</td>
-      <td>18-09-1999</td>
-      <td>nam</td>
-      <td>5367182</td>
-      <td>0944192105</td>
-      <td>tthuan@gmail.com</td>
-      <td>đà nẵng</td>
-      <td>vip</td>
-      <td>
-        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit">
-          <img src="assets/image/icons/edit.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Edit
-        </a>
-      </td>
-      <td>
-        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
-           data-bs-target="#modalDelete">
-          <img src="assets/image/icons/trash.svg"
-               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
-          Delete
-        </a>
-      </td>
-    </tr>
+
+    </tbody>
   </table>
   <!-- Modal delete -->
   <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

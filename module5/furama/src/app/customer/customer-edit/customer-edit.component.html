@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form class="bg-white">
     <div class="mb-3 mt-3" hidden>
       <label for="id" class="form-label">id:</label>
       <input type="text" class="form-control" id="id" name="id">
@@ -13,7 +13,7 @@
       <input type="date" class="form-control" id="birthday" placeholder="Enter birthday" name="birthday" value="1999-09-18">
     </div>
     <div class="mb-3 mt-3">
-      <label class="form-label"></label>
+      <label class="form-label">Gender</label>
       <select class="form-control">
         <option>Nam</option>
         <option >Nữ</option>
@@ -38,15 +38,15 @@
       <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value="Đà nẵng">
     </div>
     <div class="mb-3 mt-3">
-      <label class="form-label"></label>
+      <label class="form-label">Customer type</label>
       <select class="form-control">
         <option >vip1</option>
         <option >vip2</option>
         <option >vip3</option>
       </select>
     </div>
-    <input type="submit" class="btn btn-info" value="edit">
-    <a class="btn btn-secondary" routerLink="/customer-list">Back</a>
+    <input type="submit" class="btn btn-info me-2" value="Edit">
+    <button class="btn btn-secondary me-2" routerLink="/customer-list">Back</button>
 
   </form>
 
