@@ -60,14 +60,14 @@ export class ContractListComponent implements OnInit {
       attachFacility: 'Vip'
     },
     {
-      id: 1,
-      facilityName: 'home',
+      id: 6,
+      facilityName: 'Villa and Home',
       customerName: 'thuận',
       startDate: '18-09-2021',
       endDate: '22-12-2021',
       deposit: 100000,
       total: 3000000,
-      attachFacility: 'd'
+      attachFacility: 'Vip 4'
     },
 
   ];

@@ -14,4 +14,5 @@ export interface Facility {
   facilityFree?: string;
   facilityType?: FacilityType;
   rentType?: RentType;
+  image?: string;
 }
