@@ -24,8 +24,8 @@
     <tbody>
     <tr *ngFor="let contractList of contractList , index as i">
       <td>{{i+1}}</td>
-      <td>{{contractList.facilityName}}</td>
-      <td>{{contractList.customerName}}</td>
+      <td>{{contractList.facility.name}}</td>
+      <td>{{contractList.customer.name}}</td>
       <td>{{contractList.startDate}}</td>
       <td>{{contractList.endDate}}</td>
       <td>{{contractList.deposit}}</td>

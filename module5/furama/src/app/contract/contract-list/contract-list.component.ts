@@ -11,8 +11,8 @@ export class ContractListComponent implements OnInit {
   contractList: Contract[] = [
     {
       id: 1,
-      facilityName: 'home',
-      customerName: 'Trần Thuận',
+      facility: {id: 1, name: 'Home'},
+      customer: {id: 1, name: 'Trần Thuận'},
       startDate: '18-09-2021',
       endDate: '22-12-2021',
       deposit: 100000,
@@ -21,8 +21,8 @@ export class ContractListComponent implements OnInit {
     },
     {
       id: 2,
-      facilityName: 'villa',
-      customerName: 'Trần Thanh Trí',
+      facility: {id: 2, name: 'Villa'},
+      customer: {id: 2, name: 'Trần Văn Hoàn'},
       startDate: '15-08-2022',
       endDate: '17-08-2022',
       deposit: 500000,
@@ -31,8 +31,8 @@ export class ContractListComponent implements OnInit {
     },
     {
       id: 3,
-      facilityName: 'room',
-      customerName: 'Trần Văn Hoàn',
+      facility: {id: 3, name: 'Room'},
+      customer: {id: 3, name: 'Trần Thanh Trí'},
       startDate: '01-01-2021',
       endDate: '01-02-2021',
       deposit: 3000000,
@@ -41,8 +41,8 @@ export class ContractListComponent implements OnInit {
     },
     {
       id: 4,
-      facilityName: 'Villa',
-      customerName: 'Trần Boos Huyền',
+      facility: {id: 4, name: 'Villa and Home'},
+      customer: {id: 4, name: 'Trần Văn Hải'},
       startDate: '13-03-2022',
       endDate: '05-05-2022',
       deposit: 1000000,
@@ -51,8 +51,8 @@ export class ContractListComponent implements OnInit {
     },
     {
       id: 5,
-      facilityName: 'Home',
-      customerName: 'Trần Thị Hùng',
+      facility: {id: 5, name: 'Home and Room'},
+      customer: {id: 5, name: 'Trần Thị Diệp'},
       startDate: '17-09-2021',
       endDate: '29-09-2021',
       deposit: 100000,
@@ -61,8 +61,8 @@ export class ContractListComponent implements OnInit {
     },
     {
       id: 6,
-      facilityName: 'Villa and Home',
-      customerName: 'thuận',
+      facility: {id: 6, name: 'Villa'},
+      customer: {id: 6, name: 'Trần Ngọc Đảm'},
       startDate: '18-09-2021',
       endDate: '22-12-2021',
       deposit: 100000,
