@@ -6,9 +6,22 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <script>
+    function onchangeFacility(value) {
+      console.log(value)
+      if (value === 2) {
+        $(".room").show();
+        $(".house").hide();
+      } else if (value === 3) {
+        $(".room").hide();
+      } else {
+        $(".house").show();
+        $(".room").show();
+      }
+    }
+  </script>
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
 </body>
 </html>
