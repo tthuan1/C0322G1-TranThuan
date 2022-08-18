@@ -1,33 +1,54 @@
 <div class="container">
-  <form >
+  <form [formGroup]="formCreateContract" (ngSubmit)="submit()">
     <div class="mb-3 mt-3">
       <label class="form-label">Facility name:</label>
-      <input type="text" class="form-control"  placeholder="Enter name" name="name">
+      <input type="text" class="form-control" placeholder="Enter name" name="name">
     </div>
     <div class="mb-3 mt-3">
-      <label  class="form-label">customer name:</label>
+      <label class="form-label">customer name:</label>
       <input type="text" class="form-control" placeholder="Enter customer name" name="customerName">
     </div>
     <div class="mb-3 mt-3">
-      <label  class="form-label">start date:</label>
-      <input type="date" class="form-control" placeholder="Enter start date" name="startDate">
-    </div>
-    <div class="mb-3 mt-3">
-      <label  class="form-label">end date:</label>
-      <input type="date" class="form-control" placeholder="Enter end date" name="endDate">
+      <label class="form-label">start date:</label>
+      <input type="date" class="form-control" placeholder="Enter start date" name="startDate" formControlName="startDate">
+      <p class="text-danger"
+         *ngIf="formCreateContract.controls.startDate.hasError('required') && formCreateContract.controls.startDate.touched">❗
+        Không được để trống</p>
     </div>
 
     <div class="mb-3 mt-3">
-      <label  class="form-label">phone:</label>
-      <input type="text" class="form-control"  placeholder="Enter phone" name="phone">
+      <label class="form-label">end date:</label>
+      <input type="date" class="form-control" placeholder="Enter end date" name="endDate" formControlName="endDate">
+      <p class="text-danger"
+         *ngIf="formCreateContract.controls.endDate.hasError('required') && formCreateContract.controls.endDate.touched">❗
+        Không được để trống</p>
     </div>
+
     <div class="mb-3 mt-3">
-      <label  class="form-label">deposit:</label>
-      <input type="text" class="form-control"  placeholder="Enter deposit" name="deposit">
+      <label class="form-label">phone:</label>
+      <input type="text" class="form-control" placeholder="Enter phone" name="phone" formControlName="phone">
+      <p class="text-danger"
+         *ngIf="formCreateContract.controls.phone.hasError('required') && formCreateContract.controls.phone.touched">❗
+        Không được để trống</p>
     </div>
+
     <div class="mb-3 mt-3">
-      <label  class="form-label">Attach Facility:</label>
-      <input type="text" class="form-control"  placeholder="Enter Attach Facility" name="attachFacility">
+      <label class="form-label">deposit:</label>
+      <input type="text" class="form-control" placeholder="Enter deposit" name="deposit" formControlName="deposit">
+      <p class="text-danger"
+         *ngIf="formCreateContract.controls.deposit.hasError('required') && formCreateContract.controls.deposit.touched">❗
+        Không được để trống</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Attach Facility:</label>
+      <input type="text" class="form-control" placeholder="Enter Attach Facility" name="attachFacility"
+             formControlName="attachFacility">
+      <p class="text-danger"
+         *ngIf="formCreateContract.controls.attachFacility.hasError('required') && formCreateContract.controls.attachFacility.touched">❗
+        Không được để trống</p>
+      <p class="text-danger" *ngIf="formCreateContract.controls.attachFacility.hasError('pattern') && formCreateContract.controls.attachFacility.touched">❗ Không đúng
+        định dạng</p>
     </div>
 
     <input type="submit" class="btn btn-outline-info me-2" value="Save">

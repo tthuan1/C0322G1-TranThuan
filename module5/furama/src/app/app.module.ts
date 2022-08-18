@@ -15,6 +15,7 @@ import { FacilityCreateComponent } from './facility/facility-create/facility-cre
 import { ContractListComponent } from './contract/contract-list/contract-list.component';
 import { ContractEditComponent } from './contract/contract-edit/contract-edit.component';
 import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ContractCreateComponent } from './contract/contract-create/contract-cre
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,27 @@
 <div class="container">
-  <form class="bg-white">
+  <form class="bg-white" [formGroup]="formCreateCustomer" (ngSubmit)="submit()">
+
     <div class="mb-3 mt-3">
       <label class="form-label">Name:</label>
-      <input type="text" class="form-control" placeholder="Enter name" name="name">
+      <input type="text" class="form-control" placeholder="Enter name" name="name" formControlName="name">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.name.hasError('required') && formCreateCustomer.controls.name.touched">❗
+        Không được
+        để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.name.hasError('pattern') && formCreateCustomer.controls.name.touched">❗
+        Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Birthday:</label>
-      <input type="date" class="form-control" placeholder="Enter birthday" name="birthday">
+      <input type="date" class="form-control" placeholder="Enter birthday" name="birthday" formControlName="birthday">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.birthday.hasError('required') && formCreateCustomer.controls.birthday.touched">
+        ❗ Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.birthday.hasError('pattern') && formCreateCustomer.controls.birthday.touched">
+        ❗ Không đúng định dạng</p>
     </div>
     <div class="mb-3 mt-3">
       <label class="form-label">Gender:</label>
@@ -16,22 +31,48 @@
         <option>Lgbt</option>
       </select>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Id card:</label>
-      <input type="text" class="form-control" placeholder="Enter id card" name="id_card">
+      <input type="text" class="form-control" placeholder="Enter id card" name="idCard" formControlName="idCard">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.idCard.hasError('required') && formCreateCustomer.controls.idCard.touched">
+        ❗ Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.idCard.hasError('pattern') && formCreateCustomer.controls.idCard.touched">
+        ❗ Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Phone:</label>
-      <input type="text" class="form-control" placeholder="Enter phone" name="phone">
+      <input type="text" class="form-control" placeholder="Enter phone" name="phone" formControlName="phone">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.phone.hasError('required') && formCreateCustomer.controls.phone.touched">
+        ❗ Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.phone.hasError('pattern') && formCreateCustomer.controls.phone.touched">
+        ❗ Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Email:</label>
-      <input type="text" class="form-control" placeholder="Enter email" name="email">
+      <input type="text" class="form-control" placeholder="Enter email" name="email" formControlName="email">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.email.hasError('required') && formCreateCustomer.controls.email.touched">
+        ❗ Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.email.hasError('email') && formCreateCustomer.controls.email.touched">
+        ❗ Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Address:</label>
-      <input type="text" class="form-control" placeholder="Enter address" name="address">
+      <input type="text" class="form-control" placeholder="Enter address" name="address" formControlName="address">
+      <p class="text-danger"
+         *ngIf="formCreateCustomer.controls.address.hasError('required') && formCreateCustomer.controls.address.touched">
+        ❗ Không được để trống</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label ">Customer type:</label>
       <select class="form-control">

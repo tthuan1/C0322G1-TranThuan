@@ -1,5 +1,5 @@
 <div class="container villa">
-  <form class="bg-white">
+  <form class="bg-white"  [formGroup]="formCreateFacility" (ngSubmit)="submit()">
     <div class="mb-3 mt-3">
       <label for="facilityType" class="form-label">Facility Type</label>
       <select class="form-control" name="facilityType" id="facilityType"
@@ -9,47 +9,86 @@
         <option value="3">room</option>
       </select>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="name" class="form-label">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
-             value="">
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="name">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.name.hasError('required') && formCreateFacility.controls.name.touched">❗
+        Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.name.hasError('pattern') && formCreateFacility.controls.name.touched">❗
+        Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="area" class="form-label">Area:</label>
-      <input type="text" class="form-control" id="area" placeholder="Enter area" name="area">
+      <input type="text" class="form-control" id="area" placeholder="Enter area" name="area" formControlName="area">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.area.hasError('required') && formCreateFacility.controls.area.touched">❗
+        Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.area.hasError('pattern') && formCreateFacility.controls.area.touched">❗
+        Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="cost" class="form-label">Cost:</label>
-      <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost">
+      <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost" formControlName="cost">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.cost.hasError('required') && formCreateFacility.controls.cost.touched">❗
+        Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.cost.hasError('pattern') && formCreateFacility.controls.cost.touched">❗
+        Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="maxPeople" class="form-label">Max People:</label>
-      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople">
+      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople" formControlName="maxPeople">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.maxPeople.hasError('required') && formCreateFacility.controls.maxPeople.touched">❗
+        Không được để trống</p>
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.maxPeople.hasError('pattern') && formCreateFacility.controls.maxPeople.touched">❗
+        Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="standardRoom" class="form-label">Standard Room:</label>
       <input type="text" class="form-control" id="standardRoom" placeholder="Enter standard room"
-             name="standardRoom">
+             name="standardRoom" formControlName="standardRoom">
     </div>
+
     <div class="mb-3 mt-3">
       <label for="descriptionOtherConvenience" class="form-label">Description Other Convenience:</label>
       <input type="text" class="form-control" id="descriptionOtherConvenience"
-             placeholder="Enter description other convenience" name="descriptionOtherConvenience">
+             placeholder="Enter description other convenience" name="descriptionOtherConvenience" formControlName="name">
     </div>
+
     <div class="mb-3 mt-3 house room">
       <label for="poolArea" class="form-label ">Pool Area:</label>
-      <input type="text" class="form-control" id="poolArea" placeholder="Enter pool area" name="poolArea">
+      <input type="text" class="form-control" id="poolArea" placeholder="Enter pool area" name="poolArea" formControlName="poolArea">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.poolArea.hasError('required') && formCreateFacility.controls.poolArea.touched">❗
+        Không được để trống</p>
     </div>
+
     <div class="mb-3 mt-3 room">
       <label for="numberOfFloors" class="form-label ">Number Of Floors:</label>
       <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter number of floors"
-             name="numberOfFloors">
+             name="numberOfFloors" formControlName="numberOfFloors">
+      <p class="text-danger"
+         *ngIf="formCreateFacility.controls.numberOfFloors.hasError('required') && formCreateFacility.controls.numberOfFloors.touched">❗
+        Không được để trống</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label for="facilityFree" class="form-label">Facility Free:</label>
       <input type="text" class="form-control" id="facilityFree" placeholder="Enter facility free"
              name="facilityFree">
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Kiêu thuê:
         <select class="form-control">
