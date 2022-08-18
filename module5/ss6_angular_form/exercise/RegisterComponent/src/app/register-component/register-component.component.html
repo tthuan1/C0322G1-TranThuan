@@ -1,0 +1,61 @@
+<div class="container-fluid col-4">
+  <h1>Register</h1>
+  <form [formGroup]="formRegister" (ngSubmit)="submit()">
+
+    <label class="mb-3">Email:</label>
+    <input type="text" class="form-control mb-3" formControlName="email" placeholder="Enter email">
+    <p class="text-danger" *ngIf="formRegister.controls.email.hasError('required') && formRegister.controls.email.touched">❗ Không được
+      để trống</p>
+    <p class="text-danger" *ngIf="formRegister.controls.email.hasError('email') && formRegister.controls.email.touched">❗ Không đúng
+      định dạng</p>
+
+    <label class="mb-3">Password:</label>
+    <input type="password" class="form-control mb-3" placeholder="Enter password" formControlName="password">
+    <p class="text-danger" *ngIf="formRegister.controls.password.hasError('required') && formRegister.controls.password.touched">❗️Không
+      được để trống</p>
+    <p class="text-danger" *ngIf="formRegister.controls.password.hasError('minlength') && formRegister.controls.password.touched">❗️Độ dài
+      trên 6 kí tự</p>
+
+    <label class="mb-3">Confirm password:</label>
+    <input type="password" class="form-control mb-3" placeholder="Enter confirm password" formControlName="confirmPassword">
+    <p class="text-danger" *ngIf="formRegister.controls.confirmPassword.hasError('required') && formRegister.controls.confirmPassword.touched">❗️Không được để trống</p>
+    <p class="text-danger" *ngIf="formRegister.hasError('checkConfirmPassword') && formRegister.controls.confirmPassword.touched">❗password không đúng</p>
+
+    <label class="mb-3">Country:</label>
+    <select class="form-control mb-3" formControlName="country">
+      <option value="Việt Nam">Việt Nam</option>
+      <option value="Lào">Lào</option>
+      <option value="CamPuChia">CamPuChia</option>
+      <option value="Thai lan">Thai lan</option>
+      <option value="Tàu khựa">Tàu khựa</option>
+    </select>
+
+    <label class="mb-3">Age:</label>
+    <input type="text" class="form-control mb-3" placeholder="Enter Age" formControlName="age">
+    <p class="text-danger" *ngIf="formRegister.controls.age.hasError('required') && formRegister.controls.age.touched">❗️Không được để trống</p>
+    <p class="text-danger" *ngIf="formRegister.controls.age.hasError('checkAge') && formRegister.controls.age.touched">❗Tuổi phải lớn hơn 18</p>
+
+
+    <label class="mb-3">Gender:</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Nam
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Nữ
+      </label>
+    </div>
+    <label class="mb-3">Phone:</label>
+    <input class="form-control mb-3" placeholder="Enter phone" formControlName="phone" type="text">
+    <p class="text-danger" *ngIf="formRegister.controls.phone.hasError('required') && formRegister.controls.phone.touched">❗️Không được để trống</p>
+    <p class="text-danger" *ngIf="formRegister.controls.phone.hasError('pattern') && formRegister.controls.phone.touched">❗️Không đúng định dạng</p>
+
+
+    <button type="submit" class="btn btn-success">Register</button>
+  </form>
+</div>
+
