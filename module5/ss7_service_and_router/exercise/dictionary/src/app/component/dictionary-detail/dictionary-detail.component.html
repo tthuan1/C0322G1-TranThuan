@@ -1,0 +1,14 @@
+<!--<div *ngIf="dictionary; else template">-->
+<!--  <h3>{{dictionary.word}}: <span style="color: green">{{dictionary.mean}}</span></h3>-->
+<!--</div>-->
+<!--<ng-template #template>-->
+<!--  <p>Not available</p>-->
+<!--</ng-template>-->
+<div *ngIf="dictionary">
+    <h3>{{dictionary.word}}: {{dictionary.mean}}</h3>
+</div>
+<div *ngIf="!dictionary">
+  <h2>Không có tìm thấy</h2>
+</div>
+
+
