@@ -1,5 +1,5 @@
 <div class="container villa">
-  <form class="bg-white">
+  <form class="bg-white"  [formGroup]="facilityForm" (ngSubmit)="submit()">
     <div class="mb-3 mt-3">
       <label for="facilityType" class="form-label">Facility Type</label>
       <select class="form-control" name="facilityType" id="facilityType"
@@ -13,47 +13,47 @@
     <div class="mb-3 mt-3">
       <label for="name" class="form-label">Name:</label>
       <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
-             value="">
+             formControlName="name">
     </div>
     <div class="mb-3 mt-3">
       <label for="area" class="form-label">Area:</label>
-      <input type="text" class="form-control" id="area" placeholder="Enter area" name="area">
+      <input type="text" class="form-control" id="area" placeholder="Enter area" name="area" formControlName="area">
     </div>
     <div class="mb-3 mt-3">
       <label for="cost" class="form-label">Cost:</label>
-      <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost">
+      <input type="text" class="form-control" id="cost" placeholder="Enter cost" name="cost" formControlName="cost">
     </div>
     <div class="mb-3 mt-3">
       <label for="maxPeople" class="form-label">Max people:</label>
-      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople">
+      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople" formControlName="maxPeople">
     </div>
     <div class="mb-3 mt-3">
       <label for="standardRoom" class="form-label">Standard room:</label>
       <input type="text" class="form-control" id="standardRoom" placeholder="Enter standard room"
-             name="standardRoom">
+             name="standardRoom" formControlName="standardRoom">
     </div>
     <div class="mb-3 mt-3">
       <label for="descriptionOtherConvenience" class="form-label">Description other convenience:</label>
       <input type="text" class="form-control" id="descriptionOtherConvenience"
-             placeholder="Enter description Other Convenience" name="descriptionOtherConvenience">
+             placeholder="Enter description Other Convenience" name="descriptionOtherConvenience" formControlName="descriptionOtherConvenience">
     </div>
     <div class="mb-3 mt-3 house room">
       <label for="poolArea" class="form-label ">Pool area:</label>
-      <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea">
+      <input type="text" class="form-control" id="poolArea" placeholder="Enter poolArea" name="poolArea" formControlName="poolArea">
     </div>
     <div class="mb-3 mt-3 room">
       <label for="numberOfFloors" class="form-label ">Number of floors:</label>
       <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter number Of Floors"
-             name="numberOfFloors">
+             name="numberOfFloors" formControlName="numberOfFloors">
     </div>
     <div class="mb-3 mt-3">
       <label for="facilityFree" class="form-label">Facility free:</label>
       <input type="text" class="form-control" id="facilityFree" placeholder="Enter facility Free"
-             name="facilityFree">
+             name="facilityFree" formControlName="facilityFree">
     </div>
     <div class="mb-3 mt-3">
       <label class="form-label">Rental type:</label>
-      <select class="form-control">
+      <select class="form-control"  formControlName="rentalType">
         <option>Theo ngày</option>
         <option>Theo tháng</option>
         <option>Theo năm</option>

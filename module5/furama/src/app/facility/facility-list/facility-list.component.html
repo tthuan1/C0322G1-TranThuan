@@ -7,14 +7,14 @@
   </div>
   <br>
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div *ngFor="let facilityList of facilityList">
+    <div *ngFor="let facilityList of FacilityList">
       <div class="col">
         <div class="card h-100">
           <img src="{{facilityList.image}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{facilityList.name}}</h5>
             <p class="card-text">Diện Tích Phòng: {{facilityList.area}} m²</p>
-            <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" routerLink="/facility-edit">
+            <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" [routerLink]="['/facility-edit/',facilityList.id]">
               <img src="assets/image/icons/edit.svg"
                    alt="Avatar Logo" style="width:20px;" class="rounded-pill">
               Edit

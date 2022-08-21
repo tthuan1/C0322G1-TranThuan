@@ -33,7 +33,7 @@
 
       <td *ngIf="customer.gender == 0">Nữ</td>
       <td *ngIf="customer.gender == 1">Nam</td>
-      <td *ngIf="customer.gender == 2">Bê đê</td>
+      <td *ngIf="customer.gender == 2">Ok</td>
 
       <td>{{customer.idCard}}</td>
 
@@ -46,20 +46,40 @@
       <td>{{customer.customerType.name}}</td>
 
       <td>
-        <a style="border-radius: 10px" class="btn btn-light" routerLink="/customer-edit">
+        <a style="border-radius: 10px" class="btn btn-light" [routerLink]="['/customer-edit/',customer.id]">
           <img src="assets/image/icons/edit.svg"
                alt="Avatar Logo" style="width:20px;" class="rounded-pill">
           Edit
         </a>
+        <!--        <a [routerLink]="['/customer-edit/',customer.id]">Edit</a>-->
       </td>
 
       <td>
-        <a style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
-           data-bs-target="#modalDelete" data-target="'#exampleModalLong'">
+        <button style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+                data-bs-target="#modalDelete" data-target="'#exampleModalLong'" (click)="customerDelete(customer)">
           <img src="assets/image/icons/trash.svg"
                alt="Avatar Logo" style="width:20px;" class="rounded-pill">
           Delete
-        </a>
+        </button>
+        <!-- Modal delete -->
+        <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="modalDeleteLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you want delete {{name}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </td>
     </tr>
 
@@ -78,24 +98,6 @@
       </li>
     </ul>
   </nav>
-  <!-- Modal delete -->
-  <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-       aria-labelledby="modalDeleteLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalDeleteLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Do you want delete Customer ???
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 </div>

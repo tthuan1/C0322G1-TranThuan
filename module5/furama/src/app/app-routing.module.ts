@@ -16,14 +16,16 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
   {path: 'customer-list', component: CustomerListComponent },
-  {path: 'customer-edit', component: CustomerEditComponent },
+  // {path: 'customer-edit', component: CustomerEditComponent },
+  {path: 'customer-edit/:id', component: CustomerEditComponent},
   {path: 'customer-create', component: CustomerCreateComponent },
   {path: 'contract-list', component: ContractListComponent },
   {path: 'contract-create', component: ContractCreateComponent },
   {path: 'contract-edit', component: ContractEditComponent },
   {path: 'facility-list', component: FacilityListComponent },
   {path: 'facility-create', component: FacilityCreateComponent },
-  {path: 'facility-edit', component: FacilityEditComponent },
+  // {path: 'facility-edit', component: FacilityEditComponent },
+  {path: 'facility-edit/:id', component: FacilityEditComponent },
 ];
 
 
