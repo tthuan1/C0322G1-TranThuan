@@ -19,11 +19,11 @@ export class DictionaryService {
   constructor() {
   }
 
-  getAll() {
+  getAll(): IWord[] {
     return this.iWordList;
   }
 
-  translate(nameSearch: string) {
+  translate(nameSearch: string): IWord {
     return this.iWordList.find(temp => temp.word === nameSearch);
     // console.log(this.iWordList.find(temp => temp.word === nameSearch));
   }
