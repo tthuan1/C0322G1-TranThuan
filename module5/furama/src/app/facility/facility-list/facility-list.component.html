@@ -20,7 +20,7 @@
               Edit
             </a>
             <a style="border-radius: 10px ;margin-left: 15px" class="btn btn-light" data-bs-toggle="modal"
-               data-bs-target="#modalDelete">
+               data-bs-target="#modalDelete" (click)="facilityDelete(facilityList)">
               <img src="assets/image/icons/trash.svg"
                    alt="Avatar Logo" style="width:20px;" class="rounded-pill">
               Delete
@@ -55,11 +55,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Do you want delete service?
+          Do you want delete {{name}}?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
+          <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
+import {Router} from '@angular/router';
+import {CustomerType} from '../../model/customer/customer-type';
 
 @Component({
   selector: 'app-customer-create',
@@ -21,11 +23,14 @@ export class CustomerCreateComponent implements OnInit {
     customerType: new FormControl('', [Validators.required]),
   });
 
+  customerType: CustomerType[];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.customerType = this.customerService.getAllCustomerType();
   }
 
   submit() {
@@ -33,5 +38,6 @@ export class CustomerCreateComponent implements OnInit {
     console.log(customer);
     this.customerService.saveCustomer(customer);
     this.formCreateCustomer.reset();
+    this.router.navigateByUrl('/customer-list');
   }
 }

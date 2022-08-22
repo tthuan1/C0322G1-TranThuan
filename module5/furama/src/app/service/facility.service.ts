@@ -161,4 +161,13 @@ export class FacilityService {
       }
     }
   }
+
+  deleteById(id: number) {
+    console.log(id);
+    const index = this.facilityList.findIndex(facility =>
+      facility.id === id
+    );
+    this.facilityList.splice(index, 1);
+    console.log(this.facilityList);
+  }
 }

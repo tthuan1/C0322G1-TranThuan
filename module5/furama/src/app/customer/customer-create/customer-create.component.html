@@ -25,10 +25,9 @@
     </div>
     <div class="mb-3 mt-3">
       <label class="form-label">Gender:</label>
-      <select class="form-control">
-        <option>Nam</option>
-        <option>Nữ</option>
-        <option>Lgbt</option>
+      <select class="form-control" formControlName="gender">
+        <option value="1">Nam</option>
+        <option value="0">Nữ</option>
       </select>
     </div>
 
@@ -76,9 +75,8 @@
     <div class="mb-3 mt-3">
       <label class="form-label ">Customer type:</label>
       <select class="form-control" formControlName="customerType">
-        <option>vip1</option>
-        <option>vip2</option>
-        <option>vip3</option>
+        <option *ngFor="let customerType of customerType"
+                [ngValue]="customerType" >{{customerType.name}}</option>
       </select>
 
     </div>

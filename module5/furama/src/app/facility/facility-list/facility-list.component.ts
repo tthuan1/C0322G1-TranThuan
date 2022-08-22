@@ -3,6 +3,7 @@ import {Facility} from '../../model/facility/facility';
 import {FacilityType} from '../../model/facility/facility-type';
 import {RentType} from '../../model/facility/rent-type';
 import {FacilityService} from '../../service/facility.service';
+import {Customer} from '../../model/customer/customer';
 
 @Component({
   selector: 'app-facility-list',
@@ -11,6 +12,8 @@ import {FacilityService} from '../../service/facility.service';
 })
 export class FacilityListComponent implements OnInit {
   FacilityList: Facility[] = [];
+  id: number;
+  name: string;
 
   constructor(private facilityService: FacilityService) {
 
@@ -18,6 +21,16 @@ export class FacilityListComponent implements OnInit {
 
   ngOnInit(): void {
     this.FacilityList = this.facilityService.getAll();
+  }
+
+  facilityDelete(facility: Facility) {
+    this.id = facility.id;
+    this.name = facility.name;
+    console.log(facility);
+  }
+
+  delete() {
+    this.facilityService.deleteById(this.id);
   }
 
 }

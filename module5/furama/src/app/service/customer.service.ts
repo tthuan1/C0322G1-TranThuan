@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Customer} from '../model/customer/customer';
+import {CustomerType} from '../model/customer/customer-type';
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +75,19 @@ export class CustomerService {
     },
   ];
 
+  customerType: CustomerType[] = [
+    {id: 1, name: 'Platinum'},
+    {id: 2, name: 'Diamond'},
+    {id: 3, name: 'Gold'},
+    {id: 4, name: 'Silver'},
+    {id: 5, name: 'Member'},
+  ];
+
   constructor() {
+  }
+
+  getAllCustomerType() {
+    return this.customerType;
   }
 
   getAll() {
@@ -106,9 +119,6 @@ export class CustomerService {
   }
 
   deleteById(id: number) {
-    // this.customerList = this.customerList.filter(customer => {
-    //   return customer.id !== id;
-    // });
     const index = this.customerList.findIndex(customer =>
       customer.id === id
     );

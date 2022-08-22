@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Customer} from '../../model/customer/customer';
@@ -14,6 +14,7 @@ export class CustomerEditComponent implements OnInit {
   customerForm: FormGroup;
   id: number;
   customerUpdate: Customer;
+  customerType: CustomerType[];
 
   constructor(private customerService: CustomerService,
               private activatedRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class CustomerEditComponent implements OnInit {
         {
           id: new FormControl(this.customerUpdate.id),
           name: new FormControl(this.customerUpdate.name),
+          gender: new FormControl('', [Validators.required]),
           birthday: new FormControl(this.customerUpdate.birthday),
           idCard: new FormControl(this.customerUpdate.idCard),
           phone: new FormControl(this.customerUpdate.phone),
@@ -39,6 +41,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.customerType = this.customerService.getAllCustomerType();
   }
 
   submit() {
