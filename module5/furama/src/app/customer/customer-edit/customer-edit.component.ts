@@ -28,13 +28,13 @@ export class CustomerEditComponent implements OnInit {
         {
           id: new FormControl(this.customerUpdate.id),
           name: new FormControl(this.customerUpdate.name),
-          gender: new FormControl('', [Validators.required]),
+          gender: new FormControl(this.customerUpdate.gender, [Validators.required]),
           birthday: new FormControl(this.customerUpdate.birthday),
           idCard: new FormControl(this.customerUpdate.idCard),
           phone: new FormControl(this.customerUpdate.phone),
           email: new FormControl(this.customerUpdate.email),
           address: new FormControl(this.customerUpdate.address),
-          customerType: new FormControl(this.customerUpdate.customerType.name),
+          customerType: new FormControl(this.customerUpdate.customerType.id),
         }
       );
     });

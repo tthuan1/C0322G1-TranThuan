@@ -1,0 +1,88 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "product": [
+    {
+      "id": 1,
+      "name": "IPhone 12312",
+      "price": 2400000,
+      "description": "New",
+      "category": 1
+    },
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "Like new",
+      "category": 2
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 968000,
+      "description": "97%",
+      "category": 1
+    },
+    {
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 7540000,
+      "description": "98%",
+      "category": 2
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 1895000,
+      "description": "Like new",
+      "category": 3
+    },
+    {
+      "name": "312",
+      "price": 3123,
+      "description": "312",
+      "category": 2,
+      "id": 6
+    },
+    {
+      "name": "21",
+      "price": 46,
+      "description": "65",
+      "category": null,
+      "id": 7
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "mỹ"
+    },
+    {
+      "id": 2,
+      "name": "VN"
+    },
+    {
+      "id": 3,
+      "name": "china"
+    },
+    {
+      "id": 4,
+      "name": "không biết"
+    }
+  ]
+}

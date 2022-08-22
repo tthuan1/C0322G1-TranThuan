@@ -14,7 +14,7 @@
     </div>
     <div class="mb-3 mt-3">
       <label class="form-label">Gender</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="gender">
         <option value="1">Nam</option>
         <option value="0">Nữ</option>
       </select>
@@ -40,7 +40,7 @@
       <label class="form-label">Customer type</label>
       <select class="form-control" formControlName="customerType">
         <option *ngFor="let customerType of customerType"
-                [ngValue]="customerType" >{{customerType.name}}</option>
+                [ngValue]="customerType.id" >{{customerType.name}}</option>
       </select>
     </div>
     <input type="submit" class="btn btn-info me-2" value="Edit">
