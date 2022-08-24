@@ -3,12 +3,9 @@
     <div class="mb-3 mt-3">
       <label for="facilityType" class="form-label">Facility Type</label>
       <select class="form-control" name="facilityType" id="facilityType"
-              onchange="onchangeFacility(this.value)">
-        <option value="1">vila</option>
-        <option value="2">house</option>
-        <option value="3">room</option>
+              onchange="onchangeFacility(this.value)" formControlName="facilityType" [compareWith]="compareFacility" [(ngModel)]="facilityUpdate.facilityType">
+        <option *ngFor="let facilityType of facilityTypeList" [ngValue]="facilityType">{{facilityType.name}}</option>
       </select>
-
     </div>
     <div class="mb-3 mt-3">
       <label for="name" class="form-label">Name:</label>
@@ -51,15 +48,21 @@
       <input type="text" class="form-control" id="facilityFree" placeholder="Enter facility Free"
              name="facilityFree" formControlName="facilityFree">
     </div>
+
     <div class="mb-3 mt-3">
-      <label class="form-label">Rental type:</label>
-      <select class="form-control"  formControlName="rentalType">
-        <option>Theo ngày</option>
-        <option>Theo tháng</option>
-        <option>Theo năm</option>
+      <label for="image" class="form-label">Image:</label>
+      <input type="text" class="form-control" id="image" placeholder="Enter image"
+             name="image" formControlName="image">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Rent Type:</label>
+      <select class="form-control" formControlName="rentType" [compareWith]="compareFacility" [(ngModel)]="facilityUpdate.rentType">
+        <option *ngFor="let rentType of rentTypeList" [ngValue]="rentType">{{rentType.name}}</option>
       </select>
     </div>
-    <input type="submit" class="btn btn-info me-2" value="Edit">
+
+    <input type="submit" class="btn btn-info me-2" value="Edit" [disabled]="facilityForm.invalid" >
     <a routerLink="/facility-list" class="btn btn-secondary">Back</a>
   </form>
 </div>

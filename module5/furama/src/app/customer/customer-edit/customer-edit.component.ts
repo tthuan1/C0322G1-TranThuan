@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CustomerService} from '../../service/customer.service';
+import {CustomerService} from '../../service/customer/customer.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Customer} from '../../model/customer/customer';
 import {CustomerType} from '../../model/customer/customer-type';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-edit',
@@ -14,30 +15,44 @@ export class CustomerEditComponent implements OnInit {
   customerForm: FormGroup;
   id: number;
   customerUpdate: Customer;
-  customerType: CustomerType[];
+  customerType: CustomerType[] = [];
+
 
   constructor(private customerService: CustomerService,
               private activatedRoute: ActivatedRoute,
-              private routes: Router) {
+              private routes: Router,
+              private toastrService: ToastrService) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.customerUpdate = this.customerService.findById(this.id);
-      console.log(this.customerUpdate);
-
-      this.customerForm = new FormGroup(
-        {
-          id: new FormControl(this.customerUpdate.id),
-          name: new FormControl(this.customerUpdate.name),
-          gender: new FormControl(this.customerUpdate.gender, [Validators.required]),
-          birthday: new FormControl(this.customerUpdate.birthday),
-          idCard: new FormControl(this.customerUpdate.idCard),
-          phone: new FormControl(this.customerUpdate.phone),
-          email: new FormControl(this.customerUpdate.email),
-          address: new FormControl(this.customerUpdate.address),
-          customerType: new FormControl(this.customerUpdate.customerType.id),
-        }
-      );
+      this.customerService.findByIdApi(this.id).subscribe(data => {
+        this.customerUpdate = data;
+        console.log('customerUpdate', this.customerUpdate);
+        this.customerForm.patchValue(this.customerUpdate);
+      });
     });
+
+    this.customerForm = new FormGroup(
+      {
+        id: new FormControl(''),
+        name: new FormControl(''),
+        gender: new FormControl(''),
+        birthday: new FormControl(''),
+        idCard: new FormControl(''),
+        phone: new FormControl(''),
+        email: new FormControl(''),
+        address: new FormControl(''),
+        customerType: new FormControl(''),
+      }
+    );
+  }
+
+  compareCustomer(t1: Customer, t2: Customer) {
+    if (t1.name === t2.name && t1.id === t2.id) {
+      return true;
+    } else {
+      return false;
+    }
+    // return t1 && t2 ? t1.name === t2.name : t1 === t2;
   }
 
   ngOnInit(): void {
@@ -46,9 +61,11 @@ export class CustomerEditComponent implements OnInit {
 
   submit() {
     const customer = this.customerForm.value;
-    this.customerService.updateById(this.id, customer);
-    alert('thanh cong');
-    console.log(customer);
-    this.routes.navigateByUrl('/customer-list');
+    // this.customerService.updateById(this.id, customer);
+    this.customerService.updateCustomerAPI(this.id, customer).subscribe(() => {
+      // alert('thanh cong');
+      this.toastrService.success('update thanh cong', 'thong bao');
+      this.routes.navigateByUrl('/customer-list');
+    });
   }
 }

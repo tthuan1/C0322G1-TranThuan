@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
-import {CategoryService} from "../../service/category.service";
-import {Category} from "../../model/category";
+import {CategoryService} from '../../service/category.service';
+import {Category} from '../../model/category';
 
 
 @Component({
@@ -23,17 +23,17 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.getAllApi().subscribe(data => {
-      console.log(data);
-      this.products = data;
-    }, error => {
-      console.log(error);
-    }, () => {
-      console.log('complete');
-    });
     this.categoryService.getCategory().subscribe(data => {
       console.log(data);
       this.category = data;
+      this.productService.getAllApi().subscribe(temp => {
+        console.log(temp);
+        this.products = temp;
+      }, error => {
+        console.log(error);
+      }, () => {
+        console.log('complete');
+      });
     });
     // this.getAll();
   }
@@ -51,4 +51,11 @@ export class ProductListComponent implements OnInit {
   //   this.productService.deleteById(this.id);
   //   // this.routes.navigateByUrl('/customer-list');
   // }
+  delete() {
+    this.productService.delete(this.id).subscribe();
+    // xu ly du lieu o local
+    const newValue = this.products.filter(item => item.id !== this.id);
+    this.products = newValue;
+    console.log(this.id);
+  }
 }

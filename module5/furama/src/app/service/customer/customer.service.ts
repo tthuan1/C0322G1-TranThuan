@@ -1,11 +1,17 @@
 import {Injectable} from '@angular/core';
-import {Customer} from '../model/customer/customer';
-import {CustomerType} from '../model/customer/customer-type';
+import {Customer} from '../../model/customer/customer';
+import {CustomerType} from '../../model/customer/customer-type';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
+  // ------------------------------------------------------
+  constructor(private http: HttpClient) {
+  }
+
   customerList: Customer[] = [
     {
       id: 1,
@@ -83,8 +89,32 @@ export class CustomerService {
     {id: 5, name: 'Member'},
   ];
 
-  constructor() {
+  private URL_API = 'http://localhost:3000/customer';
+
+  getAllCustomerAPI(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.URL_API);
   }
+
+  addCustomerAPI(data: Customer): Observable<Customer> {
+    return this.http.post<Customer>(this.URL_API, data);
+  }
+
+  deleteCustomerAPI(id: number): Observable<Customer> {
+    return this.http.delete<Customer>(this.URL_API + `/${id}`);
+  }
+
+  updateCustomerAPI(id: number, data: Customer): Observable<Customer> {
+    return this.http.put<Customer>(this.URL_API + `/${id}`, data);
+  }
+
+  findByIdApi(id: number): Observable<Customer> {
+    return this.http.get(this.URL_API + `/${id}`);
+  }
+
+  searchCustomer(name: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.URL_API}?q=` + name);
+  }
+
 
   getAllCustomerType() {
     return this.customerType;
@@ -125,5 +155,7 @@ export class CustomerService {
     this.customerList.splice(index, 1);
     console.log(this.customerList);
   }
+
+
 }
 

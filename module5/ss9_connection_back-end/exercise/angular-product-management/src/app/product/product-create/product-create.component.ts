@@ -12,18 +12,19 @@ import {Router} from '@angular/router';
 })
 export class ProductCreateComponent implements OnInit {
   categoryList: Category[] = [];
-  productForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    price: new FormControl(),
-    description: new FormControl(),
-    category: new FormControl(),
-  });
+  productForm: FormGroup;
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
               private router: Router) {
     this.categoryService.getCategory().subscribe(data => {
       this.categoryList = data;
+      this.productForm = new FormGroup({
+        name: new FormControl(),
+        price: new FormControl(),
+        description: new FormControl(),
+        category: new FormControl(),
+      });
     }, error => {
       console.log(error);
     });

@@ -4,6 +4,8 @@
     <a class="btn btn-info" data-bs-toggle="modal" routerLink="/customer-create">
       Create
     </a>
+    <input class="form-control w-25" type="search" [(ngModel)]="nameSearch">
+    <button class="btn btn-success" (click)="search()" >search</button>
   </div>
   <br>
   <table class="table table-info">
@@ -23,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customerList;index as i ">
+    <tr *ngFor="let customer of customerList | paginate: { itemsPerPage: 5, currentPage: p };index as i ">
 
       <td>{{i + 1}}</td>
 
@@ -43,7 +45,7 @@
 
       <td>{{customer.address}}</td>
 
-      <td>{{customer.customerType.name}}</td>
+      <td >{{customer.customerType.name}}</td>
 
       <td>
         <a style="border-radius: 10px" class="btn btn-light" [routerLink]="['/customer-edit/',customer.id]">
@@ -67,37 +69,27 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalDeleteLabel">Modal title</h5>
+                <h5 class="modal-title" id="modalDeleteLabel">Delete</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Do you want delete {{name}}
+                Do you want delete <span class="text-danger">{{name}}</span>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete
+                </button>
               </div>
             </div>
           </div>
         </div>
       </td>
+
     </tr>
 
     </tbody>
   </table>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center mt-3">
-      <li class="page-item disabled">
-        <a class="page-link">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-
-
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>

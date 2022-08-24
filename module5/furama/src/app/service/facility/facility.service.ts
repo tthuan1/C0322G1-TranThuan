@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Facility} from '../model/facility/facility';
+import {Facility} from '../../model/facility/facility';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -143,8 +145,28 @@ export class FacilityService {
     },
   ];
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
+
+  private URL_API = 'http://localhost:3000/facility';
+
+  getAllFacilityApi(): Observable<Facility[]> {
+    return this.http.get<Facility[]>(this.URL_API);
+  }
+
+  createFacilityAPI(data: Facility): Observable<Facility> {
+    return this.http.post<Facility>(this.URL_API, data);
+  }
+
+  updateFacilityAPI(id: number, data: Facility): Observable<Facility> {
+    return this.http.put<Facility>(this.URL_API + `/${id}`, data);
+  }
+
+  deleteFacilityAPI(id: number): Observable<Facility> {
+    return this.http.delete<Facility>(this.URL_API + `/${id}`);
+  }
+
+  // ---------------API-------------------
 
   getAll() {
     return this.facilityList;
@@ -169,5 +191,9 @@ export class FacilityService {
     );
     this.facilityList.splice(index, 1);
     console.log(this.facilityList);
+  }
+
+  findByIdAPI(id: number) {
+    return this.http.get<Facility>(this.URL_API + `/${id}`);
   }
 }

@@ -1,12 +1,10 @@
 <div class="container villa">
-  <form class="bg-white"  [formGroup]="formCreateFacility" (ngSubmit)="submit()">
+  <form class="bg-white" [formGroup]="formCreateFacility" (ngSubmit)="submit()">
     <div class="mb-3 mt-3">
       <label for="facilityType" class="form-label">Facility Type</label>
       <select class="form-control" name="facilityType" id="facilityType"
-              onchange="onchangeFacility(this.value)">
-        <option value="1">vila</option>
-        <option value="2">house</option>
-        <option value="3">room</option>
+              onchange="onchangeFacility(this.value)" formControlName="facilityType">
+        <option *ngFor="let facilityType of facilityTypeList" [ngValue]="facilityType">{{facilityType.name}}</option>
       </select>
     </div>
 
@@ -45,12 +43,15 @@
 
     <div class="mb-3 mt-3">
       <label for="maxPeople" class="form-label">Max People:</label>
-      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople" formControlName="maxPeople">
+      <input type="text" class="form-control" id="maxPeople" placeholder="Enter max people" name="maxPeople"
+             formControlName="maxPeople">
       <p class="text-danger"
-         *ngIf="formCreateFacility.controls.maxPeople.hasError('required') && formCreateFacility.controls.maxPeople.touched">❗
+         *ngIf="formCreateFacility.controls.maxPeople.hasError('required') && formCreateFacility.controls.maxPeople.touched">
+        ❗
         Không được để trống</p>
       <p class="text-danger"
-         *ngIf="formCreateFacility.controls.maxPeople.hasError('pattern') && formCreateFacility.controls.maxPeople.touched">❗
+         *ngIf="formCreateFacility.controls.maxPeople.hasError('pattern') && formCreateFacility.controls.maxPeople.touched">
+        ❗
         Không đúng định dạng</p>
     </div>
 
@@ -63,14 +64,17 @@
     <div class="mb-3 mt-3">
       <label for="descriptionOtherConvenience" class="form-label">Description Other Convenience:</label>
       <input type="text" class="form-control" id="descriptionOtherConvenience"
-             placeholder="Enter description other convenience" name="descriptionOtherConvenience" formControlName="name">
+             placeholder="Enter description other convenience" name="descriptionOtherConvenience"
+             formControlName="name">
     </div>
 
     <div class="mb-3 mt-3 house room">
       <label for="poolArea" class="form-label ">Pool Area:</label>
-      <input type="text" class="form-control" id="poolArea" placeholder="Enter pool area" name="poolArea" formControlName="poolArea">
+      <input type="text" class="form-control" id="poolArea" placeholder="Enter pool area" name="poolArea"
+             formControlName="poolArea">
       <p class="text-danger"
-         *ngIf="formCreateFacility.controls.poolArea.hasError('required') && formCreateFacility.controls.poolArea.touched">❗
+         *ngIf="formCreateFacility.controls.poolArea.hasError('required') && formCreateFacility.controls.poolArea.touched">
+        ❗
         Không được để trống</p>
     </div>
 
@@ -79,41 +83,30 @@
       <input type="text" class="form-control" id="numberOfFloors" placeholder="Enter number of floors"
              name="numberOfFloors" formControlName="numberOfFloors">
       <p class="text-danger"
-         *ngIf="formCreateFacility.controls.numberOfFloors.hasError('required') && formCreateFacility.controls.numberOfFloors.touched">❗
+         *ngIf="formCreateFacility.controls.numberOfFloors.hasError('required') && formCreateFacility.controls.numberOfFloors.touched">
+        ❗
         Không được để trống</p>
     </div>
 
     <div class="mb-3 mt-3">
       <label for="facilityFree" class="form-label">Facility Free:</label>
       <input type="text" class="form-control" id="facilityFree" placeholder="Enter facility free"
-             name="facilityFree">
+             name="facilityFree" formControlName="facilityFree">
     </div>
 
     <div class="mb-3 mt-3">
-      <label class="form-label">Kiêu thuê:
-        <select class="form-control">
-          <option>Theo ngày</option>
-          <option>Theo tháng</option>
-          <option>Theo năm</option>
-        </select>
-      </label>
+      <label for="image" class="form-label">Image:</label>
+      <input type="text" class="form-control" id="image" placeholder="Enter image"
+             name="image" formControlName="image">
     </div>
-    <input type="submit" class="btn btn-info me-2" value="Create">
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Rent Type:</label>
+      <select class="form-control" formControlName="rentType">
+        <option *ngFor="let rentType of rentTypeList" [ngValue]="rentType">{{rentType.name}}</option>
+      </select>
+    </div>
+    <input type="submit" class="btn btn-info me-2" value="Create" >
     <a routerLink="/facility-list" class="btn btn-outline-primary">Back</a>
   </form>
-<!--  <script>-->
-<!--    function onchangeFacility(value) {-->
-<!--      debugger-->
-<!--      console.log(value)-->
-<!--      if (value === 2) {-->
-<!--        $(".room").show();-->
-<!--        $(".house").hide();-->
-<!--      } else if (value === 3) {-->
-<!--        $(".room").hide();-->
-<!--      } else {-->
-<!--        $(".house").show();-->
-<!--        $(".room").show();-->
-<!--      }-->
-<!--    }-->
-<!--  </script>-->
 </div>

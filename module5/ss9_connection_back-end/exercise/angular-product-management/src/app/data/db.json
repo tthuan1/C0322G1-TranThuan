@@ -18,20 +18,6 @@
   },
   "product": [
     {
-      "id": 1,
-      "name": "IPhone 12312",
-      "price": 2400000,
-      "description": "New",
-      "category": 1
-    },
-    {
-      "id": 2,
-      "name": "IPhone 11",
-      "price": 1560000,
-      "description": "Like new",
-      "category": 2
-    },
-    {
       "id": 3,
       "name": "IPhone X",
       "price": 968000,
@@ -39,31 +25,31 @@
       "category": 1
     },
     {
-      "id": 4,
-      "name": "IPhone 8",
-      "price": 7540000,
-      "description": "98%",
-      "category": 2
+      "name": "312",
+      "price": 312,
+      "description": "321",
+      "category": 2,
+      "id": 4
     },
     {
-      "id": 5,
-      "name": "IPhone 11 Pro",
-      "price": 1895000,
-      "description": "Like new",
-      "category": 3
+      "name": "iphone",
+      "price": 123123,
+      "description": "new",
+      "category": 3,
+      "id": 5
     },
     {
       "name": "312",
-      "price": 3123,
-      "description": "312",
+      "price": 312,
+      "description": "321",
       "category": 2,
       "id": 6
     },
     {
-      "name": "21",
-      "price": 46,
-      "description": "65",
-      "category": null,
+      "name": "321",
+      "price": 321,
+      "description": "312",
+      "category": 2,
       "id": 7
     }
   ],

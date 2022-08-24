@@ -23,6 +23,7 @@
          *ngIf="formCreateCustomer.controls.birthday.hasError('pattern') && formCreateCustomer.controls.birthday.touched">
         ❗ Không đúng định dạng</p>
     </div>
+
     <div class="mb-3 mt-3">
       <label class="form-label">Gender:</label>
       <select class="form-control" formControlName="gender">
@@ -75,12 +76,14 @@
     <div class="mb-3 mt-3">
       <label class="form-label ">Customer type:</label>
       <select class="form-control" formControlName="customerType">
-        <option *ngFor="let customerType of customerType"
-                [ngValue]="customerType" >{{customerType.name}}</option>
+        <option *ngFor="let customerType of customerTypeList"
+                [ngValue]="customerType">{{customerType.name}}</option>
       </select>
 
     </div>
-    <input type="submit" class="btn btn-outline-info me-2" value="Save">
+
+    <input type="submit" class="btn btn-outline-info me-2" value="Save" [disabled]="formCreateCustomer.invalid">
     <a class="btn btn-secondary" routerLink="/customer-list">Back</a>
   </form>
 </div>
+

@@ -3,11 +3,13 @@
   <table>
     <tr>
       <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id" ></td>
+<!--      <td><input type="number" formControlName="id" ></td>-->
+      <td><input type="number" formControlName="id" readonly></td>
+      <td><input type="number" formControlName="id" readonly></td>
     </tr>
     <tr>
       <td>Tên sản phẩm:</td>
-      <td><input type="text" formControlName="name" ></td>
+      <td><input type="text" formControlName="name"></td>
     </tr>
     <tr>
       <td>Giá sản phẩm</td>
@@ -18,8 +20,18 @@
       <td><input type="text" formControlName="description"></td>
     </tr>
     <tr>
+      <td>category</td>
+      <td>
+        <select formControlName="category" [compareWith]="category" [(ngModel)]="productUpdate.category">
+          <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
       <td></td>
-      <td><button>Update</button></td>
+      <td>
+        <button>Update</button>
+      </td>
     </tr>
   </table>
 </form>

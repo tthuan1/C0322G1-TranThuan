@@ -15,7 +15,10 @@ import { FacilityCreateComponent } from './facility/facility-create/facility-cre
 import { ContractListComponent } from './contract/contract-list/contract-list.component';
 import { ContractEditComponent } from './contract/contract-edit/contract-edit.component';
 import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot({timeOut: 2000}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
