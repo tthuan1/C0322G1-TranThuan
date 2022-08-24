@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ProductUpdateComponent} from './product/product-update/product-update.component';
 import {ProductDeleteComponent} from './product/product-delete/product-delete.component';
 import {HttpClientModule} from '@angular/common/http';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
