@@ -1,0 +1,90 @@
+<div class="container">
+  <h1>Dánh sách bệnh án</h1>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+    <button class="btn btn-info" [routerLink]="['/benhAn-create']">Tạo bệnh án</button>
+    <input class="form-control w-25" type="search" [(ngModel)]="nameSearch">
+    <button class="btn btn-success" (click)="search()" >search</button>
+  </div>
+
+  <br>
+  <table class="table table-info">
+    <thead>
+    <tr class="table-primary">
+      <th>STT.</th>
+      <th>Mã bệnh án</th>
+      <th>Mã bệnh nhân</th>
+      <th>Tên bệnh nhân</th>
+      <th>Ngày nhập viện</th>
+      <th>Ngày ra viện</th>
+      <th>Lý do nhập viện</th>
+      <th>Phương pháp điều trị</th>
+      <th>Bác sĩ điều trị</th>
+      <th>Sửa</th>
+      <th>Xoá</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let benhAn of benhAnList | paginate: { itemsPerPage: 5, currentPage: p };index as i ">
+
+      <td>{{i + 1}}</td>
+
+      <td>BA-{{benhAn.id}}</td>
+
+      <td>BN-{{benhAn.benhNhan.id}}</td>
+
+      <td>{{benhAn.benhNhan.name}}</td>
+
+      <td>{{benhAn.ngayNhapVien}}</td>
+
+      <td>{{benhAn.ngayRaVien}}</td>
+
+      <td>{{benhAn.lyDoNhapVien}}</td>
+
+      <td>{{benhAn.phuongPhapDieuTri}}</td>
+      <td>{{benhAn.bacSiDieuTri}}</td>
+
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" [routerLink]="['/benhAn-edit/',benhAn.id]">
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Sửa
+        </a>
+      </td>
+
+      <td>
+        <button style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+                data-bs-target="#modalDelete" data-target="'#exampleModalLong'" (click)="benhAnDelete(benhAn)">
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Xoá
+        </button>
+        <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="modalDeleteLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Xoá</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Bạn có muốn xoá bệnh án của bệnh nhân <span class="text-danger">{{name}}</span> này không ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+
+<div class="container">
+  <h1>Sửa bệnh án</h1>
+  <form [formGroup]="benhAnForm" (ngSubmit)="submit()">
+    <div class="mb-3 mt-3">
+      <label for="id" class="form-label">Mã bệnh án:</label>
+      <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="name1" class="form-label">Mã bệnh nhân:</label>
+      <input type="text" class="form-control" id="name1" name="name" formControlName="maBenhNhan" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="birthday" class="form-label">Tên Bệnh nhân:</label>
+      <input type="text" class="form-control" id="birthday" placeholder="Nhập tên bệnh nhân" name="name"
+             formControlName="tenBenhNhan">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="ngayNhapvien" class="form-label">Ngày nhập viện:</label>
+      <input type="date" class="form-control" id="ngayNhapvien" placeholder="Enter id card" name="ngayNhapvien"
+             formControlName="ngayNhapVien">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="ngayRaVien" class="form-label">Ngày ra viện:</label>
+      <input type="date" class="form-control" id="ngayRaVien" placeholder="Enter phone" name="ngayRaVien" formControlName="ngayRaVien">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="lyDoNhapVien" class="form-label">Lý do nhập viện:</label>
+      <input type="text" class="form-control" id="lyDoNhapVien" placeholder="Nhập ly Do Nhap Vien" name="lyDoNhapVien" formControlName="lyDoNhapVien">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="phuongPhapDieuTri" class="form-label">phuong Phap Dieu Tri:</label>
+      <input type="text" class="form-control" id="phuongPhapDieuTri" placeholder="Enter phuong Phap Dieu Tri" name="phuongPhapDieuTri"
+             formControlName="phuongPhapDieuTri">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="bacSiDieuTri" class="form-label">bac Si Dieu Tri:</label>
+      <input type="text" class="form-control" id="bacSiDieuTri" placeholder="Enter bac Si Dieu Tri" name="bacSiDieuTri"
+             formControlName="bacSiDieuTri">
+    </div>
+    <input type="submit" class="btn btn-info me-2" value="Edit">
+    <button class="btn btn-secondary me-2" routerLink="/benhAn-list">Back</button>
+
+  </form>
+
+
+</div>

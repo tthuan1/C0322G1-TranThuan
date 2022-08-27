@@ -1,0 +1,47 @@
+
+<div class="container">
+  <h1>Sửa bệnh án</h1>
+  <form [formGroup]="medicalRecordForm" (ngSubmit)="submit()">
+    <div class="mb-3 mt-3">
+      <label for="id" class="form-label">Mã bệnh án:</label>
+      <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="name1" class="form-label">Mã bệnh nhân:</label>
+      <input type="text" class="form-control" id="name1" name="name" formControlName="codePatient" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="birthday" class="form-label">Tên Bệnh nhân:</label>
+      <input type="text" class="form-control" id="birthday" placeholder="Nhập tên bệnh nhân" name="name"
+             formControlName="namePatient">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="hospitalizedDay" class="form-label">Ngày nhập viện:</label>
+      <input type="date" class="form-control" id="hospitalizedDay" placeholder="Enter id card" name="hospitalizedDay"
+             formControlName="hospitalizedDay">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="hospitalDischargeDate" class="form-label">Ngày ra viện:</label>
+      <input type="date" class="form-control" id="hospitalDischargeDate" placeholder="Enter phone" name="hospitalDischargeDate" formControlName="hospitalDischargeDate">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="reason" class="form-label">Lý do nhập viện:</label>
+      <input type="text" class="form-control" id="reason" placeholder="Nhập ly Do Nhap Vien" name="reason" formControlName="reason">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="treatments" class="form-label">phuong Phap Dieu Tri:</label>
+      <input type="text" class="form-control" id="treatments" placeholder="Enter phuong Phap Dieu Tri" name="treatments"
+             formControlName="treatments">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="doctor" class="form-label">bac Si Dieu Tri:</label>
+      <input type="text" class="form-control" id="doctor" placeholder="Enter bac Si Dieu Tri" name="doctor"
+             formControlName="doctor">
+    </div>
+    <input type="submit" class="btn btn-info me-2" value="Edit">
+    <button class="btn btn-secondary me-2" routerLink="/MedicalRecord/List">Back</button>
+
+  </form>
+
+
+</div>

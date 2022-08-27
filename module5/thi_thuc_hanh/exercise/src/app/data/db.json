@@ -1,0 +1,66 @@
+{
+  "benhNhan": [
+    {
+      "id": 1,
+      "name": "Thuan"
+    },
+    {
+      "id": 2,
+      "name": "Hoan"
+    },
+    {
+      "id": 3,
+      "name": "Tri"
+    }
+  ],
+  "benhAn": [
+    {
+      "id": 1,
+      "benhNhan": {
+        "id": 3,
+        "name": "Thuan đẹp trai"
+      },
+      "ngayNhapVien": "2000-08-11",
+      "ngayRaVien": "1997-08-10",
+      "lyDoNhapVien": "ngu",
+      "phuongPhapDieuTri": "code",
+      "bacSiDieuTri": "codegym"
+    },
+    {
+      "id": 3,
+      "benhNhan": {
+        "id": 2,
+        "name": "Hoan"
+      },
+      "ngayNhapVien": "2022-08-04",
+      "ngayRaVien": "2022-08-12",
+      "lyDoNhapVien": "ngu",
+      "phuongPhapDieuTri": "code 24h gjasd",
+      "bacSiDieuTri": "ghflsa"
+    },
+    {
+      "benhNhan": {
+        "id": 3,
+        "name": "Tri"
+      },
+      "ngayNhapVien": "2022-08-12",
+      "ngayRaVien": "2022-08-03",
+      "lyDoNhapVien": "ngu",
+      "phuongPhapDieuTri": "code 24h",
+      "bacSiDieuTri": "haitt",
+      "id": 4
+    },
+    {
+      "id": 8,
+      "benhNhan": {
+        "id": 3,
+        "name": "Tri"
+      },
+      "ngayNhapVien": "2022-08-06",
+      "ngayRaVien": "2022-08-11",
+      "lyDoNhapVien": "ngu",
+      "phuongPhapDieuTri": "code",
+      "bacSiDieuTri": "haitt"
+    }
+  ]
+}

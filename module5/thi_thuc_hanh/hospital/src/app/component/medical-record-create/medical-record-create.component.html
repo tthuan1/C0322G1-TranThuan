@@ -1,0 +1,42 @@
+<div class="container">
+  <form class="bg-white" [formGroup]="formCreate" (ngSubmit)="submit()">
+
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Bệnh nhân:</label>
+      <select class="form-control" formControlName="patient">
+        <option *ngFor="let benhNhan of patientList"
+                [ngValue]="benhNhan">{{benhNhan.name}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Ngày nhập viện:</label>
+      <input type="date" class="form-control" placeholder="Enter birthday" name="ngayNhapVien" formControlName="hospitalizedDay">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">ngayRaVien:</label>
+      <input type="date" class="form-control" placeholder="Nhập ngayRaVien" name="ngayRaVien" formControlName="hospitalDischargeDate">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">lyDoNhapVien:</label>
+      <input type="text" class="form-control" placeholder="Enter lyDoNhapVien" name="lyDoNhapVien" formControlName="reason">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">phuongPhapDieuTri:</label>
+      <input type="text" class="form-control" placeholder="Enter phuongPhapDieuTri" name="phuongPhapDieuTri" formControlName="treatments">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">bacSiDieuTri:</label>
+      <input type="text" class="form-control" placeholder="Enter bacSiDieuTri" name="bacSiDieuTri" formControlName="doctor">
+    </div>
+
+    <input type="submit" class="btn btn-outline-info me-2" value="Save" >
+    <a class="btn btn-secondary" routerLink="/MedicalRecord/List">Back</a>
+  </form>
+</div>
+

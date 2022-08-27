@@ -1,0 +1,49 @@
+<div class="container">
+  <form class="bg-white" [formGroup]="formCreate" (ngSubmit)="submit()">
+
+    id?:
+    benhNhan?:
+    ngayNhapVien?:
+    ngayRaVien?:
+    lyDoNhapVien?:
+    phuongPhapDieuTri?:
+    bacSiDieuTri?:
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Bệnh nhân:</label>
+      <select class="form-control" formControlName="benhNhan">
+        <option *ngFor="let benhNhan of benhNhanList"
+                [ngValue]="benhNhan">{{benhNhan.name}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">Ngày nhập viện:</label>
+      <input type="date" class="form-control" placeholder="Enter birthday" name="ngayNhapVien" formControlName="ngayNhapVien">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">ngayRaVien:</label>
+      <input type="date" class="form-control" placeholder="Nhập ngayRaVien" name="ngayRaVien" formControlName="ngayRaVien">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">lyDoNhapVien:</label>
+      <input type="text" class="form-control" placeholder="Enter lyDoNhapVien" name="lyDoNhapVien" formControlName="lyDoNhapVien">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">phuongPhapDieuTri:</label>
+      <input type="text" class="form-control" placeholder="Enter phuongPhapDieuTri" name="phuongPhapDieuTri" formControlName="phuongPhapDieuTri">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label class="form-label">bacSiDieuTri:</label>
+      <input type="text" class="form-control" placeholder="Enter bacSiDieuTri" name="bacSiDieuTri" formControlName="bacSiDieuTri">
+    </div>
+
+    <input type="submit" class="btn btn-outline-info me-2" value="Save" >
+    <a class="btn btn-secondary" routerLink="/benhAn-list">Back</a>
+  </form>
+</div>
+

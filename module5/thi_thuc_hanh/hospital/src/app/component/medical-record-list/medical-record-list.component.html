@@ -1,0 +1,89 @@
+<div class="container">
+  <h1>Medical Record List</h1>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+    <button class="btn btn-info" [routerLink]="['/MedicalRecord/Create']">Create Medical Record</button>
+    <input class="form-control w-25" type="search" [(ngModel)]="nameSearch">
+    <button class="btn btn-success" (click)="search()">search</button>
+  </div>
+
+  <br>
+  <table class="table table-info">
+    <thead>
+    <tr class="table-primary">
+      <th>STT.</th>
+      <th>Code Medical Record</th>
+      <th>Code Patient</th>
+      <th>Name Patient</th>
+      <th>hospitalizedDay</th>
+      <th>HospitalDischargeDate</th>
+      <th>reason</th>
+      <th>treatments</th>
+      <th>doctor</th>
+      <th colspan="2">action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let medicalRecord of medicalRecordList | paginate: { itemsPerPage: 5, currentPage: p };index as i ">
+
+      <td>{{i + 1}}</td>
+
+      <td>BA-{{medicalRecord.id}}</td>
+
+      <td>BN-{{patientList[medicalRecord.patient-1]}}</td>
+
+      <td>{{patientList[medicalRecord.patient-1]}}</td>
+
+      <td>{{medicalRecord.hospitalizedDay}}</td>
+
+      <td>{{medicalRecord.hospitalDischargeDate}}</td>
+
+      <td>{{medicalRecord.reason}}</td>
+
+      <td>{{medicalRecord.treatments}}</td>
+      <td>{{medicalRecord.doctor}}</td>
+
+      <td>
+        <a style="border-radius: 10px" class="btn btn-light" [routerLink]="['/MedicalRecord/Edit/',medicalRecord.id]">
+          <img src="assets/image/icons/edit.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Sửa
+        </a>
+      </td>
+
+      <td>
+        <button style="border-radius: 10px " class="btn btn-light" data-bs-toggle="modal"
+                data-bs-target="#modalDelete" data-target="'#exampleModalLong'" (click)="medicalRecordDelete(medicalRecord)">
+          <img src="assets/image/icons/trash.svg"
+               alt="Avatar Logo" style="width:20px;" class="rounded-pill">
+          Xoá
+        </button>
+        <div class="modal fade" id="modalDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="modalDeleteLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Xoá</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you want delete patient <span class="text-danger">{{name}}</span> ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete()" data-bs-dismiss="modal">Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

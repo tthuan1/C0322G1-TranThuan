@@ -1,0 +1,54 @@
+{
+  "patient": [
+    {
+      "id": 1,
+      "name": "Thuan"
+    },
+    {
+      "id": 2,
+      "name": "Hoan"
+    },
+    {
+      "id": 3,
+      "name": "Tri"
+    }
+  ],
+  "medicalRecord": [
+    {
+      "id": 1,
+      "patient": {
+        "id": 3,
+        "name": "Tri"
+      },
+      "hospitalizedDay": "2022-08-11",
+      "hospitalDischargeDate": "2022-08-03",
+      "reason": "ngu",
+      "treatments": "code 24h",
+      "doctor": "huycc hihi"
+    },
+    {
+      "patient": {
+        "id": 2,
+        "name": "Hoan"
+      },
+      "hospitalizedDay": "2022-08-12",
+      "hospitalDischargeDate": "2022-08-03",
+      "reason": "ngu",
+      "treatments": "code 24h",
+      "doctor": "codegym",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "patient": {
+        "id": 3,
+        "name": "Tri"
+      },
+      "hospitalizedDay": "2022-08-01",
+      "hospitalDischargeDate": "2022-08-27",
+      "reason": "ngu",
+      "treatments": "code 24h",
+      "doctor": "codegym"
+    }
+  ]
+}
