@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,6 +18,7 @@ public class MedicalRecord {
     private String doctor;
     @ManyToOne
     @JoinColumn(name = "patient",referencedColumnName = "id")
+//    @JsonManagedReference
     private Patient patient;
 
     public MedicalRecord() {

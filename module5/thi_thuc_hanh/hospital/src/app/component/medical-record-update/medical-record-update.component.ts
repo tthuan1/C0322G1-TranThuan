@@ -77,7 +77,8 @@ export class MedicalRecordUpdateComponent implements OnInit {
     };
     console.log(medicalRecord);
     this.medicalRecordService.updateAPI(this.id, medicalRecord).subscribe(() => {
-      this.patientService.updatePatient(this.patientUpdate.id, this.patientUpdate);
+      console.log();
+      this.patientService.updatePatient(this.patientUpdate.id, this.patientUpdate).subscribe();
       this.toastrService.success('Update thành công', 'Thông báo');
       this.routes.navigateByUrl('/MedicalRecord/List');
     });

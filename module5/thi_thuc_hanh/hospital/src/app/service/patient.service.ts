@@ -18,6 +18,7 @@ export class PatientService {
   }
 
   updatePatient(id: number, data: Patient): Observable<Patient> {
+    console.log(data);
     return this.http.put<Patient>(this.URL_API + `/${id}`, data);
   }
 }

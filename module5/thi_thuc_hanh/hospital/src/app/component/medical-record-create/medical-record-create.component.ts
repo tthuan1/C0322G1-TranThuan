@@ -15,6 +15,7 @@ export class MedicalRecordCreateComponent implements OnInit {
 
   formCreate: FormGroup;
   patientList: Patient[] = [];
+  patientCreate: Patient;
 
   constructor(private medicalRecordService: MedicalRecordService,
               private patientService: PatientService,
@@ -25,6 +26,7 @@ export class MedicalRecordCreateComponent implements OnInit {
   getPatient() {
     this.patientService.getAllAPI().subscribe(data => {
       this.patientList = data;
+      console.log('Bệnh nhân', this.patientList);
     });
   }
 
@@ -41,12 +43,24 @@ export class MedicalRecordCreateComponent implements OnInit {
   }
 
   submit() {
-    const medicalRecord = this.formCreate.value;
+    const medicalRecordForm = this.formCreate.value;
+    this.patientCreate = {id: medicalRecordForm.patient.id, name: medicalRecordForm.patient.name};
+    const medicalRecord = {
+      id: medicalRecordForm.id,
+      patient: this.patientCreate,
+      hospitalizedDay: medicalRecordForm.hospitalizedDay,
+      hospitalDischargeDate: medicalRecordForm.hospitalDischargeDate,
+      reason: medicalRecordForm.reason,
+      treatments: medicalRecordForm.treatments,
+      doctor: medicalRecordForm.doctor,
+    };
+    console.log(medicalRecord);
+
     return this.medicalRecordService.createAPI(medicalRecord).subscribe(() => {
         this.toastrService.success('Update thành công', 'Thông báo');
         this.router.navigateByUrl('/MedicalRecord/List');
       }, error => {
-        console.log(error);
+        console.log('error', error);
       }
     );
   }

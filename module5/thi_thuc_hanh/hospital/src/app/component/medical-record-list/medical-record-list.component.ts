@@ -54,6 +54,8 @@ export class MedicalRecordListComponent implements OnInit {
     this.medicalRecordService.deleteAPI(this.id).subscribe(() => {
       this.getAllMedicalRecord();
       this.toastrService.success('Xoá bệnh án thành công', 'Thông báo');
+    }, error => {
+      console.log('error', error);
     });
   }
 

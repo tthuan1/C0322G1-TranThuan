@@ -20,8 +20,8 @@ public class MedicalRecordService implements IMedicalRecordService{
 
 
     @Override
-    public void save(MedicalRecord blog) {
-        medicalRecordRepository.save(blog);
+    public void save(MedicalRecord medicalRecord) {
+        medicalRecordRepository.save(medicalRecord);
     }
     @Override
     public void remove(int id) {
@@ -31,6 +31,15 @@ public class MedicalRecordService implements IMedicalRecordService{
     @Override
     public List<MedicalRecord> findAll() {
         return medicalRecordRepository.findAll();
+    }
+    @Override
+    public MedicalRecord findById(int id) {
+        return medicalRecordRepository.findById(id).get();
+    }
+
+    @Override
+    public void edit(MedicalRecord medicalRecord) {
+        medicalRecordRepository.save(medicalRecord);
     }
 
 }
