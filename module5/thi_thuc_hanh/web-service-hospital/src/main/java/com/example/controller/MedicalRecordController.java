@@ -39,14 +39,6 @@ public class MedicalRecordController {
         return new ResponseEntity<>(medicalRecord, HttpStatus.OK);
     }
 
-//    public ResponseEntity<Page<MedicalRecord>> getMedicalRecordList(@PageableDefault(value = 100) Pageable pageable) {
-//        Page<MedicalRecord> medicalRecordList = medicalRecordService.findAll(pageable);
-//        if (medicalRecordList.isEmpty()) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(medicalRecordList, HttpStatus.OK);
-//    }
-
     @PostMapping
     public ResponseEntity<MedicalRecord> addBlog(@RequestBody MedicalRecord blog) {
         System.out.print(blog);

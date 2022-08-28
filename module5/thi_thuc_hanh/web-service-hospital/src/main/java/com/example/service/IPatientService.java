@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface IPatientService {
     List<Patient> findAll();
+
+    void edit(Patient patient);
+
+    Patient findById(int id);
 }
