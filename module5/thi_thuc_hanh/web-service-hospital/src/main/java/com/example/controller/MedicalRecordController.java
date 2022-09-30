@@ -40,9 +40,8 @@ public class MedicalRecordController {
     }
 
     @PostMapping
-    public ResponseEntity<MedicalRecord> addBlog(@RequestBody MedicalRecord blog) {
-        System.out.print(blog);
-        medicalRecordService.save(blog);
+    public ResponseEntity<MedicalRecord> addBlog(@RequestBody MedicalRecord medicalRecord) {
+        medicalRecordService.save(medicalRecord);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

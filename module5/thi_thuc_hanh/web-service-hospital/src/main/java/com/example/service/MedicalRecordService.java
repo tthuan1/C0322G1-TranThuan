@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MedicalRecordService implements IMedicalRecordService{
+public class MedicalRecordService implements IMedicalRecordService {
     @Autowired
     private IMedicalRecordRepository medicalRecordRepository;
-//    @Override
+
+    //    @Override
     public Page<MedicalRecord> findAll(Pageable pageable) {
         return medicalRecordRepository.findAll(pageable);
     }
@@ -21,25 +22,39 @@ public class MedicalRecordService implements IMedicalRecordService{
 
     @Override
     public void save(MedicalRecord medicalRecord) {
-        medicalRecordRepository.save(medicalRecord);
+        medicalRecordRepository.saveMedicalRecord(
+                medicalRecord.getDoctor(),
+                medicalRecord.getHospitalDischargeDate(),
+                medicalRecord.getHospitalizedDay(),
+                medicalRecord.getReason(),
+                medicalRecord.getTreatments(),
+                medicalRecord.getPatient());
     }
+
     @Override
     public void remove(int id) {
-        medicalRecordRepository.deleteById(id);
+        medicalRecordRepository.deleteByIdMedicalRecord(id);
     }
 
     @Override
     public List<MedicalRecord> findAll() {
-        return medicalRecordRepository.findAll();
+        return medicalRecordRepository.findAllMedicalRecord();
     }
+
     @Override
     public MedicalRecord findById(int id) {
-        return medicalRecordRepository.findById(id).get();
+        return medicalRecordRepository.findByIdMedicalRecord(id);
     }
 
     @Override
     public void edit(MedicalRecord medicalRecord) {
-        medicalRecordRepository.save(medicalRecord);
+        this.save(medicalRecord);
+//        medicalRecordRepository.saveMedicalRecord(medicalRecord.getDoctor(),
+//                medicalRecord.getHospitalDischargeDate(),
+//                medicalRecord.getHospitalizedDay(),
+//                medicalRecord.getReason(),
+//                medicalRecord.getTreatments(),
+//                medicalRecord.getPatient());
     }
 
 }

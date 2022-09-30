@@ -14,16 +14,17 @@ public class PatientService implements IPatientService{
 
     @Override
     public List<Patient> findAll() {
-        return patientReopsitory.findAll();
+        return patientReopsitory.findAllPatient();
     }
+
 
     @Override
     public void edit(Patient patient) {
-        patientReopsitory.save(patient);
+        patientReopsitory.editPatient(patient.getId(), patient.getName());
     }
 
     @Override
     public Patient findById(int id) {
-        return patientReopsitory.findById(id).get();
+        return patientReopsitory.findByIdPatient(id);
     }
 }

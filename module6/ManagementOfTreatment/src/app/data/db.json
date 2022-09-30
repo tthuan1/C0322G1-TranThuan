@@ -1,0 +1,72 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+
+  "treatment": [
+    {
+      "id": 1,
+      "date": "18-09-1999",
+      "cage": "C12",
+      "pigCode": "H13",
+      "examiner": "Nguyễn A",
+      "sick": "Phòng H1H1",
+      "medicine": "hihi1",
+      "amount": 5
+    },
+    {
+      "id": 2,
+      "date": "18-09-1998",
+      "cage": "C13",
+      "pigCode": "H14",
+      "examiner": "Nguyễn B",
+      "sick": "Phòng H1H1",
+      "medicine": "hihi1",
+      "amount": 6
+    },
+    {
+      "id": 3,
+      "date": "18-09-2000",
+      "cage": "C14",
+      "pigCode": "H15",
+      "examiner": "Nguyễn C",
+      "sick": "Phòng H1H1",
+      "medicine": "hihi1",
+      "amount": 7
+    },
+    {
+      "id": 4,
+      "date": "18-09-2000",
+      "cage": "C14",
+      "pigCode": "H15",
+      "examiner": "Nguyễn C",
+      "sick": "Phòng H1H1",
+      "medicine": "hihi1",
+      "amount": 7
+    },
+    {
+      "id": 5,
+      "date": "18-09-2000",
+      "cage": "C14",
+      "pigCode": "H15",
+      "examiner": "Nguyễn C",
+      "sick": "Phòng H1H1",
+      "medicine": "hihi1",
+      "amount": 7
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IMedicalRecordService {
 
-    void save(MedicalRecord blog);
+    void save(MedicalRecord medicalRecord);
 
     void remove(int id);
 
