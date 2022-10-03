@@ -1,0 +1,50 @@
+<div class="super_container">
+  <div class="mb-5"></div>
+  <div class="container" id="sign-in">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h3>Đăng ký</h3>
+        <div class="social-container">
+          <a class="social" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <span>hoặc sử dụng email để đăng ký</span>
+        <input placeholder="Tên" type="text"/>
+        <input placeholder="Email" type="email"/>
+        <input placeholder="Password" type="password"/>
+
+        <input placeholder="Confirm Password" type="password"/>
+        <button class="my-2">Đăng ký</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form [formGroup]="signInForm" (ngSubmit)="submitSignIn()">
+        <h3>Đăng nhập</h3>
+        <div class="social-container">
+          <a class="social" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <span>hoặc sử dụng tài khoản</span>
+        <input formControlName="username" placeholder="Email" type="email"/>
+        <input formControlName="password" placeholder="Password" type="password"/>
+        <a class="my-2" href="#">Bạn quên mật khẩu?</a>
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h2 class="text-light">Bạn đã có tài khoản?</h2>
+          <p class="text-light">Đăng nhập ngay</p>
+          <button class="ghost" (click)="signInButton()" id="signIn">Đăng nhập</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h2 class="text-light">Chào bạn!</h2>
+          <p class="text-light">Đăng ký tài khoản để kết nối với chúng tôi</p>
+          <button class="ghost" (click)="signUpButton()" id="signUp">Đăng ký</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
